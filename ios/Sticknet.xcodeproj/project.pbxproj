@@ -1,0 +1,3445 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 54;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		00E356F31AD99517003FC87E /* SticknetTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* SticknetTests.m */; };
+		02783C5B28A21378C0B6FE37 /* Pods_Sticknet_SticknetTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D095B98F5D3C174100E48320 /* Pods_Sticknet_SticknetTests.framework */; };
+		0702C99F29BC3B1300506921 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0702C99E29BC3B1300506921 /* StoreKit.framework */; };
+		073CB9942A8A64D2006CF60B /* SirinStencil-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 073CB9932A8A64D2006CF60B /* SirinStencil-Regular.ttf */; };
+		0753A7822AA4604100563B86 /* GoogleService-Info-Release.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0753A7802AA4604100563B86 /* GoogleService-Info-Release.plist */; };
+		0753A7832AA4604100563B86 /* GoogleService-Info-Debug.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0753A7812AA4604100563B86 /* GoogleService-Info-Debug.plist */; };
+		07A394E72A078CCA004559E5 /* CommonCryptoProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A3947F2A078CC8004559E5 /* CommonCryptoProvider.m */; };
+		07A394E82A078CCA004559E5 /* CommonCryptoProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A3947F2A078CC8004559E5 /* CommonCryptoProvider.m */; };
+		07A394E92A078CCA004559E5 /* CommonCryptoProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A3947F2A078CC8004559E5 /* CommonCryptoProvider.m */; };
+		07A394EA2A078CCA004559E5 /* GroupCipher.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A394852A078CC8004559E5 /* GroupCipher.m */; };
+		07A394EB2A078CCA004559E5 /* GroupCipher.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A394852A078CC8004559E5 /* GroupCipher.m */; };
+		07A394EC2A078CCA004559E5 /* GroupCipher.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A394852A078CC8004559E5 /* GroupCipher.m */; };
+		07A394ED2A078CCA004559E5 /* KeyHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A394872A078CC8004559E5 /* KeyHelper.m */; };
+		07A394EE2A078CCA004559E5 /* KeyHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A394872A078CC8004559E5 /* KeyHelper.m */; };
+		07A394EF2A078CCA004559E5 /* KeyHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A394872A078CC8004559E5 /* KeyHelper.m */; };
+		07A394F02A078CCA004559E5 /* SessionCipher.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A394892A078CC8004559E5 /* SessionCipher.m */; };
+		07A394F12A078CCA004559E5 /* SessionCipher.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A394892A078CC8004559E5 /* SessionCipher.m */; };
+		07A394F22A078CCA004559E5 /* SessionCipher.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A394892A078CC8004559E5 /* SessionCipher.m */; };
+		07A394F32A078CCA004559E5 /* SessionBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A3948A2A078CC8004559E5 /* SessionBuilder.m */; };
+		07A394F42A078CCA004559E5 /* SessionBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A3948A2A078CC8004559E5 /* SessionBuilder.m */; };
+		07A394F52A078CCA004559E5 /* SessionBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A3948A2A078CC8004559E5 /* SessionBuilder.m */; };
+		07A394F62A078CCA004559E5 /* SignalContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A3948D2A078CC8004559E5 /* SignalContext.m */; };
+		07A394F72A078CCA004559E5 /* SignalContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A3948D2A078CC8004559E5 /* SignalContext.m */; };
+		07A394F82A078CCA004559E5 /* SignalContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A3948D2A078CC8004559E5 /* SignalContext.m */; };
+		07A394F92A078CCA004559E5 /* GroupSessionBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A3948E2A078CC8004559E5 /* GroupSessionBuilder.m */; };
+		07A394FA2A078CCA004559E5 /* GroupSessionBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A3948E2A078CC8004559E5 /* GroupSessionBuilder.m */; };
+		07A394FB2A078CCA004559E5 /* GroupSessionBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A3948E2A078CC8004559E5 /* GroupSessionBuilder.m */; };
+		07A394FC2A078CCA004559E5 /* SignalError.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A394912A078CC9004559E5 /* SignalError.m */; };
+		07A394FD2A078CCA004559E5 /* SignalError.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A394912A078CC9004559E5 /* SignalError.m */; };
+		07A394FE2A078CCA004559E5 /* SignalError.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A394912A078CC9004559E5 /* SignalError.m */; };
+		07A394FF2A078CCA004559E5 /* SignedPreKey.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A394962A078CC9004559E5 /* SignedPreKey.m */; };
+		07A395002A078CCA004559E5 /* SignedPreKey.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A394962A078CC9004559E5 /* SignedPreKey.m */; };
+		07A395012A078CCA004559E5 /* SignedPreKey.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A394962A078CC9004559E5 /* SignedPreKey.m */; };
+		07A395022A078CCA004559E5 /* SenderKeyMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A3949B2A078CC9004559E5 /* SenderKeyMessage.m */; };
+		07A395032A078CCA004559E5 /* SenderKeyMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A3949B2A078CC9004559E5 /* SenderKeyMessage.m */; };
+		07A395042A078CCA004559E5 /* SenderKeyMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A3949B2A078CC9004559E5 /* SenderKeyMessage.m */; };
+		07A395052A078CCA004559E5 /* PreKeyMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A394A32A078CC9004559E5 /* PreKeyMessage.m */; };
+		07A395062A078CCA004559E5 /* PreKeyMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A394A32A078CC9004559E5 /* PreKeyMessage.m */; };
+		07A395072A078CCA004559E5 /* PreKeyMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A394A32A078CC9004559E5 /* PreKeyMessage.m */; };
+		07A395082A078CCA004559E5 /* SenderKeyRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A394A42A078CC9004559E5 /* SenderKeyRecord.m */; };
+		07A395092A078CCA004559E5 /* SenderKeyRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A394A42A078CC9004559E5 /* SenderKeyRecord.m */; };
+		07A3950A2A078CCA004559E5 /* SenderKeyRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A394A42A078CC9004559E5 /* SenderKeyRecord.m */; };
+		07A3950B2A078CCA004559E5 /* SignalCiphertext.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A394A52A078CC9004559E5 /* SignalCiphertext.m */; };
+		07A3950C2A078CCA004559E5 /* SignalCiphertext.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A394A52A078CC9004559E5 /* SignalCiphertext.m */; };
+		07A3950D2A078CCA004559E5 /* SignalCiphertext.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A394A52A078CC9004559E5 /* SignalCiphertext.m */; };
+		07A3950E2A078CCA004559E5 /* SenderKeyDistributionMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A394A62A078CC9004559E5 /* SenderKeyDistributionMessage.m */; };
+		07A3950F2A078CCA004559E5 /* SenderKeyDistributionMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A394A62A078CC9004559E5 /* SenderKeyDistributionMessage.m */; };
+		07A395102A078CCA004559E5 /* SenderKeyDistributionMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A394A62A078CC9004559E5 /* SenderKeyDistributionMessage.m */; };
+		07A395112A078CCA004559E5 /* IdentityKeyPair.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A394AD2A078CC9004559E5 /* IdentityKeyPair.m */; };
+		07A395122A078CCA004559E5 /* IdentityKeyPair.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A394AD2A078CC9004559E5 /* IdentityKeyPair.m */; };
+		07A395132A078CCA004559E5 /* IdentityKeyPair.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A394AD2A078CC9004559E5 /* IdentityKeyPair.m */; };
+		07A395142A078CCA004559E5 /* SignalAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A394B12A078CC9004559E5 /* SignalAddress.m */; };
+		07A395152A078CCA004559E5 /* SignalAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A394B12A078CC9004559E5 /* SignalAddress.m */; };
+		07A395162A078CCA004559E5 /* SignalAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A394B12A078CC9004559E5 /* SignalAddress.m */; };
+		07A395172A078CCA004559E5 /* SenderKeyState.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A394B22A078CC9004559E5 /* SenderKeyState.m */; };
+		07A395182A078CCA004559E5 /* SenderKeyState.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A394B22A078CC9004559E5 /* SenderKeyState.m */; };
+		07A395192A078CCA004559E5 /* SenderKeyState.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A394B22A078CC9004559E5 /* SenderKeyState.m */; };
+		07A3951A2A078CCA004559E5 /* KeyPair.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A394B42A078CC9004559E5 /* KeyPair.m */; };
+		07A3951B2A078CCA004559E5 /* KeyPair.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A394B42A078CC9004559E5 /* KeyPair.m */; };
+		07A3951C2A078CCA004559E5 /* KeyPair.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A394B42A078CC9004559E5 /* KeyPair.m */; };
+		07A3951D2A078CCA004559E5 /* SignalMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A394B52A078CC9004559E5 /* SignalMessage.m */; };
+		07A3951E2A078CCA004559E5 /* SignalMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A394B52A078CC9004559E5 /* SignalMessage.m */; };
+		07A3951F2A078CCA004559E5 /* SignalMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A394B52A078CC9004559E5 /* SignalMessage.m */; };
+		07A395202A078CCA004559E5 /* SenderKeyName.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A394B62A078CC9004559E5 /* SenderKeyName.m */; };
+		07A395212A078CCA004559E5 /* SenderKeyName.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A394B62A078CC9004559E5 /* SenderKeyName.m */; };
+		07A395222A078CCA004559E5 /* SenderKeyName.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A394B62A078CC9004559E5 /* SenderKeyName.m */; };
+		07A395232A078CCA004559E5 /* PreKeyBundle.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A394BC2A078CC9004559E5 /* PreKeyBundle.m */; };
+		07A395242A078CCA004559E5 /* PreKeyBundle.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A394BC2A078CC9004559E5 /* PreKeyBundle.m */; };
+		07A395252A078CCA004559E5 /* PreKeyBundle.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A394BC2A078CC9004559E5 /* PreKeyBundle.m */; };
+		07A395262A078CCA004559E5 /* PreKey.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A394BD2A078CC9004559E5 /* PreKey.m */; };
+		07A395272A078CCA004559E5 /* PreKey.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A394BD2A078CC9004559E5 /* PreKey.m */; };
+		07A395282A078CCA004559E5 /* PreKey.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A394BD2A078CC9004559E5 /* PreKey.m */; };
+		07A395292A078CCA004559E5 /* StickProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A394C02A078CC9004559E5 /* StickProtocol.swift */; };
+		07A3952A2A078CCA004559E5 /* StickProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A394C02A078CC9004559E5 /* StickProtocol.swift */; };
+		07A3952B2A078CCA004559E5 /* StickProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A394C02A078CC9004559E5 /* StickProtocol.swift */; };
+		07A3952C2A078CCA004559E5 /* SPPreKey.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A394C22A078CC9004559E5 /* SPPreKey.m */; };
+		07A3952D2A078CCA004559E5 /* SPPreKey.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A394C22A078CC9004559E5 /* SPPreKey.m */; };
+		07A3952E2A078CCA004559E5 /* SPPreKey.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A394C22A078CC9004559E5 /* SPPreKey.m */; };
+		07A3952F2A078CCA004559E5 /* SPIdentity.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A394C92A078CC9004559E5 /* SPIdentity.m */; };
+		07A395302A078CCA004559E5 /* SPIdentity.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A394C92A078CC9004559E5 /* SPIdentity.m */; };
+		07A395312A078CCA004559E5 /* SPIdentity.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A394C92A078CC9004559E5 /* SPIdentity.m */; };
+		07A395322A078CCA004559E5 /* YapDatabaseObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A394CB2A078CC9004559E5 /* YapDatabaseObject.m */; };
+		07A395332A078CCA004559E5 /* YapDatabaseObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A394CB2A078CC9004559E5 /* YapDatabaseObject.m */; };
+		07A395342A078CCA004559E5 /* YapDatabaseObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A394CB2A078CC9004559E5 /* YapDatabaseObject.m */; };
+		07A395352A078CCA004559E5 /* SPIdentityKey.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A394CC2A078CC9004559E5 /* SPIdentityKey.m */; };
+		07A395362A078CCA004559E5 /* SPIdentityKey.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A394CC2A078CC9004559E5 /* SPIdentityKey.m */; };
+		07A395372A078CCA004559E5 /* SPIdentityKey.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A394CC2A078CC9004559E5 /* SPIdentityKey.m */; };
+		07A395382A078CCA004559E5 /* SPSenderKey.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A394CD2A078CC9004559E5 /* SPSenderKey.m */; };
+		07A395392A078CCA004559E5 /* SPSenderKey.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A394CD2A078CC9004559E5 /* SPSenderKey.m */; };
+		07A3953A2A078CCA004559E5 /* SPSenderKey.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A394CD2A078CC9004559E5 /* SPSenderKey.m */; };
+		07A3953B2A078CCA004559E5 /* SPSignalSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A394CE2A078CC9004559E5 /* SPSignalSession.m */; };
+		07A3953C2A078CCA004559E5 /* SPSignalSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A394CE2A078CC9004559E5 /* SPSignalSession.m */; };
+		07A3953D2A078CCA004559E5 /* SPSignalSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A394CE2A078CC9004559E5 /* SPSignalSession.m */; };
+		07A3953E2A078CCA004559E5 /* SPSignedPreKey.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A394CF2A078CC9004559E5 /* SPSignedPreKey.m */; };
+		07A3953F2A078CCA004559E5 /* SPSignedPreKey.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A394CF2A078CC9004559E5 /* SPSignedPreKey.m */; };
+		07A395402A078CCA004559E5 /* SPSignedPreKey.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A394CF2A078CC9004559E5 /* SPSignedPreKey.m */; };
+		07A395412A078CCA004559E5 /* SPLogs.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A394D12A078CCA004559E5 /* SPLogs.m */; };
+		07A395422A078CCA004559E5 /* SPLogs.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A394D12A078CCA004559E5 /* SPLogs.m */; };
+		07A395432A078CCA004559E5 /* SPLogs.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A394D12A078CCA004559E5 /* SPLogs.m */; };
+		07A395442A078CCA004559E5 /* NSData+SP.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A394D22A078CCA004559E5 /* NSData+SP.m */; };
+		07A395452A078CCA004559E5 /* NSData+SP.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A394D22A078CCA004559E5 /* NSData+SP.m */; };
+		07A395462A078CCA004559E5 /* NSData+SP.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A394D22A078CCA004559E5 /* NSData+SP.m */; };
+		07A395472A078CCA004559E5 /* Randomness.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A394D32A078CCA004559E5 /* Randomness.m */; };
+		07A395482A078CCA004559E5 /* Randomness.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A394D32A078CCA004559E5 /* Randomness.m */; };
+		07A395492A078CCA004559E5 /* Randomness.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A394D32A078CCA004559E5 /* Randomness.m */; };
+		07A3954A2A078CCA004559E5 /* FileCrypto.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A394D42A078CCA004559E5 /* FileCrypto.m */; };
+		07A3954B2A078CCA004559E5 /* FileCrypto.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A394D42A078CCA004559E5 /* FileCrypto.m */; };
+		07A3954C2A078CCA004559E5 /* FileCrypto.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A394D42A078CCA004559E5 /* FileCrypto.m */; };
+		07A3954D2A078CCA004559E5 /* CryptoError.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A394DB2A078CCA004559E5 /* CryptoError.m */; };
+		07A3954E2A078CCA004559E5 /* CryptoError.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A394DB2A078CCA004559E5 /* CryptoError.m */; };
+		07A3954F2A078CCA004559E5 /* CryptoError.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A394DB2A078CCA004559E5 /* CryptoError.m */; };
+		07A395502A078CCA004559E5 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A394DF2A078CCA004559E5 /* StorageManager.swift */; };
+		07A395512A078CCA004559E5 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A394DF2A078CCA004559E5 /* StorageManager.swift */; };
+		07A395522A078CCA004559E5 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A394DF2A078CCA004559E5 /* StorageManager.swift */; };
+		07A395532A078CCA004559E5 /* SignalStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A394E02A078CCA004559E5 /* SignalStorage.m */; };
+		07A395542A078CCA004559E5 /* SignalStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A394E02A078CCA004559E5 /* SignalStorage.m */; };
+		07A395552A078CCA004559E5 /* SignalStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A394E02A078CCA004559E5 /* SignalStorage.m */; };
+		07A395562A078CCA004559E5 /* EncryptionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A394E52A078CCA004559E5 /* EncryptionManager.swift */; };
+		07A395572A078CCA004559E5 /* EncryptionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A394E52A078CCA004559E5 /* EncryptionManager.swift */; };
+		07A395582A078CCA004559E5 /* EncryptionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A394E52A078CCA004559E5 /* EncryptionManager.swift */; };
+		07B364BA29751E9200210F7C /* MainURL.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B364AD29751E9100210F7C /* MainURL.m */; };
+		07B364BB29751E9200210F7C /* AppCenter-Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 07B364B029751E9100210F7C /* AppCenter-Config.plist */; };
+		07B364BC29751E9200210F7C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07B364B129751E9100210F7C /* Images.xcassets */; };
+		07B364BF29751E9200210F7C /* CommonNativeBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B364B529751E9200210F7C /* CommonNativeBridge.m */; };
+		07B364C029751E9200210F7C /* CommonNative.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B364B629751E9200210F7C /* CommonNative.swift */; };
+		07B364C82975212200210F7C /* StickInit.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B364C22975212200210F7C /* StickInit.m */; };
+		07B364C92975212200210F7C /* StickInit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B364C42975212200210F7C /* StickInit.swift */; };
+		07B364CA2975212200210F7C /* StickProtocolModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B364C52975212200210F7C /* StickProtocolModule.swift */; };
+		07B364CB2975212200210F7C /* StickProtocolBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B364C62975212200210F7C /* StickProtocolBridge.m */; };
+		07B364CC2975212200210F7C /* DatabaseSetup.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B364C72975212200210F7C /* DatabaseSetup.m */; };
+		07B364DB2975223100210F7C /* ShareExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 07B364D12975223100210F7C /* ShareExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		07B364EB2975226E00210F7C /* NotificationServiceExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 07B364E42975226E00210F7C /* NotificationServiceExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		07B36519297522B200210F7C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07B364B129751E9100210F7C /* Images.xcassets */; };
+		07B3651A297522C300210F7C /* MainURL.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B364AD29751E9100210F7C /* MainURL.m */; };
+		07B3651B297522C400210F7C /* MainURL.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B364AD29751E9100210F7C /* MainURL.m */; };
+		07B3651C297522E300210F7C /* StickProtocolModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B364C52975212200210F7C /* StickProtocolModule.swift */; };
+		07B3651D297522E400210F7C /* StickProtocolModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B364C52975212200210F7C /* StickProtocolModule.swift */; };
+		07B3651E297522E700210F7C /* DatabaseSetup.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B364C72975212200210F7C /* DatabaseSetup.m */; };
+		07B3651F297522E700210F7C /* DatabaseSetup.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B364C72975212200210F7C /* DatabaseSetup.m */; };
+		07B365272975239900210F7C /* PTSerif-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 07B365212975239900210F7C /* PTSerif-Regular.ttf */; };
+		07B3652A2975239900210F7C /* Handlee-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 07B365242975239900210F7C /* Handlee-Regular.ttf */; };
+		07B3652B2975239900210F7C /* Vibes.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 07B365252975239900210F7C /* Vibes.ttf */; };
+		07B3652C2975239900210F7C /* Sticknet.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 07B365262975239900210F7C /* Sticknet.ttf */; };
+		07B3656D2975272100210F7C /* HeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07B365592975272100210F7C /* HeaderCell.xib */; };
+		07B3656E2975272100210F7C /* HeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B3655A2975272100210F7C /* HeaderCell.swift */; };
+		07B3656F2975272100210F7C /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07B3655B2975272100210F7C /* MainInterface.storyboard */; };
+		07B365702975272100210F7C /* ConnectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07B3655E2975272100210F7C /* ConnectionCell.xib */; };
+		07B365712975272100210F7C /* ConnectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B3655F2975272100210F7C /* ConnectionCell.swift */; };
+		07B365732975272200210F7C /* SDAVAssetExportSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B365622975272100210F7C /* SDAVAssetExportSession.m */; };
+		07B365742975272200210F7C /* ModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B365632975272100210F7C /* ModalViewController.swift */; };
+		07B365782975272200210F7C /* GroupCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07B3656B2975272100210F7C /* GroupCell.xib */; };
+		07B365792975272200210F7C /* GroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B3656C2975272100210F7C /* GroupCell.swift */; };
+		07B3657F2975272900210F7C /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B3657D2975272900210F7C /* NotificationService.swift */; };
+		07C7FBA7299233C1003A434E /* BootSplash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07C7FBA6299233C1003A434E /* BootSplash.storyboard */; };
+		07C7FBA9299238AD003A434E /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07C7FBA8299238AD003A434E /* AppDelegate.mm */; };
+		07C7FBB029925E97003A434E /* MobileNet.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 07C7FBAF29925E97003A434E /* MobileNet.mlmodel */; };
+		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		4692577C8A92A34767DF505C /* Pods_Sticknet_ShareExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F885D27721EBF9913AC4A564 /* Pods_Sticknet_ShareExtension.framework */; };
+		8CFC5E70C06B7B2A44174431 /* Pods_Sticknet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7DAE3B6F7A15EAB4BF8AE07 /* Pods_Sticknet.framework */; };
+		C043651F84CD2E0F5825C40E /* Pods_Sticknet_NotificationServiceExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15F6D9CF5D1CEA4855809FEE /* Pods_Sticknet_NotificationServiceExtension.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		00E356F41AD99517003FC87E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 13B07F861A680F5B00A75B9A;
+			remoteInfo = Sticknet;
+		};
+		07B364D92975223100210F7C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 07B364D02975223100210F7C;
+			remoteInfo = ShareExtension;
+		};
+		07B364E92975226E00210F7C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 07B364E32975226E00210F7C;
+			remoteInfo = NotificationServiceExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		07B364DF2975223100210F7C /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				07B364DB2975223100210F7C /* ShareExtension.appex in Embed App Extensions */,
+				07B364EB2975226E00210F7C /* NotificationServiceExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		00E356EE1AD99517003FC87E /* SticknetTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SticknetTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		00E356F21AD99517003FC87E /* SticknetTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SticknetTests.m; sourceTree = "<group>"; };
+		0702C99E29BC3B1300506921 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		070FC4192A703950007BE57B /* FontAwesome6Pro_Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FontAwesome6Pro_Regular.ttf; path = "../../node_modules/@sticknet/react-native-vector-icons/Fonts/FontAwesome6Pro_Regular.ttf"; sourceTree = "<group>"; };
+		070FC41A2A703950007BE57B /* FontAwesome5_Brands.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FontAwesome5_Brands.ttf; path = "../../node_modules/@sticknet/react-native-vector-icons/Fonts/FontAwesome5_Brands.ttf"; sourceTree = "<group>"; };
+		070FC41B2A703950007BE57B /* EvilIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = EvilIcons.ttf; path = "../../node_modules/@sticknet/react-native-vector-icons/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
+		070FC41C2A703950007BE57B /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = SimpleLineIcons.ttf; path = "../../node_modules/@sticknet/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; };
+		070FC41D2A703950007BE57B /* Entypo.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Entypo.ttf; path = "../../node_modules/@sticknet/react-native-vector-icons/Fonts/Entypo.ttf"; sourceTree = "<group>"; };
+		070FC41E2A703951007BE57B /* MaterialIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = MaterialIcons.ttf; path = "../../node_modules/@sticknet/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
+		070FC41F2A703951007BE57B /* FontAwesome6_Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FontAwesome6_Regular.ttf; path = "../../node_modules/@sticknet/react-native-vector-icons/Fonts/FontAwesome6_Regular.ttf"; sourceTree = "<group>"; };
+		070FC4202A703951007BE57B /* AntDesign.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = AntDesign.ttf; path = "../../node_modules/@sticknet/react-native-vector-icons/Fonts/AntDesign.ttf"; sourceTree = "<group>"; };
+		070FC4212A703951007BE57B /* FontAwesome5_Solid.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FontAwesome5_Solid.ttf; path = "../../node_modules/@sticknet/react-native-vector-icons/Fonts/FontAwesome5_Solid.ttf"; sourceTree = "<group>"; };
+		070FC4222A703951007BE57B /* Foundation.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Foundation.ttf; path = "../../node_modules/@sticknet/react-native-vector-icons/Fonts/Foundation.ttf"; sourceTree = "<group>"; };
+		070FC4232A703952007BE57B /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = MaterialCommunityIcons.ttf; path = "../../node_modules/@sticknet/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; };
+		070FC4242A703952007BE57B /* FontAwesome.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FontAwesome.ttf; path = "../../node_modules/@sticknet/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
+		070FC4252A703952007BE57B /* FontAwesome6_Solid.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FontAwesome6_Solid.ttf; path = "../../node_modules/@sticknet/react-native-vector-icons/Fonts/FontAwesome6_Solid.ttf"; sourceTree = "<group>"; };
+		070FC4262A703952007BE57B /* FontAwesome6_Brands.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FontAwesome6_Brands.ttf; path = "../../node_modules/@sticknet/react-native-vector-icons/Fonts/FontAwesome6_Brands.ttf"; sourceTree = "<group>"; };
+		070FC4272A703953007BE57B /* Octicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Octicons.ttf; path = "../../node_modules/@sticknet/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; };
+		070FC4282A703953007BE57B /* Zocial.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Zocial.ttf; path = "../../node_modules/@sticknet/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; };
+		070FC4292A703953007BE57B /* FontAwesome6_Pro_Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FontAwesome6_Pro_Light.ttf; path = "../../node_modules/@sticknet/react-native-vector-icons/Fonts/FontAwesome6_Pro_Light.ttf"; sourceTree = "<group>"; };
+		070FC42A2A703953007BE57B /* FontAwesome5_Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FontAwesome5_Regular.ttf; path = "../../node_modules/@sticknet/react-native-vector-icons/Fonts/FontAwesome5_Regular.ttf"; sourceTree = "<group>"; };
+		070FC42B2A703953007BE57B /* Feather.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Feather.ttf; path = "../../node_modules/@sticknet/react-native-vector-icons/Fonts/Feather.ttf"; sourceTree = "<group>"; };
+		070FC42C2A703954007BE57B /* Fontisto.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Fontisto.ttf; path = "../../node_modules/@sticknet/react-native-vector-icons/Fonts/Fontisto.ttf"; sourceTree = "<group>"; };
+		070FC42D2A703954007BE57B /* Ionicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Ionicons.ttf; path = "../../node_modules/@sticknet/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
+		073731C02A94AF0300BE1DB5 /* FontAwesome6_Pro_Solid.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FontAwesome6_Pro_Solid.ttf; path = "../../node_modules/@sticknet/react-native-vector-icons/Fonts/FontAwesome6_Pro_Solid.ttf"; sourceTree = "<group>"; };
+		073CB9932A8A64D2006CF60B /* SirinStencil-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SirinStencil-Regular.ttf"; path = "../../assets/fonts/SirinStencil-Regular.ttf"; sourceTree = "<group>"; };
+		0753A7802AA4604100563B86 /* GoogleService-Info-Release.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-Release.plist"; sourceTree = "<group>"; };
+		0753A7812AA4604100563B86 /* GoogleService-Info-Debug.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-Debug.plist"; sourceTree = "<group>"; };
+		07A3947F2A078CC8004559E5 /* CommonCryptoProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonCryptoProvider.m; sourceTree = "<group>"; };
+		07A394802A078CC8004559E5 /* CommonCryptoProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonCryptoProvider.h; sourceTree = "<group>"; };
+		07A394822A078CC8004559E5 /* SessionBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionBuilder.h; sourceTree = "<group>"; };
+		07A394832A078CC8004559E5 /* SessionCipher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionCipher.h; sourceTree = "<group>"; };
+		07A394842A078CC8004559E5 /* SignalContext_Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignalContext_Internal.h; sourceTree = "<group>"; };
+		07A394852A078CC8004559E5 /* GroupCipher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupCipher.m; sourceTree = "<group>"; };
+		07A394862A078CC8004559E5 /* SignalContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignalContext.h; sourceTree = "<group>"; };
+		07A394872A078CC8004559E5 /* KeyHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyHelper.m; sourceTree = "<group>"; };
+		07A394882A078CC8004559E5 /* GroupSessionBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupSessionBuilder.h; sourceTree = "<group>"; };
+		07A394892A078CC8004559E5 /* SessionCipher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionCipher.m; sourceTree = "<group>"; };
+		07A3948A2A078CC8004559E5 /* SessionBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionBuilder.m; sourceTree = "<group>"; };
+		07A3948B2A078CC8004559E5 /* GroupCipher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupCipher.h; sourceTree = "<group>"; };
+		07A3948C2A078CC8004559E5 /* KeyHelper_Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyHelper_Internal.h; sourceTree = "<group>"; };
+		07A3948D2A078CC8004559E5 /* SignalContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignalContext.m; sourceTree = "<group>"; };
+		07A3948E2A078CC8004559E5 /* GroupSessionBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupSessionBuilder.m; sourceTree = "<group>"; };
+		07A3948F2A078CC8004559E5 /* KeyHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyHelper.h; sourceTree = "<group>"; };
+		07A394912A078CC9004559E5 /* SignalError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignalError.m; sourceTree = "<group>"; };
+		07A394922A078CC9004559E5 /* SignalError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignalError.h; sourceTree = "<group>"; };
+		07A394942A078CC9004559E5 /* SenderKeyState_Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SenderKeyState_Internal.h; sourceTree = "<group>"; };
+		07A394952A078CC9004559E5 /* SignedPreKey_Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignedPreKey_Internal.h; sourceTree = "<group>"; };
+		07A394962A078CC9004559E5 /* SignedPreKey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignedPreKey.m; sourceTree = "<group>"; };
+		07A394972A078CC9004559E5 /* PreKeyBundle_Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreKeyBundle_Internal.h; sourceTree = "<group>"; };
+		07A394982A078CC9004559E5 /* IdentityKeyPair.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IdentityKeyPair.h; sourceTree = "<group>"; };
+		07A394992A078CC9004559E5 /* SignalAddress_Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignalAddress_Internal.h; sourceTree = "<group>"; };
+		07A3949A2A078CC9004559E5 /* KeyPair.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyPair.h; sourceTree = "<group>"; };
+		07A3949B2A078CC9004559E5 /* SenderKeyMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SenderKeyMessage.m; sourceTree = "<group>"; };
+		07A3949C2A078CC9004559E5 /* SenderKeyState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SenderKeyState.h; sourceTree = "<group>"; };
+		07A3949D2A078CC9004559E5 /* SignalAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignalAddress.h; sourceTree = "<group>"; };
+		07A3949E2A078CC9004559E5 /* PreKeyMessage_Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreKeyMessage_Internal.h; sourceTree = "<group>"; };
+		07A3949F2A078CC9004559E5 /* PreKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreKey.h; sourceTree = "<group>"; };
+		07A394A02A078CC9004559E5 /* SenderKeyMessage_Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SenderKeyMessage_Internal.h; sourceTree = "<group>"; };
+		07A394A12A078CC9004559E5 /* PreKeyBundle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreKeyBundle.h; sourceTree = "<group>"; };
+		07A394A22A078CC9004559E5 /* Serializable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Serializable.h; sourceTree = "<group>"; };
+		07A394A32A078CC9004559E5 /* PreKeyMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreKeyMessage.m; sourceTree = "<group>"; };
+		07A394A42A078CC9004559E5 /* SenderKeyRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SenderKeyRecord.m; sourceTree = "<group>"; };
+		07A394A52A078CC9004559E5 /* SignalCiphertext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignalCiphertext.m; sourceTree = "<group>"; };
+		07A394A62A078CC9004559E5 /* SenderKeyDistributionMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SenderKeyDistributionMessage.m; sourceTree = "<group>"; };
+		07A394A72A078CC9004559E5 /* SenderKeyName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SenderKeyName.h; sourceTree = "<group>"; };
+		07A394A82A078CC9004559E5 /* SignalMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignalMessage.h; sourceTree = "<group>"; };
+		07A394A92A078CC9004559E5 /* SenderKeyName_Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SenderKeyName_Internal.h; sourceTree = "<group>"; };
+		07A394AA2A078CC9004559E5 /* SignedPreKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignedPreKey.h; sourceTree = "<group>"; };
+		07A394AB2A078CC9004559E5 /* PreKey_Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreKey_Internal.h; sourceTree = "<group>"; };
+		07A394AC2A078CC9004559E5 /* KeyPair_Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyPair_Internal.h; sourceTree = "<group>"; };
+		07A394AD2A078CC9004559E5 /* IdentityKeyPair.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IdentityKeyPair.m; sourceTree = "<group>"; };
+		07A394AE2A078CC9004559E5 /* SignalMessage_Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignalMessage_Internal.h; sourceTree = "<group>"; };
+		07A394AF2A078CC9004559E5 /* SenderKeyDistributionMessage_Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SenderKeyDistributionMessage_Internal.h; sourceTree = "<group>"; };
+		07A394B02A078CC9004559E5 /* SenderKeyRecord_Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SenderKeyRecord_Internal.h; sourceTree = "<group>"; };
+		07A394B12A078CC9004559E5 /* SignalAddress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignalAddress.m; sourceTree = "<group>"; };
+		07A394B22A078CC9004559E5 /* SenderKeyState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SenderKeyState.m; sourceTree = "<group>"; };
+		07A394B32A078CC9004559E5 /* SenderKeyMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SenderKeyMessage.h; sourceTree = "<group>"; };
+		07A394B42A078CC9004559E5 /* KeyPair.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyPair.m; sourceTree = "<group>"; };
+		07A394B52A078CC9004559E5 /* SignalMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignalMessage.m; sourceTree = "<group>"; };
+		07A394B62A078CC9004559E5 /* SenderKeyName.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SenderKeyName.m; sourceTree = "<group>"; };
+		07A394B72A078CC9004559E5 /* SenderKeyDistributionMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SenderKeyDistributionMessage.h; sourceTree = "<group>"; };
+		07A394B82A078CC9004559E5 /* SignalCiphertext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignalCiphertext.h; sourceTree = "<group>"; };
+		07A394B92A078CC9004559E5 /* PreKeyMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreKeyMessage.h; sourceTree = "<group>"; };
+		07A394BA2A078CC9004559E5 /* SenderKeyRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SenderKeyRecord.h; sourceTree = "<group>"; };
+		07A394BB2A078CC9004559E5 /* IdentityKeyPair_Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IdentityKeyPair_Internal.h; sourceTree = "<group>"; };
+		07A394BC2A078CC9004559E5 /* PreKeyBundle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreKeyBundle.m; sourceTree = "<group>"; };
+		07A394BD2A078CC9004559E5 /* PreKey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreKey.m; sourceTree = "<group>"; };
+		07A394BF2A078CC9004559E5 /* StickProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StickProtocol.h; sourceTree = "<group>"; };
+		07A394C02A078CC9004559E5 /* StickProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StickProtocol.swift; sourceTree = "<group>"; };
+		07A394C22A078CC9004559E5 /* SPPreKey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPPreKey.m; sourceTree = "<group>"; };
+		07A394C32A078CC9004559E5 /* SPIdentity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPIdentity.h; sourceTree = "<group>"; };
+		07A394C42A078CC9004559E5 /* SPSenderKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPSenderKey.h; sourceTree = "<group>"; };
+		07A394C52A078CC9004559E5 /* SPIdentityKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPIdentityKey.h; sourceTree = "<group>"; };
+		07A394C62A078CC9004559E5 /* YapDatabaseObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YapDatabaseObject.h; sourceTree = "<group>"; };
+		07A394C72A078CC9004559E5 /* SPSignedPreKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPSignedPreKey.h; sourceTree = "<group>"; };
+		07A394C82A078CC9004559E5 /* SPSignalSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPSignalSession.h; sourceTree = "<group>"; };
+		07A394C92A078CC9004559E5 /* SPIdentity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPIdentity.m; sourceTree = "<group>"; };
+		07A394CA2A078CC9004559E5 /* SPPreKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPPreKey.h; sourceTree = "<group>"; };
+		07A394CB2A078CC9004559E5 /* YapDatabaseObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YapDatabaseObject.m; sourceTree = "<group>"; };
+		07A394CC2A078CC9004559E5 /* SPIdentityKey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPIdentityKey.m; sourceTree = "<group>"; };
+		07A394CD2A078CC9004559E5 /* SPSenderKey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPSenderKey.m; sourceTree = "<group>"; };
+		07A394CE2A078CC9004559E5 /* SPSignalSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPSignalSession.m; sourceTree = "<group>"; };
+		07A394CF2A078CC9004559E5 /* SPSignedPreKey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPSignedPreKey.m; sourceTree = "<group>"; };
+		07A394D12A078CCA004559E5 /* SPLogs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPLogs.m; sourceTree = "<group>"; };
+		07A394D22A078CCA004559E5 /* NSData+SP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+SP.m"; sourceTree = "<group>"; };
+		07A394D32A078CCA004559E5 /* Randomness.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Randomness.m; sourceTree = "<group>"; };
+		07A394D42A078CCA004559E5 /* FileCrypto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileCrypto.m; sourceTree = "<group>"; };
+		07A394D52A078CCA004559E5 /* CryptoError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CryptoError.h; sourceTree = "<group>"; };
+		07A394D62A078CCA004559E5 /* NSData+SP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+SP.h"; sourceTree = "<group>"; };
+		07A394D72A078CCA004559E5 /* Randomness.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Randomness.h; sourceTree = "<group>"; };
+		07A394D82A078CCA004559E5 /* SPLogs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPLogs.h; sourceTree = "<group>"; };
+		07A394D92A078CCA004559E5 /* FileCrypto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileCrypto.h; sourceTree = "<group>"; };
+		07A394DA2A078CCA004559E5 /* SPAsserts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPAsserts.h; sourceTree = "<group>"; };
+		07A394DB2A078CCA004559E5 /* CryptoError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CryptoError.m; sourceTree = "<group>"; };
+		07A394DD2A078CCA004559E5 /* PreKeyStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreKeyStore.h; sourceTree = "<group>"; };
+		07A394DE2A078CCA004559E5 /* SignalStorage_Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignalStorage_Internal.h; sourceTree = "<group>"; };
+		07A394DF2A078CCA004559E5 /* StorageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
+		07A394E02A078CCA004559E5 /* SignalStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignalStorage.m; sourceTree = "<group>"; };
+		07A394E12A078CCA004559E5 /* SignedPreKeyStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignedPreKeyStore.h; sourceTree = "<group>"; };
+		07A394E22A078CCA004559E5 /* SenderKeyStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SenderKeyStore.h; sourceTree = "<group>"; };
+		07A394E32A078CCA004559E5 /* SignalStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignalStorage.h; sourceTree = "<group>"; };
+		07A394E42A078CCA004559E5 /* SessionStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionStore.h; sourceTree = "<group>"; };
+		07A394E52A078CCA004559E5 /* EncryptionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EncryptionManager.swift; sourceTree = "<group>"; };
+		07A394E62A078CCA004559E5 /* IdentityKeyStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IdentityKeyStore.h; sourceTree = "<group>"; };
+		07A9AE862AB17B540070D49E /* FontAwesome6_Pro_Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FontAwesome6_Pro_Thin.ttf; path = "../../node_modules/@sticknet/react-native-vector-icons/Fonts/FontAwesome6_Pro_Thin.ttf"; sourceTree = "<group>"; };
+		07B364AA29751E9100210F7C /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Sticknet/Info.plist; sourceTree = "<group>"; };
+		07B364AB29751E9100210F7C /* MainURL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainURL.h; path = Sticknet/MainURL.h; sourceTree = "<group>"; };
+		07B364AD29751E9100210F7C /* MainURL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainURL.m; path = Sticknet/MainURL.m; sourceTree = "<group>"; };
+		07B364AE29751E9100210F7C /* Sticknet-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Sticknet-Bridging-Header.h"; path = "Sticknet/Sticknet-Bridging-Header.h"; sourceTree = "<group>"; };
+		07B364AF29751E9100210F7C /* Sticknet.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; name = Sticknet.entitlements; path = Sticknet/Sticknet.entitlements; sourceTree = "<group>"; };
+		07B364B029751E9100210F7C /* AppCenter-Config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "AppCenter-Config.plist"; path = "Sticknet/AppCenter-Config.plist"; sourceTree = "<group>"; };
+		07B364B129751E9100210F7C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Sticknet/Images.xcassets; sourceTree = "<group>"; };
+		07B364B529751E9200210F7C /* CommonNativeBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonNativeBridge.m; sourceTree = "<group>"; };
+		07B364B629751E9200210F7C /* CommonNative.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonNative.swift; sourceTree = "<group>"; };
+		07B364C22975212200210F7C /* StickInit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StickInit.m; sourceTree = "<group>"; };
+		07B364C32975212200210F7C /* DatabaseSetup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatabaseSetup.h; sourceTree = "<group>"; };
+		07B364C42975212200210F7C /* StickInit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StickInit.swift; sourceTree = "<group>"; };
+		07B364C52975212200210F7C /* StickProtocolModule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StickProtocolModule.swift; sourceTree = "<group>"; };
+		07B364C62975212200210F7C /* StickProtocolBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StickProtocolBridge.m; sourceTree = "<group>"; };
+		07B364C72975212200210F7C /* DatabaseSetup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatabaseSetup.m; sourceTree = "<group>"; };
+		07B364D12975223100210F7C /* ShareExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ShareExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		07B364E42975226E00210F7C /* NotificationServiceExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = NotificationServiceExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		07B365212975239900210F7C /* PTSerif-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "PTSerif-Regular.ttf"; path = "../../assets/fonts/PTSerif-Regular.ttf"; sourceTree = "<group>"; };
+		07B365222975239900210F7C /* Vibes-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Vibes-Regular.ttf"; path = "../../assets/fonts/Vibes-Regular.ttf"; sourceTree = "<group>"; };
+		07B365232975239900210F7C /* GreatVibes-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "GreatVibes-Regular.ttf"; path = "../../assets/fonts/GreatVibes-Regular.ttf"; sourceTree = "<group>"; };
+		07B365242975239900210F7C /* Handlee-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Handlee-Regular.ttf"; path = "../../assets/fonts/Handlee-Regular.ttf"; sourceTree = "<group>"; };
+		07B365252975239900210F7C /* Vibes.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Vibes.ttf; path = ../../assets/fonts/Vibes.ttf; sourceTree = "<group>"; };
+		07B365262975239900210F7C /* Sticknet.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Sticknet.ttf; path = ../../assets/fonts/Sticknet.ttf; sourceTree = "<group>"; };
+		07B365592975272100210F7C /* HeaderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderCell.xib; sourceTree = "<group>"; };
+		07B3655A2975272100210F7C /* HeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderCell.swift; sourceTree = "<group>"; };
+		07B3655C2975272100210F7C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		07B3655E2975272100210F7C /* ConnectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConnectionCell.xib; sourceTree = "<group>"; };
+		07B3655F2975272100210F7C /* ConnectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionCell.swift; sourceTree = "<group>"; };
+		07B365622975272100210F7C /* SDAVAssetExportSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDAVAssetExportSession.m; sourceTree = "<group>"; };
+		07B365632975272100210F7C /* ModalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalViewController.swift; sourceTree = "<group>"; };
+		07B365662975272100210F7C /* SDAVAssetExportSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDAVAssetExportSession.h; sourceTree = "<group>"; };
+		07B365672975272100210F7C /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		07B365682975272100210F7C /* ShareExtension.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = ShareExtension.entitlements; sourceTree = "<group>"; };
+		07B365692975272100210F7C /* ShareExtension-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ShareExtension-Bridging-Header.h"; sourceTree = "<group>"; };
+		07B3656B2975272100210F7C /* GroupCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GroupCell.xib; sourceTree = "<group>"; };
+		07B3656C2975272100210F7C /* GroupCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupCell.swift; sourceTree = "<group>"; };
+		07B3657B2975272900210F7C /* NotificationServiceExtension.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = NotificationServiceExtension.entitlements; sourceTree = "<group>"; };
+		07B3657C2975272900210F7C /* NSE-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSE-Bridging-Header.h"; sourceTree = "<group>"; };
+		07B3657D2975272900210F7C /* NotificationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		07B3657E2975272900210F7C /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		07C7FBA6299233C1003A434E /* BootSplash.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = BootSplash.storyboard; path = Sticknet/BootSplash.storyboard; sourceTree = "<group>"; };
+		07C7FBA8299238AD003A434E /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = Sticknet/AppDelegate.mm; sourceTree = "<group>"; };
+		07C7FBAF29925E97003A434E /* MobileNet.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = MobileNet.mlmodel; sourceTree = "<group>"; };
+		13B07F961A680F5B00A75B9A /* Sticknet Debug.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sticknet Debug.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Sticknet/AppDelegate.h; sourceTree = "<group>"; };
+		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Sticknet/main.m; sourceTree = "<group>"; };
+		15F6D9CF5D1CEA4855809FEE /* Pods_Sticknet_NotificationServiceExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sticknet_NotificationServiceExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		288909C9AE2D8C5CB3E9FCE4 /* Pods-Sticknet-ShareExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sticknet-ShareExtension.debug.xcconfig"; path = "Target Support Files/Pods-Sticknet-ShareExtension/Pods-Sticknet-ShareExtension.debug.xcconfig"; sourceTree = "<group>"; };
+		3446C9B76A770CF8A6A84954 /* Pods-Sticknet-NotificationServiceExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sticknet-NotificationServiceExtension.debug.xcconfig"; path = "Target Support Files/Pods-Sticknet-NotificationServiceExtension/Pods-Sticknet-NotificationServiceExtension.debug.xcconfig"; sourceTree = "<group>"; };
+		35A72B653D8126D2C42FD657 /* Pods-Sticknet-ShareExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sticknet-ShareExtension.release.xcconfig"; path = "Target Support Files/Pods-Sticknet-ShareExtension/Pods-Sticknet-ShareExtension.release.xcconfig"; sourceTree = "<group>"; };
+		89AEA31CFE551A5556143C71 /* Pods-Sticknet-SticknetTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sticknet-SticknetTests.release.xcconfig"; path = "Target Support Files/Pods-Sticknet-SticknetTests/Pods-Sticknet-SticknetTests.release.xcconfig"; sourceTree = "<group>"; };
+		A5ED0415AABC8CC541DABA23 /* Pods-Sticknet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sticknet.release.xcconfig"; path = "Target Support Files/Pods-Sticknet/Pods-Sticknet.release.xcconfig"; sourceTree = "<group>"; };
+		AAFC4913A4DFE449F1C4DB9D /* Pods-Sticknet-NotificationServiceExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sticknet-NotificationServiceExtension.release.xcconfig"; path = "Target Support Files/Pods-Sticknet-NotificationServiceExtension/Pods-Sticknet-NotificationServiceExtension.release.xcconfig"; sourceTree = "<group>"; };
+		C7DAE3B6F7A15EAB4BF8AE07 /* Pods_Sticknet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sticknet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D095B98F5D3C174100E48320 /* Pods_Sticknet_SticknetTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sticknet_SticknetTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DBCBB8CF9147DEF55050F4B8 /* Pods-Sticknet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sticknet.debug.xcconfig"; path = "Target Support Files/Pods-Sticknet/Pods-Sticknet.debug.xcconfig"; sourceTree = "<group>"; };
+		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		F885D27721EBF9913AC4A564 /* Pods_Sticknet_ShareExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sticknet_ShareExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FE1CA99B83FCF2B7EAF3E1B6 /* Pods-Sticknet-SticknetTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sticknet-SticknetTests.debug.xcconfig"; path = "Target Support Files/Pods-Sticknet-SticknetTests/Pods-Sticknet-SticknetTests.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		00E356EB1AD99517003FC87E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				02783C5B28A21378C0B6FE37 /* Pods_Sticknet_SticknetTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		07B364CE2975223100210F7C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4692577C8A92A34767DF505C /* Pods_Sticknet_ShareExtension.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		07B364E12975226E00210F7C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C043651F84CD2E0F5825C40E /* Pods_Sticknet_NotificationServiceExtension.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		13B07F8C1A680F5B00A75B9A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0702C99F29BC3B1300506921 /* StoreKit.framework in Frameworks */,
+				8CFC5E70C06B7B2A44174431 /* Pods_Sticknet.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		00E356EF1AD99517003FC87E /* SticknetTests */ = {
+			isa = PBXGroup;
+			children = (
+				00E356F21AD99517003FC87E /* SticknetTests.m */,
+				00E356F01AD99517003FC87E /* Supporting Files */,
+			);
+			path = SticknetTests;
+			sourceTree = "<group>";
+		};
+		00E356F01AD99517003FC87E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				00E356F11AD99517003FC87E /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		0753A77F2AA4604100563B86 /* Firebase */ = {
+			isa = PBXGroup;
+			children = (
+				0753A7802AA4604100563B86 /* GoogleService-Info-Release.plist */,
+				0753A7812AA4604100563B86 /* GoogleService-Info-Debug.plist */,
+			);
+			name = Firebase;
+			path = Sticknet/Firebase;
+			sourceTree = "<group>";
+		};
+		07A3947D2A078C97004559E5 /* StickProtocolLib */ = {
+			isa = PBXGroup;
+			children = (
+				07A394812A078CC8004559E5 /* Controllers */,
+				07A3947E2A078CC8004559E5 /* CryptoProvider */,
+				07A394D02A078CCA004559E5 /* FileCrypto */,
+				07A394BE2A078CC9004559E5 /* Main */,
+				07A394932A078CC9004559E5 /* Models */,
+				07A394C12A078CC9004559E5 /* SPObjects */,
+				07A394DC2A078CCA004559E5 /* Store */,
+				07A394902A078CC9004559E5 /* Utility */,
+			);
+			path = StickProtocolLib;
+			sourceTree = "<group>";
+		};
+		07A3947E2A078CC8004559E5 /* CryptoProvider */ = {
+			isa = PBXGroup;
+			children = (
+				07A3947F2A078CC8004559E5 /* CommonCryptoProvider.m */,
+				07A394802A078CC8004559E5 /* CommonCryptoProvider.h */,
+			);
+			path = CryptoProvider;
+			sourceTree = "<group>";
+		};
+		07A394812A078CC8004559E5 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				07A394822A078CC8004559E5 /* SessionBuilder.h */,
+				07A394832A078CC8004559E5 /* SessionCipher.h */,
+				07A394842A078CC8004559E5 /* SignalContext_Internal.h */,
+				07A394852A078CC8004559E5 /* GroupCipher.m */,
+				07A394862A078CC8004559E5 /* SignalContext.h */,
+				07A394872A078CC8004559E5 /* KeyHelper.m */,
+				07A394882A078CC8004559E5 /* GroupSessionBuilder.h */,
+				07A394892A078CC8004559E5 /* SessionCipher.m */,
+				07A3948A2A078CC8004559E5 /* SessionBuilder.m */,
+				07A3948B2A078CC8004559E5 /* GroupCipher.h */,
+				07A3948C2A078CC8004559E5 /* KeyHelper_Internal.h */,
+				07A3948D2A078CC8004559E5 /* SignalContext.m */,
+				07A3948E2A078CC8004559E5 /* GroupSessionBuilder.m */,
+				07A3948F2A078CC8004559E5 /* KeyHelper.h */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		07A394902A078CC9004559E5 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				07A394912A078CC9004559E5 /* SignalError.m */,
+				07A394922A078CC9004559E5 /* SignalError.h */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		07A394932A078CC9004559E5 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				07A394942A078CC9004559E5 /* SenderKeyState_Internal.h */,
+				07A394952A078CC9004559E5 /* SignedPreKey_Internal.h */,
+				07A394962A078CC9004559E5 /* SignedPreKey.m */,
+				07A394972A078CC9004559E5 /* PreKeyBundle_Internal.h */,
+				07A394982A078CC9004559E5 /* IdentityKeyPair.h */,
+				07A394992A078CC9004559E5 /* SignalAddress_Internal.h */,
+				07A3949A2A078CC9004559E5 /* KeyPair.h */,
+				07A3949B2A078CC9004559E5 /* SenderKeyMessage.m */,
+				07A3949C2A078CC9004559E5 /* SenderKeyState.h */,
+				07A3949D2A078CC9004559E5 /* SignalAddress.h */,
+				07A3949E2A078CC9004559E5 /* PreKeyMessage_Internal.h */,
+				07A3949F2A078CC9004559E5 /* PreKey.h */,
+				07A394A02A078CC9004559E5 /* SenderKeyMessage_Internal.h */,
+				07A394A12A078CC9004559E5 /* PreKeyBundle.h */,
+				07A394A22A078CC9004559E5 /* Serializable.h */,
+				07A394A32A078CC9004559E5 /* PreKeyMessage.m */,
+				07A394A42A078CC9004559E5 /* SenderKeyRecord.m */,
+				07A394A52A078CC9004559E5 /* SignalCiphertext.m */,
+				07A394A62A078CC9004559E5 /* SenderKeyDistributionMessage.m */,
+				07A394A72A078CC9004559E5 /* SenderKeyName.h */,
+				07A394A82A078CC9004559E5 /* SignalMessage.h */,
+				07A394A92A078CC9004559E5 /* SenderKeyName_Internal.h */,
+				07A394AA2A078CC9004559E5 /* SignedPreKey.h */,
+				07A394AB2A078CC9004559E5 /* PreKey_Internal.h */,
+				07A394AC2A078CC9004559E5 /* KeyPair_Internal.h */,
+				07A394AD2A078CC9004559E5 /* IdentityKeyPair.m */,
+				07A394AE2A078CC9004559E5 /* SignalMessage_Internal.h */,
+				07A394AF2A078CC9004559E5 /* SenderKeyDistributionMessage_Internal.h */,
+				07A394B02A078CC9004559E5 /* SenderKeyRecord_Internal.h */,
+				07A394B12A078CC9004559E5 /* SignalAddress.m */,
+				07A394B22A078CC9004559E5 /* SenderKeyState.m */,
+				07A394B32A078CC9004559E5 /* SenderKeyMessage.h */,
+				07A394B42A078CC9004559E5 /* KeyPair.m */,
+				07A394B52A078CC9004559E5 /* SignalMessage.m */,
+				07A394B62A078CC9004559E5 /* SenderKeyName.m */,
+				07A394B72A078CC9004559E5 /* SenderKeyDistributionMessage.h */,
+				07A394B82A078CC9004559E5 /* SignalCiphertext.h */,
+				07A394B92A078CC9004559E5 /* PreKeyMessage.h */,
+				07A394BA2A078CC9004559E5 /* SenderKeyRecord.h */,
+				07A394BB2A078CC9004559E5 /* IdentityKeyPair_Internal.h */,
+				07A394BC2A078CC9004559E5 /* PreKeyBundle.m */,
+				07A394BD2A078CC9004559E5 /* PreKey.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		07A394BE2A078CC9004559E5 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				07A394BF2A078CC9004559E5 /* StickProtocol.h */,
+				07A394C02A078CC9004559E5 /* StickProtocol.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		07A394C12A078CC9004559E5 /* SPObjects */ = {
+			isa = PBXGroup;
+			children = (
+				07A394C22A078CC9004559E5 /* SPPreKey.m */,
+				07A394C32A078CC9004559E5 /* SPIdentity.h */,
+				07A394C42A078CC9004559E5 /* SPSenderKey.h */,
+				07A394C52A078CC9004559E5 /* SPIdentityKey.h */,
+				07A394C62A078CC9004559E5 /* YapDatabaseObject.h */,
+				07A394C72A078CC9004559E5 /* SPSignedPreKey.h */,
+				07A394C82A078CC9004559E5 /* SPSignalSession.h */,
+				07A394C92A078CC9004559E5 /* SPIdentity.m */,
+				07A394CA2A078CC9004559E5 /* SPPreKey.h */,
+				07A394CB2A078CC9004559E5 /* YapDatabaseObject.m */,
+				07A394CC2A078CC9004559E5 /* SPIdentityKey.m */,
+				07A394CD2A078CC9004559E5 /* SPSenderKey.m */,
+				07A394CE2A078CC9004559E5 /* SPSignalSession.m */,
+				07A394CF2A078CC9004559E5 /* SPSignedPreKey.m */,
+			);
+			path = SPObjects;
+			sourceTree = "<group>";
+		};
+		07A394D02A078CCA004559E5 /* FileCrypto */ = {
+			isa = PBXGroup;
+			children = (
+				07A394D12A078CCA004559E5 /* SPLogs.m */,
+				07A394D22A078CCA004559E5 /* NSData+SP.m */,
+				07A394D32A078CCA004559E5 /* Randomness.m */,
+				07A394D42A078CCA004559E5 /* FileCrypto.m */,
+				07A394D52A078CCA004559E5 /* CryptoError.h */,
+				07A394D62A078CCA004559E5 /* NSData+SP.h */,
+				07A394D72A078CCA004559E5 /* Randomness.h */,
+				07A394D82A078CCA004559E5 /* SPLogs.h */,
+				07A394D92A078CCA004559E5 /* FileCrypto.h */,
+				07A394DA2A078CCA004559E5 /* SPAsserts.h */,
+				07A394DB2A078CCA004559E5 /* CryptoError.m */,
+			);
+			path = FileCrypto;
+			sourceTree = "<group>";
+		};
+		07A394DC2A078CCA004559E5 /* Store */ = {
+			isa = PBXGroup;
+			children = (
+				07A394DD2A078CCA004559E5 /* PreKeyStore.h */,
+				07A394DE2A078CCA004559E5 /* SignalStorage_Internal.h */,
+				07A394DF2A078CCA004559E5 /* StorageManager.swift */,
+				07A394E02A078CCA004559E5 /* SignalStorage.m */,
+				07A394E12A078CCA004559E5 /* SignedPreKeyStore.h */,
+				07A394E22A078CCA004559E5 /* SenderKeyStore.h */,
+				07A394E32A078CCA004559E5 /* SignalStorage.h */,
+				07A394E42A078CCA004559E5 /* SessionStore.h */,
+				07A394E52A078CCA004559E5 /* EncryptionManager.swift */,
+				07A394E62A078CCA004559E5 /* IdentityKeyStore.h */,
+			);
+			path = Store;
+			sourceTree = "<group>";
+		};
+		07B364B429751E9200210F7C /* CommonNative */ = {
+			isa = PBXGroup;
+			children = (
+				07C7FBAE29925E5E003A434E /* Models */,
+				07B364B529751E9200210F7C /* CommonNativeBridge.m */,
+				07B364B629751E9200210F7C /* CommonNative.swift */,
+			);
+			name = CommonNative;
+			path = Sticknet/CommonNative;
+			sourceTree = "<group>";
+		};
+		07B364C12975212200210F7C /* StickProtocol */ = {
+			isa = PBXGroup;
+			children = (
+				07B364C22975212200210F7C /* StickInit.m */,
+				07B364C42975212200210F7C /* StickInit.swift */,
+				07B364C52975212200210F7C /* StickProtocolModule.swift */,
+				07B364C62975212200210F7C /* StickProtocolBridge.m */,
+				07B364C32975212200210F7C /* DatabaseSetup.h */,
+				07B364C72975212200210F7C /* DatabaseSetup.m */,
+			);
+			path = StickProtocol;
+			sourceTree = "<group>";
+		};
+		07B365202975237600210F7C /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				073731C02A94AF0300BE1DB5 /* FontAwesome6_Pro_Solid.ttf */,
+				073CB9932A8A64D2006CF60B /* SirinStencil-Regular.ttf */,
+				070FC4202A703951007BE57B /* AntDesign.ttf */,
+				070FC41D2A703950007BE57B /* Entypo.ttf */,
+				070FC41B2A703950007BE57B /* EvilIcons.ttf */,
+				070FC42B2A703953007BE57B /* Feather.ttf */,
+				070FC4242A703952007BE57B /* FontAwesome.ttf */,
+				070FC41A2A703950007BE57B /* FontAwesome5_Brands.ttf */,
+				07A9AE862AB17B540070D49E /* FontAwesome6_Pro_Thin.ttf */,
+				070FC42A2A703953007BE57B /* FontAwesome5_Regular.ttf */,
+				070FC4212A703951007BE57B /* FontAwesome5_Solid.ttf */,
+				070FC4262A703952007BE57B /* FontAwesome6_Brands.ttf */,
+				070FC4292A703953007BE57B /* FontAwesome6_Pro_Light.ttf */,
+				070FC41F2A703951007BE57B /* FontAwesome6_Regular.ttf */,
+				070FC4252A703952007BE57B /* FontAwesome6_Solid.ttf */,
+				070FC4192A703950007BE57B /* FontAwesome6Pro_Regular.ttf */,
+				070FC42C2A703954007BE57B /* Fontisto.ttf */,
+				070FC4222A703951007BE57B /* Foundation.ttf */,
+				070FC42D2A703954007BE57B /* Ionicons.ttf */,
+				070FC4232A703952007BE57B /* MaterialCommunityIcons.ttf */,
+				070FC41E2A703951007BE57B /* MaterialIcons.ttf */,
+				070FC4272A703953007BE57B /* Octicons.ttf */,
+				070FC41C2A703950007BE57B /* SimpleLineIcons.ttf */,
+				070FC4282A703953007BE57B /* Zocial.ttf */,
+				07B365232975239900210F7C /* GreatVibes-Regular.ttf */,
+				07B365242975239900210F7C /* Handlee-Regular.ttf */,
+				07B365212975239900210F7C /* PTSerif-Regular.ttf */,
+				07B365262975239900210F7C /* Sticknet.ttf */,
+				07B365222975239900210F7C /* Vibes-Regular.ttf */,
+				07B365252975239900210F7C /* Vibes.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		07B365572975272100210F7C /* ShareExtension */ = {
+			isa = PBXGroup;
+			children = (
+				07B365582975272100210F7C /* HeaderCell */,
+				07B3655B2975272100210F7C /* MainInterface.storyboard */,
+				07B3655D2975272100210F7C /* ConnectionCell */,
+				07B365602975272100210F7C /* Controllers */,
+				07B365672975272100210F7C /* Info.plist */,
+				07B365682975272100210F7C /* ShareExtension.entitlements */,
+				07B365692975272100210F7C /* ShareExtension-Bridging-Header.h */,
+				07B3656A2975272100210F7C /* GroupCell */,
+			);
+			path = ShareExtension;
+			sourceTree = "<group>";
+		};
+		07B365582975272100210F7C /* HeaderCell */ = {
+			isa = PBXGroup;
+			children = (
+				07B365592975272100210F7C /* HeaderCell.xib */,
+				07B3655A2975272100210F7C /* HeaderCell.swift */,
+			);
+			path = HeaderCell;
+			sourceTree = "<group>";
+		};
+		07B3655D2975272100210F7C /* ConnectionCell */ = {
+			isa = PBXGroup;
+			children = (
+				07B3655E2975272100210F7C /* ConnectionCell.xib */,
+				07B3655F2975272100210F7C /* ConnectionCell.swift */,
+			);
+			path = ConnectionCell;
+			sourceTree = "<group>";
+		};
+		07B365602975272100210F7C /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				07B365622975272100210F7C /* SDAVAssetExportSession.m */,
+				07B365632975272100210F7C /* ModalViewController.swift */,
+				07B365662975272100210F7C /* SDAVAssetExportSession.h */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		07B3656A2975272100210F7C /* GroupCell */ = {
+			isa = PBXGroup;
+			children = (
+				07B3656B2975272100210F7C /* GroupCell.xib */,
+				07B3656C2975272100210F7C /* GroupCell.swift */,
+			);
+			path = GroupCell;
+			sourceTree = "<group>";
+		};
+		07B3657A2975272900210F7C /* NotificationServiceExtension */ = {
+			isa = PBXGroup;
+			children = (
+				07B3657B2975272900210F7C /* NotificationServiceExtension.entitlements */,
+				07B3657C2975272900210F7C /* NSE-Bridging-Header.h */,
+				07B3657D2975272900210F7C /* NotificationService.swift */,
+				07B3657E2975272900210F7C /* Info.plist */,
+			);
+			path = NotificationServiceExtension;
+			sourceTree = "<group>";
+		};
+		07C7FBAE29925E5E003A434E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				07C7FBAF29925E97003A434E /* MobileNet.mlmodel */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		13B07FAE1A68108700A75B9A /* Sticknet */ = {
+			isa = PBXGroup;
+			children = (
+				0753A77F2AA4604100563B86 /* Firebase */,
+				07C7FBA8299238AD003A434E /* AppDelegate.mm */,
+				07C7FBA6299233C1003A434E /* BootSplash.storyboard */,
+				07B364B029751E9100210F7C /* AppCenter-Config.plist */,
+				07B364B429751E9200210F7C /* CommonNative */,
+				07B364B129751E9100210F7C /* Images.xcassets */,
+				07B364AA29751E9100210F7C /* Info.plist */,
+				07B364AB29751E9100210F7C /* MainURL.h */,
+				07B364AD29751E9100210F7C /* MainURL.m */,
+				07B364AE29751E9100210F7C /* Sticknet-Bridging-Header.h */,
+				07B364AF29751E9100210F7C /* Sticknet.entitlements */,
+				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
+				13B07FB71A68108700A75B9A /* main.m */,
+			);
+			name = Sticknet;
+			sourceTree = "<group>";
+		};
+		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0702C99E29BC3B1300506921 /* StoreKit.framework */,
+				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
+				C7DAE3B6F7A15EAB4BF8AE07 /* Pods_Sticknet.framework */,
+				15F6D9CF5D1CEA4855809FEE /* Pods_Sticknet_NotificationServiceExtension.framework */,
+				F885D27721EBF9913AC4A564 /* Pods_Sticknet_ShareExtension.framework */,
+				D095B98F5D3C174100E48320 /* Pods_Sticknet_SticknetTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Libraries;
+			sourceTree = "<group>";
+		};
+		83CBB9F61A601CBA00E9B192 = {
+			isa = PBXGroup;
+			children = (
+				07A3947D2A078C97004559E5 /* StickProtocolLib */,
+				07B3657A2975272900210F7C /* NotificationServiceExtension */,
+				07B365572975272100210F7C /* ShareExtension */,
+				07B365202975237600210F7C /* Fonts */,
+				07B364C12975212200210F7C /* StickProtocol */,
+				13B07FAE1A68108700A75B9A /* Sticknet */,
+				832341AE1AAA6A7D00B99B32 /* Libraries */,
+				00E356EF1AD99517003FC87E /* SticknetTests */,
+				83CBBA001A601CBA00E9B192 /* Products */,
+				2D16E6871FA4F8E400B85C8A /* Frameworks */,
+				BBD78D7AC51CEA395F1C20DB /* Pods */,
+			);
+			indentWidth = 2;
+			sourceTree = "<group>";
+			tabWidth = 2;
+			usesTabs = 0;
+		};
+		83CBBA001A601CBA00E9B192 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				13B07F961A680F5B00A75B9A /* Sticknet Debug.app */,
+				00E356EE1AD99517003FC87E /* SticknetTests.xctest */,
+				07B364D12975223100210F7C /* ShareExtension.appex */,
+				07B364E42975226E00210F7C /* NotificationServiceExtension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DBCBB8CF9147DEF55050F4B8 /* Pods-Sticknet.debug.xcconfig */,
+				A5ED0415AABC8CC541DABA23 /* Pods-Sticknet.release.xcconfig */,
+				3446C9B76A770CF8A6A84954 /* Pods-Sticknet-NotificationServiceExtension.debug.xcconfig */,
+				AAFC4913A4DFE449F1C4DB9D /* Pods-Sticknet-NotificationServiceExtension.release.xcconfig */,
+				288909C9AE2D8C5CB3E9FCE4 /* Pods-Sticknet-ShareExtension.debug.xcconfig */,
+				35A72B653D8126D2C42FD657 /* Pods-Sticknet-ShareExtension.release.xcconfig */,
+				FE1CA99B83FCF2B7EAF3E1B6 /* Pods-Sticknet-SticknetTests.debug.xcconfig */,
+				89AEA31CFE551A5556143C71 /* Pods-Sticknet-SticknetTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		00E356ED1AD99517003FC87E /* SticknetTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "SticknetTests" */;
+			buildPhases = (
+				9B9E22DDA1B8516B6A0A8F60 /* [CP] Check Pods Manifest.lock */,
+				00E356EA1AD99517003FC87E /* Sources */,
+				00E356EB1AD99517003FC87E /* Frameworks */,
+				00E356EC1AD99517003FC87E /* Resources */,
+				BBEDE95D15AD317D8CF97593 /* [CP] Embed Pods Frameworks */,
+				67C7FF42F048130FC3E8749E /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				00E356F51AD99517003FC87E /* PBXTargetDependency */,
+			);
+			name = SticknetTests;
+			productName = SticknetTests;
+			productReference = 00E356EE1AD99517003FC87E /* SticknetTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		07B364D02975223100210F7C /* ShareExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 07B364DC2975223100210F7C /* Build configuration list for PBXNativeTarget "ShareExtension" */;
+			buildPhases = (
+				8CE68D491CCE81EFC1CEC90C /* [CP] Check Pods Manifest.lock */,
+				07B364CD2975223100210F7C /* Sources */,
+				07B364CE2975223100210F7C /* Frameworks */,
+				07B364CF2975223100210F7C /* Resources */,
+				0828048B326B8AD132F47FA0 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ShareExtension;
+			productName = ShareExtension;
+			productReference = 07B364D12975223100210F7C /* ShareExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		07B364E32975226E00210F7C /* NotificationServiceExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 07B364EC2975226E00210F7C /* Build configuration list for PBXNativeTarget "NotificationServiceExtension" */;
+			buildPhases = (
+				CE790B5FADFE4760BCCEE7B8 /* [CP] Check Pods Manifest.lock */,
+				07B364E02975226E00210F7C /* Sources */,
+				07B364E12975226E00210F7C /* Frameworks */,
+				07B364E22975226E00210F7C /* Resources */,
+				D8707C875587C21ABCA04E16 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NotificationServiceExtension;
+			productName = NotificationServiceExtension;
+			productReference = 07B364E42975226E00210F7C /* NotificationServiceExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		13B07F861A680F5B00A75B9A /* Sticknet */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "Sticknet" */;
+			buildPhases = (
+				DF01DD5F388EE1A3DD977D5E /* [CP] Check Pods Manifest.lock */,
+				FD10A7F022414F080027D42C /* Start Packager */,
+				13B07F871A680F5B00A75B9A /* Sources */,
+				13B07F8C1A680F5B00A75B9A /* Frameworks */,
+				13B07F8E1A680F5B00A75B9A /* Resources */,
+				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
+				07B364DF2975223100210F7C /* Embed App Extensions */,
+				0753A77C2AA455B500563B86 /* Firebase Script */,
+				1CFD969040288B63841B32C2 /* [CP] Embed Pods Frameworks */,
+				57F5C5F7DB83385E767E84DD /* [CP] Copy Pods Resources */,
+				5D6652E234D99728B66ECF6D /* [CP-User] [RNFB] Core Configuration */,
+				ED7F02C44E376426FFE047E6 /* [CP-User] [RNFB] Crashlytics Configuration */,
+				5B319FC0F38A43AAB944E118 /* Upload Debug Symbols to Sentry */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				07B364DA2975223100210F7C /* PBXTargetDependency */,
+				07B364EA2975226E00210F7C /* PBXTargetDependency */,
+			);
+			name = Sticknet;
+			productName = Sticknet;
+			productReference = 13B07F961A680F5B00A75B9A /* Sticknet Debug.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		83CBB9F71A601CBA00E9B192 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1340;
+				LastUpgradeCheck = 1210;
+				TargetAttributes = {
+					00E356ED1AD99517003FC87E = {
+						CreatedOnToolsVersion = 6.2;
+						DevelopmentTeam = 88J4C462WP;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 13B07F861A680F5B00A75B9A;
+					};
+					07B364D02975223100210F7C = {
+						CreatedOnToolsVersion = 13.4.1;
+						DevelopmentTeam = 88J4C462WP;
+						ProvisioningStyle = Automatic;
+					};
+					07B364E32975226E00210F7C = {
+						CreatedOnToolsVersion = 13.4.1;
+						DevelopmentTeam = 88J4C462WP;
+						ProvisioningStyle = Automatic;
+					};
+					13B07F861A680F5B00A75B9A = {
+						DevelopmentTeam = 88J4C462WP;
+						LastSwiftMigration = 1120;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "Sticknet" */;
+			compatibilityVersion = "Xcode 12.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 83CBB9F61A601CBA00E9B192;
+			productRefGroup = 83CBBA001A601CBA00E9B192 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				13B07F861A680F5B00A75B9A /* Sticknet */,
+				00E356ED1AD99517003FC87E /* SticknetTests */,
+				07B364D02975223100210F7C /* ShareExtension */,
+				07B364E32975226E00210F7C /* NotificationServiceExtension */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		00E356EC1AD99517003FC87E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		07B364CF2975223100210F7C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				07B3656D2975272100210F7C /* HeaderCell.xib in Resources */,
+				07B365782975272200210F7C /* GroupCell.xib in Resources */,
+				07B3656F2975272100210F7C /* MainInterface.storyboard in Resources */,
+				07B36519297522B200210F7C /* Images.xcassets in Resources */,
+				07B365702975272100210F7C /* ConnectionCell.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		07B364E22975226E00210F7C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		13B07F8E1A680F5B00A75B9A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				07B364BC29751E9200210F7C /* Images.xcassets in Resources */,
+				07B364BB29751E9200210F7C /* AppCenter-Config.plist in Resources */,
+				073CB9942A8A64D2006CF60B /* SirinStencil-Regular.ttf in Resources */,
+				07B365272975239900210F7C /* PTSerif-Regular.ttf in Resources */,
+				07B3652A2975239900210F7C /* Handlee-Regular.ttf in Resources */,
+				07B3652B2975239900210F7C /* Vibes.ttf in Resources */,
+				07C7FBA7299233C1003A434E /* BootSplash.storyboard in Resources */,
+				0753A7822AA4604100563B86 /* GoogleService-Info-Release.plist in Resources */,
+				07B3652C2975239900210F7C /* Sticknet.ttf in Resources */,
+				0753A7832AA4604100563B86 /* GoogleService-Info-Debug.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/.xcode.env.local",
+				"$(SRCROOT)/.xcode.env",
+			);
+			name = "Bundle React Native code and images";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export SENTRY_PROPERTIES=sentry.properties\nexport EXTRA_PACKAGER_ARGS=\"--sourcemap-output $DERIVED_FILE_DIR/main.jsbundle.map\"\nset -e\n\nWITH_ENVIRONMENT=\"../node_modules/react-native/scripts/xcode/with-environment.sh\"\nREACT_NATIVE_XCODE=\"../node_modules/react-native/scripts/react-native-xcode.sh\"\n\n/bin/sh -c \"$WITH_ENVIRONMENT \\\"../node_modules/@sentry/cli/bin/sentry-cli react-native xcode $REACT_NATIVE_XCODE\\\"\"\n\n/bin/sh -c \"$WITH_ENVIRONMENT ../node_modules/@sentry/react-native/scripts/collect-modules.sh\"\n";
+		};
+		0753A77C2AA455B500563B86 /* Firebase Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Firebase Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "GOOGLE_SERVICE_INFO_PLIST_FROM=\"${PROJECT_DIR}/Sticknet/Firebase/${GOOGLE_SERVICE_INFO_PLIST_NAME}\"\nBUILD_APP_DIR=\"${BUILT_PRODUCTS_DIR}/${FULL_PRODUCT_NAME}\"\nGOOGLE_SERVICE_INFO_PLIST_TO=\"${BUILD_APP_DIR}/GoogleService-Info.plist\"\ncp \"${GOOGLE_SERVICE_INFO_PLIST_FROM}\" \"${GOOGLE_SERVICE_INFO_PLIST_TO}\"\n";
+		};
+		0828048B326B8AD132F47FA0 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Sticknet-ShareExtension/Pods-Sticknet-ShareExtension-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Sticknet-ShareExtension/Pods-Sticknet-ShareExtension-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Sticknet-ShareExtension/Pods-Sticknet-ShareExtension-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1CFD969040288B63841B32C2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Sticknet/Pods-Sticknet-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Sticknet/Pods-Sticknet-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Sticknet/Pods-Sticknet-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		57F5C5F7DB83385E767E84DD /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Sticknet/Pods-Sticknet-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Sticknet/Pods-Sticknet-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Sticknet/Pods-Sticknet-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5B319FC0F38A43AAB944E118 /* Upload Debug Symbols to Sentry */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Upload Debug Symbols to Sentry";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\nWITH_ENVIRONMENT=\"../node_modules/react-native/scripts/xcode/with-environment.sh\"\nif [ -f \"$WITH_ENVIRONMENT\" ]; then\n    . \"$WITH_ENVIRONMENT\"\nfi \nexport SENTRY_PROPERTIES=sentry.properties\n[ \"$SENTRY_INCLUDE_NATIVE_SOURCES\" = \"true\" ] && INCLUDE_SOURCES_FLAG=\"--include-sources\" || INCLUDE_SOURCES_FLAG=\"\"\n../node_modules/@sentry/cli/bin/sentry-cli debug-files upload \"$INCLUDE_SOURCES_FLAG\" \"$DWARF_DSYM_FOLDER_PATH\"\n";
+		};
+		5D6652E234D99728B66ECF6D /* [CP-User] [RNFB] Core Configuration */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
+			);
+			name = "[CP-User] [RNFB] Core Configuration";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#!/usr/bin/env bash\n#\n# Copyright (c) 2016-present Invertase Limited & Contributors\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this library except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#   http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unless required by applicable law or agreed to in writing, software\n# distributed under the License is distributed on an \"AS IS\" BASIS,\n# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n# See the License for the specific language governing permissions and\n# limitations under the License.\n#\nset -e\n\n_MAX_LOOKUPS=2;\n_SEARCH_RESULT=''\n_RN_ROOT_EXISTS=''\n_CURRENT_LOOKUPS=1\n_JSON_ROOT=\"'react-native'\"\n_JSON_FILE_NAME='firebase.json'\n_JSON_OUTPUT_BASE64='e30=' # { }\n_CURRENT_SEARCH_DIR=${PROJECT_DIR}\n_PLIST_BUDDY=/usr/libexec/PlistBuddy\n_TARGET_PLIST=\"${BUILT_PRODUCTS_DIR}/${INFOPLIST_PATH}\"\n_DSYM_PLIST=\"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Info.plist\"\n\n# plist arrays\n_PLIST_ENTRY_KEYS=()\n_PLIST_ENTRY_TYPES=()\n_PLIST_ENTRY_VALUES=()\n\nfunction setPlistValue {\n  echo \"info:      setting plist entry '$1' of type '$2' in file '$4'\"\n  ${_PLIST_BUDDY} -c \"Add :$1 $2 '$3'\" $4 || echo \"info:      '$1' already exists\"\n}\n\nfunction getFirebaseJsonKeyValue () {\n  if [[ ${_RN_ROOT_EXISTS} ]]; then\n    ruby -Ku -e \"require 'rubygems';require 'json'; output=JSON.parse('$1'); puts output[$_JSON_ROOT]['$2']\"\n  else\n    echo \"\"\n  fi;\n}\n\nfunction jsonBoolToYesNo () {\n  if [[ $1 == \"false\" ]]; then\n    echo \"NO\"\n  elif [[ $1 == \"true\" ]]; then\n    echo \"YES\"\n  else echo \"NO\"\n  fi\n}\n\necho \"info: -> RNFB build script started\"\necho \"info: 1) Locating ${_JSON_FILE_NAME} file:\"\n\nif [[ -z ${_CURRENT_SEARCH_DIR} ]]; then\n  _CURRENT_SEARCH_DIR=$(pwd)\nfi;\n\nwhile true; do\n  _CURRENT_SEARCH_DIR=$(dirname \"$_CURRENT_SEARCH_DIR\")\n  if [[ \"$_CURRENT_SEARCH_DIR\" == \"/\" ]] || [[ ${_CURRENT_LOOKUPS} -gt ${_MAX_LOOKUPS} ]]; then break; fi;\n  echo \"info:      ($_CURRENT_LOOKUPS of $_MAX_LOOKUPS) Searching in '$_CURRENT_SEARCH_DIR' for a ${_JSON_FILE_NAME} file.\"\n  _SEARCH_RESULT=$(find \"$_CURRENT_SEARCH_DIR\" -maxdepth 2 -name ${_JSON_FILE_NAME} -print | /usr/bin/head -n 1)\n  if [[ ${_SEARCH_RESULT} ]]; then\n    echo \"info:      ${_JSON_FILE_NAME} found at $_SEARCH_RESULT\"\n    break;\n  fi;\n  _CURRENT_LOOKUPS=$((_CURRENT_LOOKUPS+1))\ndone\n\nif [[ ${_SEARCH_RESULT} ]]; then\n  _JSON_OUTPUT_RAW=$(cat \"${_SEARCH_RESULT}\")\n  _RN_ROOT_EXISTS=$(ruby -Ku -e \"require 'rubygems';require 'json'; output=JSON.parse('$_JSON_OUTPUT_RAW'); puts output[$_JSON_ROOT]\" || echo '')\n\n  if [[ ${_RN_ROOT_EXISTS} ]]; then\n    if ! python3 --version >/dev/null 2>&1; then echo \"python3 not found, firebase.json file processing error.\" && exit 1; fi\n    _JSON_OUTPUT_BASE64=$(python3 -c 'import json,sys,base64;print(base64.b64encode(bytes(json.dumps(json.loads(open('\"'${_SEARCH_RESULT}'\"', '\"'rb'\"').read())['${_JSON_ROOT}']), '\"'utf-8'\"')).decode())' || echo \"e30=\")\n  fi\n\n  _PLIST_ENTRY_KEYS+=(\"firebase_json_raw\")\n  _PLIST_ENTRY_TYPES+=(\"string\")\n  _PLIST_ENTRY_VALUES+=(\"$_JSON_OUTPUT_BASE64\")\n\n  # config.app_data_collection_default_enabled\n  _APP_DATA_COLLECTION_ENABLED=$(getFirebaseJsonKeyValue \"$_JSON_OUTPUT_RAW\" \"app_data_collection_default_enabled\")\n  if [[ $_APP_DATA_COLLECTION_ENABLED ]]; then\n    _PLIST_ENTRY_KEYS+=(\"FirebaseDataCollectionDefaultEnabled\")\n    _PLIST_ENTRY_TYPES+=(\"bool\")\n    _PLIST_ENTRY_VALUES+=(\"$(jsonBoolToYesNo \"$_APP_DATA_COLLECTION_ENABLED\")\")\n  fi\n\n  # config.analytics_auto_collection_enabled\n  _ANALYTICS_AUTO_COLLECTION=$(getFirebaseJsonKeyValue \"$_JSON_OUTPUT_RAW\" \"analytics_auto_collection_enabled\")\n  if [[ $_ANALYTICS_AUTO_COLLECTION ]]; then\n    _PLIST_ENTRY_KEYS+=(\"FIREBASE_ANALYTICS_COLLECTION_ENABLED\")\n    _PLIST_ENTRY_TYPES+=(\"bool\")\n    _PLIST_ENTRY_VALUES+=(\"$(jsonBoolToYesNo \"$_ANALYTICS_AUTO_COLLECTION\")\")\n  fi\n\n  # config.analytics_collection_deactivated\n  _ANALYTICS_DEACTIVATED=$(getFirebaseJsonKeyValue \"$_JSON_OUTPUT_RAW\" \"analytics_collection_deactivated\")\n  if [[ $_ANALYTICS_DEACTIVATED ]]; then\n    _PLIST_ENTRY_KEYS+=(\"FIREBASE_ANALYTICS_COLLECTION_DEACTIVATED\")\n    _PLIST_ENTRY_TYPES+=(\"bool\")\n    _PLIST_ENTRY_VALUES+=(\"$(jsonBoolToYesNo \"$_ANALYTICS_DEACTIVATED\")\")\n  fi\n\n  # config.analytics_idfv_collection_enabled\n  _ANALYTICS_IDFV_COLLECTION=$(getFirebaseJsonKeyValue \"$_JSON_OUTPUT_RAW\" \"analytics_idfv_collection_enabled\")\n  if [[ $_ANALYTICS_IDFV_COLLECTION ]]; then\n    _PLIST_ENTRY_KEYS+=(\"GOOGLE_ANALYTICS_IDFV_COLLECTION_ENABLED\")\n    _PLIST_ENTRY_TYPES+=(\"bool\")\n    _PLIST_ENTRY_VALUES+=(\"$(jsonBoolToYesNo \"$_ANALYTICS_IDFV_COLLECTION\")\")\n  fi\n\n  # config.analytics_default_allow_ad_personalization_signals\n  _ANALYTICS_PERSONALIZATION=$(getFirebaseJsonKeyValue \"$_JSON_OUTPUT_RAW\" \"analytics_default_allow_ad_personalization_signals\")\n  if [[ $_ANALYTICS_PERSONALIZATION ]]; then\n    _PLIST_ENTRY_KEYS+=(\"GOOGLE_ANALYTICS_DEFAULT_ALLOW_AD_PERSONALIZATION_SIGNALS\")\n    _PLIST_ENTRY_TYPES+=(\"bool\")\n    _PLIST_ENTRY_VALUES+=(\"$(jsonBoolToYesNo \"$_ANALYTICS_PERSONALIZATION\")\")\n  fi\n\n  # config.analytics_registration_with_ad_network_enabled\n  _ANALYTICS_REGISTRATION_WITH_AD_NETWORK=$(getFirebaseJsonKeyValue \"$_JSON_OUTPUT_RAW\" \"google_analytics_registration_with_ad_network_enabled\")\n  if [[ $_ANALYTICS_REGISTRATION_WITH_AD_NETWORK ]]; then\n    _PLIST_ENTRY_KEYS+=(\"GOOGLE_ANALYTICS_REGISTRATION_WITH_AD_NETWORK_ENABLED\")\n    _PLIST_ENTRY_TYPES+=(\"bool\")\n    _PLIST_ENTRY_VALUES+=(\"$(jsonBoolToYesNo \"$_ANALYTICS_REGISTRATION_WITH_AD_NETWORK\")\")\n  fi\n\n  # config.google_analytics_automatic_screen_reporting_enabled\n  _ANALYTICS_AUTO_SCREEN_REPORTING=$(getFirebaseJsonKeyValue \"$_JSON_OUTPUT_RAW\" \"google_analytics_automatic_screen_reporting_enabled\")\n  if [[ $_ANALYTICS_AUTO_SCREEN_REPORTING ]]; then\n    _PLIST_ENTRY_KEYS+=(\"FirebaseAutomaticScreenReportingEnabled\")\n    _PLIST_ENTRY_TYPES+=(\"bool\")\n    _PLIST_ENTRY_VALUES+=(\"$(jsonBoolToYesNo \"$_ANALYTICS_AUTO_SCREEN_REPORTING\")\")\n  fi\n\n  # config.perf_auto_collection_enabled\n  _PERF_AUTO_COLLECTION=$(getFirebaseJsonKeyValue \"$_JSON_OUTPUT_RAW\" \"perf_auto_collection_enabled\")\n  if [[ $_PERF_AUTO_COLLECTION ]]; then\n    _PLIST_ENTRY_KEYS+=(\"firebase_performance_collection_enabled\")\n    _PLIST_ENTRY_TYPES+=(\"bool\")\n    _PLIST_ENTRY_VALUES+=(\"$(jsonBoolToYesNo \"$_PERF_AUTO_COLLECTION\")\")\n  fi\n\n  # config.perf_collection_deactivated\n  _PERF_DEACTIVATED=$(getFirebaseJsonKeyValue \"$_JSON_OUTPUT_RAW\" \"perf_collection_deactivated\")\n  if [[ $_PERF_DEACTIVATED ]]; then\n    _PLIST_ENTRY_KEYS+=(\"firebase_performance_collection_deactivated\")\n    _PLIST_ENTRY_TYPES+=(\"bool\")\n    _PLIST_ENTRY_VALUES+=(\"$(jsonBoolToYesNo \"$_PERF_DEACTIVATED\")\")\n  fi\n\n  # config.messaging_auto_init_enabled\n  _MESSAGING_AUTO_INIT=$(getFirebaseJsonKeyValue \"$_JSON_OUTPUT_RAW\" \"messaging_auto_init_enabled\")\n  if [[ $_MESSAGING_AUTO_INIT ]]; then\n    _PLIST_ENTRY_KEYS+=(\"FirebaseMessagingAutoInitEnabled\")\n    _PLIST_ENTRY_TYPES+=(\"bool\")\n    _PLIST_ENTRY_VALUES+=(\"$(jsonBoolToYesNo \"$_MESSAGING_AUTO_INIT\")\")\n  fi\n\n  # config.in_app_messaging_auto_colllection_enabled\n  _FIAM_AUTO_INIT=$(getFirebaseJsonKeyValue \"$_JSON_OUTPUT_RAW\" \"in_app_messaging_auto_collection_enabled\")\n  if [[ $_FIAM_AUTO_INIT ]]; then\n    _PLIST_ENTRY_KEYS+=(\"FirebaseInAppMessagingAutomaticDataCollectionEnabled\")\n    _PLIST_ENTRY_TYPES+=(\"bool\")\n    _PLIST_ENTRY_VALUES+=(\"$(jsonBoolToYesNo \"$_FIAM_AUTO_INIT\")\")\n  fi\n\n  # config.app_check_token_auto_refresh\n  _APP_CHECK_TOKEN_AUTO_REFRESH=$(getFirebaseJsonKeyValue \"$_JSON_OUTPUT_RAW\" \"app_check_token_auto_refresh\")\n  if [[ $_APP_CHECK_TOKEN_AUTO_REFRESH ]]; then\n    _PLIST_ENTRY_KEYS+=(\"FirebaseAppCheckTokenAutoRefreshEnabled\")\n    _PLIST_ENTRY_TYPES+=(\"bool\")\n    _PLIST_ENTRY_VALUES+=(\"$(jsonBoolToYesNo \"$_APP_CHECK_TOKEN_AUTO_REFRESH\")\")\n  fi\n\n  # config.crashlytics_disable_auto_disabler - undocumented for now - mainly for debugging, document if becomes useful\n  _CRASHLYTICS_AUTO_DISABLE_ENABLED=$(getFirebaseJsonKeyValue \"$_JSON_OUTPUT_RAW\" \"crashlytics_disable_auto_disabler\")\n  if [[ $_CRASHLYTICS_AUTO_DISABLE_ENABLED == \"true\" ]]; then\n    echo \"Disabled Crashlytics auto disabler.\" # do nothing\n  else\n    _PLIST_ENTRY_KEYS+=(\"FirebaseCrashlyticsCollectionEnabled\")\n    _PLIST_ENTRY_TYPES+=(\"bool\")\n    _PLIST_ENTRY_VALUES+=(\"NO\")\n  fi\nelse\n  _PLIST_ENTRY_KEYS+=(\"firebase_json_raw\")\n  _PLIST_ENTRY_TYPES+=(\"string\")\n  _PLIST_ENTRY_VALUES+=(\"$_JSON_OUTPUT_BASE64\")\n  echo \"warning:   A firebase.json file was not found, whilst this file is optional it is recommended to include it to configure firebase services in React Native Firebase.\"\nfi;\n\necho \"info: 2) Injecting Info.plist entries: \"\n\n# Log out the keys we're adding\nfor i in \"${!_PLIST_ENTRY_KEYS[@]}\"; do\n  echo \"    ->  $i) ${_PLIST_ENTRY_KEYS[$i]}\" \"${_PLIST_ENTRY_TYPES[$i]}\" \"${_PLIST_ENTRY_VALUES[$i]}\"\ndone\n\nfor plist in \"${_TARGET_PLIST}\" \"${_DSYM_PLIST}\" ; do\n  if [[ -f \"${plist}\" ]]; then\n\n    # paths with spaces break the call to setPlistValue. temporarily modify\n    # the shell internal field separator variable (IFS), which normally\n    # includes spaces, to consist only of line breaks\n    oldifs=$IFS\n    IFS=\"\n\"\n\n    for i in \"${!_PLIST_ENTRY_KEYS[@]}\"; do\n      setPlistValue \"${_PLIST_ENTRY_KEYS[$i]}\" \"${_PLIST_ENTRY_TYPES[$i]}\" \"${_PLIST_ENTRY_VALUES[$i]}\" \"${plist}\"\n    done\n\n    # restore the original internal field separator value\n    IFS=$oldifs\n  else\n    echo \"warning:   A Info.plist build output file was not found (${plist})\"\n  fi\ndone\n\necho \"info: <- RNFB build script finished\"\n";
+		};
+		67C7FF42F048130FC3E8749E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Sticknet-SticknetTests/Pods-Sticknet-SticknetTests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Sticknet-SticknetTests/Pods-Sticknet-SticknetTests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Sticknet-SticknetTests/Pods-Sticknet-SticknetTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8CE68D491CCE81EFC1CEC90C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Sticknet-ShareExtension-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9B9E22DDA1B8516B6A0A8F60 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Sticknet-SticknetTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BBEDE95D15AD317D8CF97593 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Sticknet-SticknetTests/Pods-Sticknet-SticknetTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Sticknet-SticknetTests/Pods-Sticknet-SticknetTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Sticknet-SticknetTests/Pods-Sticknet-SticknetTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CE790B5FADFE4760BCCEE7B8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Sticknet-NotificationServiceExtension-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D8707C875587C21ABCA04E16 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Sticknet-NotificationServiceExtension/Pods-Sticknet-NotificationServiceExtension-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Sticknet-NotificationServiceExtension/Pods-Sticknet-NotificationServiceExtension-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Sticknet-NotificationServiceExtension/Pods-Sticknet-NotificationServiceExtension-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DF01DD5F388EE1A3DD977D5E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Sticknet-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		ED7F02C44E376426FFE047E6 /* [CP-User] [RNFB] Crashlytics Configuration */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${TARGET_NAME}",
+				"$(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
+			);
+			name = "[CP-User] [RNFB] Crashlytics Configuration";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#!/usr/bin/env bash\n#\n# Copyright (c) 2016-present Invertase Limited & Contributors\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this library except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#   http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unless required by applicable law or agreed to in writing, software\n# distributed under the License is distributed on an \"AS IS\" BASIS,\n# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n# See the License for the specific language governing permissions and\n# limitations under the License.\n#\nset -e\n\nif [[ ${PODS_ROOT} ]]; then\n  echo \"info: Exec FirebaseCrashlytics Run from Pods\"\n  \"${PODS_ROOT}/FirebaseCrashlytics/run\"\nelse\n  echo \"info: Exec FirebaseCrashlytics Run from framework\"\n  \"${PROJECT_DIR}/FirebaseCrashlytics.framework/run\"\nfi\n";
+		};
+		FD10A7F022414F080027D42C /* Start Packager */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Start Packager";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export RCT_METRO_PORT=\"${RCT_METRO_PORT:=8081}\"\necho \"export RCT_METRO_PORT=${RCT_METRO_PORT}\" > \"${SRCROOT}/../node_modules/react-native/scripts/.packager.env\"\nif [ -z \"${RCT_NO_LAUNCH_PACKAGER+xxx}\" ] ; then\n  if nc -w 5 -z localhost ${RCT_METRO_PORT} ; then\n    if ! curl -s \"http://localhost:${RCT_METRO_PORT}/status\" | grep -q \"packager-status:running\" ; then\n      echo \"Port ${RCT_METRO_PORT} already in use, packager is either not running or not running correctly\"\n      exit 2\n    fi\n  else\n    open \"$SRCROOT/../node_modules/react-native/scripts/launchPackager.command\" || echo \"Can't start packager automatically\"\n  fi\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		00E356EA1AD99517003FC87E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				00E356F31AD99517003FC87E /* SticknetTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		07B364CD2975223100210F7C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				07A3950F2A078CCA004559E5 /* SenderKeyDistributionMessage.m in Sources */,
+				07A394FA2A078CCA004559E5 /* GroupSessionBuilder.m in Sources */,
+				07A395062A078CCA004559E5 /* PreKeyMessage.m in Sources */,
+				07A395332A078CCA004559E5 /* YapDatabaseObject.m in Sources */,
+				07A3953F2A078CCA004559E5 /* SPSignedPreKey.m in Sources */,
+				07A395422A078CCA004559E5 /* SPLogs.m in Sources */,
+				07A395272A078CCA004559E5 /* PreKey.m in Sources */,
+				07A394EE2A078CCA004559E5 /* KeyHelper.m in Sources */,
+				07A395572A078CCA004559E5 /* EncryptionManager.swift in Sources */,
+				07B365742975272200210F7C /* ModalViewController.swift in Sources */,
+				07A395182A078CCA004559E5 /* SenderKeyState.m in Sources */,
+				07A3953C2A078CCA004559E5 /* SPSignalSession.m in Sources */,
+				07B365792975272200210F7C /* GroupCell.swift in Sources */,
+				07B3656E2975272100210F7C /* HeaderCell.swift in Sources */,
+				07A395122A078CCA004559E5 /* IdentityKeyPair.m in Sources */,
+				07A394F42A078CCA004559E5 /* SessionBuilder.m in Sources */,
+				07B3651C297522E300210F7C /* StickProtocolModule.swift in Sources */,
+				07A394E82A078CCA004559E5 /* CommonCryptoProvider.m in Sources */,
+				07A3950C2A078CCA004559E5 /* SignalCiphertext.m in Sources */,
+				07A3952A2A078CCA004559E5 /* StickProtocol.swift in Sources */,
+				07A394EB2A078CCA004559E5 /* GroupCipher.m in Sources */,
+				07A394FD2A078CCA004559E5 /* SignalError.m in Sources */,
+				07A3951B2A078CCA004559E5 /* KeyPair.m in Sources */,
+				07A395482A078CCA004559E5 /* Randomness.m in Sources */,
+				07A395392A078CCA004559E5 /* SPSenderKey.m in Sources */,
+				07A3954E2A078CCA004559E5 /* CryptoError.m in Sources */,
+				07A395242A078CCA004559E5 /* PreKeyBundle.m in Sources */,
+				07A395542A078CCA004559E5 /* SignalStorage.m in Sources */,
+				07A3951E2A078CCA004559E5 /* SignalMessage.m in Sources */,
+				07A395092A078CCA004559E5 /* SenderKeyRecord.m in Sources */,
+				07A395302A078CCA004559E5 /* SPIdentity.m in Sources */,
+				07A395512A078CCA004559E5 /* StorageManager.swift in Sources */,
+				07B3651A297522C300210F7C /* MainURL.m in Sources */,
+				07A395152A078CCA004559E5 /* SignalAddress.m in Sources */,
+				07A394F72A078CCA004559E5 /* SignalContext.m in Sources */,
+				07A394F12A078CCA004559E5 /* SessionCipher.m in Sources */,
+				07A395362A078CCA004559E5 /* SPIdentityKey.m in Sources */,
+				07B3651E297522E700210F7C /* DatabaseSetup.m in Sources */,
+				07A395032A078CCA004559E5 /* SenderKeyMessage.m in Sources */,
+				07A395452A078CCA004559E5 /* NSData+SP.m in Sources */,
+				07B365732975272200210F7C /* SDAVAssetExportSession.m in Sources */,
+				07B365712975272100210F7C /* ConnectionCell.swift in Sources */,
+				07A395212A078CCA004559E5 /* SenderKeyName.m in Sources */,
+				07A3954B2A078CCA004559E5 /* FileCrypto.m in Sources */,
+				07A3952D2A078CCA004559E5 /* SPPreKey.m in Sources */,
+				07A395002A078CCA004559E5 /* SignedPreKey.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		07B364E02975226E00210F7C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				07A394FB2A078CCA004559E5 /* GroupSessionBuilder.m in Sources */,
+				07A395132A078CCA004559E5 /* IdentityKeyPair.m in Sources */,
+				07A395582A078CCA004559E5 /* EncryptionManager.swift in Sources */,
+				07A3954F2A078CCA004559E5 /* CryptoError.m in Sources */,
+				07A3950D2A078CCA004559E5 /* SignalCiphertext.m in Sources */,
+				07B3657F2975272900210F7C /* NotificationService.swift in Sources */,
+				07A394F82A078CCA004559E5 /* SignalContext.m in Sources */,
+				07A3953D2A078CCA004559E5 /* SPSignalSession.m in Sources */,
+				07A395522A078CCA004559E5 /* StorageManager.swift in Sources */,
+				07A3952B2A078CCA004559E5 /* StickProtocol.swift in Sources */,
+				07A395312A078CCA004559E5 /* SPIdentity.m in Sources */,
+				07A395102A078CCA004559E5 /* SenderKeyDistributionMessage.m in Sources */,
+				07A395342A078CCA004559E5 /* YapDatabaseObject.m in Sources */,
+				07A3951F2A078CCA004559E5 /* SignalMessage.m in Sources */,
+				07A394F22A078CCA004559E5 /* SessionCipher.m in Sources */,
+				07A394EF2A078CCA004559E5 /* KeyHelper.m in Sources */,
+				07A3950A2A078CCA004559E5 /* SenderKeyRecord.m in Sources */,
+				07A395252A078CCA004559E5 /* PreKeyBundle.m in Sources */,
+				07A3952E2A078CCA004559E5 /* SPPreKey.m in Sources */,
+				07B3651D297522E400210F7C /* StickProtocolModule.swift in Sources */,
+				07B3651B297522C400210F7C /* MainURL.m in Sources */,
+				07A395402A078CCA004559E5 /* SPSignedPreKey.m in Sources */,
+				07A395432A078CCA004559E5 /* SPLogs.m in Sources */,
+				07A395012A078CCA004559E5 /* SignedPreKey.m in Sources */,
+				07A394E92A078CCA004559E5 /* CommonCryptoProvider.m in Sources */,
+				07A395282A078CCA004559E5 /* PreKey.m in Sources */,
+				07A395552A078CCA004559E5 /* SignalStorage.m in Sources */,
+				07A395192A078CCA004559E5 /* SenderKeyState.m in Sources */,
+				07A3954C2A078CCA004559E5 /* FileCrypto.m in Sources */,
+				07A3953A2A078CCA004559E5 /* SPSenderKey.m in Sources */,
+				07A394FE2A078CCA004559E5 /* SignalError.m in Sources */,
+				07A395072A078CCA004559E5 /* PreKeyMessage.m in Sources */,
+				07A395042A078CCA004559E5 /* SenderKeyMessage.m in Sources */,
+				07A394EC2A078CCA004559E5 /* GroupCipher.m in Sources */,
+				07A394F52A078CCA004559E5 /* SessionBuilder.m in Sources */,
+				07A395372A078CCA004559E5 /* SPIdentityKey.m in Sources */,
+				07A395492A078CCA004559E5 /* Randomness.m in Sources */,
+				07A395462A078CCA004559E5 /* NSData+SP.m in Sources */,
+				07A3951C2A078CCA004559E5 /* KeyPair.m in Sources */,
+				07A395222A078CCA004559E5 /* SenderKeyName.m in Sources */,
+				07A395162A078CCA004559E5 /* SignalAddress.m in Sources */,
+				07B3651F297522E700210F7C /* DatabaseSetup.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		13B07F871A680F5B00A75B9A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				07A3950E2A078CCA004559E5 /* SenderKeyDistributionMessage.m in Sources */,
+				07A394F92A078CCA004559E5 /* GroupSessionBuilder.m in Sources */,
+				07A395052A078CCA004559E5 /* PreKeyMessage.m in Sources */,
+				07A395322A078CCA004559E5 /* YapDatabaseObject.m in Sources */,
+				07A3953E2A078CCA004559E5 /* SPSignedPreKey.m in Sources */,
+				07A395412A078CCA004559E5 /* SPLogs.m in Sources */,
+				07A395262A078CCA004559E5 /* PreKey.m in Sources */,
+				07B364C92975212200210F7C /* StickInit.swift in Sources */,
+				07A394ED2A078CCA004559E5 /* KeyHelper.m in Sources */,
+				07A395562A078CCA004559E5 /* EncryptionManager.swift in Sources */,
+				07B364C82975212200210F7C /* StickInit.m in Sources */,
+				07A395172A078CCA004559E5 /* SenderKeyState.m in Sources */,
+				07A3953B2A078CCA004559E5 /* SPSignalSession.m in Sources */,
+				07B364CA2975212200210F7C /* StickProtocolModule.swift in Sources */,
+				07B364BF29751E9200210F7C /* CommonNativeBridge.m in Sources */,
+				07B364CC2975212200210F7C /* DatabaseSetup.m in Sources */,
+				07A395112A078CCA004559E5 /* IdentityKeyPair.m in Sources */,
+				07A394F32A078CCA004559E5 /* SessionBuilder.m in Sources */,
+				07B364CB2975212200210F7C /* StickProtocolBridge.m in Sources */,
+				07A394E72A078CCA004559E5 /* CommonCryptoProvider.m in Sources */,
+				07A3950B2A078CCA004559E5 /* SignalCiphertext.m in Sources */,
+				07A395292A078CCA004559E5 /* StickProtocol.swift in Sources */,
+				07A394EA2A078CCA004559E5 /* GroupCipher.m in Sources */,
+				07C7FBB029925E97003A434E /* MobileNet.mlmodel in Sources */,
+				07A394FC2A078CCA004559E5 /* SignalError.m in Sources */,
+				07A3951A2A078CCA004559E5 /* KeyPair.m in Sources */,
+				07A395472A078CCA004559E5 /* Randomness.m in Sources */,
+				07A395382A078CCA004559E5 /* SPSenderKey.m in Sources */,
+				07A3954D2A078CCA004559E5 /* CryptoError.m in Sources */,
+				07A395232A078CCA004559E5 /* PreKeyBundle.m in Sources */,
+				07A395532A078CCA004559E5 /* SignalStorage.m in Sources */,
+				07A3951D2A078CCA004559E5 /* SignalMessage.m in Sources */,
+				07A395082A078CCA004559E5 /* SenderKeyRecord.m in Sources */,
+				07A3952F2A078CCA004559E5 /* SPIdentity.m in Sources */,
+				07A395502A078CCA004559E5 /* StorageManager.swift in Sources */,
+				07B364C029751E9200210F7C /* CommonNative.swift in Sources */,
+				07A395142A078CCA004559E5 /* SignalAddress.m in Sources */,
+				07A394F62A078CCA004559E5 /* SignalContext.m in Sources */,
+				07A394F02A078CCA004559E5 /* SessionCipher.m in Sources */,
+				07A395352A078CCA004559E5 /* SPIdentityKey.m in Sources */,
+				07B364BA29751E9200210F7C /* MainURL.m in Sources */,
+				07A395022A078CCA004559E5 /* SenderKeyMessage.m in Sources */,
+				07A395442A078CCA004559E5 /* NSData+SP.m in Sources */,
+				07C7FBA9299238AD003A434E /* AppDelegate.mm in Sources */,
+				13B07FC11A68108700A75B9A /* main.m in Sources */,
+				07A395202A078CCA004559E5 /* SenderKeyName.m in Sources */,
+				07A3954A2A078CCA004559E5 /* FileCrypto.m in Sources */,
+				07A3952C2A078CCA004559E5 /* SPPreKey.m in Sources */,
+				07A394FF2A078CCA004559E5 /* SignedPreKey.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		00E356F51AD99517003FC87E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 13B07F861A680F5B00A75B9A /* Sticknet */;
+			targetProxy = 00E356F41AD99517003FC87E /* PBXContainerItemProxy */;
+		};
+		07B364DA2975223100210F7C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 07B364D02975223100210F7C /* ShareExtension */;
+			targetProxy = 07B364D92975223100210F7C /* PBXContainerItemProxy */;
+		};
+		07B364EA2975226E00210F7C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 07B364E32975226E00210F7C /* NotificationServiceExtension */;
+			targetProxy = 07B364E92975226E00210F7C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		07B3655B2975272100210F7C /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				07B3655C2975272100210F7C /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		00E356F61AD99517003FC87E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FE1CA99B83FCF2B7EAF3E1B6 /* Pods-Sticknet-SticknetTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 88J4C462WP;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = SticknetTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-lc++",
+					"$(inherited)",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				"PRODUCT_BUNDLE_IDENTIFIER[sdk=macosx*]" = com.stiiick.SticknetTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Sticknet.app/Sticknet";
+			};
+			name = Debug;
+		};
+		00E356F71AD99517003FC87E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 89AEA31CFE551A5556143C71 /* Pods-Sticknet-SticknetTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEVELOPMENT_TEAM = 88J4C462WP;
+				INFOPLIST_FILE = SticknetTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-lc++",
+					"$(inherited)",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.stiiick.--PRODUCT-NAME-rfc1034identifier-";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "5a16513e-bff7-4eca-a0f7-af764a288923";
+				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.stiiick";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Sticknet.app/Sticknet";
+			};
+			name = Release;
+		};
+		07B364DD2975223100210F7C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 288909C9AE2D8C5CB3E9FCE4 /* Pods-Sticknet-ShareExtension.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = ShareExtension/ShareExtension.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 24;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 88J4C462WP;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ShareExtension/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = ShareExtension;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 4.6.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"Permission-Camera\"",
+					"-l\"Permission-Contacts\"",
+					"-l\"Permission-Microphone\"",
+					"-l\"Permission-Notifications\"",
+					"-l\"Permission-PhotoLibrary\"",
+					"-l\"RNPermissions\"",
+					"-l\"YapDatabase\"",
+					"-l\"bz2\"",
+					"-l\"c++\"",
+					"-l\"c++abi\"",
+					"-l\"iconv\"",
+					"-l\"icucore\"",
+					"-l\"sqlite3\"",
+					"-l\"z\"",
+					"-framework",
+					"\"Alamofire\"",
+					"-framework",
+					"\"AssetsLibrary\"",
+					"-framework",
+					"\"AudioToolbox\"",
+					"-framework",
+					"\"BVLinearGradient\"",
+					"-framework",
+					"\"CFNetwork\"",
+					"-framework",
+					"\"CocoaLumberjack\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"CoreMedia\"",
+					"-framework",
+					"\"CoreModules\"",
+					"-framework",
+					"\"CoreTelephony\"",
+					"-framework",
+					"\"CryptoSwift\"",
+					"-framework",
+					"\"DoubleConversion\"",
+					"-framework",
+					"\"FBLPromises\"",
+					"-framework",
+					"\"FirebaseAnalytics\"",
+					"-framework",
+					"\"FirebaseAuth\"",
+					"-framework",
+					"\"FirebaseCore\"",
+					"-framework",
+					"\"FirebaseCoreExtension\"",
+					"-framework",
+					"\"FirebaseCoreInternal\"",
+					"-framework",
+					"\"FirebaseCrashlytics\"",
+					"-framework",
+					"\"FirebaseDatabase\"",
+					"-framework",
+					"\"FirebaseDynamicLinks\"",
+					"-framework",
+					"\"FirebaseInstallations\"",
+					"-framework",
+					"\"FirebaseMessaging\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"GTMSessionFetcher\"",
+					"-framework",
+					"\"GoogleAppMeasurement\"",
+					"-framework",
+					"\"GoogleAppMeasurementIdentitySupport\"",
+					"-framework",
+					"\"GoogleDataTransport\"",
+					"-framework",
+					"\"GoogleUtilities\"",
+					"-framework",
+					"\"ImageIO\"",
+					"-framework",
+					"\"JavaScriptCore\"",
+					"-framework",
+					"\"Lottie\"",
+					"-framework",
+					"\"Mantle\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"PDFKit\"",
+					"-framework",
+					"\"PhotosUI\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"RCTAnimation\"",
+					"-framework",
+					"\"RCTBlob\"",
+					"-framework",
+					"\"RCTImage\"",
+					"-framework",
+					"\"RCTLinking\"",
+					"-framework",
+					"\"RCTNetwork\"",
+					"-framework",
+					"\"RCTSettings\"",
+					"-framework",
+					"\"RCTSystemSetting\"",
+					"-framework",
+					"\"RCTText\"",
+					"-framework",
+					"\"RCTTypeSafety\"",
+					"-framework",
+					"\"RCTVibration\"",
+					"-framework",
+					"\"RCTYouTube\"",
+					"-framework",
+					"\"RNBootSplash\"",
+					"-framework",
+					"\"RNCAsyncStorage\"",
+					"-framework",
+					"\"RNCClipboard\"",
+					"-framework",
+					"\"RNCMaskedView\"",
+					"-framework",
+					"\"RNCPushNotificationIOS\"",
+					"-framework",
+					"\"RNDateTimePicker\"",
+					"-framework",
+					"\"RNDeviceInfo\"",
+					"-framework",
+					"\"RNFBAnalytics\"",
+					"-framework",
+					"\"RNFBApp\"",
+					"-framework",
+					"\"RNFBAuth\"",
+					"-framework",
+					"\"RNFBCrashlytics\"",
+					"-framework",
+					"\"RNFBDatabase\"",
+					"-framework",
+					"\"RNFBDynamicLinks\"",
+					"-framework",
+					"\"RNFBInstallations\"",
+					"-framework",
+					"\"RNFBMessaging\"",
+					"-framework",
+					"\"RNFS\"",
+					"-framework",
+					"\"RNFastImage\"",
+					"-framework",
+					"\"RNGestureHandler\"",
+					"-framework",
+					"\"RNIap\"",
+					"-framework",
+					"\"RNKeychain\"",
+					"-framework",
+					"\"RNRate\"",
+					"-framework",
+					"\"RNReanimated\"",
+					"-framework",
+					"\"RNSVG\"",
+					"-framework",
+					"\"RNScreens\"",
+					"-framework",
+					"\"RNSentry\"",
+					"-framework",
+					"\"RNShare\"",
+					"-framework",
+					"\"RNSketchCanvas\"",
+					"-framework",
+					"\"RNTextGradientView\"",
+					"-framework",
+					"\"RNVectorIcons\"",
+					"-framework",
+					"\"React\"",
+					"-framework",
+					"\"ReactCommon\"",
+					"-framework",
+					"\"ReactNativeART\"",
+					"-framework",
+					"\"ReactNativeAudioToolkit\"",
+					"-framework",
+					"\"ReactNativeExceptionHandler\"",
+					"-framework",
+					"\"ReactNativeUiLib\"",
+					"-framework",
+					"\"React_Codegen\"",
+					"-framework",
+					"\"React_NativeModulesApple\"",
+					"-framework",
+					"\"React_RCTAppDelegate\"",
+					"-framework",
+					"\"React_debug\"",
+					"-framework",
+					"\"React_runtimescheduler\"",
+					"-framework",
+					"\"React_utils\"",
+					"-framework",
+					"\"SDWebImage\"",
+					"-framework",
+					"\"SDWebImageWebPCoder\"",
+					"-framework",
+					"\"SQLCipher\"",
+					"-framework",
+					"\"SafariServices\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"Sentry\"",
+					"-framework",
+					"\"SentryPrivate\"",
+					"-framework",
+					"\"SignalArgon2\"",
+					"-framework",
+					"\"SimpleKeychain\"",
+					"-framework",
+					"\"SocketRocket\"",
+					"-framework",
+					"\"StickySignalProtocolC\"",
+					"-framework",
+					"\"StoreKit\"",
+					"-framework",
+					"\"SwiftyJSON\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"UIKit\"",
+					"-framework",
+					"\"VideoToolbox\"",
+					"-framework",
+					"\"YoutubePlayer_in_WKWebView\"",
+					"-framework",
+					"\"cxxreact\"",
+					"-framework",
+					"\"fmt\"",
+					"-framework",
+					"\"folly\"",
+					"-framework",
+					"\"glog\"",
+					"-framework",
+					"\"gmp\"",
+					"-framework",
+					"\"gnutls\"",
+					"-framework",
+					"\"hermes\"",
+					"-framework",
+					"\"jsi\"",
+					"-framework",
+					"\"jsinspector\"",
+					"-framework",
+					"\"jsireact\"",
+					"-framework",
+					"\"leveldb\"",
+					"-framework",
+					"\"libavcodec\"",
+					"-framework",
+					"\"libavdevice\"",
+					"-framework",
+					"\"libavfilter\"",
+					"-framework",
+					"\"libavformat\"",
+					"-framework",
+					"\"libavutil\"",
+					"-framework",
+					"\"libevent\"",
+					"-framework",
+					"\"libhogweed\"",
+					"-framework",
+					"\"libnettle\"",
+					"-framework",
+					"\"libswresample\"",
+					"-framework",
+					"\"libswscale\"",
+					"-framework",
+					"\"libvidstab\"",
+					"-framework",
+					"\"libwebp\"",
+					"-framework",
+					"\"logger\"",
+					"-framework",
+					"\"lottie_react_native\"",
+					"-framework",
+					"\"mobileffmpeg\"",
+					"-framework",
+					"\"nanopb\"",
+					"-framework",
+					"\"openssl\"",
+					"-framework",
+					"\"react_native_blob_util\"",
+					"-framework",
+					"\"react_native_camera\"",
+					"-framework",
+					"\"react_native_cameraroll\"",
+					"-framework",
+					"\"react_native_config\"",
+					"-framework",
+					"\"react_native_contacts\"",
+					"-framework",
+					"\"react_native_document_picker\"",
+					"-framework",
+					"\"react_native_ffmpeg\"",
+					"-framework",
+					"\"react_native_image_resizer\"",
+					"-framework",
+					"\"react_native_keep_awake\"",
+					"-framework",
+					"\"react_native_netinfo\"",
+					"-framework",
+					"\"react_native_orientation_locker\"",
+					"-framework",
+					"\"react_native_pager_view\"",
+					"-framework",
+					"\"react_native_pdf\"",
+					"-framework",
+					"\"react_native_restart\"",
+					"-framework",
+					"\"react_native_safe_area_context\"",
+					"-framework",
+					"\"react_native_slider\"",
+					"-framework",
+					"\"react_native_video\"",
+					"-framework",
+					"\"reacthermes\"",
+					"-framework",
+					"\"reactperflogger\"",
+					"-framework",
+					"\"toolbar_android\"",
+					"-framework",
+					"\"x264\"",
+					"-framework",
+					"\"x265\"",
+					"-framework",
+					"\"xvidcore\"",
+					"-framework",
+					"\"yoga\"",
+					"-weak_framework",
+					"\"LinkPresentation\"",
+					"-weak_framework",
+					"\"UserNotifications\"",
+					"-weak_framework",
+					"\"WebKit\"",
+					"\"-ld_classic\"",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.stiiick.debug.ShareExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "ShareExtension/ShareExtension-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		07B364DE2975223100210F7C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 35A72B653D8126D2C42FD657 /* Pods-Sticknet-ShareExtension.release.xcconfig */;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = ShareExtension/ShareExtension.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 24;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 88J4C462WP;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ShareExtension/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = ShareExtension;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 4.6.0;
+				MTL_FAST_MATH = YES;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"Permission-Camera\"",
+					"-l\"Permission-Contacts\"",
+					"-l\"Permission-Microphone\"",
+					"-l\"Permission-Notifications\"",
+					"-l\"Permission-PhotoLibrary\"",
+					"-l\"RNPermissions\"",
+					"-l\"YapDatabase\"",
+					"-l\"bz2\"",
+					"-l\"c++\"",
+					"-l\"c++abi\"",
+					"-l\"iconv\"",
+					"-l\"icucore\"",
+					"-l\"sqlite3\"",
+					"-l\"z\"",
+					"-framework",
+					"\"Alamofire\"",
+					"-framework",
+					"\"AssetsLibrary\"",
+					"-framework",
+					"\"AudioToolbox\"",
+					"-framework",
+					"\"BVLinearGradient\"",
+					"-framework",
+					"\"CFNetwork\"",
+					"-framework",
+					"\"CocoaLumberjack\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"CoreMedia\"",
+					"-framework",
+					"\"CoreModules\"",
+					"-framework",
+					"\"CoreTelephony\"",
+					"-framework",
+					"\"CryptoSwift\"",
+					"-framework",
+					"\"DoubleConversion\"",
+					"-framework",
+					"\"FBLPromises\"",
+					"-framework",
+					"\"FirebaseAnalytics\"",
+					"-framework",
+					"\"FirebaseAuth\"",
+					"-framework",
+					"\"FirebaseCore\"",
+					"-framework",
+					"\"FirebaseCoreExtension\"",
+					"-framework",
+					"\"FirebaseCoreInternal\"",
+					"-framework",
+					"\"FirebaseCrashlytics\"",
+					"-framework",
+					"\"FirebaseDatabase\"",
+					"-framework",
+					"\"FirebaseDynamicLinks\"",
+					"-framework",
+					"\"FirebaseInstallations\"",
+					"-framework",
+					"\"FirebaseMessaging\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"GTMSessionFetcher\"",
+					"-framework",
+					"\"GoogleAppMeasurement\"",
+					"-framework",
+					"\"GoogleAppMeasurementIdentitySupport\"",
+					"-framework",
+					"\"GoogleDataTransport\"",
+					"-framework",
+					"\"GoogleUtilities\"",
+					"-framework",
+					"\"ImageIO\"",
+					"-framework",
+					"\"JavaScriptCore\"",
+					"-framework",
+					"\"Lottie\"",
+					"-framework",
+					"\"Mantle\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"PDFKit\"",
+					"-framework",
+					"\"PhotosUI\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"RCTAnimation\"",
+					"-framework",
+					"\"RCTBlob\"",
+					"-framework",
+					"\"RCTImage\"",
+					"-framework",
+					"\"RCTLinking\"",
+					"-framework",
+					"\"RCTNetwork\"",
+					"-framework",
+					"\"RCTSettings\"",
+					"-framework",
+					"\"RCTSystemSetting\"",
+					"-framework",
+					"\"RCTText\"",
+					"-framework",
+					"\"RCTTypeSafety\"",
+					"-framework",
+					"\"RCTVibration\"",
+					"-framework",
+					"\"RCTYouTube\"",
+					"-framework",
+					"\"RNBootSplash\"",
+					"-framework",
+					"\"RNCAsyncStorage\"",
+					"-framework",
+					"\"RNCClipboard\"",
+					"-framework",
+					"\"RNCMaskedView\"",
+					"-framework",
+					"\"RNCPushNotificationIOS\"",
+					"-framework",
+					"\"RNDateTimePicker\"",
+					"-framework",
+					"\"RNDeviceInfo\"",
+					"-framework",
+					"\"RNFBAnalytics\"",
+					"-framework",
+					"\"RNFBApp\"",
+					"-framework",
+					"\"RNFBAuth\"",
+					"-framework",
+					"\"RNFBCrashlytics\"",
+					"-framework",
+					"\"RNFBDatabase\"",
+					"-framework",
+					"\"RNFBDynamicLinks\"",
+					"-framework",
+					"\"RNFBInstallations\"",
+					"-framework",
+					"\"RNFBMessaging\"",
+					"-framework",
+					"\"RNFS\"",
+					"-framework",
+					"\"RNFastImage\"",
+					"-framework",
+					"\"RNGestureHandler\"",
+					"-framework",
+					"\"RNIap\"",
+					"-framework",
+					"\"RNKeychain\"",
+					"-framework",
+					"\"RNRate\"",
+					"-framework",
+					"\"RNReanimated\"",
+					"-framework",
+					"\"RNSVG\"",
+					"-framework",
+					"\"RNScreens\"",
+					"-framework",
+					"\"RNSentry\"",
+					"-framework",
+					"\"RNShare\"",
+					"-framework",
+					"\"RNSketchCanvas\"",
+					"-framework",
+					"\"RNTextGradientView\"",
+					"-framework",
+					"\"RNVectorIcons\"",
+					"-framework",
+					"\"React\"",
+					"-framework",
+					"\"ReactCommon\"",
+					"-framework",
+					"\"ReactNativeART\"",
+					"-framework",
+					"\"ReactNativeAudioToolkit\"",
+					"-framework",
+					"\"ReactNativeExceptionHandler\"",
+					"-framework",
+					"\"ReactNativeUiLib\"",
+					"-framework",
+					"\"React_Codegen\"",
+					"-framework",
+					"\"React_NativeModulesApple\"",
+					"-framework",
+					"\"React_RCTAppDelegate\"",
+					"-framework",
+					"\"React_debug\"",
+					"-framework",
+					"\"React_runtimescheduler\"",
+					"-framework",
+					"\"React_utils\"",
+					"-framework",
+					"\"SDWebImage\"",
+					"-framework",
+					"\"SDWebImageWebPCoder\"",
+					"-framework",
+					"\"SQLCipher\"",
+					"-framework",
+					"\"SafariServices\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"Sentry\"",
+					"-framework",
+					"\"SentryPrivate\"",
+					"-framework",
+					"\"SignalArgon2\"",
+					"-framework",
+					"\"SimpleKeychain\"",
+					"-framework",
+					"\"SocketRocket\"",
+					"-framework",
+					"\"StickySignalProtocolC\"",
+					"-framework",
+					"\"StoreKit\"",
+					"-framework",
+					"\"SwiftyJSON\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"UIKit\"",
+					"-framework",
+					"\"VideoToolbox\"",
+					"-framework",
+					"\"YoutubePlayer_in_WKWebView\"",
+					"-framework",
+					"\"cxxreact\"",
+					"-framework",
+					"\"fmt\"",
+					"-framework",
+					"\"folly\"",
+					"-framework",
+					"\"glog\"",
+					"-framework",
+					"\"gmp\"",
+					"-framework",
+					"\"gnutls\"",
+					"-framework",
+					"\"hermes\"",
+					"-framework",
+					"\"jsi\"",
+					"-framework",
+					"\"jsinspector\"",
+					"-framework",
+					"\"jsireact\"",
+					"-framework",
+					"\"leveldb\"",
+					"-framework",
+					"\"libavcodec\"",
+					"-framework",
+					"\"libavdevice\"",
+					"-framework",
+					"\"libavfilter\"",
+					"-framework",
+					"\"libavformat\"",
+					"-framework",
+					"\"libavutil\"",
+					"-framework",
+					"\"libevent\"",
+					"-framework",
+					"\"libhogweed\"",
+					"-framework",
+					"\"libnettle\"",
+					"-framework",
+					"\"libswresample\"",
+					"-framework",
+					"\"libswscale\"",
+					"-framework",
+					"\"libvidstab\"",
+					"-framework",
+					"\"libwebp\"",
+					"-framework",
+					"\"logger\"",
+					"-framework",
+					"\"lottie_react_native\"",
+					"-framework",
+					"\"mobileffmpeg\"",
+					"-framework",
+					"\"nanopb\"",
+					"-framework",
+					"\"openssl\"",
+					"-framework",
+					"\"react_native_blob_util\"",
+					"-framework",
+					"\"react_native_camera\"",
+					"-framework",
+					"\"react_native_cameraroll\"",
+					"-framework",
+					"\"react_native_config\"",
+					"-framework",
+					"\"react_native_contacts\"",
+					"-framework",
+					"\"react_native_document_picker\"",
+					"-framework",
+					"\"react_native_ffmpeg\"",
+					"-framework",
+					"\"react_native_image_resizer\"",
+					"-framework",
+					"\"react_native_keep_awake\"",
+					"-framework",
+					"\"react_native_netinfo\"",
+					"-framework",
+					"\"react_native_orientation_locker\"",
+					"-framework",
+					"\"react_native_pager_view\"",
+					"-framework",
+					"\"react_native_pdf\"",
+					"-framework",
+					"\"react_native_restart\"",
+					"-framework",
+					"\"react_native_safe_area_context\"",
+					"-framework",
+					"\"react_native_slider\"",
+					"-framework",
+					"\"react_native_video\"",
+					"-framework",
+					"\"reacthermes\"",
+					"-framework",
+					"\"reactperflogger\"",
+					"-framework",
+					"\"toolbar_android\"",
+					"-framework",
+					"\"x264\"",
+					"-framework",
+					"\"x265\"",
+					"-framework",
+					"\"xvidcore\"",
+					"-framework",
+					"\"yoga\"",
+					"-weak_framework",
+					"\"LinkPresentation\"",
+					"-weak_framework",
+					"\"UserNotifications\"",
+					"-weak_framework",
+					"\"WebKit\"",
+					"\"-ld_classic\"",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.stiiick.ShareExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "052f09c4-f25e-4d9e-85ac-b81c8b5fdada";
+				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.stiiick.ShareExtension";
+				SKIP_INSTALL = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "ShareExtension/ShareExtension-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		07B364ED2975226E00210F7C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3446C9B76A770CF8A6A84954 /* Pods-Sticknet-NotificationServiceExtension.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = NotificationServiceExtension/NotificationServiceExtension.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 24;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 88J4C462WP;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NotificationServiceExtension/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = NotificationServiceExtension;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 4.6.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"Permission-Camera\"",
+					"-l\"Permission-Contacts\"",
+					"-l\"Permission-Microphone\"",
+					"-l\"Permission-Notifications\"",
+					"-l\"Permission-PhotoLibrary\"",
+					"-l\"RNPermissions\"",
+					"-l\"YapDatabase\"",
+					"-l\"bz2\"",
+					"-l\"c++\"",
+					"-l\"c++abi\"",
+					"-l\"iconv\"",
+					"-l\"icucore\"",
+					"-l\"sqlite3\"",
+					"-l\"z\"",
+					"-framework",
+					"\"Alamofire\"",
+					"-framework",
+					"\"AssetsLibrary\"",
+					"-framework",
+					"\"AudioToolbox\"",
+					"-framework",
+					"\"BVLinearGradient\"",
+					"-framework",
+					"\"CFNetwork\"",
+					"-framework",
+					"\"CocoaLumberjack\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"CoreMedia\"",
+					"-framework",
+					"\"CoreModules\"",
+					"-framework",
+					"\"CoreTelephony\"",
+					"-framework",
+					"\"CryptoSwift\"",
+					"-framework",
+					"\"DoubleConversion\"",
+					"-framework",
+					"\"FBLPromises\"",
+					"-framework",
+					"\"FirebaseAnalytics\"",
+					"-framework",
+					"\"FirebaseAuth\"",
+					"-framework",
+					"\"FirebaseCore\"",
+					"-framework",
+					"\"FirebaseCoreExtension\"",
+					"-framework",
+					"\"FirebaseCoreInternal\"",
+					"-framework",
+					"\"FirebaseCrashlytics\"",
+					"-framework",
+					"\"FirebaseDatabase\"",
+					"-framework",
+					"\"FirebaseDynamicLinks\"",
+					"-framework",
+					"\"FirebaseInstallations\"",
+					"-framework",
+					"\"FirebaseMessaging\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"GTMSessionFetcher\"",
+					"-framework",
+					"\"GoogleAppMeasurement\"",
+					"-framework",
+					"\"GoogleAppMeasurementIdentitySupport\"",
+					"-framework",
+					"\"GoogleDataTransport\"",
+					"-framework",
+					"\"GoogleUtilities\"",
+					"-framework",
+					"\"ImageIO\"",
+					"-framework",
+					"\"JavaScriptCore\"",
+					"-framework",
+					"\"Lottie\"",
+					"-framework",
+					"\"Mantle\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"PDFKit\"",
+					"-framework",
+					"\"PhotosUI\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"RCTAnimation\"",
+					"-framework",
+					"\"RCTBlob\"",
+					"-framework",
+					"\"RCTImage\"",
+					"-framework",
+					"\"RCTLinking\"",
+					"-framework",
+					"\"RCTNetwork\"",
+					"-framework",
+					"\"RCTSettings\"",
+					"-framework",
+					"\"RCTSystemSetting\"",
+					"-framework",
+					"\"RCTText\"",
+					"-framework",
+					"\"RCTTypeSafety\"",
+					"-framework",
+					"\"RCTVibration\"",
+					"-framework",
+					"\"RCTYouTube\"",
+					"-framework",
+					"\"RNBootSplash\"",
+					"-framework",
+					"\"RNCAsyncStorage\"",
+					"-framework",
+					"\"RNCClipboard\"",
+					"-framework",
+					"\"RNCMaskedView\"",
+					"-framework",
+					"\"RNCPushNotificationIOS\"",
+					"-framework",
+					"\"RNDateTimePicker\"",
+					"-framework",
+					"\"RNDeviceInfo\"",
+					"-framework",
+					"\"RNFBAnalytics\"",
+					"-framework",
+					"\"RNFBApp\"",
+					"-framework",
+					"\"RNFBAuth\"",
+					"-framework",
+					"\"RNFBCrashlytics\"",
+					"-framework",
+					"\"RNFBDatabase\"",
+					"-framework",
+					"\"RNFBDynamicLinks\"",
+					"-framework",
+					"\"RNFBInstallations\"",
+					"-framework",
+					"\"RNFBMessaging\"",
+					"-framework",
+					"\"RNFS\"",
+					"-framework",
+					"\"RNFastImage\"",
+					"-framework",
+					"\"RNGestureHandler\"",
+					"-framework",
+					"\"RNIap\"",
+					"-framework",
+					"\"RNKeychain\"",
+					"-framework",
+					"\"RNRate\"",
+					"-framework",
+					"\"RNReanimated\"",
+					"-framework",
+					"\"RNSVG\"",
+					"-framework",
+					"\"RNScreens\"",
+					"-framework",
+					"\"RNSentry\"",
+					"-framework",
+					"\"RNShare\"",
+					"-framework",
+					"\"RNSketchCanvas\"",
+					"-framework",
+					"\"RNTextGradientView\"",
+					"-framework",
+					"\"RNVectorIcons\"",
+					"-framework",
+					"\"React\"",
+					"-framework",
+					"\"ReactCommon\"",
+					"-framework",
+					"\"ReactNativeART\"",
+					"-framework",
+					"\"ReactNativeAudioToolkit\"",
+					"-framework",
+					"\"ReactNativeExceptionHandler\"",
+					"-framework",
+					"\"ReactNativeUiLib\"",
+					"-framework",
+					"\"React_Codegen\"",
+					"-framework",
+					"\"React_NativeModulesApple\"",
+					"-framework",
+					"\"React_RCTAppDelegate\"",
+					"-framework",
+					"\"React_debug\"",
+					"-framework",
+					"\"React_runtimescheduler\"",
+					"-framework",
+					"\"React_utils\"",
+					"-framework",
+					"\"SDWebImage\"",
+					"-framework",
+					"\"SDWebImageWebPCoder\"",
+					"-framework",
+					"\"SQLCipher\"",
+					"-framework",
+					"\"SafariServices\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"Sentry\"",
+					"-framework",
+					"\"SentryPrivate\"",
+					"-framework",
+					"\"SignalArgon2\"",
+					"-framework",
+					"\"SimpleKeychain\"",
+					"-framework",
+					"\"SocketRocket\"",
+					"-framework",
+					"\"StickySignalProtocolC\"",
+					"-framework",
+					"\"StoreKit\"",
+					"-framework",
+					"\"SwiftyJSON\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"UIKit\"",
+					"-framework",
+					"\"VideoToolbox\"",
+					"-framework",
+					"\"YoutubePlayer_in_WKWebView\"",
+					"-framework",
+					"\"cxxreact\"",
+					"-framework",
+					"\"fmt\"",
+					"-framework",
+					"\"folly\"",
+					"-framework",
+					"\"glog\"",
+					"-framework",
+					"\"gmp\"",
+					"-framework",
+					"\"gnutls\"",
+					"-framework",
+					"\"hermes\"",
+					"-framework",
+					"\"jsi\"",
+					"-framework",
+					"\"jsinspector\"",
+					"-framework",
+					"\"jsireact\"",
+					"-framework",
+					"\"leveldb\"",
+					"-framework",
+					"\"libavcodec\"",
+					"-framework",
+					"\"libavdevice\"",
+					"-framework",
+					"\"libavfilter\"",
+					"-framework",
+					"\"libavformat\"",
+					"-framework",
+					"\"libavutil\"",
+					"-framework",
+					"\"libevent\"",
+					"-framework",
+					"\"libhogweed\"",
+					"-framework",
+					"\"libnettle\"",
+					"-framework",
+					"\"libswresample\"",
+					"-framework",
+					"\"libswscale\"",
+					"-framework",
+					"\"libvidstab\"",
+					"-framework",
+					"\"libwebp\"",
+					"-framework",
+					"\"logger\"",
+					"-framework",
+					"\"lottie_react_native\"",
+					"-framework",
+					"\"mobileffmpeg\"",
+					"-framework",
+					"\"nanopb\"",
+					"-framework",
+					"\"openssl\"",
+					"-framework",
+					"\"react_native_blob_util\"",
+					"-framework",
+					"\"react_native_camera\"",
+					"-framework",
+					"\"react_native_cameraroll\"",
+					"-framework",
+					"\"react_native_config\"",
+					"-framework",
+					"\"react_native_contacts\"",
+					"-framework",
+					"\"react_native_document_picker\"",
+					"-framework",
+					"\"react_native_ffmpeg\"",
+					"-framework",
+					"\"react_native_image_resizer\"",
+					"-framework",
+					"\"react_native_keep_awake\"",
+					"-framework",
+					"\"react_native_netinfo\"",
+					"-framework",
+					"\"react_native_orientation_locker\"",
+					"-framework",
+					"\"react_native_pager_view\"",
+					"-framework",
+					"\"react_native_pdf\"",
+					"-framework",
+					"\"react_native_restart\"",
+					"-framework",
+					"\"react_native_safe_area_context\"",
+					"-framework",
+					"\"react_native_slider\"",
+					"-framework",
+					"\"react_native_video\"",
+					"-framework",
+					"\"reacthermes\"",
+					"-framework",
+					"\"reactperflogger\"",
+					"-framework",
+					"\"toolbar_android\"",
+					"-framework",
+					"\"x264\"",
+					"-framework",
+					"\"x265\"",
+					"-framework",
+					"\"xvidcore\"",
+					"-framework",
+					"\"yoga\"",
+					"-weak_framework",
+					"\"LinkPresentation\"",
+					"-weak_framework",
+					"\"UserNotifications\"",
+					"-weak_framework",
+					"\"WebKit\"",
+					"\"-ld_classic\"",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.stiiick.debug.NotificationServiceExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "NotificationServiceExtension/NSE-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		07B364EE2975226E00210F7C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AAFC4913A4DFE449F1C4DB9D /* Pods-Sticknet-NotificationServiceExtension.release.xcconfig */;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = NotificationServiceExtension/NotificationServiceExtension.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 24;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 88J4C462WP;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NotificationServiceExtension/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = NotificationServiceExtension;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 4.6.0;
+				MTL_FAST_MATH = YES;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"Permission-Camera\"",
+					"-l\"Permission-Contacts\"",
+					"-l\"Permission-Microphone\"",
+					"-l\"Permission-Notifications\"",
+					"-l\"Permission-PhotoLibrary\"",
+					"-l\"RNPermissions\"",
+					"-l\"YapDatabase\"",
+					"-l\"bz2\"",
+					"-l\"c++\"",
+					"-l\"c++abi\"",
+					"-l\"iconv\"",
+					"-l\"icucore\"",
+					"-l\"sqlite3\"",
+					"-l\"z\"",
+					"-framework",
+					"\"Alamofire\"",
+					"-framework",
+					"\"AssetsLibrary\"",
+					"-framework",
+					"\"AudioToolbox\"",
+					"-framework",
+					"\"BVLinearGradient\"",
+					"-framework",
+					"\"CFNetwork\"",
+					"-framework",
+					"\"CocoaLumberjack\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"CoreMedia\"",
+					"-framework",
+					"\"CoreModules\"",
+					"-framework",
+					"\"CoreTelephony\"",
+					"-framework",
+					"\"CryptoSwift\"",
+					"-framework",
+					"\"DoubleConversion\"",
+					"-framework",
+					"\"FBLPromises\"",
+					"-framework",
+					"\"FirebaseAnalytics\"",
+					"-framework",
+					"\"FirebaseAuth\"",
+					"-framework",
+					"\"FirebaseCore\"",
+					"-framework",
+					"\"FirebaseCoreExtension\"",
+					"-framework",
+					"\"FirebaseCoreInternal\"",
+					"-framework",
+					"\"FirebaseCrashlytics\"",
+					"-framework",
+					"\"FirebaseDatabase\"",
+					"-framework",
+					"\"FirebaseDynamicLinks\"",
+					"-framework",
+					"\"FirebaseInstallations\"",
+					"-framework",
+					"\"FirebaseMessaging\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"GTMSessionFetcher\"",
+					"-framework",
+					"\"GoogleAppMeasurement\"",
+					"-framework",
+					"\"GoogleAppMeasurementIdentitySupport\"",
+					"-framework",
+					"\"GoogleDataTransport\"",
+					"-framework",
+					"\"GoogleUtilities\"",
+					"-framework",
+					"\"ImageIO\"",
+					"-framework",
+					"\"JavaScriptCore\"",
+					"-framework",
+					"\"Lottie\"",
+					"-framework",
+					"\"Mantle\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"PDFKit\"",
+					"-framework",
+					"\"PhotosUI\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"RCTAnimation\"",
+					"-framework",
+					"\"RCTBlob\"",
+					"-framework",
+					"\"RCTImage\"",
+					"-framework",
+					"\"RCTLinking\"",
+					"-framework",
+					"\"RCTNetwork\"",
+					"-framework",
+					"\"RCTSettings\"",
+					"-framework",
+					"\"RCTSystemSetting\"",
+					"-framework",
+					"\"RCTText\"",
+					"-framework",
+					"\"RCTTypeSafety\"",
+					"-framework",
+					"\"RCTVibration\"",
+					"-framework",
+					"\"RCTYouTube\"",
+					"-framework",
+					"\"RNBootSplash\"",
+					"-framework",
+					"\"RNCAsyncStorage\"",
+					"-framework",
+					"\"RNCClipboard\"",
+					"-framework",
+					"\"RNCMaskedView\"",
+					"-framework",
+					"\"RNCPushNotificationIOS\"",
+					"-framework",
+					"\"RNDateTimePicker\"",
+					"-framework",
+					"\"RNDeviceInfo\"",
+					"-framework",
+					"\"RNFBAnalytics\"",
+					"-framework",
+					"\"RNFBApp\"",
+					"-framework",
+					"\"RNFBAuth\"",
+					"-framework",
+					"\"RNFBCrashlytics\"",
+					"-framework",
+					"\"RNFBDatabase\"",
+					"-framework",
+					"\"RNFBDynamicLinks\"",
+					"-framework",
+					"\"RNFBInstallations\"",
+					"-framework",
+					"\"RNFBMessaging\"",
+					"-framework",
+					"\"RNFS\"",
+					"-framework",
+					"\"RNFastImage\"",
+					"-framework",
+					"\"RNGestureHandler\"",
+					"-framework",
+					"\"RNIap\"",
+					"-framework",
+					"\"RNKeychain\"",
+					"-framework",
+					"\"RNRate\"",
+					"-framework",
+					"\"RNReanimated\"",
+					"-framework",
+					"\"RNSVG\"",
+					"-framework",
+					"\"RNScreens\"",
+					"-framework",
+					"\"RNSentry\"",
+					"-framework",
+					"\"RNShare\"",
+					"-framework",
+					"\"RNSketchCanvas\"",
+					"-framework",
+					"\"RNTextGradientView\"",
+					"-framework",
+					"\"RNVectorIcons\"",
+					"-framework",
+					"\"React\"",
+					"-framework",
+					"\"ReactCommon\"",
+					"-framework",
+					"\"ReactNativeART\"",
+					"-framework",
+					"\"ReactNativeAudioToolkit\"",
+					"-framework",
+					"\"ReactNativeExceptionHandler\"",
+					"-framework",
+					"\"ReactNativeUiLib\"",
+					"-framework",
+					"\"React_Codegen\"",
+					"-framework",
+					"\"React_NativeModulesApple\"",
+					"-framework",
+					"\"React_RCTAppDelegate\"",
+					"-framework",
+					"\"React_debug\"",
+					"-framework",
+					"\"React_runtimescheduler\"",
+					"-framework",
+					"\"React_utils\"",
+					"-framework",
+					"\"SDWebImage\"",
+					"-framework",
+					"\"SDWebImageWebPCoder\"",
+					"-framework",
+					"\"SQLCipher\"",
+					"-framework",
+					"\"SafariServices\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"Sentry\"",
+					"-framework",
+					"\"SentryPrivate\"",
+					"-framework",
+					"\"SignalArgon2\"",
+					"-framework",
+					"\"SimpleKeychain\"",
+					"-framework",
+					"\"SocketRocket\"",
+					"-framework",
+					"\"StickySignalProtocolC\"",
+					"-framework",
+					"\"StoreKit\"",
+					"-framework",
+					"\"SwiftyJSON\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"UIKit\"",
+					"-framework",
+					"\"VideoToolbox\"",
+					"-framework",
+					"\"YoutubePlayer_in_WKWebView\"",
+					"-framework",
+					"\"cxxreact\"",
+					"-framework",
+					"\"fmt\"",
+					"-framework",
+					"\"folly\"",
+					"-framework",
+					"\"glog\"",
+					"-framework",
+					"\"gmp\"",
+					"-framework",
+					"\"gnutls\"",
+					"-framework",
+					"\"hermes\"",
+					"-framework",
+					"\"jsi\"",
+					"-framework",
+					"\"jsinspector\"",
+					"-framework",
+					"\"jsireact\"",
+					"-framework",
+					"\"leveldb\"",
+					"-framework",
+					"\"libavcodec\"",
+					"-framework",
+					"\"libavdevice\"",
+					"-framework",
+					"\"libavfilter\"",
+					"-framework",
+					"\"libavformat\"",
+					"-framework",
+					"\"libavutil\"",
+					"-framework",
+					"\"libevent\"",
+					"-framework",
+					"\"libhogweed\"",
+					"-framework",
+					"\"libnettle\"",
+					"-framework",
+					"\"libswresample\"",
+					"-framework",
+					"\"libswscale\"",
+					"-framework",
+					"\"libvidstab\"",
+					"-framework",
+					"\"libwebp\"",
+					"-framework",
+					"\"logger\"",
+					"-framework",
+					"\"lottie_react_native\"",
+					"-framework",
+					"\"mobileffmpeg\"",
+					"-framework",
+					"\"nanopb\"",
+					"-framework",
+					"\"openssl\"",
+					"-framework",
+					"\"react_native_blob_util\"",
+					"-framework",
+					"\"react_native_camera\"",
+					"-framework",
+					"\"react_native_cameraroll\"",
+					"-framework",
+					"\"react_native_config\"",
+					"-framework",
+					"\"react_native_contacts\"",
+					"-framework",
+					"\"react_native_document_picker\"",
+					"-framework",
+					"\"react_native_ffmpeg\"",
+					"-framework",
+					"\"react_native_image_resizer\"",
+					"-framework",
+					"\"react_native_keep_awake\"",
+					"-framework",
+					"\"react_native_netinfo\"",
+					"-framework",
+					"\"react_native_orientation_locker\"",
+					"-framework",
+					"\"react_native_pager_view\"",
+					"-framework",
+					"\"react_native_pdf\"",
+					"-framework",
+					"\"react_native_restart\"",
+					"-framework",
+					"\"react_native_safe_area_context\"",
+					"-framework",
+					"\"react_native_slider\"",
+					"-framework",
+					"\"react_native_video\"",
+					"-framework",
+					"\"reacthermes\"",
+					"-framework",
+					"\"reactperflogger\"",
+					"-framework",
+					"\"toolbar_android\"",
+					"-framework",
+					"\"x264\"",
+					"-framework",
+					"\"x265\"",
+					"-framework",
+					"\"xvidcore\"",
+					"-framework",
+					"\"yoga\"",
+					"-weak_framework",
+					"\"LinkPresentation\"",
+					"-weak_framework",
+					"\"UserNotifications\"",
+					"-weak_framework",
+					"\"WebKit\"",
+					"\"-ld_classic\"",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.stiiick.NotificationServiceExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "0fb4eb74-59b1-4695-9438-8e7618fd97e4";
+				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.stiiick.NotificationServiceExtension";
+				SKIP_INSTALL = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "NotificationServiceExtension/NSE-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		13B07F941A680F5B00A75B9A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DBCBB8CF9147DEF55050F4B8 /* Pods-Sticknet.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon.debug;
+				CLANG_ENABLE_MODULES = YES;
+				CLIENT_ID = "349572123590-qk9ceqqdmbh12i462124gti98n2jof9t.apps.googleusercontent.com";
+				CODE_SIGN_ENTITLEMENTS = Sticknet/Sticknet.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 48;
+				DEVELOPMENT_TEAM = 88J4C462WP;
+				ENABLE_BITCODE = NO;
+				GOOGLE_SERVICE_INFO_PLIST_NAME = "GoogleService-Info-Debug.plist";
+				INFOPLIST_FILE = Sticknet/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Sticknet Debug";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 6.0.12;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-lc++",
+					"\"-ld_classic\"",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.stiiick.debug;
+				PRODUCT_NAME = "Sticknet Debug";
+				"PROVISIONING_PROFILE[arch=*]" = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				REVERSED_CLIENT_ID = "com.googleusercontent.apps.349572123590-qk9ceqqdmbh12i462124gti98n2jof9t";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "Sticknet/Sticknet-Bridging-Header.h";
+				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "Sticknet/Sticknet-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Debug;
+		};
+		13B07F951A680F5B00A75B9A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A5ED0415AABC8CC541DABA23 /* Pods-Sticknet.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				"ASSETCATALOG_COMPILER_ALTERNATE_APPICON_NAMES[sdk=*]" = "";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CLIENT_ID = "349572123590-55c7qap2u183hnredovieejief7igmb4.apps.googleusercontent.com";
+				CODE_SIGN_ENTITLEMENTS = Sticknet/Sticknet.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 48;
+				DEVELOPMENT_TEAM = 88J4C462WP;
+				GOOGLE_SERVICE_INFO_PLIST_NAME = "GoogleService-Info-Release.plist";
+				INFOPLIST_FILE = Sticknet/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Sticknet;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 6.0.12;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-lc++",
+					"\"-ld_classic\"",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.stiiick;
+				PRODUCT_NAME = Sticknet;
+				PROVISIONING_PROFILE = "5a16513e-bff7-4eca-a0f7-af764a288923";
+				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.stiiick";
+				REVERSED_CLIENT_ID = "com.googleusercontent.apps.349572123590-55c7qap2u183hnredovieejief7igmb4";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "Sticknet/Sticknet-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Release;
+		};
+		83CBBA201A601CBA00E9B192 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				EXCLUDED_ARCHS = "";
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = i386;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+					_LIBCPP_ENABLE_CXX17_REMOVED_UNARY_BINARY_FUNCTION,
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"${PODS_CONFIGURATION_BUILD_DIR}/ReactCommon-Samples/ReactCommon_Samples.framework/Headers",
+					"${PODS_CONFIGURATION_BUILD_DIR}/ReactCommon/ReactCommon.framework/Headers/react/nativemodule/core",
+					"${PODS_CONFIGURATION_BUILD_DIR}/ReactCommon-Samples/ReactCommon_Samples.framework/Headers/platform/ios",
+					"${PODS_CONFIGURATION_BUILD_DIR}/React-NativeModulesApple/React_NativeModulesApple.framework/Headers",
+					"${PODS_CONFIGURATION_BUILD_DIR}/React-graphics/React_graphics.framework/Headers/react/renderer/graphics/platform/ios",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					/usr/lib/swift,
+					"$(inherited)",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"\"$(SDKROOT)/usr/lib/swift\"",
+					"\"$(TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME)\"",
+					"\"$(inherited)\"",
+				);
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_CPLUSPLUSFLAGS = (
+					"$(OTHER_CFLAGS)",
+					"-DFOLLY_NO_CONFIG",
+					"-DFOLLY_MOBILE=1",
+					"-DFOLLY_USE_LIBCPP=1",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-Wl",
+					"-ld_classic",
+				);
+				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		83CBBA211A601CBA00E9B192 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = i386;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					_LIBCPP_ENABLE_CXX17_REMOVED_UNARY_BINARY_FUNCTION,
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"${PODS_CONFIGURATION_BUILD_DIR}/ReactCommon-Samples/ReactCommon_Samples.framework/Headers",
+					"${PODS_CONFIGURATION_BUILD_DIR}/ReactCommon/ReactCommon.framework/Headers/react/nativemodule/core",
+					"${PODS_CONFIGURATION_BUILD_DIR}/ReactCommon-Samples/ReactCommon_Samples.framework/Headers/platform/ios",
+					"${PODS_CONFIGURATION_BUILD_DIR}/React-NativeModulesApple/React_NativeModulesApple.framework/Headers",
+					"${PODS_CONFIGURATION_BUILD_DIR}/React-graphics/React_graphics.framework/Headers/react/renderer/graphics/platform/ios",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					/usr/lib/swift,
+					"$(inherited)",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"\"$(SDKROOT)/usr/lib/swift\"",
+					"\"$(TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME)\"",
+					"\"$(inherited)\"",
+				);
+				MTL_ENABLE_DEBUG_INFO = NO;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_CPLUSPLUSFLAGS = (
+					"$(OTHER_CFLAGS)",
+					"-DFOLLY_NO_CONFIG",
+					"-DFOLLY_MOBILE=1",
+					"-DFOLLY_USE_LIBCPP=1",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-Wl",
+					"-ld_classic",
+				);
+				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "SticknetTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				00E356F61AD99517003FC87E /* Debug */,
+				00E356F71AD99517003FC87E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		07B364DC2975223100210F7C /* Build configuration list for PBXNativeTarget "ShareExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				07B364DD2975223100210F7C /* Debug */,
+				07B364DE2975223100210F7C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		07B364EC2975226E00210F7C /* Build configuration list for PBXNativeTarget "NotificationServiceExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				07B364ED2975226E00210F7C /* Debug */,
+				07B364EE2975226E00210F7C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "Sticknet" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				13B07F941A680F5B00A75B9A /* Debug */,
+				13B07F951A680F5B00A75B9A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "Sticknet" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				83CBBA201A601CBA00E9B192 /* Debug */,
+				83CBBA211A601CBA00E9B192 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 83CBB9F71A601CBA00E9B192 /* Project object */;
+}

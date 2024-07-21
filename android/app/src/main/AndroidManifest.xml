@@ -1,0 +1,115 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+    <uses-permission android:name="android.permission.READ_MEDIA_VIDEO" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="com.android.vending.BILLING" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
+    <uses-permission android:name="com.google.android.gms.permission.AD_ID" tools:node="remove" />
+
+
+    <queries>
+        <intent>
+            <action android:name="com.google.android.youtube.api.service.START" />
+        </intent>
+    </queries>
+
+    <application
+        android:name=".MainApplication"
+        android:allowBackup="false"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:theme="@style/BootTheme"
+        android:usesCleartextTraffic="true"
+        android:largeHeap="true"
+        android:networkSecurityConfig="@xml/network_security_config"
+        >
+
+
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@drawable/ic_stat_name" />
+        <meta-data  android:name="com.dieam.reactnativepushnotification.channel_create_default"
+            android:value="false"/>
+
+        <activity
+            android:name=".MainActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+            android:launchMode="singleTask"
+            android:windowSoftInputMode="adjustResize"
+            android:exported="true"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="invite.sticknet.org" android:scheme="https"/>
+                <data android:host="group-invitation.sticknet.org" android:scheme="https"/>
+                <data android:host="app.sticknet.org" android:scheme="https"/>
+            </intent-filter>
+            <!--<intent-filter>-->
+            <!--<action android:name="android.intent.action.MAIN" />-->
+
+            <!--<category android:name="android.intent.category.LAUNCHER" />-->
+
+            <!--<action android:name="android.intent.action.DOWNLOAD_COMPLETE" />-->
+            <!--</intent-filter>-->
+        </activity>
+
+        <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />
+
+        <activity
+            android:name=".extensions.Vault"
+            android:configChanges="orientation"
+            android:label="Add to Vault"
+            android:noHistory="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/BaseTheme"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action." />
+                <action android:name="android.intent.action.SEND" />
+                <action android:name="android.intent.action.SEND_MULTIPLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="*/*" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".extensions.SendMessage"
+            android:configChanges="orientation"
+            android:label="Send message"
+            android:noHistory="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/BaseTheme"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action." />
+                <action android:name="android.intent.action.SEND" />
+                <action android:name="android.intent.action.SEND_MULTIPLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="*/*" />
+            </intent-filter>
+        </activity>
+
+    </application>
+</manifest>

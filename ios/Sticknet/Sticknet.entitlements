@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>aps-environment</key>
+	<string>development</string>
+	<key>com.apple.developer.associated-domains</key>
+	<array>
+		<string>applinks:download.sticknet.org</string>
+		<string>applinks:group-invitation.sticknet.org</string>
+		<string>applinks:invite.sticknet.org</string>
+		<string>applinks:com.stiiick.app.goo.gl</string>
+	</array>
+	<key>com.apple.developer.default-data-protection</key>
+	<string>NSFileProtectionComplete</string>
+	<key>com.apple.security.application-groups</key>
+	<array>
+		<string>group.com.stiiick</string>
+		<string>group.com.stiiick.debug</string>
+	</array>
+</dict>
+</plist>

@@ -1,0 +1,3 @@
+Contacts are no longer uploaded or stored on server.
+
+The latest version includes bug fixes and performance improvements.

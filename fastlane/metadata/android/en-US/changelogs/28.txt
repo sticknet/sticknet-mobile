@@ -1,0 +1,1 @@
+The latest version includes bug fixes and performance improvements.

@@ -1,0 +1,191 @@
+################## iOS ##################
+
+platform :ios do
+  before_all do
+    setup_circle_ci # should make a check to run only if in CI
+  end
+
+
+  lane :release do
+#     increment_build_number
+#     increment_version_number(bump_type: "minor") # needs plugin
+
+     match(
+        app_identifier: ["com.stiiick", "com.stiiick.ShareExtension", "com.stiiick.NotificationServiceExtension"],
+        type: "appstore",
+        output_path: "./profiles"
+#       readonly: is_ci
+    )
+    disable_automatic_code_signing(path: "./ios/Sticknet.xcodeproj")
+          update_project_provisioning(
+          xcodeproj: './ios/Sticknet.xcodeproj',
+          profile: './profiles/AppStore_com.stiiick.mobileprovision', # optional if you use sigh
+          target_filter: "Sticknet", # matches name or type of a target
+          build_configuration: "Release",
+          code_signing_identity: 'iPhone Distribution' # optionally specify the codesigning identity
+      )
+       update_project_provisioning(
+          xcodeproj: './ios/Sticknet.xcodeproj',
+          profile: './profiles/AppStore_com.stiiick.ShareExtension.mobileprovision', # optional if you use sigh
+          target_filter: "ShareExtension", # matches name or type of a target
+          build_configuration: "Release",
+          code_signing_identity: 'iPhone Distribution' # optionally specify the codesigning identity
+      )
+           update_project_provisioning(
+          xcodeproj: './ios/Sticknet.xcodeproj',
+          profile: './profiles/AppStore_com.stiiick.NotificationServiceExtension.mobileprovision', # optional if you use sigh
+          target_filter: "NotificationServiceExtension", # matches name or type of a target
+          build_configuration: "Release",
+          code_signing_identity: 'iPhone Distribution' # optionally specify the codesigning identity
+      )
+
+    produce(
+        app_identifier: "com.stiiick.ShareExtension",
+        app_name: "ShareExtension",
+        skip_itc: true
+    )
+    produce(
+        app_identifier: "com.stiiick.NotificationServiceExtension",
+        app_name: "NotificationServiceExtension",
+        skip_itc: true
+    )
+        match(
+        app_identifier: ["com.stiiick", "com.stiiick.ShareExtension", "com.stiiick.NotificationServiceExtension"],
+        type: "appstore",
+    )
+    build_app(scheme: "Sticknet", workspace: "./ios/Sticknet.xcworkspace", export_method: "app-store",
+            export_options: {
+                provisioningProfiles: {
+                    "com.stiiick" => "match AppStore com.stiiick",
+                    "com.stiiick.ShareExtension" => "match AppStore com.stiiick.ShareExtension",
+                    "com.stiiick.NotificationServiceExtension" => "match AppStore com.stiiick.NotificationServiceExtension"
+                }
+        })
+   enable_automatic_code_signing(path: "./ios/Sticknet.xcodeproj")
+  api_key = app_store_connect_api_key(
+    key_id: "8T2666PZLH",
+    issuer_id: "36bf6459-d238-4f5f-b7f2-346801adff9e",
+    key_filepath: "fastlane/fastlane_ios_key.p8",
+    duration: 1200, # optional (maximum 1200)
+    in_house: false # optional but may be required if using match/sigh
+  )
+    upload_to_app_store(
+        api_key: api_key,
+        skip_screenshots: true,
+        force: true,
+        precheck_include_in_app_purchases: false,
+        submission_information: {add_id_info_uses_idfa: false},
+        submit_for_review: true
+    )
+  end
+
+
+  desc "Description of what the lane does"
+  lane :adhoc do
+#     produce(
+#         app_identifier: "com.stiiick.ShareExtension",
+#         app_name: "ShareExtension",
+#         skip_itc: true
+#     )
+#     produce(
+#         app_identifier: "com.stiiick.NotificationServiceExtension",
+#         app_name: "NotificationServiceExtension",
+#         skip_itc: true
+#     )
+    match(
+        app_identifier: ["com.stiiick", "com.stiiick.ShareExtension", "com.stiiick.NotificationServiceExtension"],
+        type: "adhoc",
+        output_path: "./profiles"
+#         readonly: is_ci
+    )
+    disable_automatic_code_signing(path: "./ios/Sticknet.xcodeproj")
+          update_project_provisioning(
+          xcodeproj: './ios/Sticknet.xcodeproj',
+          profile: './profiles/AdHoc_com.stiiick.mobileprovision', # optional if you use sigh
+          target_filter: "Sticknet", # matches name or type of a target
+          build_configuration: "Release",
+          code_signing_identity: 'iPhone Distribution' # optionally specify the codesigning identity
+      )
+       update_project_provisioning(
+          xcodeproj: './ios/Sticknet.xcodeproj',
+          profile: './profiles/AdHoc_com.stiiick.ShareExtension.mobileprovision', # optional if you use sigh
+          target_filter: "ShareExtension", # matches name or type of a target
+          build_configuration: "Release",
+          code_signing_identity: 'iPhone Distribution' # optionally specify the codesigning identity
+      )
+           update_project_provisioning(
+          xcodeproj: './ios/Sticknet.xcodeproj',
+          profile: './profiles/AdHoc_com.stiiick.NotificationServiceExtension.mobileprovision', # optional if you use sigh
+          target_filter: "NotificationServiceExtension", # matches name or type of a target
+          build_configuration: "Release",
+          code_signing_identity: 'iPhone Distribution' # optionally specify the codesigning identity
+      )
+  build_app(scheme: "Sticknet", workspace: "./ios/Sticknet.xcworkspace", export_method: "ad-hoc",
+            export_options: {
+                provisioningProfiles: {
+                    "com.stiiick" => "match AdHoc com.stiiick",
+                    "com.stiiick.ShareExtension" => "match AdHoc com.stiiick.ShareExtension",
+                    "com.stiiick.NotificationServiceExtension" => "match AdHoc com.stiiick.NotificationServiceExtension"
+                }
+    	})
+   enable_automatic_code_signing(path: "./ios/Sticknet.xcodeproj")
+end
+
+  desc "Description of what the lane does"
+    lane :development do
+    produce(
+        app_identifier: "com.stiiick.ShareExtension",
+        app_name: "ShareExtension",
+        skip_itc: true
+    )
+    produce(
+        app_identifier: "com.stiiick.NotificationServiceExtension",
+        app_name: "NotificationServiceExtension",
+        skip_itc: true
+    )
+    match(
+        app_identifier: ["com.stiiick", "com.stiiick.ShareExtension", "com.stiiick.NotificationServiceExtension"],
+        type: "development",
+    )
+  build_app(scheme: "Sticknet", workspace: "./ios/Sticknet.xcworkspace", export_method: "development",
+            export_options: {
+                provisioningProfiles: {
+                    "com.stiiick" => "match Development com.stiiick",
+                    "com.stiiick.ShareExtension" => "match Development com.stiiick.ShareExtension",
+                    "com.stiiick.NotificationServiceExtension" => "match Development com.stiiick.NotificationServiceExtension"
+                }
+    	})
+end
+
+end
+
+################## ANDROID ##################
+
+platform :android do
+
+
+  lane :playstore do
+  gradle(
+    task: 'bundle',
+    build_type: 'Release',
+    project_dir: 'android/',
+  )
+  upload_to_play_store(
+    skip_upload_apk: true,
+    skip_upload_screenshots: true,
+#    track: 'internal',
+#    track_promote_to: 'production',
+#    track_promote_release_status: 'draft',
+    release_status: 'completed',
+  )
+  end
+
+  lane :apk do
+  gradle(
+    task: 'assemble',
+    build_type: 'Release',
+    project_dir: 'android/',
+  )
+  end
+
+end
