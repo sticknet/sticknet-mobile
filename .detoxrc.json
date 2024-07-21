@@ -1,0 +1,68 @@
+{
+    "testRunner": {
+    "$0": "jest",
+    "args": {
+      "config": "e2e/config.js",
+      "_": ["e2e"]
+    }
+  },
+  "apps": {
+    "ios.release": {
+      "name": "Sticknet",
+      "type": "ios.app",
+      "binaryPath": "ios/build/Build/Products/Release-iphonesimulator/Sticknet.app",
+      "build": "ENVFILE=.env.testing xcodebuild -workspace ios/Sticknet.xcworkspace -scheme Sticknet -sdk iphonesimulator -derivedDataPath ios/build"
+    },
+    "ios.debug": {
+      "name": "Sticknet",
+      "type": "ios.app",
+      "binaryPath": "ios/build/Build/Products/Debug-iphonesimulator/Sticknet Debug.app",
+      "build": "ENVFILE=.env.testing xcodebuild -workspace ios/Sticknet.xcworkspace -scheme Sticknet -sdk iphonesimulator -derivedDataPath ios/build"
+    },
+    "android.debug": {
+      "type": "android.apk",
+      "binaryPath": "android/app/build/outputs/apk/debug/app-debug.apk",
+      "build": "cd android && ENVFILE=.env.testing ./gradlew app:assembleDebug app:assembleAndroidTest -DtestBuildType=debug && cd .."
+    },
+    "android.release": {
+      "type": "android.apk",
+      "binaryPath": "android/app/build/outputs/apk/release/app-release.apk",
+      "build": "cd android && ENVFILE=.env.testing ./gradlew app:assembleRelease app:assembleAndroidTest -DtestBuildType=release && cd .."
+    }
+  },
+  "devices": {
+    "simulator": {
+      "type": "ios.simulator",
+      "device": {
+        "type": "iPhone 13"
+      }
+    },
+    "emulator": {
+      "type": "android.emulator",
+      "device": {
+        "avdName": "myavd-7"
+      }
+    }
+  },
+  "configurations": {
+    "ios.sim.release": {
+      "device": "simulator",
+      "app": "ios.release"
+    },
+    "ios.sim.debug": {
+      "device": "simulator",
+      "app": "ios.debug"
+    },
+    "android.emu.debug": {
+      "device": "emulator",
+      "app": "android.debug"
+    },
+    "android.emu.release": {
+      "device": "emulator",
+      "app": "android.release"
+    }
+  },
+  "compilerOptions": {
+    "target": "es6"
+  }
+}

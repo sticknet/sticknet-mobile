@@ -1,0 +1,8 @@
+e2e
+node_modules
+coverage
+android
+ios
+.eslintrc.json
+jest_setup/jest.setup.js
+/src/utils/camelize.js

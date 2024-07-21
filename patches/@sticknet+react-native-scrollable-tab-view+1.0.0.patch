@@ -1,0 +1,34 @@
+diff --git a/node_modules/@sticknet/react-native-scrollable-tab-view/DefaultTabBar.js b/node_modules/@sticknet/react-native-scrollable-tab-view/DefaultTabBar.js
+index 4cb92de..c70e102 100644
+--- a/node_modules/@sticknet/react-native-scrollable-tab-view/DefaultTabBar.js
++++ b/node_modules/@sticknet/react-native-scrollable-tab-view/DefaultTabBar.js
+@@ -1,5 +1,5 @@
+ const React = require('react');
+-const { ViewPropTypes } = ReactNative = require('react-native');
++import { ViewPropTypes } from 'deprecated-react-native-prop-types';
+ const PropTypes = require('prop-types');
+ const createReactClass = require('create-react-class');
+ const {
+diff --git a/node_modules/@sticknet/react-native-scrollable-tab-view/ScrollableTabBar.js b/node_modules/@sticknet/react-native-scrollable-tab-view/ScrollableTabBar.js
+index 5db3793..bcabba4 100644
+--- a/node_modules/@sticknet/react-native-scrollable-tab-view/ScrollableTabBar.js
++++ b/node_modules/@sticknet/react-native-scrollable-tab-view/ScrollableTabBar.js
+@@ -1,5 +1,5 @@
+ const React = require('react');
+-const { ViewPropTypes } = ReactNative = require('react-native');
++import { ViewPropTypes } from 'deprecated-react-native-prop-types';
+ const PropTypes = require('prop-types');
+ const createReactClass = require('create-react-class');
+ const {
+diff --git a/node_modules/@sticknet/react-native-scrollable-tab-view/index.js b/node_modules/@sticknet/react-native-scrollable-tab-view/index.js
+index 36213dd..7aee410 100644
+--- a/node_modules/@sticknet/react-native-scrollable-tab-view/index.js
++++ b/node_modules/@sticknet/react-native-scrollable-tab-view/index.js
+@@ -1,6 +1,6 @@
+ const React = require('react');
+ const { Component } = React;
+-const { ViewPropTypes } = ReactNative = require('react-native');
++import { ViewPropTypes } from 'deprecated-react-native-prop-types';
+ const createReactClass = require('create-react-class');
+ const PropTypes = require('prop-types');
+ const {

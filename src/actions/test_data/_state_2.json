@@ -1,0 +1,881 @@
+{
+  "auth": {
+    "isLoading": false,
+    "user": {
+      "id": "b6acc866-106c-4507-8d07-d856a8d6f3fb",
+      "oneTimeId": "87156d62-89cf-442d-8cc1-84e71b71569f",
+      "username": "charles_ala177",
+      "firebaseRef": "firebaseRefA",
+      "name": "Charles Alaniz",
+      "profilePicture": null,
+      "cover": null,
+      "status": null,
+      "color": "blue",
+      "birthDay": null,
+      "birthDayHidden": false,
+      "groupsCount": 2,
+      "email": null,
+      "imagesCount": 0,
+      "sharedCount": 1,
+      "notesCount": 0,
+      "albumsCount": 0,
+      "invitationsCount": 1,
+      "crCount": 1,
+      "profilePhotosCount": 0,
+      "blockedIds": [],
+      "connectionsCount": 0,
+      "dateJoined": "2022-09-12T14:32:49.173977+04:00",
+      "hasPassword": true,
+      "hasPasswordKey": false,
+      "phone": "+16501119999",
+      "dialCode": "+1",
+      "country": "US",
+      "nextPreKeyId": 70,
+      "highlightsIds": [],
+      "partyId": "456db3ac-4a9d-4bb3-81a2-7587c0ef23ec",
+      "selfPartyId": "1e7828fb-c76b-4fc4-9a89-c30f9b4fc0da",
+      "categories": {
+        "id": 1021,
+        "text": "Mwjjl8ivARAAGpABOVLCg+DUQ3fFFifXCfakw5Otgfg1h2z6HotqAM9Z3MfmtmlYI+JEFfO2C5tVVuNfHMNH5PTHCbPQ0IY51+g+WDa1IlROh1Q4aKALQTZalJVwu23RknErNN85zVXNRNiYXczddT3X/kxiRV+uQN27sZml+uJJyfuP6B751VQ3kS2hascdsBFHhOwD8q2+rEh9nOSsfrlH8X18B15JZZGG7yJwq8rCvBtcjB70V+dD4SxyyopaV8kcL89cGsWlgfEYclFDQvCfdA4lMZ9pLKyKBA==",
+        "stickId": "1e7828fb-c76b-4fc4-9a89-c30f9b4fc0da0",
+        "userId": "b6acc866-106c-4507-8d07-d856a8d6f3fb",
+        "nameOfUser": "Charles Alaniz",
+        "uri": "http://192.168.0.102:8000/media/CipherFiles/fc297d79-c26c-4076-9165-749b13fbeb8c",
+        "fileSize": 52,
+        "textLength": 52
+      },
+      "pntDevices": [
+        "ac7e940c-7d3a-4377-a9ca-adbb4b7ff1af"
+      ],
+      "hiddenImages": [],
+      "websiteLink": null,
+      "dayJoined": "September 2022",
+      "groupRequests": [],
+      "backupFrequency": null,
+      "donationReminder": "0",
+      "groupsIds": [
+        "bd8b43a7-66b4-4d1e-8ad0-043cb61cb49c",
+        "a0fd1199-d707-4d24-8b52-26dd41e57697"
+      ],
+      "connectionsIds": []
+    },
+    "errors": {},
+    "passwordUpdated": false,
+    "report_sent": false,
+    "isFirstTime": true,
+    "oneTimeId": null,
+    "testValue": null,
+    "finishedRegistration": true,
+    "isAuthenticated": true
+  },
+  "images": {
+    "649": {
+      "id": "649",
+      "user": {
+        "id": "b6acc866-106c-4507-8d07-d856a8d6f3fb",
+        "username": "charles_ala177",
+        "name": "Charles Alaniz",
+        "profilePicture": null,
+        "partyId": "456db3ac-4a9d-4bb3-81a2-7587c0ef23ec"
+      },
+      "uri": null,
+      "videoUri": null,
+      "thumbnail": null,
+      "album": null,
+      "albumCover": null,
+      "caption": "",
+      "location": null,
+      "group": null,
+      "timestamp": "2022-09-12T16:56:50.964579+04:00",
+      "notesCount": 0,
+      "likesCount": 0,
+      "liked": false,
+      "reaction": null,
+      "size": "S",
+      "groupsIds": [
+        "a0fd1199-d707-4d24-8b52-26dd41e57697"
+      ],
+      "connectionsIds": [],
+      "width": 1000,
+      "height": 1000,
+      "duration": 0,
+      "youtube": null,
+      "youtubeThumbnail": null,
+      "audioUri": null,
+      "audioDuration": 0,
+      "cipher": null,
+      "thumbCipher": null,
+      "audioCipher": null,
+      "stickId": "a0fd1199-d707-4d24-8b52-26dd41e576970",
+      "partyId": "a0fd1199-d707-4d24-8b52-26dd41e57697",
+      "fileSize": null,
+      "index": 0,
+      "ofTotal": 1,
+      "isProfile": false,
+      "textPhoto": null,
+      "blobs": [
+        {
+          "id": "957",
+          "uri": "http://192.168.0.102:8000/media/photos/11f50ec7-fbde-4f53-9bf7-75f46b7573f2",
+          "videoUri": null,
+          "thumbnail": null,
+          "size": "H",
+          "duration": 0,
+          "width": 251,
+          "height": 201,
+          "cipher": "Mwia9cfJBRADGpABRXTTuHLmIoFxtaOR3ReuHWPfiVglgIOT00XTHwQ9LlZbu1CDlPHUMHZjE4icDgt4HmdVfo5FRKdDXkrzv8ry1hPXLH/uOEnTTBYN296UN5FCpr4K896Pe90z0OJaxKWefHmrb7pnw3eVlLjygE6416BEIL5o3k44+DX5+55rjVd/UGdh02NtTHR1GpyYy17mq5of5q1rogGzL4970OCTz4j3cNqKq3ymI1WV0Rg6jfmBNuHgY6CA6nwZdDEoRNpCcjhHOoOvb27YP02PshZJDA==",
+          "thumbCipher": null,
+          "fileSize": [
+            48343
+          ],
+          "textPhoto": null,
+          "youtube": null,
+          "youtubeThumbnail": null,
+          "image": 649,
+          "albumCover": null
+        }
+      ],
+      "new": true
+    }
+  },
+  "imagesIds": {
+    "home": [
+      "649"
+    ],
+    "highlights": [],
+    "latestShared": [
+      "649"
+    ],
+    "SharedPhotos": [],
+    "hidden": [],
+    "favorites": [],
+    "a0fd1199-d707-4d24-8b52-26dd41e57697": [
+      "649"
+    ],
+    "shared": [
+      "649"
+    ]
+  },
+  "url": {
+    "albumsUrls": {},
+    "coversUrls": {},
+    "imagesUrls": {
+      "home": null
+    },
+    "notesUrl": null,
+    "usersUrl": null,
+    "youtubeUrl": null,
+    "selectedImagesUrl": null,
+    "notificationsUrl": null
+  },
+  "creating": {
+    "images": [],
+    "profileCover": null,
+    "caption": "",
+    "audio": null,
+    "audioDuration": null,
+    "cover": 0,
+    "captured": false,
+    "group": null,
+    "groups": [],
+    "connections": [],
+    "isProfile": false,
+    "usersIds": [],
+    "users": [],
+    "location": null,
+    "albumLocation": null,
+    "mentions": {}
+  },
+  "messages": {},
+  "members": {
+    "33436923-4d73-4929-9913-1c959b6cd5c6": {
+      "349fc4e4-b63b-4333-8462-3d5262d2ed4d": {
+        "id": "349fc4e4-b63b-4333-8462-3d5262d2ed4d",
+        "oneTimeId": "86ce0d83-6c6f-4db4-bcc1-9e454db461af",
+        "username": "ramoo",
+        "name": "Ramo",
+        "dialCode": "+971",
+        "phone": "+971551111112",
+        "color": "deeppink",
+        "profilePicture": null
+      },
+      "2302f788-1149-4fb6-8f92-c1e6648e8263": {
+        "id": "2302f788-1149-4fb6-8f92-c1e6648e8263",
+        "oneTimeId": "577647d0-854e-4933-8d51-f6d9c5078d51",
+        "username": "allanNey75",
+        "name": "Allan Neyman",
+        "dialCode": "+971",
+        "phone": "+971551111113",
+        "color": "darkred",
+        "profilePicture": null
+      }
+    },
+    "bd8b43a7-66b4-4d1e-8ad0-043cb61cb49c": {
+      "b6acc866-106c-4507-8d07-d856a8d6f3fb": {
+        "id": "b6acc866-106c-4507-8d07-d856a8d6f3fb",
+        "oneTimeId": "87156d62-89cf-442d-8cc1-84e71b71569f",
+        "username": "charles_ala177",
+        "name": "Charles Alaniz",
+        "dialCode": "+1",
+        "phone": "+16501119999",
+        "color": "blue",
+        "profilePicture": null
+      }
+    }
+  },
+  "groupRequests": {
+    "bd8b43a7-66b4-4d1e-8ad0-043cb61cb49c": {
+      "f2f8e9cc-bfb9-4e6f-8b31-ea53d4a59018": {
+        "id": "f2f8e9cc-bfb9-4e6f-8b31-ea53d4a59018",
+        "oneTimeId": "32d73ada-50da-4a62-b768-795049d1ae53",
+        "username": "ben_mey734",
+        "name": "Ben Meyers",
+        "color": "limegreen",
+        "dialCode": "+971",
+        "phone": "+971551111111",
+        "profilePicture": null,
+        "isConnected": true,
+        "requested": false
+      }
+    }
+  },
+  "activeUsers": {
+    "+971551111112": [],
+    "3537e5a9-4be9-4f14-afe9-bdc195182d5e": [
+      "349fc4e4-b63b-4333-8462-3d5262d2ed4d"
+    ],
+    "+16501119999": []
+  },
+  "mutingUsers": {
+    "+16501119999": []
+  },
+  "lastSeen": {
+    "+971551111112": {
+      "ec7edeb2-e2e9-46ea-99c2-77a2ef4fe8e8": {
+        "id": "ec7edeb2-e2e9-46ea-99c2-77a2ef4fe8e8",
+        "time": 1658155820202
+      },
+      "d3eab249-ccca-4e02-8223-f12d75e59c2e": {
+        "id": "d3eab249-ccca-4e02-8223-f12d75e59c2e",
+        "time": 1657976079436
+      }
+    },
+    "3537e5a9-4be9-4f14-afe9-bdc195182d5e": {
+      "349fc4e4-b63b-4333-8462-3d5262d2ed4d": {
+        "id": "349fc4e4-b63b-4333-8462-3d5262d2ed4d",
+        "time": 1662876927524
+      },
+      "577647d0-854e-4933-8d51-f6d9c5078d51": {
+        "id": "577647d0-854e-4933-8d51-f6d9c5078d51",
+        "time": 1662541307619
+      }
+    }
+  },
+  "joined": {},
+  "muted": {},
+  "archived": {},
+  "latestMessages": {
+    "messages": {},
+    "unread": {}
+  },
+  "groups": {
+    "bd8b43a7-66b4-4d1e-8ad0-043cb61cb49c": {
+      "id": "bd8b43a7-66b4-4d1e-8ad0-043cb61cb49c",
+      "chatId": "a56fdc15-4eee-4cf0-8e57-4d13edaa4b65",
+      "displayName": {
+        "id": 1030,
+        "text": "G2",
+        "stickId": "bd8b43a7-66b4-4d1e-8ad0-043cb61cb49c0",
+        "userId": "b6acc866-106c-4507-8d07-d856a8d6f3fb",
+        "nameOfUser": "Charles Alaniz",
+        "uri": null,
+        "fileSize": 0,
+        "textLength": 0,
+        "decrypted": true
+      },
+      "status": null,
+      "link": {
+        "id": 1031,
+        "text": "https://group-invitation.sticknet.org/AtZPubZBaxZW762C9",
+        "stickId": "bd8b43a7-66b4-4d1e-8ad0-043cb61cb49c0",
+        "userId": "b6acc866-106c-4507-8d07-d856a8d6f3fb",
+        "nameOfUser": "Charles Alaniz",
+        "uri": null,
+        "fileSize": 0,
+        "textLength": 0,
+        "decrypted": true
+      },
+      "linkApproval": true,
+      "linkEnabled": true,
+      "cover": null,
+      "admins": [
+        "b6acc866-106c-4507-8d07-d856a8d6f3fb"
+      ],
+      "owner": "b6acc866-106c-4507-8d07-d856a8d6f3fb",
+      "membersCount": 1,
+      "membersIds": [
+        "b6acc866-106c-4507-8d07-d856a8d6f3fb"
+      ],
+      "membersOtids": [
+        "87156d62-89cf-442d-8cc1-84e71b71569f"
+      ],
+      "membersAllIds": [
+        {
+          "id": "b6acc866-106c-4507-8d07-d856a8d6f3fb",
+          "oneTimeId": "87156d62-89cf-442d-8cc1-84e71b71569f"
+        }
+      ],
+      "temp_displayName": null,
+      "hasSharedPhotos": false,
+      "requestsCount": 1,
+      "timestamp": "2022-09-12T16:50:51.237778+04:00"
+    },
+    "a0fd1199-d707-4d24-8b52-26dd41e57697": {
+      "id": "a0fd1199-d707-4d24-8b52-26dd41e57697",
+      "chatId": "5d61d639-7847-4d7d-bffb-81da648bbf41",
+      "displayName": {
+        "id": 1035,
+        "text": "G3",
+        "stickId": "a0fd1199-d707-4d24-8b52-26dd41e576970",
+        "userId": "b6acc866-106c-4507-8d07-d856a8d6f3fb",
+        "nameOfUser": "Charles Alaniz",
+        "uri": null,
+        "fileSize": 0,
+        "textLength": 0,
+        "decrypted": true
+      },
+      "status": null,
+      "link": null,
+      "linkApproval": false,
+      "linkEnabled": false,
+      "cover": null,
+      "admins": [
+        "b6acc866-106c-4507-8d07-d856a8d6f3fb"
+      ],
+      "owner": "b6acc866-106c-4507-8d07-d856a8d6f3fb",
+      "membersCount": 1,
+      "membersIds": [
+        "b6acc866-106c-4507-8d07-d856a8d6f3fb"
+      ],
+      "membersOtids": [
+        "87156d62-89cf-442d-8cc1-84e71b71569f"
+      ],
+      "membersAllIds": [
+        {
+          "id": "b6acc866-106c-4507-8d07-d856a8d6f3fb",
+          "oneTimeId": "87156d62-89cf-442d-8cc1-84e71b71569f"
+        },
+        {
+          "id": "6384b8ec-eb78-4d41-b8e8-317556073cd6",
+          "oneTimeId": "74bdd653-7c40-4375-af37-abd3badac1a9"
+        }
+      ],
+      "temp_displayName": null,
+      "hasSharedPhotos": false,
+      "requestsCount": 0,
+      "timestamp": "2022-09-12T16:56:35.351019+04:00"
+    }
+  },
+  "invitations": {
+    "2022-09-12T16:48:50.140905+04:00": {
+      "id": 55,
+      "fromUser": {
+        "id": "f2f8e9cc-bfb9-4e6f-8b31-ea53d4a59018",
+        "name": "Ben Meyers",
+        "profilePicture": null
+      },
+      "group": {
+        "id": "bea02375-de49-44b2-beaa-75cb6466359e",
+        "chatId": "084a02f3-b513-4fd3-a893-848a0d14d487",
+        "displayName": {
+          "id": 1026,
+          "text": "G1",
+          "stickId": "bea02375-de49-44b2-beaa-75cb6466359e0",
+          "userId": "f2f8e9cc-bfb9-4e6f-8b31-ea53d4a59018",
+          "nameOfUser": "Ben Meyers",
+          "uri": null,
+          "fileSize": 0,
+          "textLength": 0,
+          "decrypted": true
+        },
+        "status": null,
+        "link": null,
+        "linkApproval": false,
+        "linkEnabled": false,
+        "cover": null,
+        "admins": [
+          "f2f8e9cc-bfb9-4e6f-8b31-ea53d4a59018"
+        ],
+        "owner": "f2f8e9cc-bfb9-4e6f-8b31-ea53d4a59018",
+        "membersCount": 1,
+        "membersIds": [
+          "f2f8e9cc-bfb9-4e6f-8b31-ea53d4a59018"
+        ],
+        "membersOtids": [
+          "32d73ada-50da-4a62-b768-795049d1ae53"
+        ],
+        "membersAllIds": [
+          {
+            "id": "f2f8e9cc-bfb9-4e6f-8b31-ea53d4a59018",
+            "oneTimeId": "32d73ada-50da-4a62-b768-795049d1ae53"
+          },
+          {
+            "id": "b6acc866-106c-4507-8d07-d856a8d6f3fb",
+            "oneTimeId": "87156d62-89cf-442d-8cc1-84e71b71569f"
+          }
+        ],
+        "temp_displayName": null,
+        "hasSharedPhotos": false,
+        "requestsCount": 0,
+        "timestamp": "2022-09-12T16:48:49.985253+04:00"
+      },
+      "displayName": {
+        "id": 1027,
+        "text": "Mwjk/Ia0BRAAGhAXWohi7neVIcDs9D+Dp4rmx4h+JKiCQ2nX+dfEvttvsMITFe7gUA10BQE/0R5ruoJqcTYHDedfg0In6KaOUBHKErQIewRxNfSVa0a5AToziw==",
+        "stickId": "bea02375-de49-44b2-beaa-75cb6466359e0",
+        "userId": "f2f8e9cc-bfb9-4e6f-8b31-ea53d4a59018",
+        "nameOfUser": "Ben Meyers",
+        "uri": null,
+        "fileSize": 0,
+        "textLength": 0
+      },
+      "timestamp": "2022-09-12T16:48:50.140905+04:00",
+      "invitation": true
+    }
+  },
+  "connectionRequests": {
+    "2022-09-12T16:54:49.921787+04:00": {
+      "id": 3,
+      "fromUser": {
+        "id": "f2f8e9cc-bfb9-4e6f-8b31-ea53d4a59018",
+        "oneTimeId": "32d73ada-50da-4a62-b768-795049d1ae53",
+        "username": "ben_mey734",
+        "name": "Ben Meyers",
+        "profilePicture": null,
+        "phone": "+971551111111"
+      },
+      "timestamp": "2022-09-12T16:54:49.921787+04:00",
+      "connectionRequest": true
+    }
+  },
+  "albums": {
+    "a0fd1199-d707-4d24-8b52-26dd41e57697": {
+      "139": {
+        "id": 139,
+        "title": {
+          "id": 1037,
+          "text": "Summer 2022",
+          "stickId": "a0fd1199-d707-4d24-8b52-26dd41e576970",
+          "userId": "6384b8ec-eb78-4d41-b8e8-317556073cd6",
+          "nameOfUser": "Tom Alter",
+          "uri": null,
+          "fileSize": 0,
+          "textLength": 0,
+          "decrypted": true
+        },
+        "description": null,
+        "group": {
+          "id": "a0fd1199-d707-4d24-8b52-26dd41e57697",
+          "owner": "b6acc866-106c-4507-8d07-d856a8d6f3fb",
+          "membersIds": [
+            "b6acc866-106c-4507-8d07-d856a8d6f3fb",
+            "6384b8ec-eb78-4d41-b8e8-317556073cd6"
+          ]
+        },
+        "timestamp": "2022-09-13T09:56:18.533180+04:00",
+        "date": {
+          "id": 1038,
+          "text": "13-9-2022",
+          "stickId": "a0fd1199-d707-4d24-8b52-26dd41e576970",
+          "userId": "6384b8ec-eb78-4d41-b8e8-317556073cd6",
+          "nameOfUser": "Tom Alter",
+          "uri": null,
+          "fileSize": 0,
+          "textLength": 0
+        },
+        "location": null,
+        "notesCount": 0,
+        "userId": "6384b8ec-eb78-4d41-b8e8-317556073cd6",
+        "nameOfUser": "Tom Alter",
+        "reaction": null,
+        "cover": {
+          "uri": "http://192.168.0.102:8000/media/photos/fdddb779-1548-4c8b-b00b-35db8d9e5cd4",
+          "id": 958,
+          "cipher": "MwiTveT9AhATGpABBR0kd/U2EsGiBeJEVswkKbtVBAWcCSQl2Z8xP8SLFdVQqMLVaWIsPUbHZvju/c4DrV/yXWSKcwrjHdBd7NdNJ6/VVdk4zbLxbMjmvCGaJMiYvg+0r5fBKBreEJEP3wr0a63XR+nMd4/9XmoAs9EVWP5VoaoUUMVDGSgjiH8yJsAfBuhtsHE4Ncn05XhAiwoEPVuU/+Q7+u4USDIwtny4tNPaTiu6WebQ2b0qRe/Sz3zUTQxgvY57XluxuaPjuXufymX21lDh4WhR3yy62ASJAg==",
+          "stickId": "a0fd1199-d707-4d24-8b52-26dd41e576970",
+          "fileSize": [
+            251176
+          ],
+          "duration": 0,
+          "user": {
+            "id": "6384b8ec-eb78-4d41-b8e8-317556073cd6",
+            "name": "Tom Alter"
+          }
+        },
+        "likesCount": 0,
+        "liked": false,
+        "imagesCount": 2
+      }
+    }
+  },
+  "notes": {},
+  "appState": "active",
+  "fetched": {
+    "groups": {},
+    "albums": {},
+    "albumImages": {},
+    "notes": false,
+    "justCreated": {},
+    "profiles": {},
+    "members": {},
+    "groupRequests": {
+      "bd8b43a7-66b4-4d1e-8ad0-043cb61cb49c": true
+    },
+    "notifications": true,
+    "unreadNotifications": true,
+    "sharedByOthers": false,
+    "home": true,
+    "notificationsUnreadCount": 0,
+    "profileImages": false
+  },
+  "invitedMembers": {},
+  "screenData": {},
+  "uploadProgress": {
+    "total": 0,
+    "current": 0,
+    "info": "",
+    "percent": 0,
+    "hasVideo": false,
+    "finishingUp": false
+  },
+  "notifications": {
+    "672": {
+      "id": 672,
+      "fromUser": {
+        "id": "6384b8ec-eb78-4d41-b8e8-317556073cd6",
+        "name": "Tom Alter",
+        "profilePicture": null,
+        "phone": "+971551111113"
+      },
+      "toUser": {},
+      "image": null,
+      "album": null,
+      "group": {
+        "id": "a0fd1199-d707-4d24-8b52-26dd41e57697",
+        "displayName": {
+          "id": 1035,
+          "text": "Mwia9cfJBRAAGhCT4hN3Z9901rIhL8acHwf3IWwMGbskp8Af60t8WXr6GBI9BGc0Z0aSB4Z9FhhC9LVgevL8I9CaH864yadQ7F7jRbTyyP3OwehZ1xwNf3TqDg==",
+          "stickId": "a0fd1199-d707-4d24-8b52-26dd41e576970",
+          "userId": "b6acc866-106c-4507-8d07-d856a8d6f3fb",
+          "nameOfUser": "Charles Alaniz",
+          "uri": null,
+          "fileSize": 0,
+          "textLength": 0
+        },
+        "cover": null
+      },
+      "reaction": null,
+      "channel": "group_channel",
+      "body": "Tom Alter has joined \"G3\"",
+      "read": true,
+      "isReply": null,
+      "replyTo": null,
+      "noteId": null,
+      "timestamp": "2022-09-12T16:56:45.857504+04:00",
+      "imagesIds": [],
+      "stickId": "a0fd1199-d707-4d24-8b52-26dd41e576970",
+      "isLike": false,
+      "blob": null,
+      "blobsLength": 0,
+      "decrypted": true
+    },
+    "676": {
+      "id": 676,
+      "fromUser": {
+        "id": "6384b8ec-eb78-4d41-b8e8-317556073cd6",
+        "name": "Tom Alter",
+        "profilePicture": null,
+        "phone": "+971551111113"
+      },
+      "toUser": {},
+      "image": {
+        "id": "649",
+        "user": {
+          "id": "b6acc866-106c-4507-8d07-d856a8d6f3fb",
+          "username": "charles_ala177",
+          "name": "Charles Alaniz",
+          "profilePicture": null,
+          "partyId": "456db3ac-4a9d-4bb3-81a2-7587c0ef23ec"
+        },
+        "uri": null,
+        "thumbnail": null,
+        "album": null,
+        "groupsIds": [
+          "a0fd1199-d707-4d24-8b52-26dd41e57697"
+        ],
+        "duration": 0,
+        "youtubeThumbnail": null,
+        "cipher": null,
+        "thumbCipher": null,
+        "stickId": "a0fd1199-d707-4d24-8b52-26dd41e576970",
+        "fileSize": null,
+        "textPhoto": null
+      },
+      "album": null,
+      "group": null,
+      "reaction": null,
+      "channel": "note_channel",
+      "body": "Tom Alter likes your post",
+      "read": false,
+      "isReply": null,
+      "replyTo": null,
+      "noteId": null,
+      "timestamp": "2022-09-12T16:58:08.826427+04:00",
+      "imagesIds": [],
+      "stickId": "a0fd1199-d707-4d24-8b52-26dd41e576970",
+      "isLike": true,
+      "blob": {
+        "id": 957,
+        "uri": "http://192.168.0.102:8000/media/photos/11f50ec7-fbde-4f53-9bf7-75f46b7573f2",
+        "thumbnail": "http://192.168.0.102:8000/media/photos/11f50ec7-fbde-4f53-9bf7-75f46b7573f2",
+        "youtubeThumbnail": null,
+        "cipher": "Mwia9cfJBRADGpABRXTTuHLmIoFxtaOR3ReuHWPfiVglgIOT00XTHwQ9LlZbu1CDlPHUMHZjE4icDgt4HmdVfo5FRKdDXkrzv8ry1hPXLH/uOEnTTBYN296UN5FCpr4K896Pe90z0OJaxKWefHmrb7pnw3eVlLjygE6416BEIL5o3k44+DX5+55rjVd/UGdh02NtTHR1GpyYy17mq5of5q1rogGzL4970OCTz4j3cNqKq3ymI1WV0Rg6jfmBNuHgY6CA6nwZdDEoRNpCcjhHOoOvb27YP02PshZJDA==",
+        "thumbCipher": null,
+        "duration": 0,
+        "fileSize": [
+          48343
+        ],
+        "textPhoto": null
+      },
+      "blobsLength": 1,
+      "decrypted": true
+    }
+  },
+  "errors": {
+    "username": null,
+    "password1": null,
+    "password2": null,
+    "password3": null,
+    "password": null,
+    "email": null,
+    "error": null,
+    "login": null,
+    "register": null,
+    "code": null,
+    "album": null,
+    "reset": null,
+    "groupCreate": null,
+
+
+    "passwordError": null
+  },
+  "progress": {
+    "update": false,
+    "loading": false,
+    "text": "Stick successful!",
+    "albumStick": null,
+    "activity": false,
+    "error": false,
+    "refresh": false
+  },
+  "routes": {
+    "prev": "Notes-Home",
+    "current": "Home"
+  },
+  "transparent": false,
+  "viewableVideo": {
+    "id": null
+  },
+  "videosCache": {
+    "ids": []
+  },
+  "audioCache": {
+    "ids": []
+  },
+  "photosCache": {
+    "957": {
+      "uri": "assets-library://asset/asset.(null)?id=F766797F-DA55-4FBA-9F79-1E6A3FF0CE64&ext=(null)",
+      "id": "957"
+    },
+    "ids": [
+      "957"
+    ],
+    "note161": {
+      "uri": "file:///Users/omar/Library/Developer/CoreSimulator/Devices/F5B04D36-36FE-4FE1-BED4-6673CFD085E4/data/Containers/Data/Application/133FF21E-2D1E-48B2-9A1D-DA55E8ECBB02/tmp/RNSketchCanvas/7941288.png",
+      "id": "note161"
+    }
+  },
+  "download": {},
+  "audioDownload": {},
+  "chatNotificationsId": {},
+  "sticksNotificationsId": {},
+  "albumSticksNotificationsId": {},
+  "sharedPhotosNotificationsId": [],
+  "albumsNotificationsId": {},
+  "invitationsNotificationsId": {},
+  "groupsNotificationsId": [],
+  "connReqNotificationsId": [],
+  "modal": {
+    "stickModal": {},
+    "donationModal": false
+  },
+  "noteAnimations": {},
+  "orientation": "PORTRAIT",
+  "viewableItem": {
+    "id": null
+  },
+  "recentEmojis": {
+    "😃": "😃",
+    "😁": "😁",
+    "😊": "😊",
+    "😆": "😆",
+    "😎": "😎"
+  },
+  "keyboardHeight": 0,
+  "selectedImages": {},
+  "connections": {
+    "+971551111111": {
+      "id": "f2f8e9cc-bfb9-4e6f-8b31-ea53d4a59018",
+      "oneTimeId": "32d73ada-50da-4a62-b768-795049d1ae53",
+      "username": "ben_mey734",
+      "name": "Ben Meyers",
+      "color": "limegreen",
+      "dialCode": "+971",
+      "phone": "+971551111111",
+      "profilePicture": null,
+      "isConnected": true,
+      "requested": false
+    },
+    "+971551111113": {
+      "id": "6384b8ec-eb78-4d41-b8e8-317556073cd6",
+      "oneTimeId": "74bdd653-7c40-4375-af37-abd3badac1a9",
+      "username": "tom_alt372",
+      "name": "Tom Alter",
+      "color": "red",
+      "dialCode": "+971",
+      "phone": "+971551111113",
+      "profilePicture": null,
+      "isConnected": true,
+      "requested": false
+    }
+  },
+  "connectionsId": {
+    "f2f8e9cc-bfb9-4e6f-8b31-ea53d4a59018": {
+      "id": "f2f8e9cc-bfb9-4e6f-8b31-ea53d4a59018",
+      "oneTimeId": "32d73ada-50da-4a62-b768-795049d1ae53",
+      "username": "ben_mey734",
+      "name": "Ben Meyers",
+      "color": "limegreen",
+      "dialCode": "+971",
+      "phone": "+971551111111",
+      "profilePicture": null,
+      "isConnected": true,
+      "requested": false
+    },
+    "6384b8ec-eb78-4d41-b8e8-317556073cd6": {
+      "id": "6384b8ec-eb78-4d41-b8e8-317556073cd6",
+      "oneTimeId": "74bdd653-7c40-4375-af37-abd3badac1a9",
+      "username": "tom_alt372",
+      "name": "Tom Alter",
+      "color": "red",
+      "dialCode": "+971",
+      "phone": "+971551111113",
+      "profilePicture": null,
+      "isConnected": true,
+      "requested": false
+    }
+  },
+  "app": {
+    "version": "3.3.0.328",
+    "justSent": [],
+    "videosSent": [],
+    "noUsersFound": false,
+    "chatInputHeight": 0,
+    "camcording": false,
+    "confirmNumber": null,
+    "phone": "",
+    "lastCategoriesSync": 1662978776847,
+    "imagesUrls": {},
+    "chatBgColorIndex": 0,
+    "chatBg": 0,
+    "shouldReqContactsPermission": true,
+    "requestSavePasswordCount": 0,
+    "seenPasswordModal": true,
+    "seenBackupModal": false,
+    "askedAutoBackup": false,
+    "contactsPermission": "granted",
+    "notificationsPermission": "granted",
+    "loginTime": null,
+    "groupSort": "oldest",
+    "chatLoginTime": {
+      "+16501119999": 1662978771196,
+      "05ca5768-af12-4ccf-933e-385d903a5ac3": 1662978858491
+    },
+    "chatBackupTimestamp": 0,
+    "chatBackupRestored": false,
+    "initialized": true,
+    "deviceOneTimeId": null,
+    "chatDeviceId": null,
+    "currentDeviceId": "ac7e940c-7d3a-4377-a9ca-adbb4b7ff1af",
+    "blocked_me": [],
+    "initComplete": true,
+    "secondPreKeysSet": null
+  },
+  "videosUpload": {
+    "done": []
+  },
+  "pendingSessions": {
+    "6b4f9da8-9a2c-418b-835a-c4b78c38a4d50": "6b4f9da8-9a2c-418b-835a-c4b78c38a4d50"
+  },
+  "justRefreshed": false,
+  "activeGroups": [
+    "a56fdc15-4eee-4cf0-8e57-4d13edaa4b65",
+    "5d61d639-7847-4d7d-bffb-81da648bbf41"
+  ],
+  "appTemp": {
+    "isGeneratingKeys": false,
+    "validUsername": {},
+    "searching": false,
+    "bgNotification": {},
+    "progressModal": false,
+    "country": {
+      "name": "United States",
+      "dialCode": "+1",
+      "code": "US"
+    },
+    "refreshingHome": false,
+    "playingAudio": null,
+    "readingCameraAlbums": false,
+    "cameraAlbums": [
+      {
+        "uri": "assets-library://asset/asset.(null)?id=F766797F-DA55-4FBA-9F79-1E6A3FF0CE64&ext=(null)",
+        "title": "Camera Roll",
+        "assetCount": 1
+      },
+      {
+        "uri": "assets-library://asset/asset.(null)?id=84AC7042-64D0-4168-94FE-441F63EEBF56&ext=(null)",
+        "title": "Stick Photos",
+        "assetCount": 1
+      }
+    ],
+    "devices": [],
+    "justCreatedGroup": null,
+    "justRequestedSavePassword": false,
+    "finishingUp": false,
+    "deleteImageHorizontal": false,
+    "groupLink": null,
+    "isConnected": true,
+    "chatTargetIsBlocked": false
+  },
+  "categories": {},
+  "categoriesIds": {},
+  "categoriesDeletedIds": [],
+  "refreshEntities": {},
+  "blocked": {},
+  "hiddenImagesTemp": [],
+  "hiddenImages": {},
+  "users": {},
+  "chatActions": {
+    "+16501119999": {}
+  }
+}
