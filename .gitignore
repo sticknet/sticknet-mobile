@@ -35,7 +35,6 @@ local.properties
 .cxx/
 *.keystore
 /android/keystore.properties
-/android/app/google-services.json
 !debug.keystore
 
 # node.js
@@ -64,8 +63,6 @@ fastlane/fastlane_ios_key.p8
 # Ruby / CocoaPods
 /ios/Pods/
 /vendor/bundle/
-/ios/Sticknet/Firebase/GoogleService-Info-Debug.plist
-/ios/Sticknet/Firebase/GoogleService-Info-Release.plist
 
 # Temporary files created by Metro to check the health of the file watcher
 .metro-health-check*
