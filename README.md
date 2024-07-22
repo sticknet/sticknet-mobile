@@ -2,7 +2,7 @@
 
 Sticknet is a cloud storage with an integrated social network. Sticknet is fully end-to-end encrypted and its storage is 
 decentralized. You can use Sticknet to backup your files, photos and important notes
-securely in your private Vault, and access them easily from any of your device. In addition, Sticknet included
+securely in your private Vault, and access them easily from any of your devices. In addition, Sticknet includes
 social features to maximize your productivity including groups creation, connecting with other users, private messenger,
 and shared albums.
 
@@ -32,11 +32,46 @@ Sticknet's [web version](https://github.com/sticknet/sticknet-web) is open-sourc
 
 ## Contributing
 
-We welcome contributions to Sticknet. Please read our [Contributing Guidelines](CONTRIBUTING.md) for more details.
+We welcome contributions to Sticknet.
+
+### Prerequisites
+
+- Node (>= 18)
+- Ruby (>= 2.7.6)
+
+### Setup
+
+1. Git clone: `git clone git@github.com:sticknet/sticknet-mobile.git && cd sticknet-mobile`
+2. Install node modules: `yarn`
+
+
+### iOS
+
+1. Install iOS pods: `cd ios && pod install && cd ..`
+2. `react-native run-ios`
+
+### Android
+
+1. And keystore.properties file at `sticknet-mobile/android/keystore.properties` with the following content:
+```
+APP_UPLOAD_STORE_FILE=debug.keystore
+APP_UPLOAD_KEY_ALIAS=androiddebugkey
+APP_UPLOAD_STORE_PASSWORD=android
+APP_UPLOAD_KEY_PASSWORD=android
+```
+2. Start metro: `react-native start`
+3. Run app on android device (new terminal window): `react-native run-android`
+
+### Testing
+
+- Run tests: `yarn test`
+- Run lint: `yarn lint-fix`
+
+### E2E Tests
+
+1. Build for iOS simulator: `detox build --configuration ios.sim.debug`
+2. Run: `detox test --configuration ios.sim.debug`
 
 ## Contact Us
 
 You can email us as at contact@sticknet.org
-
-## License
-
