@@ -30,7 +30,7 @@ if (__DEV__) {
 
 PushNotification.configure({requestPermissions: false});
 
-const isLoggedIn = async (): Promise<void> => {
+const isLoggedIn = async () => {
     const res = await AsyncStorage.multiGet([
         '@userId',
         '@loggedIn',
@@ -90,7 +90,7 @@ if (!__DEV__) {
     });
 }
 
-setJSExceptionHandler(async (error: Error, isFatal: boolean) => {
+setJSExceptionHandler(async (error, isFatal) => {
     if (isFatal) {
         const body = {
             string: error.toString(),

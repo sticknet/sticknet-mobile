@@ -11,13 +11,13 @@
       "name": "Sticknet",
       "type": "ios.app",
       "binaryPath": "ios/build/Build/Products/Release-iphonesimulator/Sticknet.app",
-      "build": "ENVFILE=.env.testing xcodebuild -workspace ios/Sticknet.xcworkspace -scheme Sticknet -sdk iphonesimulator -derivedDataPath ios/build"
+      "build": "ENVFILE=.env.testing xcodebuild -workspace ios/Sticknet.xcworkspace -scheme Sticknet -configuration Release -sdk iphonesimulator -derivedDataPath ios/build"
     },
     "ios.debug": {
-      "name": "Sticknet",
+      "name": "Sticknet Debug",
       "type": "ios.app",
       "binaryPath": "ios/build/Build/Products/Debug-iphonesimulator/Sticknet Debug.app",
-      "build": "ENVFILE=.env.testing xcodebuild -workspace ios/Sticknet.xcworkspace -scheme Sticknet -sdk iphonesimulator -derivedDataPath ios/build"
+      "build": "ENVFILE=.env.testing xcodebuild -workspace ios/Sticknet.xcworkspace -scheme Sticknet -configuration Debug -sdk iphonesimulator -derivedDataPath ios/build"
     },
     "android.debug": {
       "type": "android.apk",
