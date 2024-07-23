@@ -9,7 +9,7 @@
     "test": "jest",
     "test-ci": "jest --maxWorkers 2",
     "lint": "eslint .",
-    "lint-fix": "eslint . --fix",
+    "lint-fix": "eslint . --fix --quiet",
     "lint-quiet": "eslint . --quiet",
     "detox-build-ios": "detox build --configuration ios.sim.debug",
     "detox-test-ios": "detox test --configuration ios.sim.debug",

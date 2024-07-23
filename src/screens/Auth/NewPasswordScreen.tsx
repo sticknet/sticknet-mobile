@@ -81,9 +81,9 @@ class NewPasswordScreen extends Component<NewPasswordScreenProps, NewPasswordScr
                 password,
                 authId: this.props.route.params.authId,
                 callback: async () => {
+                    globalData.hideTabBar = false;
+                    this.props.navigation.setParams({hideTabBar: false});
                     if (Platform.OS === 'ios') {
-                        globalData.hideTabBar = false;
-                        this.props.navigation.setParams({hideTabBar: false});
                         setTimeout(() => {
                             this.props.navigation.reset({
                                 index: 0,

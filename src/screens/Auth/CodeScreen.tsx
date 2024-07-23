@@ -97,8 +97,11 @@ class CodeScreen extends Component<CodeScreenProps, CodeScreenState> {
                     email: this.authId as string,
                     code,
                     user: this.props.user,
-                    loginCallback: () =>
-                        this.props.navigation.replace('PasswordLogin', {authId: this.authId as string}),
+                    loginCallback: () => {
+                        globalData.hideTabBar = true;
+                        this.props.navigation.setParams({hideTabBar: true});
+                        this.props.navigation.replace('PasswordLogin', {authId: this.authId as string});
+                    },
                     registerCallback: () =>
                         this.props.navigation.reset({
                             index: 0,

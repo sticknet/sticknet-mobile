@@ -267,7 +267,6 @@ export function login({password, authId, callback}: TLoginParams) {
                 const connResponse = await axios.get(`${URL}/api/connections/`, config);
                 await dispatch({type: connections.FETCH_CONNECTIONS_ID, payload: connResponse.data});
                 await dispatch({type: auth.UPDATE_USER_CONNECTIONS, payload: connResponse.data});
-
                 callback();
             } else {
                 dispatch({type: progress.END_LOADING});

@@ -36,7 +36,7 @@ class PasswordModal extends Component<PasswordModalProps, PasswordModalState> {
 
     async componentDidMount() {
         const userId = await AsyncStorage.getItem('@userId');
-        if (userId) {
+        if (userId && this.props.modalVisible) {
             this.password = await StickProtocol.recoverPassword(userId);
         }
     }
