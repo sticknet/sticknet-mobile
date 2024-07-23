@@ -34,7 +34,6 @@ const noTabRoutes = [
     'Register1',
     'Register2',
     'Register3',
-    'PasswordLogin',
     'ForgotPassword',
     'Horizontal',
     'Horizontal-Lightbox',

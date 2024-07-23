@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Text, View, TouchableOpacity, Platform, StyleSheet} from 'react-native';
+import {Text, View, TouchableOpacity, Platform, StyleSheet, Appearance} from 'react-native';
 import {widthPercentageToDP as w} from 'react-native-responsive-screen';
 import CalendarIcon from '@sticknet/react-native-vector-icons/FontAwesome';
 import CustomModal from 'react-native-modal';
@@ -44,7 +44,11 @@ class DatePicker extends Component<DatePickerProps, DatePickerState> {
                     hideModalContentWhileAnimating
                     onBackdropPress={() => this.setState({modalVisible: false})}
                     onBackButtonPress={() => this.setState({modalVisible: false})}>
-                    <View style={s.dateModal}>
+                    <View
+                        style={{
+                            ...s.dateModal,
+                            backgroundColor: Appearance.getColorScheme() === 'dark' ? '#000' : '#fff',
+                        }}>
                         <DateTimePicker
                             value={this.props.date || new Date(2013, 0, 1)}
                             mode="date"
@@ -65,6 +69,7 @@ class DatePicker extends Component<DatePickerProps, DatePickerState> {
         if (this.state.modalVisible)
             return (
                 <DateTimePicker
+                    themeVariant="light"
                     style={s.dateModal}
                     value={this.props.date || new Date()}
                     mode="date"
@@ -85,7 +90,6 @@ class DatePicker extends Component<DatePickerProps, DatePickerState> {
         return (
             <View style={style}>
                 <TouchableOpacity
-                    testID="date-picker"
                     onPress={() => this.setState({modalVisible: true})}
                     style={[s.dateContainer, {flexDirection: row ? 'row' : 'column'}]}
                     activeOpacity={1}>
@@ -136,7 +140,6 @@ const s = StyleSheet.create({
         justifyContent: 'center',
     },
     dateModal: {
-        backgroundColor: '#fff',
         borderRadius: 20,
     },
     button: {

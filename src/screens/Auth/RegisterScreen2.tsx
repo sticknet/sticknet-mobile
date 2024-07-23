@@ -106,9 +106,9 @@ class RegisterScreen2 extends Component<RegisterScreen2Props, RegisterScreen2Sta
                 ...this.props.route.params,
                 username: this.state.username.toLowerCase(),
                 callback: () => {
+                    globalData.hideTabBar = true;
+                    this.props.navigation.setParams({hideTabBar: true});
                     if (Platform.OS === 'ios') {
-                        globalData.hideTabBar = true;
-                        this.props.navigation.setParams({hideTabBar: true});
                         setTimeout(
                             () => this.props.navigation.reset({index: 0, routes: [{name: 'NewPassword', params}]}),
                             0,

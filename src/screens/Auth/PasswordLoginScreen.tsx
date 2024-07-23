@@ -97,19 +97,19 @@ class PasswordLoginScreen extends Component<Props, PasswordLoginScreenState> {
             connections: this.props.connections,
             user: this.props.user,
             callback: () => {
+                globalData.hideTabBar = false;
+                this.props.navigation.setParams({hideTabBar: false});
                 if (Platform.OS === 'ios') {
-                    globalData.hideTabBar = false;
-                    this.props.navigation.setParams({hideTabBar: false});
                     setTimeout(() => {
-                        this.props.navigation.replace('Home', {
-                            loggedIn: true,
-                            profileLoggedIn: true,
+                        this.props.navigation.reset({
+                            index: 0,
+                            routes: [{name: 'Home', params: {loggedIn: true, profileLoggedIn: true}}],
                         });
                     }, 600);
                 } else
-                    this.props.navigation.replace('Home', {
-                        loggedIn: true,
-                        profileLoggedIn: true,
+                    this.props.navigation.reset({
+                        index: 0,
+                        routes: [{name: 'Home', params: {loggedIn: true, profileLoggedIn: true}}],
                     });
             },
         });

@@ -32,8 +32,6 @@ Sticknet's [web version](https://github.com/sticknet/sticknet-web) is open-sourc
 
 ## Contributing
 
-We welcome contributions to Sticknet.
-
 ### Prerequisites
 
 - Node (>= 18)
