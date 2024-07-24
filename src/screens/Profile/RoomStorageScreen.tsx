@@ -135,7 +135,8 @@ const s = StyleSheet.create({
 });
 
 const mapStateToProps = (state: IApplicationState) => {
-    const {id, isGroup, roomId} = state.app.currentTarget || {id: '', isGroup: false, roomId: ''};
+    if (!state.app.currentTarget) return {};
+    const {id, isGroup, roomId} = state.app.currentTarget;
     const target =
         id === state.auth.user?.id
             ? state.auth.user
@@ -152,4 +153,5 @@ const mapStateToProps = (state: IApplicationState) => {
     };
 };
 
+// @ts-ignore
 export default connect(mapStateToProps, {...stickRoom})(RoomStorageScreen);

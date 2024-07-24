@@ -165,7 +165,7 @@ export default class NotificationListener {
                     screen: 'Messages',
                     params,
                 });
-                this.props.dispatchCurrentTarget(params);
+                this.props.dispatchCurrentTarget({target: params});
                 break;
             case channels.REQUEST:
                 this.props.navigation.navigate('ChatsTab', {screen: 'Chats'});

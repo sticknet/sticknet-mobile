@@ -47,7 +47,7 @@ const PrivacyNoticeScreen: FC = () => {
         <View style={s.body}>
             <View style={s.topContainer}>
                 <Sticknet fontSize={60} style={{color: colors.primary}} />
-                <Text style={s.world}>End-to-End Encrypted & Decentralized{'\n'} Cloud Storage</Text>
+                <Text style={s.world}>End-to-End Encrypted & Decentralized{'\n'} Social Storage</Text>
             </View>
             <LottieView source={privacyAnimation} autoPlay loop style={s.animation} />
             <View>

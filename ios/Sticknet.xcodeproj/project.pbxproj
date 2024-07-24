@@ -3127,7 +3127,7 @@
 				CODE_SIGN_ENTITLEMENTS = Sticknet/Sticknet.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 48;
+				CURRENT_PROJECT_VERSION = 50;
 				DEVELOPMENT_TEAM = 88J4C462WP;
 				ENABLE_BITCODE = NO;
 				GOOGLE_SERVICE_INFO_PLIST_NAME = "GoogleService-Info-Debug.plist";
@@ -3139,7 +3139,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 6.0.12;
+				MARKETING_VERSION = 6.0.13;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -3175,7 +3175,7 @@
 				CODE_SIGN_ENTITLEMENTS = Sticknet/Sticknet.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 48;
+				CURRENT_PROJECT_VERSION = 50;
 				DEVELOPMENT_TEAM = 88J4C462WP;
 				GOOGLE_SERVICE_INFO_PLIST_NAME = "GoogleService-Info-Release.plist";
 				INFOPLIST_FILE = Sticknet/Info.plist;
@@ -3186,7 +3186,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 6.0.12;
+				MARKETING_VERSION = 6.0.13;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
 					"$(inherited)",

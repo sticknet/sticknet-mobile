@@ -1,15 +1,17 @@
-Sticknet is a secure cloud storage to backup your files, photos and important notes securely in your private Vault, and access them easily from any of your device. In addition, Sticknet has integrated social features to maximize your productivity including groups creation, connecting with other users, private messenger, and shared albums.
+Sticknet is an end-to-end encrypted platform. It includes a secure cloud storage to backup your files, photos and important notes securely in your private Vault, and access them easily from any of your devices. In addition, Sticknet has integrated social features to maximize your productivity including groups creation, connecting with other users, private messenger, and shared albums.
 
 All uploads and shared content are protected with end-to-end encryption and stored in a decentralized storage.
 
 Why Sticknet?
 • Elevate your cloud experience – every file, post, photo, video, comment, message, notification, profile, group and more on Sticknet is end-to-end encrypted (powered by the open-source Stick Protocol™).
 • Decentralised storage - decentralized file storage revolutionizes data management by distributing files across a network of nodes, eliminating reliance on a central server.
+• Integrated social features - enhance your file management experience with a perfect blend of productivity and social connectivity
 • Preserver your memories securely - Sticknet chat albums are neat, secure, and timeless!
 • Take no compromise on your privacy – have every file synchronize across your devices end-to-end encrypted.
 • Highly secure, highly performant – all data shared on Sticknet is end-to-end encrypted with no performance overhead.
 • Ads-Free – Sticknet is built for you, not your data.
 • Verified architecture - Sticknet's security features are provided by the open-source and peer-reviewed Stick Protocol.
+• Fully open-source -  Sticknet's source code is fully open, available at: https://github.com/sticknet
 
 
 For support or more information please visit:
@@ -18,5 +20,5 @@ https://www.sticknet.org/support
 Terms of Use & Privacy Policy:
 https://www.sticknet.org/legal
 
-Protocol source code:
-https://github.com/sticknet/stick-protocol
+Open source:
+https://github.com/sticknet

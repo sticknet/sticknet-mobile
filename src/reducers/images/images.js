@@ -67,9 +67,6 @@ export default function (state = initialState, action) {
             return {...state};
 
         case images.DELETE_BLOB:
-            // console.log('LENGTH BEFORE', state[action.payload.image.id].blobs.length)
-            // state[action.payload.image.id].blobs = state[action.payload.image.id].blobs.filter(blob => blob.id !== action.payload.blobId)
-            // console.log('LENGTH AFTER', state[action.payload.image.id].blobs.length)
             return {
                 ...state,
                 [action.payload.image.id]: {

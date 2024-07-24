@@ -210,7 +210,7 @@ export function invite() {
             },
             social: {
                 title: 'Download Sticknet',
-                descriptionText: 'End-to-end encrypted & decentralized cloud storage',
+                descriptionText: 'Secure Cloud Storage & Social Network',
                 imageUrl:
                     'https://firebasestorage.googleapis.com/v0/b/stiiick-1545628981656.appspot.com/o/sticknet-icon.png?alt=media&token=2b665dae-a63d-4884-a92e-59d5899530dc',
             },

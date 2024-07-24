@@ -49,7 +49,7 @@ class AuthenticationScreen extends Component<AuthenticationScreenProps, Authenti
     constructor(props: AuthenticationScreenProps) {
         super(props);
         this.state = {
-            email: __DEV__ ? 'test0@test.com' : '',
+            email: '',
             method: 'email',
         };
     }

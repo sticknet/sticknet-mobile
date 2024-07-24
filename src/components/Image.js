@@ -280,7 +280,6 @@ class Image extends Component {
                     break;
             }
         }
-        // console.log('ii', image.url);
         return (
             <ImageComponent
                 onError={this.handleError}

@@ -711,7 +711,7 @@ export function deleteAccount({user, groups, password, callback}: TDeleteAccount
                 }
             })
             .catch((err: any) => {
-                console.log('ERRORX', err);
+                console.log('ERROR', err);
                 dispatch({type: progress.END_LOADING});
                 Alert.alert('Error', 'An error has occurred');
             });

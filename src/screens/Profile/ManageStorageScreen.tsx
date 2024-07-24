@@ -37,11 +37,11 @@ const ManageStorageScreen: React.FC<ManageStorageScreenProps> = (props) => {
         };
         const title =
             'username' in target ? `Chat Storage - ${target.name}` : `Chat Storage - ${target.displayName.text}`;
+        props.dispatchCurrentTarget({target: params});
         navigation.navigate('RoomStorage', {
             title,
             storage,
         });
-        props.dispatchCurrentTarget(params);
     };
 
     const renderItem = ({item, section}: {item: any; section: any}) => {

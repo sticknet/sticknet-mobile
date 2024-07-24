@@ -145,7 +145,11 @@ class ShareScreen extends Component<Props, ShareScreenState> {
                     borderRadius: 12,
                 },
             });
-            return <ImageComponent source={{uri: image.uri}} style={inline.imageStyle} controls paused={!isFocused} />;
+            return (
+                <View style={s.imageContainer}>
+                    <ImageComponent source={{uri: image.uri}} style={inline.imageStyle} controls paused={!isFocused} />
+                </View>
+            );
         }
 
         return null;
@@ -274,6 +278,11 @@ const s = StyleSheet.create({
         borderColor: 'grey',
         height: 44,
         borderRadius: 40,
+    },
+    imageContainer: {
+        marginHorizontal: 8,
+        justifyContent: 'center',
+        alignItems: 'center',
     },
 });
 

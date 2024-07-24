@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {View, Text, TouchableOpacity, Platform, Alert, StatusBar, StyleSheet} from 'react-native';
 import {NavigationProp} from '@react-navigation/native';
-import {connect} from 'react-redux';
+import {connect, ConnectedProps} from 'react-redux';
 import {widthPercentageToDP as w} from 'react-native-responsive-screen';
 import * as Animatable from 'react-native-animatable';
 import CameraIcon from '@sticknet/react-native-vector-icons/MaterialIcons';
@@ -16,22 +16,15 @@ import {photosPermission} from '../../../utils';
 import {globalData} from '../../../actions/globalVariables';
 import type {IApplicationState, TUser, TImage} from '../../../types';
 import type {ProfileStackParamList} from '../../../navigators/types';
-import type {IAuthActions, IAppActions, IProfileActions, ICreateActions} from '../../../actions/types';
 
 const AnimatedView = Animatable.createAnimatableComponent(View);
 
-interface EditProfileScreenProps extends IAuthActions, IAppActions, IProfileActions, ICreateActions {
+type ReduxProps = ConnectedProps<typeof connector>;
+
+type EditProfileScreenProps = ReduxProps & {
     navigation: NavigationProp<ProfileStackParamList>;
-    user: TUser;
     profilePicture: TImage | null;
-    cover: TImage | null;
-    error: string | null;
-    validUsername: {
-        valid?: boolean | undefined;
-        username?: string | undefined;
-    };
-    isBasic: boolean;
-}
+};
 
 interface EditProfileScreenState {
     dateString: string;
@@ -541,5 +534,7 @@ const mapDispatchToProps = {
     ...app,
 };
 
+const connector = connect(mapStateToProps, mapDispatchToProps);
+
 // @ts-ignore
-export default connect(mapStateToProps, mapDispatchToProps)(EditProfileScreen);
+export default connector(EditProfileScreen);

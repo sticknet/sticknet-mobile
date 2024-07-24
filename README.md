@@ -1,5 +1,7 @@
 # Sticknet - a Secure Social Storage Platform
 
+<h3 align="center">🎉 Sticknet is now open-source 🎉</h3>
+
 Sticknet is a cloud storage with an integrated social network. Sticknet is fully end-to-end encrypted and its storage is 
 decentralized. You can use Sticknet to backup your files, photos and important notes
 securely in your private Vault, and access them easily from any of your devices. In addition, Sticknet includes
@@ -73,3 +75,9 @@ APP_UPLOAD_KEY_PASSWORD=android
 ## Contact Us
 
 You can email us as at contact@sticknet.org
+
+## License
+
+Copyright © 2018-2024 <a href="https://www.sticknet.org">Sticknet</a>
+
+Licensed under the [Apache License 2.0](http://www.apache.org/licenses/LICENSE-2.0)
