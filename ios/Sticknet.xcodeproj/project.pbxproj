@@ -952,12 +952,18 @@
 					};
 					07B364D02975223100210F7C = {
 						CreatedOnToolsVersion = 13.4.1;
+						DevelopmentTeam = 88J4C462WP;
+						ProvisioningStyle = Automatic;
 					};
 					07B364E32975226E00210F7C = {
 						CreatedOnToolsVersion = 13.4.1;
+						DevelopmentTeam = 88J4C462WP;
+						ProvisioningStyle = Automatic;
 					};
 					13B07F861A680F5B00A75B9A = {
+						DevelopmentTeam = 88J4C462WP;
 						LastSwiftMigration = 1120;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -1570,8 +1576,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.stiiick.--PRODUCT-NAME-rfc1034identifier-";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "764b2a78-ca2e-41c6-abe5-729d7032b31e";
-				PROVISIONING_PROFILE_SPECIFIER = "match AdHoc com.stiiick";
+				PROVISIONING_PROFILE = "5a16513e-bff7-4eca-a0f7-af764a288923";
+				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.stiiick";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Sticknet.app/Sticknet";
 			};
 			name = Release;
@@ -1972,7 +1978,7 @@
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_ENTITLEMENTS = ShareExtension/ShareExtension.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 24;
@@ -2335,8 +2341,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.stiiick.ShareExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "052f09c4-f25e-4d9e-85ac-b81c8b5fdada";
+				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.stiiick.ShareExtension";
 				SKIP_INSTALL = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -2742,7 +2748,7 @@
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_ENTITLEMENTS = NotificationServiceExtension/NotificationServiceExtension.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 24;
@@ -3104,8 +3110,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.stiiick.NotificationServiceExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "0fb4eb74-59b1-4695-9438-8e7618fd97e4";
+				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.stiiick.NotificationServiceExtension";
 				SKIP_INSTALL = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -3127,7 +3133,7 @@
 				CODE_SIGN_ENTITLEMENTS = Sticknet/Sticknet.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 50;
+				CURRENT_PROJECT_VERSION = 51;
 				DEVELOPMENT_TEAM = 88J4C462WP;
 				ENABLE_BITCODE = NO;
 				GOOGLE_SERVICE_INFO_PLIST_NAME = "GoogleService-Info-Debug.plist";
@@ -3139,7 +3145,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 6.0.13;
+				MARKETING_VERSION = 6.0.14;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -3173,9 +3179,9 @@
 				CLANG_ENABLE_MODULES = YES;
 				CLIENT_ID = "349572123590-55c7qap2u183hnredovieejief7igmb4.apps.googleusercontent.com";
 				CODE_SIGN_ENTITLEMENTS = Sticknet/Sticknet.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 50;
+				CURRENT_PROJECT_VERSION = 51;
 				DEVELOPMENT_TEAM = 88J4C462WP;
 				GOOGLE_SERVICE_INFO_PLIST_NAME = "GoogleService-Info-Release.plist";
 				INFOPLIST_FILE = Sticknet/Info.plist;
@@ -3186,7 +3192,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 6.0.13;
+				MARKETING_VERSION = 6.0.14;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -3196,8 +3202,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.stiiick;
 				PRODUCT_NAME = Sticknet;
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "5a16513e-bff7-4eca-a0f7-af764a288923";
+				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.stiiick";
 				REVERSED_CLIENT_ID = "com.googleusercontent.apps.349572123590-55c7qap2u183hnredovieejief7igmb4";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;

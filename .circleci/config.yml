@@ -474,12 +474,12 @@ jobs:
     steps:
       - run: echo "Say hello to CI!"
 
-#workflows:
-#  CI:
-#    jobs:
-#      - lint_and_test
-#      - build_android_release
-#      - build_ios_adhoc
+workflows:
+  CI:
+    jobs:
+      - lint_and_test
+      - build_android_release
+      - build_ios_adhoc
 
 #      - test_android_e2e:
 #          requires:
