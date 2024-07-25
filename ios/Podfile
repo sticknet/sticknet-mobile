@@ -31,7 +31,6 @@ prepare_react_native_project!
 #  Pod::UI.puts "Configuring Pod with #{linkage}ally linked Frameworks".green
 #  use_frameworks! :linkage => linkage.to_sym
 #end
-pod 'ShowTime'
 pod 'GoogleUtilities', :modular_headers => true
 pod 'SimpleKeychain', '1.1.0'
 pod 'SwiftyJSON'
