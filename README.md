@@ -2,11 +2,15 @@
 
 <h3 align="center">🎉 Sticknet is now open-source 🎉</h3>
 
-Sticknet is a cloud storage with an integrated social network. Sticknet is fully end-to-end encrypted and its storage is 
+<a href="https://sticknet.org" target="_blank">Sticknet</a> is a cloud storage with an integrated social network. Sticknet is fully end-to-end encrypted and its storage is 
 decentralized. You can use Sticknet to backup your files, photos and important notes
 securely in your private Vault, and access them easily from any of your devices. In addition, Sticknet includes
 social features to maximize your productivity including groups creation, connecting with other users, private messenger,
 and shared albums.
+
+<div align="center">
+  <video src="https://github.com/user-attachments/assets/4414b79f-0bfb-426f-8f79-b5127ae260ed" />
+</div>
 
 ## Download
 
