@@ -56,17 +56,18 @@ commands:
                   - <<parameters.cache_folder>>
                 key: yarn-cache-{{ arch }}-{{ checksum "~/.tmp/checksumfiles/package.json" }}-{{ checksum "~/.tmp/checksumfiles/yarn.lock" }}-{{ .Environment.CACHE_VERSION }}
 
-  setup_java:
-    steps:
-      - run:
-          name: Set up JDK 11
-          command: sudo apt-get install -y openjdk-11-jdk
-      - run:
-          name: Set JAVA_HOME
-          command: echo 'export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64' >> $BASH_ENV
-      - run:
-          name: Verify Java Version
-          command: java -version
+setup_java:
+  steps:
+    - run:
+        name: Update package lists
+        command: sudo apt-get update
+    - run:
+        name: Set up JDK 11
+        command: sudo apt-get install -y openjdk-11-jdk
+    - run:
+        name: Set JAVA_HOME
+        command: echo 'export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64' >> $BASH_ENV
+
 
   install_ninja:
     steps:
