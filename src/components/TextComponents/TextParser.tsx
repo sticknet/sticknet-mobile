@@ -90,11 +90,11 @@ class TextParser extends Component<TextParserProps> {
                 testID={this.props.testID}
                 style={[s.textStyle, this.props.style, this.props.textStyle]}
                 parse={[
-                    {pattern: /(?<!\w)@\w+/, render: this.renderUsername},
+                    {pattern: /(?<!\w)@\w+/, renderText: this.renderUsername},
                     {
                         pattern:
                             /\b(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z]{2,}(\/[-a-zA-Z0-9()@:%_+.~#?&/=]*)?/,
-                        render: this.renderUrl,
+                        renderText: this.renderUrl,
                     },
                 ]}>
                 {this.props.text}

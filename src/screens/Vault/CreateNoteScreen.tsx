@@ -26,7 +26,7 @@ const CreateNoteScreen: React.FC<IVaultActions> = (props) => {
         setTimeout(() => {
             if (editing) ref.current?.focus();
         }, 600);
-    }, [editing]);
+    }, []);
 
     useEffect(() => {
         navigation.setParams({

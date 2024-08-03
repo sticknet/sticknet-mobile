@@ -9,7 +9,7 @@ import {app} from '../../actions';
 import {globalData} from '../../actions/globalVariables';
 import ActionsModal from '../../components/Modals/ActionsModal';
 import type {IApplicationState, TFile, TUser} from '../../types';
-import {IAppActions} from '../../actions/app';
+import type {IAppActions} from '../../actions/app';
 import type {VaultStackParamList} from '../../navigators/types';
 
 interface FileViewScreenProps extends IAppActions {
