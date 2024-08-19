@@ -712,7 +712,6 @@ type TUndoMessageReaction = {message: TMessage; reaction: string; roomId: string
 export function undoMessageReaction({message, reaction, reactionId, roomId, userId}: TUndoMessageReaction) {
     return async function (dispatch: Dispatch) {
         log('action: undoMessageReaction');
-        console.log('ddd', message.id, reaction, reactionId, roomId, userId);
         const ref = `rooms/${roomId}`;
         database.ref(`${ref}/messages/${message.id}/reactions`).child(reactionId).remove();
         database.ref(`${ref}/messages`).child(reactionId).remove();
