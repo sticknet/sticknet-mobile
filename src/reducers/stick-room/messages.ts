@@ -91,6 +91,8 @@ export interface IUndoMessageReactionAction extends Action {
     payload: {
         roomId: string;
         message: TMessage;
+        reaction: string;
+        reactionId: string;
     };
 }
 
@@ -334,27 +336,22 @@ export default function (state: IMessagesState = initialState, action: RoomActio
 
         case stickRoom.UNDO_MESSAGE_REACTION: {
             const undoMessageReactionPayload = action.payload as IUndoMessageReactionAction['payload'];
-            const {roomId, message} = undoMessageReactionPayload;
+            const {roomId, message, reaction, reactionId} = undoMessageReactionPayload;
             const messageId = message.id;
-            const reaction = message.reaction;
-            const reactionId = message.reactionId;
-
-            const roomReactions = state[roomId]?.[messageId]?.reactions;
-
-            if (roomReactions && reaction && roomReactions[reaction]) {
-                delete roomReactions[reaction][reactionId!];
-                if (Object.keys(roomReactions[reaction]).length === 0) {
-                    delete roomReactions[reaction];
+            const messageReactions = state[roomId]?.[messageId]?.reactions;
+            if (messageReactions && reaction && messageReactions[reaction]) {
+                delete messageReactions[reaction][reactionId];
+                if (Object.keys(messageReactions[reaction]).length === 0) {
+                    delete messageReactions[reaction];
                 }
             }
-
             return {
                 ...state,
                 [roomId]: {
                     ...state[roomId],
                     [messageId]: {
                         ...state[roomId][messageId],
-                        reactions: roomReactions,
+                        reactions: messageReactions,
                     },
                 },
             };

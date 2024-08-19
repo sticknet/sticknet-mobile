@@ -293,7 +293,7 @@ jobs:
   build_android_release:
     docker:
       - image: cimg/android:2024.07-node
-    resource_class: xlarge
+    resource_class: large
     steps:
       - checkout
       - node_dependencies
