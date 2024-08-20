@@ -29,8 +29,7 @@ const RepliedMessage: FC<Props> = (props) => {
         }
     }, [message, replyDeleted]);
 
-    if (!replyDeleted || !message || !user) return null;
-
+    if (replyDeleted || !message || !user) return null;
     return (
         <Pressable
             style={s.container}
@@ -61,10 +60,10 @@ const RepliedMessage: FC<Props> = (props) => {
                     </Text>
                     {message.text && (
                         <Text numberOfLines={1} style={{fontSize: 12, color: 'grey', maxWidth: w('65%')}}>
-                            {message!.text}
+                            {message.text}
                         </Text>
                     )}
-                    {message.files && (
+                    {message.files && message.files.length > 0 && (
                         <Text style={{fontSize: 12, color: 'grey', fontStyle: 'italic'}}>
                             Attachment <Icon name="image" size={12} color="grey" />
                         </Text>

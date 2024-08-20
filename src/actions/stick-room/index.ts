@@ -402,7 +402,6 @@ export function sendMessage(params: SendMessageParams) {
             isFromVault,
             isBasic,
         } = params;
-
         if (isFromVault) {
             dispatch({
                 type: progress.UPDATE_WITH_ACTIVITY,

@@ -62,7 +62,6 @@ const Post: FC<Props> = (props) => {
         message.timestamp - (prevMessage?.timestamp || 0) > timeDifferenceThreshold ||
         message.replyToId ||
         (props.album && !props.album.autoMonth);
-
     return (
         <View testID={props.testID}>
             {notOnSameDay(message.timestamp, prevMessage?.timestamp) && !inReplyModal && (

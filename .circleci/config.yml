@@ -293,7 +293,7 @@ jobs:
   build_android_release:
     docker:
       - image: cimg/android:2024.07-node
-    resource_class: xlarge
+    resource_class: large
     steps:
       - checkout
       - node_dependencies
@@ -442,7 +442,7 @@ jobs:
   build_ios_adhoc:
     macos:
       xcode: 15.1.0
-    resource_class: macos.m1.large.gen1
+    resource_class: macos.m1.medium.gen1
     steps:
       - checkout
       - setup_macos_executor:
@@ -479,7 +479,7 @@ workflows:
   CI:
     jobs:
       - lint_and_test
-      - build_android_release
+#      - build_android_release
       - build_ios_adhoc
 
 #      - test_android_e2e:
