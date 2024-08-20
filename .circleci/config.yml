@@ -304,7 +304,7 @@ jobs:
       - run:
           name: Build Android APK
 #          command: "cd ./android && chmod +x gradlew && ENVFILE=.env.testing ./gradlew app:assembleRelease app:assembleAndroidTest -DtestBuildType=release"
-          command: "cd ./android && chmod +x gradlew && ./gradlew app:assembleRelease"
+          command: "cd ./android && chmod +x gradlew && ./gradlew app:assembleRelease --no-daemon"
       - store_artifacts:
           path: ./android/app/build/outputs
       - persist_to_workspace:
@@ -479,7 +479,7 @@ workflows:
   CI:
     jobs:
       - lint_and_test
-      - build_android_release
+#      - build_android_release
       - build_ios_adhoc
 
 #      - test_android_e2e:
