@@ -301,10 +301,18 @@ jobs:
       - setup_java
       - gradle_dependencies
       - prepare_keystore
+#      - run:
+#          name: Build Android APK
+##          command: "cd ./android && chmod +x gradlew && ENVFILE=.env.testing ./gradlew app:assembleRelease app:assembleAndroidTest -DtestBuildType=release"
+#          command: "cd ./android && chmod +x gradlew && ./gradlew app:assembleRelease --no-daemon"
       - run:
           name: Build Android APK
-#          command: "cd ./android && chmod +x gradlew && ENVFILE=.env.testing ./gradlew app:assembleRelease app:assembleAndroidTest -DtestBuildType=release"
-          command: "cd ./android && chmod +x gradlew && ./gradlew app:assembleRelease --no-daemon"
+          command: |
+            cd ./android
+            chmod +x gradlew
+            export _JAVA_OPTIONS="-Xmx4096m -XX:MaxMetaspaceSize=1024m"
+            export GRADLE_OPTS="-Xmx4096m -Dorg.gradle.daemon=false -Dorg.gradle.jvmargs=-Xmx4096m"
+            ./gradlew app:assembleRelease --no-daemon
       - store_artifacts:
           path: ./android/app/build/outputs
       - persist_to_workspace:
