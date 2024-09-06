@@ -116,7 +116,6 @@ export default class NotificationListener {
                             data.title = decryptedNotification.title;
                             data.body = decryptedNotification.body;
                         }
-
                         this.notif.localNotif(
                             data as Notification,
                             message.messageId!,
@@ -148,10 +147,9 @@ export default class NotificationListener {
     async onNotif(message: FirebaseMessagingTypes.RemoteMessage) {
         message = camelizeNotif(message);
         const data = message.data as MessageData;
-        let {channelId} = data;
-        if (data.userInteraction && Platform.OS === 'ios') {
-            channelId = data.channelId;
-        }
+        // @ts-ignore
+        if (!message.userInteraction) return;
+        const {channelId} = data;
         switch (channelId) {
             case channels.MESSAGE:
                 const isGroup = JSON.parse(data.isGroup || 'false');

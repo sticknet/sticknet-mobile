@@ -267,7 +267,7 @@ export async function sendNotification(params: SendNotificationParams) {
                     ? `${bodyInitial}📹️ Video`
                     : message.isMedia
                     ? `${bodyInitial}🖼 Photo`
-                    : message.files
+                    : message.files.length > 0
                     ? `${bodyInitial}📄 File`
                     : message.text
                     ? `${bodyInitial}${message.text}`

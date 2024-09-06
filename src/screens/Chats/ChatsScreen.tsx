@@ -327,7 +327,8 @@ class ChatsScreen extends Component<ChatScreenProps, ChatScreenState> {
     sentRequests = () => {
         if (!this.props.user) return null;
         const {sentConnectionRequestsCount} = this.props;
-        const total = this.props.user.groupRequests.length + sentConnectionRequestsCount;
+        const groupRequestsCount = this.props.user.groupRequests ? this.props.user.groupRequests.length : 0;
+        const total = groupRequestsCount + sentConnectionRequestsCount;
         if (total === 0) return null;
         return (
             <TouchableOpacity
@@ -546,6 +547,7 @@ const mapStateToProps = (state: IApplicationState) => {
         isConnected: state.appTemp.isConnected,
         finishedRegistration: state.auth.finishedRegistration,
         appTemp: state.appTemp,
+        appState: state.appState,
         groups: state.groups,
         requestSavePasswordCount: state.app.requestSavePasswordCount,
         seenPasswordModal: state.app.seenPasswordModal,

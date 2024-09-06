@@ -342,7 +342,8 @@ class AudioPlayer extends Component<Props, State> {
                                 ? `rgba(96, 96, 255, ${opacity})`
                                 : `rgba(230, 230, 230, ${opacity})`
                         }
-                        thumbTintColor={Platform.OS !== 'ios' ? (type === 'O' ? '#3F76BF' : '#6060FF') : '#3F76BF'}
+                        // @ts-ignore
+                        thumbTintColor={Platform.OS === 'ios' ? null : '#6060FF'}
                         thumbImage={Platform.OS === 'ios' ? ThumbTrans : null}
                     />
                     {Platform.OS === 'ios' && (

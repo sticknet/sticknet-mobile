@@ -72,7 +72,7 @@ const MessageModal: FC<Props> = (props) => {
         });
     if (message && message.text && message.userId === props.user?.id && !fileActionsOnly)
         actions.unshift({
-            text: message.files ? 'Edit caption' : 'Edit',
+            text: message.files && message.files.length > 0 ? 'Edit caption' : 'Edit',
             action: () => {
                 props.dispatchAppTempProperty({editingMessage: message, replyMessage: null});
                 hide();
