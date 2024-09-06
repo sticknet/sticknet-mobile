@@ -179,7 +179,7 @@ const Post: FC<Props> = (props) => {
                                         testID={`message-text-${message.id}`}
                                     />
                                 )}
-                                {message.files ? (
+                                {message.files && message.files.length > 0 ? (
                                     message.isMedia ? (
                                         <ImageMessage message={message} />
                                     ) : (

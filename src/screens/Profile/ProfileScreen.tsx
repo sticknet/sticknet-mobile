@@ -365,6 +365,7 @@ function mapStateToProps(state: IApplicationState) {
         isConnected: state.appTemp.isConnected,
         finishedRegistration: state.auth.finishedRegistration,
         appTemp: state.appTemp,
+        appState: state.appState,
         groups: state.groups,
         connections: state.connections,
         requestSavePasswordCount: state.app.requestSavePasswordCount,

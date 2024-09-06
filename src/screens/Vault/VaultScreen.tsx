@@ -251,6 +251,7 @@ const mapStateToProps = (state: IApplicationState) => {
         groups: state.groups,
         connections: state.connections,
         appTemp: state.appTemp,
+        appState: state.appState,
     };
 };
 
