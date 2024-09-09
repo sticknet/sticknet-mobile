@@ -4,7 +4,7 @@ import type {TDevice, TFile, TFolder, TGroup, TMessage} from '../types';
 
 export interface IAppTempState {
     isGeneratingKeys: boolean;
-    validUsername: {username?: string; valid?: boolean};
+    validUsername: {username?: string; valid: boolean};
     searching: boolean;
     progressModal: boolean;
     refreshingHome: boolean;
@@ -56,7 +56,7 @@ export interface IAppTempState {
 
 export const appTempInitialState: IAppTempState = {
     isGeneratingKeys: false,
-    validUsername: {},
+    validUsername: {valid: true},
     searching: false,
     progressModal: false,
     refreshingHome: false,

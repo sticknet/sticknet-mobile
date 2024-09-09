@@ -2,6 +2,6 @@ Dear reviewers,
 
 You can use the following credentials to log in:
 
-Phone number: apple@test.com
+Email: apple@storetest.com
 Verification code: 123456
 Password: PurpleFire

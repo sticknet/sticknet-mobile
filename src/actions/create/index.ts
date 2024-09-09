@@ -71,6 +71,7 @@ export function resetCreateState(params: TResetCreateStateParams = {}) {
         dispatch({type: creating.RESET_CREATE_STATE});
         dispatch({type: selectedImages.RESET_SELECTED_IMAGES});
         dispatch({type: progress.DONE_UPLOADING});
+        dispatch({type: appTemp.USERNAME_VALIDATION, payload: {valid: true}});
         if (clearErrors) dispatch({type: errors.CLEAR_ERRORS});
     };
 }
