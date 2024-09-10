@@ -14,7 +14,7 @@ import {Input, Image, DatePicker, BottomModal, ModalItem, NewImage} from '../../
 import {profile, create, auth, app} from '../../../actions/index';
 import {photosPermission} from '../../../utils';
 import {globalData} from '../../../actions/globalVariables';
-import type {IApplicationState, TUser, TImage} from '../../../types';
+import type {IApplicationState, TUser, TImage, TProfilePicture, TProfileCover} from '../../../types';
 import type {ProfileStackParamList} from '../../../navigators/types';
 
 const AnimatedView = Animatable.createAnimatableComponent(View);
@@ -32,8 +32,8 @@ interface EditProfileScreenState {
     initialName: string;
     username: string;
     initialUsername: string;
-    profilePicture: TImage | null;
-    cover: TImage | null;
+    profilePicture: TProfilePicture | null;
+    cover: TProfileCover | null;
     status: string;
     birthDay: Date | string;
     birthDayHidden: boolean;
@@ -65,8 +65,8 @@ class EditProfileScreen extends Component<EditProfileScreenProps, EditProfileScr
             initialName: user.name,
             username: user.username,
             initialUsername: user.username,
-            profilePicture: this.props.profilePicture,
-            cover: this.props.cover,
+            profilePicture: user.profilePicture,
+            cover: user.cover,
             status: user.status && user.status.decrypted ? user.status.text : '',
             birthDayHidden: user.birthDayHidden,
             initialBDH: user.birthDayHidden,
@@ -285,16 +285,13 @@ class EditProfileScreen extends Component<EditProfileScreenProps, EditProfileScr
             ppResizeMode,
         } = this.state;
         const {error, user} = this.props;
-        const pp =
-            this.props.profilePicture && this.props.profilePicture
-                ? this.props.profilePicture
-                : this.state.profilePicture;
+        const pp = this.props.profilePicture || this.state.profilePicture;
         const source = pp ? {uri: pp.uri} : profilePicture || DefaultProfilePicture;
-        const pc = this.props.cover ? this.props.cover : this.state.cover;
+        const pc = this.props.cover || this.state.cover;
         const coverSource = pc ? {uri: pc.uri} : cover || DefaultProfileCover;
         const PictureComponent: React.ElementType = pp?.uriKey && !this.props.profilePicture ? NewImage : Image;
         const CoverComponent: React.ElementType = pc?.uriKey && !this.props.cover ? NewImage : Image;
-
+        console.log('DDDD', pp, this.state.profilePicture, this.props.profilePicture);
         return (
             <KeyboardAwareScrollView
                 testID="edit-profile-scroll"

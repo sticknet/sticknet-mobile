@@ -64,7 +64,7 @@ class ProfileScreen extends Component<ProfileScreenProps, ProfileScreenState> {
         }
         AsyncStorage.setItem('@focusedTab', 'ProfileTab');
         this.navListener = this.props.navigation.addListener('focus', () => {
-            setTimeout(() => this.props.navigation.setParams({hideTabBar: false}), 100);
+            setTimeout(() => this.props.navigation.setParams({hideTabBar: false, title: this.props.user?.name}), 100);
         });
         this.tabListener = this.props.navigation.getParent().addListener('tabPress', () => {
             AsyncStorage.setItem('@focusedTab', 'ProfileTab');
