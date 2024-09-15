@@ -291,6 +291,7 @@ export async function sendNotification(params: SendNotificationParams) {
         );
         body.data.title = 'Sticknet';
         body.data.body = encryptedNotification;
+        console.log('SENDING PN', body);
         axios.post(`${URL}/api/push-notification-multicast/`, body, config).catch((err) => console.log('error', err));
     }
 }
