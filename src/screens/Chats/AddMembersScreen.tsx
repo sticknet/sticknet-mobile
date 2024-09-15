@@ -113,7 +113,7 @@ class AddMembersScreen extends Component<AddMembersScreenProps, AddMembersScreen
         const {users, usersIds} = this.state;
         if (!usersIds.includes(user.id)) {
             if (
-                (this.state.group!.membersIds?.length || 0) + usersIds.length >= basicGroupMembersLimit &&
+                (this.state.group?.membersIds?.length || 0) + usersIds.length >= basicGroupMembersLimit &&
                 this.props.user.subscription === 'basic'
             ) {
                 Alert.alert(
