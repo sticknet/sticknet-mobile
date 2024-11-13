@@ -22,7 +22,7 @@ const SearchScreen: React.FC<SearchScreenProps> = (props) => {
         return () => {
             props.clearSearchItems();
         };
-    }, [props]);
+    }, []);
 
     const onChangeText = (query: string) => {
         setInput(query);
