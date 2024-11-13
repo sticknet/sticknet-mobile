@@ -38,7 +38,7 @@ export type TFolderItem = TFile & {
 
 type FolderProps = ConnectedProps<typeof connector> & {
     item: TFolderItem;
-    testID: string;
+    testID?: string;
 };
 
 type RootStackParamList = {
