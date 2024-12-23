@@ -16,6 +16,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import {widthPercentageToDP as w} from 'react-native-responsive-screen';
 import '@walletconnect/react-native-compat';
 import {AppKitButton} from '@reown/appkit-wagmi-react-native';
+import {handleResponse} from '@coinbase/wallet-mobile-sdk';
 
 import changeNavigationBarColor from 'react-native-navigation-bar-color';
 import RNBootSplash from 'react-native-bootsplash';
@@ -89,7 +90,11 @@ const AuthenticationScreen: React.FC<AuthenticationScreenProps> = (props) => {
         }, 1000);
         globalData.tabBarDisplay = 'flex';
         props.navigation.setParams({tabBarDisplay: 'flex'});
+        const sub = Linking.addEventListener('url', ({url}) => {
+            const handledBySdk = handleResponse(new URL(url));
+        });
         return () => {
+            sub.remove();
             if (keyboardDidShowListener) keyboardDidShowListener.remove();
         };
     }, []);
@@ -153,11 +158,7 @@ const AuthenticationScreen: React.FC<AuthenticationScreenProps> = (props) => {
                         testID="email"
                     />
                     <Button onPress={checkInput} text="Continue" marginTop={16} width={w('90%')} testID="continue" />
-                    {/* <Pressable onPress={onPress}> */}
-                    {/*    <Text>{isConnected ? 'Disconnect' : 'Connect'}</Text> */}
-                    {/* </Pressable> */}
-                    {/* <WalletConnectModal projectId={projectId} providerMetadata={providerMetadata} /> */}
-                    <AppKitButton />
+                    <AppKitButton label="Continue with Wallet" />
                 </View>
             </View>
         </TouchableWithoutFeedback>

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Linking, LogBox, StatusBar, Text, TextInput} from 'react-native';
+import {LogBox, StatusBar, Text, TextInput} from 'react-native';
 import * as Animatable from 'react-native-animatable';
 import Orientation from 'react-native-orientation-locker';
 import {Provider} from 'react-redux';
@@ -10,12 +10,11 @@ import {DefaultTheme, NavigationContainer} from '@react-navigation/native';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
 import '@walletconnect/react-native-compat';
 import {WagmiProvider} from 'wagmi';
-import {mainnet, polygon, arbitrum} from '@wagmi/core/chains';
+import {mainnet, polygon, arbitrum, optimism} from '@wagmi/core/chains';
 import {QueryClient, QueryClientProvider} from '@tanstack/react-query';
 import {createAppKit, defaultWagmiConfig, AppKit} from '@reown/appkit-wagmi-react-native';
 
 import DeviceInfo from 'react-native-device-info';
-import {handleResponse} from '@coinbase/wallet-mobile-sdk';
 import {coinbaseConnector} from '@reown/appkit-coinbase-wagmi-react-native';
 import animations from './utils/animations';
 import TabNavigator from './navigators/TabNavigator';
@@ -55,7 +54,7 @@ const coinbase = coinbaseConnector({
     redirect: `${bundleId}://`,
 });
 
-const chains = [mainnet, polygon, arbitrum] as const;
+const chains = [mainnet, polygon, arbitrum, optimism] as const;
 
 const wagmiConfig = defaultWagmiConfig({chains, projectId, metadata, extraConnectors: [coinbase]});
 
@@ -89,13 +88,6 @@ class App extends Component {
         TextInput.defaultProps.allowFontScaling = false;
         changeNavigationBarColor('#000000', false, true); // TODO: check this
         setTimeout(() => getAppSettings(), 2000);
-
-        const sub = Linking.addEventListener('url', ({url}) => {
-            const handledBySdk = handleResponse(new URL(url));
-            if (!handledBySdk) {
-                // Handle other deeplinks
-            }
-        });
     }
 
     render() {
