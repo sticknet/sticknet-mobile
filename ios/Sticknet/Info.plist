@@ -125,6 +125,15 @@
 		<string>Zocial.ttf</string>
 		<string>Fontisto.ttf</string>
 	</array>
+  <key>LSApplicationQueriesSchemes</key>
+  <array>
+    <string>metamask</string>
+    <string>trust</string>
+    <string>safe</string>
+    <string>rainbow</string>
+    <string>uniswap</string>
+    <string>coinbase</string>
+  </array>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>fetch</string>

@@ -961,9 +961,7 @@
 						ProvisioningStyle = Automatic;
 					};
 					13B07F861A680F5B00A75B9A = {
-						DevelopmentTeam = 88J4C462WP;
 						LastSwiftMigration = 1120;
-						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -2341,8 +2339,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.stiiick.ShareExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "052f09c4-f25e-4d9e-85ac-b81c8b5fdada";
-				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.stiiick.ShareExtension";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -3110,8 +3108,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.stiiick.NotificationServiceExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "0fb4eb74-59b1-4695-9438-8e7618fd97e4";
-				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.stiiick.NotificationServiceExtension";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -3179,7 +3177,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CLIENT_ID = "349572123590-55c7qap2u183hnredovieejief7igmb4.apps.googleusercontent.com";
 				CODE_SIGN_ENTITLEMENTS = Sticknet/Sticknet.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 53;
 				DEVELOPMENT_TEAM = 88J4C462WP;
@@ -3202,8 +3200,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.stiiick;
 				PRODUCT_NAME = Sticknet;
-				PROVISIONING_PROFILE = "5a16513e-bff7-4eca-a0f7-af764a288923";
-				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.stiiick";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				REVERSED_CLIENT_ID = "com.googleusercontent.apps.349572123590-55c7qap2u183hnredovieejief7igmb4";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;

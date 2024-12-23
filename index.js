@@ -1,5 +1,6 @@
 import {Alert, AppRegistry, Platform} from 'react-native';
 import 'react-native-gesture-handler';
+import '@walletconnect/react-native-compat';
 import {setJSExceptionHandler, setNativeExceptionHandler} from '@sticknet/react-native-exception-handler';
 import DeviceInfo from 'react-native-device-info';
 import RNRestart from 'react-native-restart';
