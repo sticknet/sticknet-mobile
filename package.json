@@ -99,7 +99,7 @@
     "react-native-keyboard-aware-scroll-view": "^0.9.5",
     "react-native-linear-gradient": "2.6.2",
     "react-native-mmkv": "2.12.2",
-    "react-native-modal": "^13.0.1",
+    "react-native-modal": "13.0.0",
     "react-native-navigation-bar-color": "^2.0.1",
     "react-native-orientation-locker": "^1.4.0",
     "react-native-pager-view": "^6.2.0",
