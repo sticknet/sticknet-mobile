@@ -132,7 +132,7 @@
     <string>safe</string>
     <string>rainbow</string>
     <string>uniswap</string>
-    <string>coinbase</string>
+    <string>cbwallet</string>
   </array>
 	<key>UIBackgroundModes</key>
 	<array>

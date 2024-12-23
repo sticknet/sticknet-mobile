@@ -15,7 +15,6 @@ import {connect} from 'react-redux';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {widthPercentageToDP as w} from 'react-native-responsive-screen';
 import '@walletconnect/react-native-compat';
-import {useWalletConnectModal} from '@walletconnect/modal-react-native';
 import {AppKitButton} from '@reown/appkit-wagmi-react-native';
 
 import changeNavigationBarColor from 'react-native-navigation-bar-color';
@@ -61,7 +60,6 @@ const providerMetadata = {
 const AuthenticationScreen: React.FC<AuthenticationScreenProps> = (props) => {
     let keyboardDidShowListener: EmitterSubscription;
     const [email, setEmail] = useState('');
-    const {open, isConnected, provider} = useWalletConnectModal();
     useEffect(() => {
         RNBootSplash.hide({duration: 250});
         if (Platform.OS === 'android') {
@@ -134,18 +132,6 @@ const AuthenticationScreen: React.FC<AuthenticationScreenProps> = (props) => {
         } else if (validateEmail(email)) {
             handleContinue();
         } else Alert.alert('Invalid email', 'Please enter a valid email address');
-    };
-
-    const onPress = () => {
-        try {
-            if (isConnected) {
-                provider.disconnect();
-            } else {
-                open();
-            }
-        } catch (error) {
-            console.log('ERRORXXX', error);
-        }
     };
 
     return (
