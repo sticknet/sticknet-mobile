@@ -57,6 +57,7 @@ export interface IAuthActions {
 }
 
 type TRequestEmailCode = {email: string; callback: (registered: boolean) => void};
+
 export function requestEmailCode({email, callback}: TRequestEmailCode) {
     return async function (dispatch: Dispatch) {
         dispatch({type: progress.START_LOADING});
@@ -70,15 +71,14 @@ export function requestEmailCode({email, callback}: TRequestEmailCode) {
 type TVerifyEmailCodeParams = {
     email: string;
     code: string;
-    user: TUser | null;
     loginCallback: () => void;
     registerCallback: () => void;
     newPassCallback: () => void;
 };
+
 export function verifyEmailCode({
     email,
     code,
-    user,
     loginCallback,
     registerCallback,
     newPassCallback,
@@ -89,7 +89,6 @@ export function verifyEmailCode({
             const response = await axios.post(`${URL}/api/verify-email-code/`, {
                 code,
                 email,
-                userId: user ? user.id : null,
             });
             if (!response.data.correct) {
                 dispatch({type: progress.END_LOADING});
@@ -100,7 +99,7 @@ export function verifyEmailCode({
                 return;
             }
             AsyncStorage.setItem('@email', email);
-            handleCodeVerified(response, email, dispatch, loginCallback, registerCallback, newPassCallback);
+            handleUserVerified(response, email, 'email', dispatch, loginCallback, registerCallback, newPassCallback);
         } catch (e) {
             console.log('ERROR', e);
             dispatch({type: progress.END_LOADING});
@@ -108,9 +107,53 @@ export function verifyEmailCode({
     };
 }
 
-async function handleCodeVerified(
+export function handleWalletVerified({ethereumAddress, loginCallback, registerCallback, newPassCallback}) {
+    return async function (dispatch: Dispatch) {
+        try {
+            dispatch({type: progress.START_LOADING});
+            const response = await axios.post(`${URL}/api/wallet-verified/`, {ethereumAddress});
+            AsyncStorage.setItem('@ethereumAddress', ethereumAddress);
+            handleUserVerified(
+                response,
+                ethereumAddress,
+                'wallet',
+                dispatch,
+                loginCallback,
+                registerCallback,
+                newPassCallback,
+            );
+        } catch (e) {
+            console.warn('ERROR', e);
+            dispatch({type: progress.END_LOADING});
+        }
+    };
+}
+
+export function generatePasswordFromWallet({accountSecret, signedSecret, setPassword, callback}) {
+    return async function (dispatch: Dispatch) {
+        const salt = await CommonNative.generateSecureRandom(32);
+        const password = await StickProtocol.createPasswordHash(signedSecret, salt);
+        setPassword(password);
+        const ethereumAddress = await AsyncStorage.getItem('@ethereumAddress');
+        let token = globalData.limitedAccessToken;
+        if (!token) {
+            const {password} = await Keychain.getGenericPassword({service: `${bundleId}.limited_access_token`});
+            token = password;
+        }
+        const config = {headers: {Authorization: token}};
+        await axios.post(
+            `${URL}/api/set-account-secret/`,
+            {accountSecret: accountSecret + salt, ethereumAddress},
+            config,
+        );
+        callback();
+    };
+}
+
+export async function handleUserVerified(
     response: any,
     authId: string,
+    method: string,
     dispatch: Dispatch,
     loginCallback: () => void,
     registerCallback: () => void,
@@ -123,14 +166,20 @@ async function handleCodeVerified(
     if (response.data.exists) {
         await AsyncStorage.setItem('@userId', response.data.userId);
         await AsyncStorage.setItem('@username', response.data.username);
-        const phone = authId.startsWith('+') ? authId : null;
-        const email = authId.startsWith('+') ? null : authId;
+        const ethereumAddress = method === 'wallet' ? authId : null;
+        const email = method === 'email' ? authId : null;
         await dispatch({
             type: auth.DISPATCH_USER,
-            payload: {id: response.data.userId, phone, email, username: response.data.username},
+            payload: {
+                id: response.data.userId,
+                ethereumAddress,
+                email,
+                username: response.data.username,
+            },
         });
         if (response.data.finishedRegistration) {
             globalData.passwordKey = response.data.passwordKey;
+            globalData.accountSecret = response.data.accountSecret;
             await Keychain.setGenericPassword('PasswordSalt', response.data.passwordSalt, {
                 service: `${bundleId}.password_salt`,
             });
@@ -139,11 +188,12 @@ async function handleCodeVerified(
             await newPassCallback();
         }
     } else await registerCallback();
-    dispatch({type: progress.END_LOADING});
+    if (dispatch) dispatch({type: progress.END_LOADING});
 }
 
 type TRegisterParams = {
     email?: string;
+    ethereumAddress?: string;
     id?: string;
     idToken?: string;
     name?: string;
@@ -151,11 +201,12 @@ type TRegisterParams = {
     username?: string;
     callback?: () => void;
 };
+
 export function register(params: TRegisterParams) {
     return async function (dispatch: Dispatch) {
         await dispatch({type: errors.CLEAR_ERRORS});
         dispatch({type: progress.START_LOADING});
-        const {email, id, idToken, name, birthDay, username, callback} = params;
+        const {email, ethereumAddress, id, idToken, name, birthDay, username, callback} = params;
         let token = globalData.limitedAccessToken;
         if (!token) {
             const {password} = await Keychain.getGenericPassword({service: `${bundleId}.limited_access_token`});
@@ -167,6 +218,7 @@ export function register(params: TRegisterParams) {
                 `${URL}/api/register/`,
                 {
                     email,
+                    ethereumAddress,
                     id,
                     idToken,
                     name,
@@ -200,8 +252,9 @@ export function register(params: TRegisterParams) {
 
 // Todo: need test, StickInit methods mocking not working
 
-type TLoginParams = {password: string; authId: string; callback: () => void};
-export function login({password, authId, callback}: TLoginParams) {
+type TLoginParams = {password: string; authId: string; method: string; callback: () => void};
+
+export function login({password, authId, method = 'email', callback}: TLoginParams) {
     return async function (dispatch: Dispatch) {
         dispatch({type: errors.CLEAR_ERRORS});
         dispatch({type: progress.START_LOADING});
@@ -211,9 +264,9 @@ export function login({password, authId, callback}: TLoginParams) {
             token = password;
         }
         const config = {headers: {Authorization: token}};
-        const phone = authId.startsWith('+') ? authId : undefined;
-        const email = authId.startsWith('+') ? undefined : authId;
-        const body: any = {phone, email};
+        const ethereumAddress = method === 'wallet' ? authId : null;
+        const email = method === 'email' ? authId : null;
+        const body: any = {ethereumAddress, email};
         const deviceId = await getUniqueDeviceId();
         body.deviceId = deviceId;
         dispatch({type: app.CURRENT_DEVICE_ID, payload: deviceId});
@@ -228,6 +281,7 @@ export function login({password, authId, callback}: TLoginParams) {
                 dispatch({type: appTemp.SHOW_PROGRESS_MODAL});
                 globalData.limitedAccessToken = null;
                 globalData.passwordKey = null;
+                globalData.accountSecret = null;
                 await Keychain.resetGenericPassword({service: `${bundleId}.limited_access_token`});
                 globalData.token = `Token ${response.data.token}`;
                 SPH.setUp(`Token ${response.data.token}`, response.data.user.id, response.data.user.oneTimeId);
@@ -257,9 +311,7 @@ export function login({password, authId, callback}: TLoginParams) {
                 dispatch({type: app.INITIALIZED});
                 AsyncStorage.setItem('@loggedIn', '1');
                 await firebase.auth().signInWithCustomToken(response.data.firebaseToken);
-
                 dispatch({type: appTemp.FINISHING_UP});
-
                 const keychainResponse = await Keychain.getGenericPassword({service: `${bundleId}.auth_token`});
                 token = `Token ${keychainResponse.password}`;
                 const config = {headers: {Authorization: token}};
@@ -295,16 +347,17 @@ export function login({password, authId, callback}: TLoginParams) {
 }
 
 // Todo: need test, StickInit methods mocking not working
-type TFinishRegistration = {userId: string; password: string; authId: string; callback: () => void};
-export function finishRegistration({userId, password, authId, callback}: TFinishRegistration) {
+type TFinishRegistration = {userId: string; method: string; password: string; authId: string; callback: () => void};
+
+export function finishRegistration({userId, method = 'email', password, authId, callback}: TFinishRegistration) {
     return async function (dispatch: Dispatch) {
         if (Config.TESTING === '1') {
             dispatch({type: progress.START_LOADING});
         }
         dispatch({type: appTemp.SHOW_PROGRESS_MODAL});
         await Keychain.resetGenericPassword({service: `${bundleId}.fcm_token`});
-        const phone = authId.startsWith('+') ? authId : undefined;
-        const email = authId.startsWith('+') ? undefined : authId;
+        const ethereumAddress = method === 'wallet' ? authId : null;
+        const email = method === 'email' ? authId : null;
         const body: any = await StickProtocol.initialize(userId, password);
         dispatch({type: appTemp.FINISHING_UP});
         dispatch({type: app.INITIALIZED});
@@ -312,7 +365,7 @@ export function finishRegistration({userId, password, authId, callback}: TFinish
         await Keychain.setGenericPassword('PasswordSalt', body.passwordSalt, {service: `${bundleId}.password_salt`});
         const deviceId = await getUniqueDeviceId();
         body.nextPreKeyId = 10;
-        body.phone = phone;
+        body.ethereumAddress = ethereumAddress;
         body.email = email;
         body.deviceId = deviceId;
         dispatch({type: app.CURRENT_DEVICE_ID, payload: deviceId});
@@ -330,7 +383,7 @@ export function finishRegistration({userId, password, authId, callback}: TFinish
             dispatch({type: appTemp.HIDE_PROGRESS_MODAL});
             if (error?.toString().includes('401')) {
                 NavigationService.navigate('Authentication');
-                Alert.alert('Your Session has expired', 'You need to verify your phone number again');
+                Alert.alert('Your Session has expired', 'You need to verify your email/wallet again');
                 await processLogout(dispatch);
             } else {
                 Alert.alert('Unknown Error', error?.toString());
@@ -349,10 +402,9 @@ export function finishRegistration({userId, password, authId, callback}: TFinish
         await SPH.uploadSenderKeys(`${res.data.selfPartyId}0`, [userId]);
         dispatch({type: auth.UPDATE_USER, payload: {roomId: res.data.selfPartyId}});
         dispatch({type: stickRoom.NEW_ROOM, payload: {roomId: res.data.selfPartyId}});
-        if (email) {
-            await firebase.auth().signInWithCustomToken(res.data.firebaseToken);
-            firebase.auth().currentUser!.updateEmail(email);
-        }
+        await firebase.auth().signInWithCustomToken(res.data.firebaseToken);
+        const firebaseEmail = email || `${ethereumAddress}@eth.com`;
+        firebase.auth().currentUser!.updateEmail(firebaseEmail);
         await initOneToOne({id: userId, roomId: res.data.selfPartyId, isGroup: false}, {
             id: userId,
             roomId: res.data.selfPartyId,
@@ -378,11 +430,13 @@ export function finishRegistration({userId, password, authId, callback}: TFinish
 }
 
 type TLogoutParams = {callback: () => void};
+
 export function logout({callback}: TLogoutParams) {
     return async function (dispatch: Dispatch) {
         dispatch({type: progress.START_LOADING});
         const config = {headers: {Authorization: globalData.token}};
         try {
+            await axios.post(`${URL}/api/flush-session/`);
             await axios.post(`${URL}/api/auth/logout/`, {}, config);
         } catch (e) {
             await processLogout(dispatch, callback);
@@ -453,6 +507,7 @@ export async function processLogout(dispatch: Dispatch, callback?: () => void) {
 }
 
 type TCheckUsername = {username: string};
+
 export function checkUsername({username}: TCheckUsername) {
     return async function (dispatch: Dispatch) {
         dispatch({type: appTemp.SEARCHING});
@@ -467,6 +522,7 @@ export function checkUsername({username}: TCheckUsername) {
 }
 
 type TFetchDevicesParams = {callback: () => void};
+
 export function fetchDevices({callback}: TFetchDevicesParams) {
     return async function (dispatch: Dispatch) {
         const config = {headers: {Authorization: globalData.limitedAccessToken}};
@@ -517,6 +573,7 @@ export function updateChatDevice(deviceId: string, latest: boolean) {
 }
 
 type TCancelRegistration = {callback: () => void};
+
 export function cancelRegistration({callback}: TCancelRegistration) {
     return async function (dispatch: Dispatch) {
         dispatch({type: progress.START_LOADING});
@@ -536,6 +593,7 @@ export function cancelRegistration({callback}: TCancelRegistration) {
 }
 
 type TRecreateUserParams = {callback: (userId: string) => void};
+
 export function recreateUser({callback}: TRecreateUserParams) {
     return async function (dispatch: Dispatch) {
         dispatch({type: progress.START_LOADING});
@@ -572,6 +630,7 @@ export function recreateUser({callback}: TRecreateUserParams) {
 
 // TODO: E2E test
 type TOneTapRecoverPasswordParams = {callback: (password: string) => void; failCallback: () => void};
+
 export function oneTapRecoverPassword({callback, failCallback}: TOneTapRecoverPasswordParams) {
     return async function () {
         const userId = await AsyncStorage.getItem('@userId');
@@ -593,6 +652,7 @@ export function oneTapRecoverPassword({callback, failCallback}: TOneTapRecoverPa
 }
 
 type TChangePasswordParams = {currentPass: string; newPass: string; callback: () => void};
+
 export function changePassword({currentPass, newPass, callback}: TChangePasswordParams) {
     return async function (dispatch: Dispatch) {
         dispatch({type: progress.START_LOADING});
@@ -642,6 +702,7 @@ export function changePassword({currentPass, newPass, callback}: TChangePassword
 }
 
 type TDeactivateParams = {callback: () => void};
+
 export function deactivate({callback}: TDeactivateParams) {
     return async function (dispatch: Dispatch) {
         dispatch({type: progress.START_LOADING});
@@ -652,6 +713,7 @@ export function deactivate({callback}: TDeactivateParams) {
 }
 
 type TCodeConfirmedDeleteAccountParams = {code: string; callback: () => void};
+
 export function codeConfirmedDeleteAccount({code, callback}: TCodeConfirmedDeleteAccountParams) {
     return async function (dispatch: Dispatch) {
         dispatch({type: progress.START_LOADING});
@@ -673,6 +735,7 @@ export function codeConfirmedDeleteAccount({code, callback}: TCodeConfirmedDelet
 }
 
 type TDeleteAccountParams = {user: TUser; groups: TGroup[]; password: string; callback: () => void};
+
 export function deleteAccount({user, groups, password, callback}: TDeleteAccountParams) {
     return async function (dispatch: Dispatch) {
         dispatch({type: progress.START_LOADING});

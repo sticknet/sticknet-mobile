@@ -1,9 +1,10 @@
 import React, {PureComponent} from 'react';
 import {connect, ConnectedProps} from 'react-redux';
-import {TouchableOpacity, StyleSheet, ActivityIndicator, ViewStyle} from 'react-native';
+import {TouchableOpacity, StyleSheet, ActivityIndicator, ViewStyle, View} from 'react-native';
 import {widthPercentageToDP as w} from 'react-native-responsive-screen';
 import {colors} from '../../foundations';
 import Text from '../Text';
+import Icon from '../Icons/Icon';
 import {IApplicationState} from '../../types';
 
 interface ButtonOwnProps {
@@ -21,6 +22,7 @@ interface ButtonOwnProps {
     fullWidth?: boolean;
     testID?: string;
     id?: string;
+    icon?: string;
 }
 
 type ReduxProps = ConnectedProps<typeof connector>;
@@ -54,6 +56,7 @@ class Button extends PureComponent<Props> {
             fullWidth,
             testID,
             isLoading,
+            icon,
         } = this.props;
 
         return (
@@ -75,18 +78,21 @@ class Button extends PureComponent<Props> {
                 {isLoading ? (
                     <ActivityIndicator color="#ffffff" />
                 ) : (
-                    <Text
-                        testID={`${testID}-text`}
-                        style={[
-                            s.text,
-                            {
-                                color: textColor || (light ? '#6060FF' : '#fff'),
-                                fontSize,
-                                fontWeight: 'bold',
-                            },
-                        ]}>
-                        {text}
-                    </Text>
+                    <View style={{flexDirection: 'row', justifyContent: 'center', alignItems: 'center'}}>
+                        {icon && <Icon name={icon} color="#ffffff" style={{marginRight: 8}} />}
+                        <Text
+                            testID={`${testID}-text`}
+                            style={[
+                                s.text,
+                                {
+                                    color: textColor || (light ? '#6060FF' : '#fff'),
+                                    fontSize,
+                                    fontWeight: 'bold',
+                                },
+                            ]}>
+                            {text}
+                        </Text>
+                    </View>
                 )}
             </TouchableOpacity>
         );

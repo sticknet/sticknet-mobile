@@ -14,8 +14,10 @@ const persistConfig = {
 
 const persistedReducer = persistReducer(persistConfig, reducers);
 
+let store: Store;
+let persistor: Persistor;
+
 export default function configureStore(preloadedState: object = {}): {store: Store; persistor: Persistor} {
-    let store: Store;
     if (__DEV__) {
         const Reactotron = require('reactotron-react-native').default;
         if (Config.TESTING !== '1' && Reactotron.createEnhancer) {
@@ -36,6 +38,8 @@ export default function configureStore(preloadedState: object = {}): {store: Sto
         // PRODUCTION
         store = createStore(persistedReducer, preloadedState, applyMiddleware(thunk));
     }
-    const persistor = persistStore(store);
+    persistor = persistStore(store);
     return {store, persistor};
 }
+
+export {store, persistor}; // Export globally

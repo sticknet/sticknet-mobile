@@ -108,6 +108,7 @@ export type TGroupRequest = {id: string; displayName: string; stickId: string; g
 export type TUser = {
     id: string;
     username: string;
+    ethereumAddress: string;
     name: string;
     groups: TGroup[];
     groupsIds: string[];

@@ -4,8 +4,10 @@
         <domain includeSubdomains="true">192.168.0.102</domain>
         <domain includeSubdomains="true">192.168.0.103</domain>
         <domain includeSubdomains="true">192.168.0.104</domain>
+        <domain includeSubdomains="true">192.168.0.106</domain>
         <domain includeSubdomains="true">192.168.0.100</domain>
         <domain includeSubdomains="true">192.168.0.101</domain>
+        <domain includeSubdomains="true">192.168.0.111</domain>
         <domain includeSubdomains="true">localhost</domain>
     </domain-config>
 </network-security-config>

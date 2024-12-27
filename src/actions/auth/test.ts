@@ -47,7 +47,6 @@ describe('auth.js actions functions', () => {
         const func = auth.verifyEmailCode({
             email: 'test@test.com',
             code: '123456',
-            user: null,
             loginCallback: jest.fn(),
             registerCallback: jest.fn(),
             newPassCallback: jest.fn(),

@@ -22,6 +22,7 @@ import {ConnectionAlert, Loading, CreateModal, Update, MovingFileView} from './c
 import NavigationService from './actions/NavigationService';
 import {getAppSettings} from './utils';
 import configureStore from './store';
+import siweConfig from './utils/siweConfig';
 
 Sentry.init({
     dsn: 'https://3fcf3d773d8da9bf5d5a6d3eb66a7fbb@o4506009368199168.ingest.sentry.io/4506009458114560',
@@ -46,7 +47,8 @@ const metadata = {
     ],
     redirect: {
         native: `${bundleId}://`,
-        universal: 'sticknet.org',
+        universal: 'https://sticknet.org',
+        // linkMode: true,
     },
 };
 
@@ -64,6 +66,7 @@ createAppKit({
     wagmiConfig,
     defaultChain: mainnet, // Optional
     enableAnalytics: true, // Optional - defaults to your Cloud configuration
+    siweConfig,
 });
 
 class App extends Component {

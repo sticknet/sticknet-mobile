@@ -1,5 +1,16 @@
-import React, {Component, createRef} from 'react';
-import {View, Text, Alert, Platform, StatusBar, TextInput, TouchableOpacity, Keyboard, StyleSheet} from 'react-native';
+import React, {useEffect, useRef, useState} from 'react';
+import {
+    View,
+    Text,
+    Alert,
+    Platform,
+    StatusBar,
+    TextInput,
+    TouchableOpacity,
+    Keyboard,
+    StyleSheet,
+    Linking,
+} from 'react-native';
 import {connect, ConnectedProps} from 'react-redux';
 import KeyIcon from '@sticknet/react-native-vector-icons/AntDesign';
 import RNBootSplash from 'react-native-bootsplash';
@@ -8,12 +19,15 @@ import {widthPercentageToDP as w} from 'react-native-responsive-screen';
 import CheckIcon from '@sticknet/react-native-vector-icons/Feather';
 import type {RouteProp} from '@react-navigation/native';
 import type {StackNavigationProp} from '@react-navigation/stack';
+import {useSignMessage} from 'wagmi';
+import {handleResponse} from '@coinbase/wallet-mobile-sdk';
 import {auth, stickRoom} from '../../actions/index';
 import {Button, ProgressModal} from '../../components';
 import type {HomeStackParamList} from '../../navigators/types';
 import type {IApplicationState, TGroup, TUser} from '../../types';
 import type {IAuthActions, IStickRoomActions} from '../../actions/types';
 import {globalData} from '../../actions/globalVariables';
+import StickProtocol from '../../native-modules/stick-protocol';
 
 interface PasswordLoginScreenProps extends IAuthActions, IStickRoomActions {
     navigation: StackNavigationProp<HomeStackParamList>;
@@ -26,88 +40,69 @@ interface PasswordLoginScreenProps extends IAuthActions, IStickRoomActions {
     user: any;
 }
 
-interface PasswordLoginScreenState {
-    password: string;
-    keyboardHeight: number;
-    showPass: boolean;
-}
-
 type ReduxProps = ConnectedProps<typeof connector>;
 
 type Props = PasswordLoginScreenProps & ReduxProps;
 
-class PasswordLoginScreen extends Component<Props, PasswordLoginScreenState> {
-    private input = createRef<TextInput>();
-
-    private authId: string;
-
-    private keyboardDidShowListener?: {remove: () => void};
-
-    private keyboardDidHideListener?: {remove: () => void};
-
-    private navListener?: () => void;
-
-    constructor(props: Props) {
-        super(props);
-        this.authId = this.props.route.params.authId;
-        this.state = {
-            password: '',
-            keyboardHeight: 0,
-            showPass: false,
-        };
-    }
-
-    async componentDidMount() {
+const PasswordLoginScreen = (props: Props) => {
+    const input = useRef<TextInput>(null);
+    const [password, setPassword] = useState('');
+    const [keyboardHeight, setKeyboardHeight] = useState(0);
+    const [showPass, setShowPass] = useState(false);
+    const authId = props.route.params.authId;
+    const {data, signMessage} = useSignMessage();
+    useEffect(() => {
         RNBootSplash.hide({duration: 250});
         if (Platform.OS === 'android') {
             StatusBar.setTranslucent(true);
             StatusBar.setBackgroundColor('#fff');
             changeNavigationBarColor('#000000');
         }
-        this.keyboardDidShowListener = Keyboard.addListener('keyboardDidShow', this.keyboardDidShow);
-        this.keyboardDidHideListener = Keyboard.addListener('keyboardDidHide', this.keyboardDidHide);
-        this.navListener = this.props.navigation.addListener('focus', () => {
-            this.input.current?.focus();
+        const keyboardDidShowListener = Keyboard.addListener('keyboardDidShow', keyboardDidShow);
+        const keyboardDidHideListener = Keyboard.addListener('keyboardDidHide', keyboardDidHide);
+        const navListener = props.navigation.addListener('focus', () => {
+            input.current?.focus();
         });
-    }
+        const sub = Linking.addEventListener('url', ({url}) => {
+            handleResponse(new URL(url));
+        });
+        return () => {
+            keyboardDidShowListener?.remove();
+            keyboardDidHideListener?.remove();
+            navListener?.();
+            sub.remove();
+        };
+    }, []);
 
-    componentDidUpdate(prevProps: PasswordLoginScreenProps) {
-        if (!prevProps.error && this.props.error) {
-            Alert.alert('Incorrect password!', 'The password you entered is incorrect.');
-        }
-    }
+    useEffect(() => {
+        if (props.error) Alert.alert('Incorrect password!', 'The password you entered is incorrect.');
+    }, [props.error]);
 
-    componentWillUnmount() {
-        this.keyboardDidShowListener?.remove();
-        this.keyboardDidHideListener?.remove();
-        this.navListener?.();
-    }
-
-    keyboardDidShow = (e: any) => {
-        this.setState({keyboardHeight: Platform.OS === 'ios' ? e.endCoordinates.height : 0});
+    const keyboardDidShow = (e: any) => {
+        setKeyboardHeight(Platform.OS === 'ios' ? e.endCoordinates.height : 0);
     };
 
-    keyboardDidHide = () => {
-        this.setState({keyboardHeight: 0});
+    const keyboardDidHide = () => {
+        setKeyboardHeight(0);
     };
 
-    loginCallback = () => {
-        this.props.fetchMessages({
-            groups: this.props.groups,
-            connections: this.props.connections,
-            user: this.props.user,
+    const loginCallback = () => {
+        props.fetchMessages({
+            groups: props.groups,
+            connections: props.connections,
+            user: props.user,
             callback: () => {
                 globalData.hideTabBar = false;
-                this.props.navigation.setParams({hideTabBar: false});
+                props.navigation.setParams({hideTabBar: false});
                 if (Platform.OS === 'ios') {
                     setTimeout(() => {
-                        this.props.navigation.reset({
+                        props.navigation.reset({
                             index: 0,
                             routes: [{name: 'Home', params: {loggedIn: true, profileLoggedIn: true}}],
                         });
                     }, 600);
                 } else
-                    this.props.navigation.reset({
+                    props.navigation.reset({
                         index: 0,
                         routes: [{name: 'Home', params: {loggedIn: true, profileLoggedIn: true}}],
                     });
@@ -115,79 +110,108 @@ class PasswordLoginScreen extends Component<Props, PasswordLoginScreenState> {
         });
     };
 
-    login = () => {
+    const login = () => {
         if (__DEV__) {
-            this.setState({showPass: false});
-            const password = this.state.password.length === 0 ? 'gggggg' : this.state.password;
-            this.props.login({password, authId: this.authId, callback: this.loginCallback});
-        } else if (this.state.password.length === 0) {
+            setShowPass(false);
+            const passwordText = password.length === 0 ? 'gggggg' : password;
+            props.login({
+                password: passwordText,
+                method: props.isWallet ? 'wallet' : 'email',
+                authId,
+                callback: loginCallback,
+            });
+        } else if (password.length === 0) {
             Alert.alert('Enter your Password!', 'You need to enter your password to login.', [
                 {text: 'Ok!', style: 'cancel'},
             ]);
-        } else if (this.state.password.length < 6) {
+        } else if (password.length < 6) {
             Alert.alert('Password too short!', 'A password is at least 6 characters.', [
                 {text: 'Ok!', style: 'cancel'},
             ]);
         } else {
-            this.setState({showPass: false});
-            this.props.login({password: this.state.password, authId: this.authId, callback: this.loginCallback});
+            setShowPass(false);
+            props.login({password, authId, method: props.isWallet ? 'wallet' : 'email', callback: loginCallback});
         }
     };
 
-    forgotPassword = () => {
-        this.props.navigation.navigate({name: 'ForgotPassword', merge: true, params: {}});
+    const forgotPassword = () => {
+        props.navigation.navigate({name: 'ForgotPassword', merge: true, params: {}});
     };
 
-    render() {
-        return (
-            <View style={{flex: 1, padding: 12, paddingLeft: 20, paddingRight: 20}}>
-                <ProgressModal
-                    isVisible={this.props.modalVisible}
-                    text={this.props.finishingUp ? 'Finishing up...' : 'Logging in & decrypting your data...'}
-                />
-                <View style={s.circle}>
-                    <KeyIcon name="key" size={40} color="#6060FF" />
-                </View>
-                <Text style={s.create}>Password</Text>
-                <TextInput
-                    testID="password-input"
-                    placeholder="Enter your password"
-                    placeholderTextColor="silver"
-                    ref={this.input}
-                    secureTextEntry={!this.state.showPass}
-                    onChangeText={(password) => this.setState({password})}
-                    selectionColor="#6060FF"
-                    autoFocus
-                    value={this.state.password}
-                    style={s.input}
-                    maxLength={25}
-                />
-                <TouchableOpacity
-                    activeOpacity={1}
-                    style={s.showContainer}
-                    onPress={() => this.setState({showPass: !this.state.showPass})}>
-                    <CheckIcon
-                        name={this.state.showPass ? 'check-circle' : 'circle'}
-                        size={24}
-                        color="silver"
-                        style={{bottom: 3}}
-                    />
-                    <Text style={s.showText}> Show password</Text>
-                </TouchableOpacity>
-                <TouchableOpacity
-                    style={s.forgotContainer}
-                    activeOpacity={1}
-                    hitSlop={{bottom: 24, top: 24}}
-                    onPress={this.forgotPassword}>
-                    <Text style={s.forgot}>Forgot Password?</Text>
-                </TouchableOpacity>
-                <View style={{position: 'absolute', bottom: this.state.keyboardHeight + 16, left: 20}}>
-                    <Button testID="login-button" onPress={this.login} text="Log In" width={w('90%')} />
-                </View>
+    const regeneratePassword = () => {
+        const secret = globalData.accountSecret.slice(0, 44);
+        signMessage({message: secret});
+    };
+    const hashSignedSecret = async (signedSecret: string) => {
+        const salt = globalData.accountSecret.slice(44, 88);
+        const password = await StickProtocol.createPasswordHash(signedSecret, salt);
+        setPassword(password);
+        login();
+    };
+    useEffect(() => {
+        if (data) {
+            hashSignedSecret(data);
+        }
+    }, [data]);
+    return (
+        <View style={{flex: 1, padding: 12, paddingLeft: 20, paddingRight: 20}}>
+            <ProgressModal
+                isVisible={props.modalVisible}
+                text={props.finishingUp ? 'Finishing up...' : 'Logging in & decrypting your data...'}
+            />
+            <View style={s.circle}>
+                <KeyIcon name="key" size={40} color="#6060FF" />
             </View>
-        );
-    }
-}
+            <Text style={s.create}>Password</Text>
+            {!props.isWallet ? (
+                <>
+                    <TextInput
+                        testID="password-input"
+                        placeholder="Enter your password"
+                        placeholderTextColor="silver"
+                        ref={input}
+                        secureTextEntry={!showPass}
+                        onChangeText={(password) => setPassword(password)}
+                        selectionColor="#6060FF"
+                        autoFocus
+                        value={password}
+                        style={s.input}
+                        maxLength={25}
+                    />
+                    <TouchableOpacity activeOpacity={1} style={s.showContainer} onPress={() => setShowPass(!showPass)}>
+                        <CheckIcon
+                            name={showPass ? 'check-circle' : 'circle'}
+                            size={24}
+                            color="silver"
+                            style={{bottom: 3}}
+                        />
+                        <Text style={s.showText}> Show password</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                        style={s.forgotContainer}
+                        activeOpacity={1}
+                        hitSlop={{bottom: 24, top: 24}}
+                        onPress={forgotPassword}>
+                        <Text style={s.forgot}>Forgot Password?</Text>
+                    </TouchableOpacity>
+                    <View style={{position: 'absolute', bottom: keyboardHeight + 16, left: 20}}>
+                        <Button testID="login-button" onPress={login} text="Log In" width={w('90%')} />
+                    </View>
+                </>
+            ) : (
+                <>
+                    <Text style={{marginTop: 16}}>Regenerate password from your wallet to login.</Text>
+                    <Button
+                        onPress={regeneratePassword}
+                        text="Sign & Generate password!"
+                        width={w('90%')}
+                        testID="finish"
+                    />
+                </>
+            )}
+        </View>
+    );
+};
 
 const s = StyleSheet.create({
     circle: {
@@ -236,6 +260,7 @@ const mapStateToProps = (state: IApplicationState) => {
         groups: state.groups,
         connections: state.connections,
         user: state.auth.user,
+        isWallet: state.auth.user?.ethereumAddress,
     };
 };
 

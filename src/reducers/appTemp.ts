@@ -52,6 +52,7 @@ export interface IAppTempState {
     finishedCommonInits: boolean;
     tabBarHeight: number;
     pendingModal: null | object;
+    walletVerified: boolean;
 }
 
 export const appTempInitialState: IAppTempState = {
@@ -115,6 +116,7 @@ export const appTempInitialState: IAppTempState = {
     finishedCommonInits: false,
     tabBarHeight: 0,
     pendingModal: null,
+    walletVerified: false,
 };
 
 export interface IGeneratingKeysAction extends Action {

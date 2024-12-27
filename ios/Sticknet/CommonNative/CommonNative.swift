@@ -18,101 +18,101 @@ class CommonNative: NSObject {
 
     var dict = [String: [String]]()
 
-    static func createImageClassifier() -> VNCoreMLModel {
-        // Use a default model configuration.
-        let defaultConfig = MLModelConfiguration()
+//    static func createImageClassifier() -> VNCoreMLModel {
+//        // Use a default model configuration.
+//        let defaultConfig = MLModelConfiguration()
+//
+//        // Create an instance of the image classifier's wrapper class.
+////        let imageClassifierWrapper = try? MobileNet(configuration: defaultConfig)
+//
+//        guard let imageClassifier = imageClassifierWrapper else {
+//            fatalError("App failed to create an image classifier model instance.")
+//        }
+//
+//        // Get the underlying model instance.
+//        let imageClassifierModel = imageClassifier.model
+//
+//        // Create a Vision instance using the image classifier's model instance.
+//        guard let imageClassifierVisionModel = try? VNCoreMLModel(for: imageClassifierModel!) else {
+//            fatalError("App failed to create a `VNCoreMLModel` instance.")
+//        }
+//
+//        return imageClassifierVisionModel
+//    }
 
-        // Create an instance of the image classifier's wrapper class.
-        let imageClassifierWrapper = try? MobileNet(configuration: defaultConfig)
-
-        guard let imageClassifier = imageClassifierWrapper else {
-            fatalError("App failed to create an image classifier model instance.")
-        }
-
-        // Get the underlying model instance.
-        let imageClassifierModel = imageClassifier.model
-
-        // Create a Vision instance using the image classifier's model instance.
-        guard let imageClassifierVisionModel = try? VNCoreMLModel(for: imageClassifierModel!) else {
-            fatalError("App failed to create a `VNCoreMLModel` instance.")
-        }
-
-        return imageClassifierVisionModel
-    }
-
-    private static let imageClassifier = createImageClassifier()
+//    private static let imageClassifier = createImageClassifier()
 
     /// Generates a new request instance that uses the Image Predictor's image classifier model.
-    private func createImageClassificationRequest(uri: String) -> VNImageBasedRequest {
-        // Create an image classification request with an image classifier model.
+//    private func createImageClassificationRequest(uri: String) -> VNImageBasedRequest {
+//        // Create an image classification request with an image classifier model.
+//
+//        let imageClassificationRequest = VNCoreMLRequest(model: CommonNative.imageClassifier,
+//                completionHandler: { (request, error) in
+//
+//                    // Cast the request's results as an `VNClassificationObservation` array.
+//                    guard let observations = request.results as? [VNClassificationObservation] else {
+//                        // Image classifiers, like MobileNet, only produce classification observations.
+//                        // However, other Core ML model types can produce other observations.
+//                        // For example, a style transfer model produces `VNPixelBufferObservation` instances.
+//                        print("VNRequest produced the wrong result type: \(type(of: request.results)).")
+//                        return
+//                    }
+//                    var name = observations[0].identifier
+//                    if let firstComma = name.firstIndex(of: ",") {
+//                        name = String(name.prefix(upTo: firstComma))
+//                    }
+//                    if (observations[0].confidence > 0.25) {
+//                        self.dict[uri] = [name.capitalized]
+//                    } else {
+//                        self.dict[uri] = []
+//                    }
+//                })
+//
+//        imageClassificationRequest.imageCropAndScaleOption = .centerCrop
+//        return imageClassificationRequest
+//    }
 
-        let imageClassificationRequest = VNCoreMLRequest(model: CommonNative.imageClassifier,
-                completionHandler: { (request, error) in
+//
+//    func labelImage(uri: String) {
+//
+//
+//        let photo = UIImage(contentsOfFile: uri)
+//        let orientation = CGImagePropertyOrientation(photo!.imageOrientation)
+//
+//        guard let photoImage = photo?.cgImage else {
+//            return
+//        }
+//
+//        let imageClassificationRequest = createImageClassificationRequest(uri: uri)
+//
+//        let handler = VNImageRequestHandler(cgImage: photoImage, orientation: orientation)
+//        let requests: [VNRequest] = [imageClassificationRequest]
+//
+//        try! handler.perform(requests)
+//    }
 
-                    // Cast the request's results as an `VNClassificationObservation` array.
-                    guard let observations = request.results as? [VNClassificationObservation] else {
-                        // Image classifiers, like MobileNet, only produce classification observations.
-                        // However, other Core ML model types can produce other observations.
-                        // For example, a style transfer model produces `VNPixelBufferObservation` instances.
-                        print("VNRequest produced the wrong result type: \(type(of: request.results)).")
-                        return
-                    }
-                    var name = observations[0].identifier
-                    if let firstComma = name.firstIndex(of: ",") {
-                        name = String(name.prefix(upTo: firstComma))
-                    }
-                    if (observations[0].confidence > 0.25) {
-                        self.dict[uri] = [name.capitalized]
-                    } else {
-                        self.dict[uri] = []
-                    }
-                })
+//    @objc(classifyImage:addEventWithResolver:rejecter:)
+//    func classifyImage(uri: String, promise: @escaping RCTPromiseResolveBlock, reject: RCTPromiseRejectBlock) {
+//        dict = [String: [String]]()
+//        labelImage(uri: uri)
+//        promise(dict[uri])
+//    }
 
-        imageClassificationRequest.imageCropAndScaleOption = .centerCrop
-        return imageClassificationRequest
-    }
-
-
-    func labelImage(uri: String) {
-
-
-        let photo = UIImage(contentsOfFile: uri)
-        let orientation = CGImagePropertyOrientation(photo!.imageOrientation)
-
-        guard let photoImage = photo?.cgImage else {
-            return
-        }
-
-        let imageClassificationRequest = createImageClassificationRequest(uri: uri)
-
-        let handler = VNImageRequestHandler(cgImage: photoImage, orientation: orientation)
-        let requests: [VNRequest] = [imageClassificationRequest]
-
-        try! handler.perform(requests)
-    }
-
-    @objc(classifyImage:addEventWithResolver:rejecter:)
-    func classifyImage(uri: String, promise: @escaping RCTPromiseResolveBlock, reject: RCTPromiseRejectBlock) {
-        dict = [String: [String]]()
-        labelImage(uri: uri)
-        promise(dict[uri])
-    }
-
-    @objc(classifyImages:addEventWithResolver:rejecter:)
-    func classifyImages(uris: [String], promise: @escaping RCTPromiseResolveBlock, reject: RCTPromiseRejectBlock) {
-        dict = [String: [String]]()
-        let semaphore = DispatchSemaphore(value: 0)
-        var count = 0
-        for uri in uris {
-            labelImage(uri: uri)
-            if count == (uris.count - 1) {
-                semaphore.signal()
-            }
-            count += 1
-        }
-        semaphore.wait()
-        promise(dict)
-    }
+//    @objc(classifyImages:addEventWithResolver:rejecter:)
+//    func classifyImages(uris: [String], promise: @escaping RCTPromiseResolveBlock, reject: RCTPromiseRejectBlock) {
+//        dict = [String: [String]]()
+//        let semaphore = DispatchSemaphore(value: 0)
+//        var count = 0
+//        for uri in uris {
+//            labelImage(uri: uri)
+//            if count == (uris.count - 1) {
+//                semaphore.signal()
+//            }
+//            count += 1
+//        }
+//        semaphore.wait()
+//        promise(dict)
+//    }
 
 
     @objc(flipImage:addEventWithResolver:rejecter:)

@@ -160,7 +160,6 @@
 		07B3657F2975272900210F7C /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B3657D2975272900210F7C /* NotificationService.swift */; };
 		07C7FBA7299233C1003A434E /* BootSplash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07C7FBA6299233C1003A434E /* BootSplash.storyboard */; };
 		07C7FBA9299238AD003A434E /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07C7FBA8299238AD003A434E /* AppDelegate.mm */; };
-		07C7FBB029925E97003A434E /* MobileNet.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 07C7FBAF29925E97003A434E /* MobileNet.mlmodel */; };
 		10717E821AA6E645C6ADA2BB /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CEC487BBF5FBEEA451ED1FE /* ExpoModulesProvider.swift */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		41C5D388FC083DB92A84B2FF /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FD9C5B64CD2F0AD2CFC204 /* ExpoModulesProvider.swift */; };
@@ -381,7 +380,6 @@
 		07B3657E2975272900210F7C /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		07C7FBA6299233C1003A434E /* BootSplash.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = BootSplash.storyboard; path = Sticknet/BootSplash.storyboard; sourceTree = "<group>"; };
 		07C7FBA8299238AD003A434E /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = Sticknet/AppDelegate.mm; sourceTree = "<group>"; };
-		07C7FBAF29925E97003A434E /* MobileNet.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = MobileNet.mlmodel; sourceTree = "<group>"; };
 		0CEC487BBF5FBEEA451ED1FE /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-Sticknet-SticknetTests/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* Sticknet Debug.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sticknet Debug.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Sticknet/AppDelegate.h; sourceTree = "<group>"; };
@@ -638,7 +636,6 @@
 		07B364B429751E9200210F7C /* CommonNative */ = {
 			isa = PBXGroup;
 			children = (
-				07C7FBAE29925E5E003A434E /* Models */,
 				07B364B529751E9200210F7C /* CommonNativeBridge.m */,
 				07B364B629751E9200210F7C /* CommonNative.swift */,
 			);
@@ -757,14 +754,6 @@
 				07B3657E2975272900210F7C /* Info.plist */,
 			);
 			path = NotificationServiceExtension;
-			sourceTree = "<group>";
-		};
-		07C7FBAE29925E5E003A434E /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				07C7FBAF29925E97003A434E /* MobileNet.mlmodel */,
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 		13B07FAE1A68108700A75B9A /* Sticknet */ = {
@@ -1591,7 +1580,6 @@
 				07A3950B2A078CCA004559E5 /* SignalCiphertext.m in Sources */,
 				07A395292A078CCA004559E5 /* StickProtocol.swift in Sources */,
 				07A394EA2A078CCA004559E5 /* GroupCipher.m in Sources */,
-				07C7FBB029925E97003A434E /* MobileNet.mlmodel in Sources */,
 				07A394FC2A078CCA004559E5 /* SignalError.m in Sources */,
 				07A3951A2A078CCA004559E5 /* KeyPair.m in Sources */,
 				07A395472A078CCA004559E5 /* Randomness.m in Sources */,

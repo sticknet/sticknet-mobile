@@ -82,10 +82,10 @@
 @end
 
 @interface RCT_EXTERN_MODULE(CommonNative, NSObject)
-
-RCT_EXTERN_METHOD(classifyImage:(NSString *)uri addEventWithResolver:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject)
-
-RCT_EXTERN_METHOD(classifyImages:(NSArray *)uris addEventWithResolver:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject)
+//
+//RCT_EXTERN_METHOD(classifyImage:(NSString *)uri addEventWithResolver:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject)
+//
+//RCT_EXTERN_METHOD(classifyImages:(NSArray *)uris addEventWithResolver:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject)
 
 RCT_EXTERN_METHOD(flipImage:(NSString *)uri addEventWithResolver:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject)
 

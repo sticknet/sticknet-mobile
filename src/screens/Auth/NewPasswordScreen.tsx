@@ -1,4 +1,4 @@
-import React, {Component, createRef} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import {
     View,
     Text,
@@ -11,6 +11,7 @@ import {
     TouchableWithoutFeedback,
     Animated,
     StyleSheet,
+    Linking,
 } from 'react-native';
 import {connect} from 'react-redux';
 import CheckIcon from '@sticknet/react-native-vector-icons/Feather';
@@ -23,6 +24,8 @@ import RNBootSplash from 'react-native-bootsplash';
 import {widthPercentageToDP as w} from 'react-native-responsive-screen';
 import type {RouteProp} from '@react-navigation/native';
 import type {StackNavigationProp} from '@react-navigation/stack';
+import {useSignMessage} from 'wagmi';
+import {handleResponse} from '@coinbase/wallet-mobile-sdk';
 import {Button, ProgressModal} from '../../components';
 import {auth} from '../../actions/index';
 import {globalData} from '../../actions/globalVariables';
@@ -30,6 +33,7 @@ import {checkAnimation} from '../../../assets/lottie';
 import type {HomeStackParamList} from '../../navigators/types';
 import type {IApplicationState, TUser} from '../../types';
 import type {IAuthActions} from '../../actions/types';
+import CommonNative from '../../native-modules/common-native';
 
 interface NewPasswordScreenProps extends IAuthActions {
     navigation: StackNavigationProp<HomeStackParamList>;
@@ -39,94 +43,89 @@ interface NewPasswordScreenProps extends IAuthActions {
     progressModalVisible: boolean;
 }
 
-interface NewPasswordScreenState {
-    password: string;
-    confirmPassword: string;
-    showPass: boolean;
-    headerTranslation: Animated.Value;
-    modalVisible: boolean;
-}
-
-class NewPasswordScreen extends Component<NewPasswordScreenProps, NewPasswordScreenState> {
-    private input = createRef<TextInput>();
-
-    constructor(props: NewPasswordScreenProps) {
-        super(props);
-        this.state = {
-            password: '',
-            confirmPassword: '',
-            showPass: false,
-            headerTranslation: new Animated.Value(0),
-            modalVisible: true,
-        };
-    }
-
-    async componentDidMount() {
+const NewPasswordScreen = (props: NewPasswordScreenProps) => {
+    useEffect(() => {
         RNBootSplash.hide({duration: 250});
         if (Platform.OS === 'android') {
             StatusBar.setTranslucent(true);
             StatusBar.setBackgroundColor('#fff');
             changeNavigationBarColor('#000000');
         }
-        globalData.initialRoute = this.props.route.name;
+        globalData.initialRoute = props.route.name;
         Keyboard.dismiss();
-    }
+        const sub = Linking.addEventListener('url', ({url}) => {
+            handleResponse(new URL(url));
+        });
+        return () => {
+            sub.remove();
+        };
+    }, []);
 
-    finish = async () => {
+    const [password, setPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
+    const [showPass, setShowPass] = useState(false);
+    const [modalVisible, setModalVisible] = useState(true);
+    const [headerTranslation] = useState(new Animated.Value(0));
+    const input = useRef<TextInput>(null);
+    const [accountSecret, setAccountSecret] = useState();
+
+    const finish = async () => {
         if (__DEV__ || Config.TESTING === '1') {
-            this.setState({showPass: false});
-            const password = this.state.password.length === 0 ? 'gggggg' : this.state.password;
-            this.props.finishRegistration({
-                userId: this.props.user.id,
-                password,
-                authId: this.props.route.params.authId,
+            setShowPass(false);
+            const passwordText = password.length === 0 ? 'gggggg' : password;
+            props.finishRegistration({
+                userId: props.user.id,
+                method: props.isWallet ? 'wallet' : 'email',
+                password: passwordText,
+                authId: props.user.ethereumAddress || props.user.email,
                 callback: async () => {
                     globalData.hideTabBar = false;
-                    this.props.navigation.setParams({hideTabBar: false});
+                    props.navigation.setParams({hideTabBar: false});
                     if (Platform.OS === 'ios') {
                         setTimeout(() => {
-                            this.props.navigation.reset({
+                            props.navigation.reset({
                                 index: 0,
                                 routes: [{name: 'Home', params: {loggedIn: true, justRegistered: true}}],
                             });
                         }, 600);
                     } else
-                        this.props.navigation.reset({
+                        props.navigation.reset({
                             index: 0,
                             routes: [{name: 'Home', params: {loggedIn: true, justRegistered: true}}],
                         });
                 },
             });
-        } else if (this.state.password.length === 0)
+        } else if (password.length === 0)
             Alert.alert('Enter a Password!', 'You need to create a password to continue.', [
                 {text: 'Ok!', style: 'cancel'},
             ]);
-        else if (this.state.password.length < 6)
+        else if (password.length < 6)
             Alert.alert('Password too short!', 'The password must be at least 6 characters.', [
                 {text: 'Ok!', style: 'cancel'},
             ]);
-        else if (this.state.password !== this.state.confirmPassword)
+        else if (!props.isWallet && password !== confirmPassword)
             Alert.alert('Passwords do not match!', 'Make sure you entered the same password in both fields.', [
                 {text: 'Ok!', style: 'cancel'},
             ]);
         else {
-            this.setState({showPass: false});
-            this.props.finishRegistration({
-                userId: this.props.user.id,
-                password: this.state.password,
-                authId: this.props.route.params.authId,
+            setShowPass(false);
+            props.finishRegistration({
+                userId: props.user.id,
+                password,
+                authId: props.user.ethereumAddress || props.user.email,
+                method: props.isWallet ? 'wallet' : 'email',
                 callback: () => {
                     if (Platform.OS === 'ios') {
                         globalData.hideTabBar = false;
-                        this.props.navigation.setParams({hideTabBar: false});
+                        props.navigation.setParams({hideTabBar: false});
                         setTimeout(() => {
-                            this.props.navigation.reset({
+                            props.navigation.reset({
                                 index: 0,
                                 routes: [{name: 'Home', params: {loggedIn: true, justRegistered: true}}],
                             });
                         }, 600);
                     } else
-                        this.props.navigation.reset({
+                        props.navigation.reset({
                             index: 0,
                             routes: [{name: 'Home', params: {loggedIn: true, justRegistered: true}}],
                         });
@@ -135,18 +134,18 @@ class NewPasswordScreen extends Component<NewPasswordScreenProps, NewPasswordScr
         }
     };
 
-    renderModal = () => {
+    const renderModal = () => {
         return (
             <Modal
-                isVisible={this.state.modalVisible}
+                isVisible={modalVisible}
                 useNativeDriver
                 hideModalContentWhileAnimating
-                onBackdropPress={() => this.setState({modalVisible: false})}
-                onBackButtonPress={() => this.setState({modalVisible: false})}>
+                onBackdropPress={() => setModalVisible(false)}
+                onBackButtonPress={() => setModalVisible(false)}>
                 <View style={s.modal}>
                     <LottieView source={checkAnimation} autoPlay loop={false} style={{width: 60}} />
                     <Text style={s.modalText}>Account created successfully, but there is one last important step!</Text>
-                    <Text style={s.modalOk} onPress={() => this.setState({modalVisible: false})} testID="ok">
+                    <Text style={s.modalOk} onPress={() => setModalVisible(false)} testID="ok">
                         OK
                     </Text>
                 </View>
@@ -154,23 +153,23 @@ class NewPasswordScreen extends Component<NewPasswordScreenProps, NewPasswordScr
         );
     };
 
-    focus = () => {
-        Animated.timing(this.state.headerTranslation, {
+    const focus = () => {
+        Animated.timing(headerTranslation, {
             toValue: -104,
             duration: 200,
             useNativeDriver: true,
         }).start();
     };
 
-    blur = () => {
-        Animated.timing(this.state.headerTranslation, {
+    const blur = () => {
+        Animated.timing(headerTranslation, {
             toValue: 0,
             duration: 200,
             useNativeDriver: true,
         }).start();
     };
 
-    alert = () => {
+    const alert = () => {
         Alert.alert('Warning', 'Are you sure you want to cancel the registration process?', [
             {
                 text: 'No',
@@ -179,80 +178,103 @@ class NewPasswordScreen extends Component<NewPasswordScreenProps, NewPasswordScr
             {
                 text: 'Yes, Cancel Registration',
                 style: 'destructive',
-                onPress: () =>
-                    this.props.cancelRegistration({callback: () => this.props.navigation.replace('Authentication')}),
+                onPress: () => props.cancelRegistration({callback: () => props.navigation.replace('Authentication')}),
             },
         ]);
     };
-
-    render() {
-        return (
-            <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
-                <View style={{flex: 1, padding: 12, paddingLeft: 20}}>
-                    {this.renderModal()}
-                    <ProgressModal
-                        isVisible={this.props.progressModalVisible}
-                        text={!this.props.finishingUp ? 'Processing...' : 'Finishing up...'}
-                    />
-                    <Animated.View style={{transform: [{translateY: this.state.headerTranslation}]}}>
-                        <View style={s.circle}>
-                            <KeyIcon name="key" size={40} color="#6060FF" />
-                        </View>
-                        <Text style={[s.create, {paddingTop: 16}]}>Create a secure password</Text>
-                        <TextInput
-                            placeholder="Enter a new password"
-                            placeholderTextColor="silver"
-                            ref={this.input}
-                            onChangeText={(password) => this.setState({password})}
-                            secureTextEntry={!this.state.showPass}
-                            selectionColor="#6060FF"
-                            value={this.state.password}
-                            style={s.input}
-                            onFocus={this.focus}
-                            onBlur={this.blur}
-                            testID="pass-input-1"
-                        />
-                        <TextInput
-                            placeholder="Confirm password"
-                            placeholderTextColor="silver"
-                            ref={this.input}
-                            onChangeText={(confirmPassword) => this.setState({confirmPassword})}
-                            secureTextEntry={!this.state.showPass}
-                            selectionColor="#6060FF"
-                            value={this.state.confirmPassword}
-                            style={s.input}
-                            onFocus={this.focus}
-                            onBlur={this.blur}
-                            testID="pass-input-2"
-                        />
-                        <TouchableOpacity
-                            activeOpacity={1}
-                            style={s.showContainer}
-                            onPress={() => this.setState({showPass: !this.state.showPass})}>
-                            <CheckIcon
-                                name={this.state.showPass ? 'check-circle' : 'circle'}
-                                size={24}
-                                color="silver"
-                                style={{bottom: 3}}
+    const generatePassword = async () => {
+        const secret = await CommonNative.generateSecureRandom(32);
+        setAccountSecret(secret);
+        signMessage({message: secret});
+    };
+    const {isWallet} = props;
+    const {data, signMessage} = useSignMessage();
+    useEffect(() => {
+        if (data) props.generatePasswordFromWallet({accountSecret, signedSecret: data, setPassword, callback: finish});
+    }, [data]);
+    return (
+        <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
+            <View style={{flex: 1, padding: 12, paddingLeft: 20}}>
+                {renderModal()}
+                <ProgressModal
+                    isVisible={props.progressModalVisible}
+                    text={!props.finishingUp ? 'Processing...' : 'Finishing up...'}
+                />
+                <Animated.View style={{transform: [{translateY: headerTranslation}]}}>
+                    <View style={s.circle}>
+                        <KeyIcon name="key" size={40} color="#6060FF" />
+                    </View>
+                    {!isWallet ? (
+                        <>
+                            <Text style={[s.create, {paddingTop: 16}]}>Create a secure password</Text>
+                            <TextInput
+                                placeholder="Enter a new password"
+                                placeholderTextColor="silver"
+                                ref={input}
+                                onChangeText={(password) => setPassword(password)}
+                                secureTextEntry={!showPass}
+                                selectionColor="#6060FF"
+                                value={password}
+                                style={s.input}
+                                onFocus={focus}
+                                onBlur={blur}
+                                testID="pass-input-1"
                             />
-                            <Text style={s.showText}> Show password</Text>
-                        </TouchableOpacity>
-                        <Text style={s.warning}>
-                            <Text style={{fontWeight: 'bold'}}>Important Notice:</Text> Please choose your password
-                            carefully. If you forget your password you may be locked out of your account.
-                        </Text>
-                        <View>
-                            <Button onPress={this.finish} text="Finish!" width={w('90%')} testID="finish" />
-                        </View>
-                        <TouchableOpacity style={s.cancelContainer} onPress={this.alert}>
-                            <Text style={s.cancel}>Cancel</Text>
-                        </TouchableOpacity>
-                    </Animated.View>
-                </View>
-            </TouchableWithoutFeedback>
-        );
-    }
-}
+                            <TextInput
+                                placeholder="Confirm password"
+                                placeholderTextColor="silver"
+                                ref={input}
+                                onChangeText={(confirmPassword) => setConfirmPassword(confirmPassword)}
+                                secureTextEntry={!showPass}
+                                selectionColor="#6060FF"
+                                value={confirmPassword}
+                                style={s.input}
+                                onFocus={focus}
+                                onBlur={blur}
+                                testID="pass-input-2"
+                            />
+                            <TouchableOpacity
+                                activeOpacity={1}
+                                style={s.showContainer}
+                                onPress={() => setShowPass(!showPass)}>
+                                <CheckIcon
+                                    name={showPass ? 'check-circle' : 'circle'}
+                                    size={24}
+                                    color="silver"
+                                    style={{bottom: 3}}
+                                />
+                                <Text style={s.showText}> Show password</Text>
+                            </TouchableOpacity>
+                            <Text style={s.warning}>
+                                <Text style={{fontWeight: 'bold'}}>Important Notice:</Text> Please choose your password
+                                carefully. If you forget your password you may be locked out of your account.
+                            </Text>
+                            <View>
+                                <Button onPress={finish} text="Finish!" width={w('90%')} testID="finish" />
+                            </View>
+                            <TouchableOpacity style={s.cancelContainer} onPress={alert}>
+                                <Text style={s.cancel}>Cancel</Text>
+                            </TouchableOpacity>
+                        </>
+                    ) : (
+                        <>
+                            <Text style={s.warning}>
+                                A secure password will be generated from your wallet. If you lose access to your wallet
+                                you will be locked out of your Sticknet account.
+                            </Text>
+                            <Button
+                                onPress={generatePassword}
+                                text="Sign & Generate password!"
+                                width={w('90%')}
+                                testID="finish"
+                            />
+                        </>
+                    )}
+                </Animated.View>
+            </View>
+        </TouchableWithoutFeedback>
+    );
+};
 
 const s = StyleSheet.create({
     modal: {
@@ -320,6 +342,7 @@ const s = StyleSheet.create({
 const mapStateToProps = (state: IApplicationState) => {
     return {
         user: state.auth.user as TUser,
+        isWallet: state.auth.user?.ethereumAddress,
         finishingUp: state.appTemp.finishingUp,
         progressModalVisible: state.appTemp.progressModal,
     };

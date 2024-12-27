@@ -69,6 +69,7 @@ const noTabRoutes = [
     'StickRoom',
     'AlbumPhotos',
     'AddConnections',
+    'WalletPassword',
 ];
 
 function isTabBarVisible(route: RouteProp<TabNavigatorParams>): boolean {
