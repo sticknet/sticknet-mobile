@@ -436,7 +436,7 @@ export function logout({callback}: TLogoutParams) {
         dispatch({type: progress.START_LOADING});
         const config = {headers: {Authorization: globalData.token}};
         try {
-            await axios.post(`${URL}/api/flush-session/`);
+            await axios.get(`${URL}/api/flush-session/`);
             await axios.post(`${URL}/api/auth/logout/`, {}, config);
         } catch (e) {
             await processLogout(dispatch, callback);
