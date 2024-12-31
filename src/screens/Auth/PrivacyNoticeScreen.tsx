@@ -7,6 +7,7 @@ import changeNavigationBarColor from 'react-native-navigation-bar-color';
 import {checkNotifications, RESULTS} from 'react-native-permissions';
 import {heightPercentageToDP as h} from 'react-native-responsive-screen';
 import type {StackNavigationProp} from '@react-navigation/stack';
+import {ConnectionController} from '@reown/appkit-core-react-native';
 import {URL} from '../../actions/URL';
 import {Button, Sticknet, Text} from '../../components';
 import {privacyAnimation} from '../../../assets/lottie';
@@ -24,6 +25,7 @@ const PrivacyNoticeScreen: FC = () => {
     useEffect(() => {
         // @ts-ignore
         RNBootSplash.hide({duration: 250});
+        ConnectionController.disconnect();
         if (Platform.OS === 'android') {
             setTimeout(() => {
                 StatusBar.setTranslucent(true);

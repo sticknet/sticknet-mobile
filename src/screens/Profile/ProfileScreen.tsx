@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 import CalendarIcon from '@sticknet/react-native-vector-icons/AntDesign';
 import FeatherIcon from '@sticknet/react-native-vector-icons/Feather';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import {nav, parseBirthDay} from '../../utils';
+import {nav, parseBirthDay, shortenAddress} from '../../utils';
 import {auth, users, groups, app, profile, common, iap, stickRoom, create, vault} from '../../actions';
 import {ProfilePicture, ProfileCover, Icon, StorageMeter, ActionButton} from '../../components';
 import {globalData} from '../../actions/globalVariables';
@@ -172,7 +172,7 @@ class ProfileScreen extends Component<ProfileScreenProps, ProfileScreenState> {
                                 <View style={s.iconContainer}>
                                     <Icon name={user.email ? 'envelope' : 'ethereum'} size={16} color="grey" />
                                 </View>
-                                <Text style={s.subInfo}>{user.email || user.ethereumAddress}</Text>
+                                <Text style={s.subInfo}>{user.email || shortenAddress(user.ethereumAddress)}</Text>
                             </View>
                             {user.websiteLink && (
                                 <View style={{flexDirection: 'row'}}>

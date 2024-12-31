@@ -1,16 +1,21 @@
 import React, {Component} from 'react';
 import {FlatList, StatusBar} from 'react-native';
-import {connect} from 'react-redux';
-import {NavigationProp} from '@react-navigation/native';
+import {connect, ConnectedProps} from 'react-redux';
+import type {NavigationProp} from '@react-navigation/native';
 
 import {SettingsItem, Icon} from '../../../components';
 import type {ProfileStackParamList} from '../../../navigators/types';
+import type {IApplicationState} from '../../../types';
 
 interface AccountScreenProps {
     navigation: NavigationProp<ProfileStackParamList>;
 }
 
-class AccountScreen extends Component<AccountScreenProps> {
+type ReduxProps = ConnectedProps<typeof connector>;
+
+type Props = ReduxProps & AccountScreenProps;
+
+class AccountScreen extends Component<Props> {
     navListener: any;
 
     componentDidMount() {
@@ -33,7 +38,7 @@ class AccountScreen extends Component<AccountScreenProps> {
         const {
             navigation: {navigate},
         } = this.props;
-        const data = [
+        let data = [
             {
                 text: 'Backup Password',
                 description: '',
@@ -68,8 +73,17 @@ class AccountScreen extends Component<AccountScreenProps> {
                 separate: true,
             },
         ];
+        if (this.props.isWallet) data = data.slice(3);
         return <FlatList data={data} renderItem={this.renderItem} keyExtractor={(item) => item.text} />;
     }
 }
 
-export default connect(null, null)(AccountScreen);
+function mapStateToProps(state: IApplicationState) {
+    return {
+        isWallet: state.auth.user?.ethereumAddress,
+    };
+}
+
+const connector = connect(mapStateToProps);
+
+export default connector(AccountScreen);

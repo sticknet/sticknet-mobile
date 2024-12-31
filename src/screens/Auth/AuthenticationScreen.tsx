@@ -15,7 +15,6 @@ import {
 import {connect, ConnectedProps} from 'react-redux';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {widthPercentageToDP as w} from 'react-native-responsive-screen';
-import '@walletconnect/react-native-compat';
 import {useAppKit} from '@reown/appkit-wagmi-react-native';
 import {handleResponse} from '@coinbase/wallet-mobile-sdk';
 import changeNavigationBarColor from 'react-native-navigation-bar-color';
@@ -55,9 +54,7 @@ const AuthenticationScreen: React.FC<Props> = (props) => {
             changeNavigationBarColor('#000000');
         }
         keyboardDidShowListener = Keyboard.addListener('keyboardDidShow', keyboardDidShow);
-
         if (props.route.params?.forceLogout) props.navigation.reset({index: 0, routes: [{name: 'Authentication'}]});
-
         setTimeout(async () => {
             const res = await AsyncStorage.multiGet(['@userId', '@loggedIn']);
             const userId = res[0][1];
@@ -160,11 +157,11 @@ const AuthenticationScreen: React.FC<Props> = (props) => {
                     />
                     <View style={s.separatorContainer}>
                         <View style={s.line} />
-                        <Text style={s.orText}>OR</Text>
+                        <Text style={s.orText}>or</Text>
                         <View style={s.line} />
                     </View>
                     <Button
-                        onPress={() => open()}
+                        onPress={open}
                         text="Continue with wallet"
                         marginTop={0}
                         width={w('90%')}

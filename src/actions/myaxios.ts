@@ -24,9 +24,7 @@ const myaxios = {
         return response;
     },
     put: async <T = any>(url: string, body?: any, config?: AxiosRequestConfig): Promise<AxiosResponse<T>> => {
-        const response = await axios.put(url, snakeize(body), config);
-        response.data = camelize(response.data);
-        return response;
+        return axios.put(url, body, config);
     },
 };
 

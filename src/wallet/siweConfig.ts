@@ -6,34 +6,29 @@ import {
     type SIWEVerifyMessageArgs,
 } from '@reown/appkit-siwe-react-native';
 import type {SIWEMessageArgs} from '@reown/appkit-siwe-react-native/lib/typescript/utils/TypeUtils';
-import {URL as API} from '../actions/URL';
-import {globalData} from '../actions/globalVariables';
+import axios from '../actions/myaxios';
+import {URL} from '../actions/URL';
 import {store} from '../store';
 import {appTemp} from '../actions/actionTypes';
+import {globalData} from '../actions/globalVariables';
 
 const siweConfig = createSIWEConfig({
     getNonce: async (): Promise<string> => {
         // The getNonce method functions as a safeguard
         // against spoofing, akin to a CSRF token.
         // It should be called before any message is signed.
-        const res = await fetch(`${API}/api/generate-nonce/`);
-        return res.json();
+        const res = await axios.get(`${URL}/api/generate-nonce/`);
+        return res.data;
     },
     verifyMessage: async ({message, signature}: SIWEVerifyMessageArgs): Promise<boolean> => {
         try {
             // This function ensures the message is valid,
             // has not been tampered with, and has been appropriately
             // signed by the wallet address.
-            const res = await fetch(`${API}/api/verify-siwe/`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({message, signature}),
-            });
-            const verified = await res.json();
-            globalData.a = '1';
-            return verified;
+            await new Promise((resolve) => setTimeout(resolve, 1000));
+            const res = await axios.post(`${URL}/api/verify-siwe/`, {message, signature});
+            globalData.walletVerifyResponse = res;
+            return res.data.correct;
         } catch (error) {
             return false;
         }
@@ -41,18 +36,18 @@ const siweConfig = createSIWEConfig({
     getSession: async (): Promise<SIWESession | null> => {
         // The backend session should store the associated address and chainId
         // and return it via the `getSession` method.;
-        const response = await fetch(`${API}/api/get-session/`);
-        const session = await response.json();
+        const response = await axios.get(`${URL}/api/get-session/`);
+        const session = response.data;
         if (!session.exists) return null;
         return session;
     },
     signOut: async (): Promise<boolean> => {
         try {
             // The users session must be destroyed when calling `signOut`.
-            await fetch(`${API}/api/flush-session/`);
-            return Promise.resolve(true);
+            await axios.get(`${URL}/api/flush-session/`);
+            return true;
         } catch {
-            return Promise.resolve(false);
+            return false;
         }
     },
     createMessage: ({address, ...args}: SIWECreateMessageArgs): string => {
@@ -72,13 +67,8 @@ const siweConfig = createSIWEConfig({
         return Promise.resolve(siweMessage);
     },
     onSignIn: (session) => {
-        // dispatch a wallet verified state, then on trigger inside authscreen call props.handlecodeverified and navigate
         store.dispatch({type: appTemp.DISPATCH_APPTEMP_PROPERTY, payload: {walletVerified: session?.address}});
     },
 });
 
 export default siweConfig;
-
-// 1. onSignIn, call wallet-verified to navigate to create new account
-// 2. Create new wallet password screen
-// 3. sign and generate a password, then finish registrations

@@ -21,6 +21,7 @@ import type {RouteProp} from '@react-navigation/native';
 import type {StackNavigationProp} from '@react-navigation/stack';
 import {useSignMessage} from 'wagmi';
 import {handleResponse} from '@coinbase/wallet-mobile-sdk';
+import {ConnectionController} from '@reown/appkit-core-react-native';
 import {auth, stickRoom} from '../../actions/index';
 import {Button, ProgressModal} from '../../components';
 import type {HomeStackParamList} from '../../navigators/types';
@@ -110,7 +111,7 @@ const PasswordLoginScreen = (props: Props) => {
         });
     };
 
-    const login = () => {
+    const login = (password: string) => {
         if (__DEV__) {
             setShowPass(false);
             const passwordText = password.length === 0 ? 'gggggg' : password;
@@ -142,17 +143,17 @@ const PasswordLoginScreen = (props: Props) => {
         const secret = globalData.accountSecret.slice(0, 44);
         signMessage({message: secret});
     };
-    const hashSignedSecret = async (signedSecret: string) => {
-        const salt = globalData.accountSecret.slice(44, 88);
-        const password = await StickProtocol.createPasswordHash(signedSecret, salt);
-        setPassword(password);
-        login();
-    };
     useEffect(() => {
         if (data) {
             hashSignedSecret(data);
         }
     }, [data]);
+    const hashSignedSecret = async (signedSecret: string) => {
+        const salt = globalData.accountSecret.slice(44, 88);
+        const password = await StickProtocol.createPasswordHash(signedSecret, salt);
+        ConnectionController.disconnect();
+        login(password);
+    };
     return (
         <View style={{flex: 1, padding: 12, paddingLeft: 20, paddingRight: 20}}>
             <ProgressModal
@@ -195,7 +196,7 @@ const PasswordLoginScreen = (props: Props) => {
                         <Text style={s.forgot}>Forgot Password?</Text>
                     </TouchableOpacity>
                     <View style={{position: 'absolute', bottom: keyboardHeight + 16, left: 20}}>
-                        <Button testID="login-button" onPress={login} text="Log In" width={w('90%')} />
+                        <Button testID="login-button" onPress={() => login(password)} text="Log In" width={w('90%')} />
                     </View>
                 </>
             ) : (

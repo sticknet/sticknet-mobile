@@ -685,3 +685,10 @@ export const getUnreadCount = (
     });
     return count + Object.keys(requests || {}).length;
 };
+
+export function shortenAddress(address: string) {
+    if (!address.startsWith('0x') || address.length < 42) {
+        throw new Error('Invalid Ethereum address');
+    }
+    return `${address.slice(0, 6)}...${address.slice(-4)}`;
+}

@@ -233,11 +233,17 @@ const initializations = async (props: ICommonInitializationsProps) => {
 
 const checkPermissions = async (props: ICommonInitializationsProps) => {
     if (Config.TESTING === '1') return;
-    if (Platform.OS === 'android' && props.route?.params && props.route?.params?.showPassModal) {
+    if (
+        !props.user?.ethereumAddress &&
+        Platform.OS === 'android' &&
+        props.route?.params &&
+        props.route?.params?.showPassModal
+    ) {
         props.toggleModal({modalName: 'password', isVisible: true});
         return;
     }
     if (
+        !props.user?.ethereumAddress &&
         Platform.OS === 'android' &&
         !props.user?.hasPasswordKey &&
         props.requestSavePasswordCount < 2 &&
@@ -247,7 +253,7 @@ const checkPermissions = async (props: ICommonInitializationsProps) => {
         props.toggleModal({modalName: 'password', isVisible: true});
         return;
     }
-    if (Platform.OS === 'ios' && !props.seenPasswordModal) {
+    if (!props.user?.ethereumAddress && Platform.OS === 'ios' && !props.seenPasswordModal) {
         props.showedPasswordModal();
         props.toggleModal({modalName: 'password', isVisible: true});
         return;

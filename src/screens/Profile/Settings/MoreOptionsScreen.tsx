@@ -1,11 +1,13 @@
-import React, {Component} from 'react';
-import {View, Text, FlatList, StatusBar, Alert, StyleSheet} from 'react-native';
-import {connect} from 'react-redux';
+import React, {useEffect, useState} from 'react';
+import {View, FlatList, StatusBar, Alert, StyleSheet, Linking} from 'react-native';
+import {connect, ConnectedProps} from 'react-redux';
 import {widthPercentageToDP as w} from 'react-native-responsive-screen';
 import Modal from 'react-native-modal';
 import type {NavigationProp} from '@react-navigation/native';
+import {useAppKit} from '@reown/appkit-wagmi-react-native';
+import {handleResponse} from '@coinbase/wallet-mobile-sdk';
 import {auth, stickRoom, app} from '../../../actions';
-import {SettingsItem, Icon} from '../../../components';
+import {SettingsItem, Icon, Text} from '../../../components';
 import type {IApplicationState, TUser} from '../../../types';
 import type {ProfileStackParamList} from '../../../navigators/types';
 import {IAuthActions} from '../../../actions/auth';
@@ -15,78 +17,76 @@ interface MoreOptionsScreenProps extends IAuthActions {
     user: TUser | null;
 }
 
-interface MoreOptionsScreenState {
-    deactivateModal: boolean;
-    deleteModal: boolean;
-}
+type ReduxProps = ConnectedProps<typeof connector>;
 
-class MoreOptionsScreen extends Component<MoreOptionsScreenProps, MoreOptionsScreenState> {
-    navListener: any;
+type Props = ReduxProps & MoreOptionsScreenProps;
 
-    constructor(props: MoreOptionsScreenProps) {
-        super(props);
-        this.state = {
-            deactivateModal: false,
-            deleteModal: false,
-        };
-    }
-
-    componentDidMount() {
-        this.navListener = this.props.navigation.addListener('focus', () => {
+const MoreOptionsScreen = (props: Props) => {
+    const [deactivateModal, setDeactivateModal] = useState(false);
+    const [deleteModal, setDeleteModal] = useState(false);
+    useEffect(() => {
+        const navListener = props.navigation.addListener('focus', () => {
             StatusBar.setBarStyle('dark-content', true);
         });
-    }
-
-    componentWillUnmount() {
-        this.navListener();
-    }
-
-    logout = async () => {
-        this.props.logout({
+        const sub = Linking.addEventListener('url', ({url}) => {
+            handleResponse(new URL(url));
+        });
+        return () => {
+            navListener();
+            sub.remove();
+        };
+    }, []);
+    useEffect(() => {
+        if (props.walletVerified) {
+            props.handleWalletVerifiedForDeletion();
+        }
+    }, [props.walletVerified]);
+    const {open} = useAppKit();
+    const logout = async () => {
+        props.logout({
             callback: async () => {
-                this.props.navigation.reset({index: 0, routes: [{name: 'Profile'}]});
-                await this.props.navigation.navigate({name: 'Authentication', params: {auth: true}, merge: true});
-                this.props.navigation.reset({index: 0, routes: [{name: 'Authentication', params: {loggedIn: true}}]});
+                props.navigation.reset({index: 0, routes: [{name: 'Profile'}]});
+                await props.navigation.navigate({name: 'Authentication', params: {auth: true}, merge: true});
+                props.navigation.reset({index: 0, routes: [{name: 'Authentication', params: {loggedIn: true}}]});
             },
         });
     };
 
-    alert = () => {
+    const alert = () => {
         Alert.alert('Log Out', 'Are you sure you want to log out?', [
             {text: 'Cancel', style: 'cancel'},
             {
                 text: 'Log Out',
                 style: 'destructive',
-                onPress: this.logout,
+                onPress: logout,
             },
         ]);
     };
 
-    renderItem = ({item}: {item: any}) => <SettingsItem item={item} />;
+    const renderItem = ({item}: {item: any}) => <SettingsItem item={item} />;
 
-    deactivate = () => {
-        this.setState({deactivateModal: false}, () => {
-            this.props.deactivate({
-                callback: async () => {
-                    this.props.navigation.reset({index: 0, routes: [{name: 'Profile'}]});
-                    await this.props.navigation.navigate({name: 'Authentication', params: {auth: true}, merge: true});
-                    this.props.navigation.reset({
-                        index: 0,
-                        routes: [{name: 'Authentication', params: {loggedIn: true}}],
-                    });
-                },
-            });
+    const deactivate = () => {
+        setDeactivateModal(false);
+        props.deactivate({
+            callback: async () => {
+                props.navigation.reset({index: 0, routes: [{name: 'Profile'}]});
+                await props.navigation.navigate({name: 'Authentication', params: {auth: true}, merge: true});
+                props.navigation.reset({
+                    index: 0,
+                    routes: [{name: 'Authentication', params: {loggedIn: true}}],
+                });
+            },
         });
     };
 
-    deactivateModal = () => {
+    const deactivateModalComponent = () => {
         return (
             <Modal
-                isVisible={this.state.deactivateModal}
+                isVisible={deactivateModal}
                 useNativeDriver
                 hideModalContentWhileAnimating
-                onBackdropPress={() => this.setState({deactivateModal: false})}
-                onBackButtonPress={() => this.setState({deactivateModal: false})}>
+                onBackdropPress={() => setDeactivateModal(false)}
+                onBackButtonPress={() => setDeactivateModal(false)}>
                 <View style={s.modal}>
                     <Text style={s.title}>Are you sure?</Text>
                     <Text style={s.text}>
@@ -95,10 +95,10 @@ class MoreOptionsScreen extends Component<MoreOptionsScreenProps, MoreOptionsScr
                     </Text>
                     <Text style={s.text}>To reactivate your account, just login back.</Text>
                     <View style={s.buttonsContainer}>
-                        <Text onPress={() => this.setState({deactivateModal: false})} style={s.button}>
+                        <Text onPress={() => setDeactivateModal(false)} style={s.button}>
                             Cancel
                         </Text>
-                        <Text onPress={this.deactivate} style={[s.button, {color: 'red'}]}>
+                        <Text onPress={deactivate} style={[s.button, {color: 'red'}]}>
                             Deactivate
                         </Text>
                     </View>
@@ -107,28 +107,31 @@ class MoreOptionsScreen extends Component<MoreOptionsScreenProps, MoreOptionsScr
         );
     };
 
-    proceed = () => {
-        this.setState({deleteModal: false});
-        this.props.requestEmailCode({
-            email: this.props.user!.email,
-            callback: () => {
-                this.props.navigation.navigate({
-                    name: 'CodeDeleteAccount',
-                    params: {method: 'email', authId: this.props.user!.email},
-                    merge: true,
-                });
-            },
-        });
+    const proceed = () => {
+        setDeleteModal(false);
+        if (props.isWallet) {
+            setTimeout(open, 500);
+        } else
+            props.requestEmailCode({
+                email: props.user!.email,
+                callback: () => {
+                    props.navigation.navigate({
+                        name: 'CodeDeleteAccount',
+                        params: {method: 'email', authId: props.user!.email},
+                        merge: true,
+                    });
+                },
+            });
     };
 
-    deleteModal() {
+    const deleteModalComponent = () => {
         return (
             <Modal
-                isVisible={this.state.deleteModal}
+                isVisible={deleteModal}
                 useNativeDriver
                 hideModalContentWhileAnimating
-                onBackdropPress={() => this.setState({deleteModal: false})}
-                onBackButtonPress={() => this.setState({deleteModal: false})}>
+                onBackdropPress={() => setDeleteModal(false)}
+                onBackButtonPress={() => setDeleteModal(false)}>
                 <View style={s.modal}>
                     <Text style={s.title}>Are you sure?</Text>
                     <Text style={s.text}>
@@ -136,55 +139,59 @@ class MoreOptionsScreen extends Component<MoreOptionsScreenProps, MoreOptionsScr
                         action.
                     </Text>
                     <Text style={s.text}>
-                        If you are willing to leave forever, you will need to confirm a{' '}
-                        <Text style={{fontWeight: 'bold'}}>verification code</Text> and your{' '}
-                        <Text style={{fontWeight: 'bold'}}>password</Text>.
+                        If you are willing to leave forever, you will need to{' '}
+                        {props.isWallet ? (
+                            <Text>connect and sign with your wallet of address: {props.user?.ethereumAddress}</Text>
+                        ) : (
+                            <>
+                                confirm a <Text style={{fontWeight: 'bold'}}>verification code</Text> and your{' '}
+                                <Text style={{fontWeight: 'bold'}}>password</Text>.
+                            </>
+                        )}
                     </Text>
 
                     <View style={s.buttonsContainer}>
-                        <Text onPress={() => this.setState({deleteModal: false})} style={s.button}>
+                        <Text onPress={() => setDeleteModal(false)} style={s.button}>
                             Cancel
                         </Text>
-                        <Text onPress={this.proceed} style={[s.button, {color: 'red'}]}>
+                        <Text onPress={proceed} style={[s.button, {color: 'red'}]}>
                             Proceed
                         </Text>
                     </View>
                 </View>
             </Modal>
         );
-    }
+    };
 
-    render() {
-        const data = [
-            {
-                text: 'Log Out',
-                description: null,
-                action: this.alert,
-                icon: <Icon name="power-off" />,
-            },
-            {
-                text: 'Deactivate account',
-                description: 'Temporarily hide your profile and data',
-                action: () => this.setState({deactivateModal: true}),
-                icon: <Icon name="door-closed" />,
-            },
-            {
-                text: 'Delete account',
-                description: 'Permanently delete your account and all of its data',
-                action: () => this.setState({deleteModal: true}),
-                icon: <Icon name="trash" />,
-                separate: true,
-            },
-        ];
-        return (
-            <View>
-                <FlatList data={data} renderItem={this.renderItem} keyExtractor={(item) => item.text} />
-                {this.deactivateModal()}
-                {this.deleteModal()}
-            </View>
-        );
-    }
-}
+    const data = [
+        {
+            text: 'Log Out',
+            description: null,
+            action: alert,
+            icon: <Icon name="power-off" />,
+        },
+        {
+            text: 'Deactivate account',
+            description: 'Temporarily hide your profile and data',
+            action: () => setDeactivateModal(true),
+            icon: <Icon name="door-closed" />,
+        },
+        {
+            text: 'Delete account',
+            description: 'Permanently delete your account and all of its data',
+            action: () => setDeleteModal(true),
+            icon: <Icon name="trash" />,
+            separate: true,
+        },
+    ];
+    return (
+        <View>
+            <FlatList data={data} renderItem={renderItem} keyExtractor={(item) => item.text} />
+            {deactivateModalComponent()}
+            {deleteModalComponent()}
+        </View>
+    );
+};
 
 const s = StyleSheet.create({
     modal: {
@@ -200,7 +207,6 @@ const s = StyleSheet.create({
         fontSize: 28,
     },
     text: {
-        fontSize: 16,
         paddingTop: 24,
         textAlign: 'center',
     },
@@ -208,7 +214,6 @@ const s = StyleSheet.create({
         flexDirection: 'row',
     },
     button: {
-        fontSize: 16,
         fontWeight: 'bold',
         padding: 12,
         borderRadius: 20,
@@ -218,6 +223,10 @@ const s = StyleSheet.create({
 
 const mapStateToProps = (state: IApplicationState) => ({
     user: state.auth.user,
+    isWallet: state.auth.user?.ethereumAddress,
+    walletVerified: state.appTemp.walletVerified,
 });
 
-export default connect(mapStateToProps, {...auth, ...stickRoom, ...app})(MoreOptionsScreen);
+const connector = connect(mapStateToProps, {...auth, ...stickRoom, ...app});
+
+export default connector(MoreOptionsScreen);

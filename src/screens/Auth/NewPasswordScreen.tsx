@@ -13,7 +13,7 @@ import {
     StyleSheet,
     Linking,
 } from 'react-native';
-import {connect} from 'react-redux';
+import {connect, ConnectedProps} from 'react-redux';
 import CheckIcon from '@sticknet/react-native-vector-icons/Feather';
 import KeyIcon from '@sticknet/react-native-vector-icons/AntDesign';
 import Modal from 'react-native-modal';
@@ -26,6 +26,7 @@ import type {RouteProp} from '@react-navigation/native';
 import type {StackNavigationProp} from '@react-navigation/stack';
 import {useSignMessage} from 'wagmi';
 import {handleResponse} from '@coinbase/wallet-mobile-sdk';
+import {ConnectionController} from '@reown/appkit-core-react-native';
 import {Button, ProgressModal} from '../../components';
 import {auth} from '../../actions/index';
 import {globalData} from '../../actions/globalVariables';
@@ -43,7 +44,11 @@ interface NewPasswordScreenProps extends IAuthActions {
     progressModalVisible: boolean;
 }
 
-const NewPasswordScreen = (props: NewPasswordScreenProps) => {
+type ReduxProps = ConnectedProps<typeof connector>;
+
+type Props = NewPasswordScreenProps & ReduxProps;
+
+const NewPasswordScreen = (props: Props) => {
     useEffect(() => {
         RNBootSplash.hide({duration: 250});
         if (Platform.OS === 'android') {
@@ -67,9 +72,9 @@ const NewPasswordScreen = (props: NewPasswordScreenProps) => {
     const [modalVisible, setModalVisible] = useState(true);
     const [headerTranslation] = useState(new Animated.Value(0));
     const input = useRef<TextInput>(null);
-    const [accountSecret, setAccountSecret] = useState();
+    const [accountSecret, setAccountSecret] = useState('');
 
-    const finish = async () => {
+    const finish = async (password: string) => {
         if (__DEV__ || Config.TESTING === '1') {
             setShowPass(false);
             const passwordText = password.length === 0 ? 'gggggg' : password;
@@ -115,9 +120,9 @@ const NewPasswordScreen = (props: NewPasswordScreenProps) => {
                 authId: props.user.ethereumAddress || props.user.email,
                 method: props.isWallet ? 'wallet' : 'email',
                 callback: () => {
+                    globalData.hideTabBar = false;
+                    props.navigation.setParams({hideTabBar: false});
                     if (Platform.OS === 'ios') {
-                        globalData.hideTabBar = false;
-                        props.navigation.setParams({hideTabBar: false});
                         setTimeout(() => {
                             props.navigation.reset({
                                 index: 0,
@@ -190,7 +195,10 @@ const NewPasswordScreen = (props: NewPasswordScreenProps) => {
     const {isWallet} = props;
     const {data, signMessage} = useSignMessage();
     useEffect(() => {
-        if (data) props.generatePasswordFromWallet({accountSecret, signedSecret: data, setPassword, callback: finish});
+        if (data) {
+            ConnectionController.disconnect();
+            props.generatePasswordFromWallet({accountSecret, signedSecret: data, callback: finish});
+        }
     }, [data]);
     return (
         <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
@@ -250,7 +258,12 @@ const NewPasswordScreen = (props: NewPasswordScreenProps) => {
                                 carefully. If you forget your password you may be locked out of your account.
                             </Text>
                             <View>
-                                <Button onPress={finish} text="Finish!" width={w('90%')} testID="finish" />
+                                <Button
+                                    onPress={() => finish(password)}
+                                    text="Finish!"
+                                    width={w('90%')}
+                                    testID="finish"
+                                />
                             </View>
                             <TouchableOpacity style={s.cancelContainer} onPress={alert}>
                                 <Text style={s.cancel}>Cancel</Text>
@@ -348,4 +361,6 @@ const mapStateToProps = (state: IApplicationState) => {
     };
 };
 
-export default connect(mapStateToProps, {...auth})(NewPasswordScreen);
+const connector = connect(mapStateToProps, {...auth});
+
+export default connector(NewPasswordScreen);

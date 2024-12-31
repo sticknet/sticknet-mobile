@@ -28,7 +28,7 @@ interface CodeScreenState {
     timerCounter?: NodeJS.Timeout;
 }
 
-export const authNavCallbacks = (props, authId, method) => {
+export const authNavCallbacks = (props: any, authId: string, method: string) => {
     return {
         loginCallback: () => {
             globalData.hideTabBar = true;
@@ -118,7 +118,7 @@ class CodeScreen extends Component<CodeScreenProps, CodeScreenState> {
     onFullfill = (code: string) => {
         if (this.method === 'email')
             if (this.props.route.name === 'Code') {
-                const callbacks = authNavCallbacks(this.props, this.authId, 'email');
+                const callbacks = authNavCallbacks(this.props, this.authId as string, 'email');
                 this.props.verifyEmailCode({...callbacks, email: this.authId as string, code});
             } else
                 this.props.codeConfirmedDeleteAccount({

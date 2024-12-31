@@ -2,7 +2,6 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Icon from '@sticknet/react-native-vector-icons/FontAwesome6Pro';
 import React from 'react';
 import {enableScreens} from 'react-native-screens';
-import {Platform} from 'react-native';
 import {getFocusedRouteNameFromRoute, RouteProp} from '@react-navigation/native';
 import HomeStack from './HomeStack';
 import {ChatsStack} from './ChatsStack';
@@ -83,20 +82,23 @@ const TabNavigator: React.FC = () => {
     return (
         <Tab.Navigator
             initialRouteName={globalData.focusedTab}
-            screenOptions={({route}) => ({
-                headerShown: false,
-                tabBarActiveTintColor: colors.primary,
-                tabBarInactiveTintColor: '#ffffff',
-                tabBarAllowFontScaling: false,
-                tabBarHideOnKeyboard: true,
-                tabBarVisible: isTabBarVisible(route as RouteProp<TabNavigatorParams>),
-                tabBarStyle: {
-                    backgroundColor: '#000000',
-                    borderTopWidth: 0,
-                    display: Platform.OS === 'ios' ? 'flex' : globalData.tabBarDisplay,
-                },
-                headerTitleAlign: 'left',
-            })}>
+            screenOptions={({route}) => {
+                const tabBarVisible = isTabBarVisible(route as RouteProp<TabNavigatorParams>);
+                return {
+                    headerShown: false,
+                    tabBarActiveTintColor: colors.primary,
+                    tabBarInactiveTintColor: '#ffffff',
+                    tabBarAllowFontScaling: false,
+                    tabBarHideOnKeyboard: true,
+                    tabBarVisible,
+                    tabBarStyle: {
+                        backgroundColor: '#000000',
+                        borderTopWidth: 0,
+                        display: tabBarVisible ? globalData.tabBarDisplay : 'none',
+                    },
+                    headerTitleAlign: 'left',
+                };
+            }}>
             <Tab.Screen
                 name="HomeTab"
                 component={HomeStack}

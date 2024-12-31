@@ -14,7 +14,9 @@ const persistConfig = {
 
 const persistedReducer = persistReducer(persistConfig, reducers);
 
+// eslint-disable-next-line import/no-mutable-exports
 let store: Store;
+// eslint-disable-next-line import/no-mutable-exports
 let persistor: Persistor;
 
 export default function configureStore(preloadedState: object = {}): {store: Store; persistor: Persistor} {
@@ -42,4 +44,4 @@ export default function configureStore(preloadedState: object = {}): {store: Sto
     return {store, persistor};
 }
 
-export {store, persistor}; // Export globally
+export {store, persistor};

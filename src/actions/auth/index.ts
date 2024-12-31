@@ -107,14 +107,27 @@ export function verifyEmailCode({
     };
 }
 
-export function handleWalletVerified({ethereumAddress, loginCallback, registerCallback, newPassCallback}) {
+type THandleWalletVerified = {
+    ethereumAddress: string;
+    loginCallback: () => void;
+    registerCallback: () => void;
+    newPassCallback: () => void;
+};
+
+export function handleWalletVerified({
+    ethereumAddress,
+    loginCallback,
+    registerCallback,
+    newPassCallback,
+}: THandleWalletVerified) {
     return async function (dispatch: Dispatch) {
         try {
             dispatch({type: progress.START_LOADING});
-            const response = await axios.post(`${URL}/api/wallet-verified/`, {ethereumAddress});
             AsyncStorage.setItem('@ethereumAddress', ethereumAddress);
+            const walletVerifyResponse = globalData.walletVerifyResponse;
+            globalData.walletVerifiedResponse = null;
             handleUserVerified(
-                response,
+                walletVerifyResponse,
                 ethereumAddress,
                 'wallet',
                 dispatch,
@@ -129,11 +142,29 @@ export function handleWalletVerified({ethereumAddress, loginCallback, registerCa
     };
 }
 
-export function generatePasswordFromWallet({accountSecret, signedSecret, setPassword, callback}) {
+export function handleWalletVerifiedForDeletion() {
     return async function (dispatch: Dispatch) {
+        dispatch({type: progress.START_LOADING});
+        globalData.accountSecret = globalData.walletVerifyResponse.data.accountSecret;
+        await Keychain.setGenericPassword(
+            'DeleteAccountToken',
+            globalData.walletVerifyResponse.data.limitedAccessToken,
+            {
+                service: `${bundleId}.delete_account_token`,
+            },
+        );
+        globalData.walletVerifyResponse = null;
+        NavigationService.navigate('PasswordDeleteAccount');
+        dispatch({type: progress.END_LOADING});
+    };
+}
+
+type TGeneratePasswordFromWallet = {accountSecret: string; signedSecret: string; callback: (password: string) => void};
+
+export function generatePasswordFromWallet({accountSecret, signedSecret, callback}: TGeneratePasswordFromWallet) {
+    return async function () {
         const salt = await CommonNative.generateSecureRandom(32);
         const password = await StickProtocol.createPasswordHash(signedSecret, salt);
-        setPassword(password);
         const ethereumAddress = await AsyncStorage.getItem('@ethereumAddress');
         let token = globalData.limitedAccessToken;
         if (!token) {
@@ -146,7 +177,7 @@ export function generatePasswordFromWallet({accountSecret, signedSecret, setPass
             {accountSecret: accountSecret + salt, ethereumAddress},
             config,
         );
-        callback();
+        callback(password);
     };
 }
 
@@ -279,6 +310,7 @@ export function login({password, authId, method = 'email', callback}: TLoginPara
             if (response.data.correct) {
                 dispatch({type: progress.END_LOADING});
                 dispatch({type: appTemp.SHOW_PROGRESS_MODAL});
+                dispatch({type: appTemp.DISPATCH_APPTEMP_PROPERTY, payload: {walletVerified: null}});
                 globalData.limitedAccessToken = null;
                 globalData.passwordKey = null;
                 globalData.accountSecret = null;
@@ -362,6 +394,7 @@ export function finishRegistration({userId, method = 'email', password, authId, 
         dispatch({type: appTemp.FINISHING_UP});
         dispatch({type: app.INITIALIZED});
         dispatch({type: app.INIT_COMPLETE});
+        dispatch({type: appTemp.DISPATCH_APPTEMP_PROPERTY, payload: {walletVerified: null}});
         await Keychain.setGenericPassword('PasswordSalt', body.passwordSalt, {service: `${bundleId}.password_salt`});
         const deviceId = await getUniqueDeviceId();
         body.nextPreKeyId = 10;

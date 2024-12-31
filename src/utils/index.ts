@@ -38,6 +38,7 @@ import {
     createActiveChatsList,
     createChatsStoragesList,
     getUnreadCount,
+    shortenAddress,
 } from './common';
 import {statusBarHeight, isIphoneXD} from './notch';
 import {formatMessageDate, formatAMPM, isSingleEmoji} from './chatUtils';
@@ -93,4 +94,5 @@ export {
     createActiveChatsList,
     createChatsStoragesList,
     getUnreadCount,
+    shortenAddress,
 };
