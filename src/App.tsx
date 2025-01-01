@@ -8,7 +8,6 @@ import changeNavigationBarColor from 'react-native-navigation-bar-color';
 import * as Sentry from '@sentry/react-native';
 import {DefaultTheme, NavigationContainer} from '@react-navigation/native';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
-import '@walletconnect/react-native-compat';
 
 import animations from './utils/animations';
 import TabNavigator from './navigators/TabNavigator';

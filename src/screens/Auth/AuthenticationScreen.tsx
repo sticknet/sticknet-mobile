@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react';
+
 import {
     View,
     Platform,
@@ -11,18 +12,20 @@ import {
     EmitterSubscription,
     Linking,
     Image,
+    AppState,
 } from 'react-native';
 import {connect, ConnectedProps} from 'react-redux';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {widthPercentageToDP as w} from 'react-native-responsive-screen';
 import {useAppKit} from '@reown/appkit-wagmi-react-native';
-import {handleResponse} from '@coinbase/wallet-mobile-sdk';
 import changeNavigationBarColor from 'react-native-navigation-bar-color';
 import RNBootSplash from 'react-native-bootsplash';
 import {firebase} from '@react-native-firebase/database';
 import Config from 'react-native-config';
 import type {RouteProp} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
+import {handleResponse} from '@coinbase/wallet-mobile-sdk';
+import {AccountController} from '@reown/appkit-core-react-native';
 import {auth, app} from '../../actions';
 import {Button, Text} from '../../components';
 import {devRegistration, globalData} from '../../actions/globalVariables';
@@ -75,11 +78,19 @@ const AuthenticationScreen: React.FC<Props> = (props) => {
         }, 1000);
         globalData.tabBarDisplay = 'flex';
         props.navigation.setParams({tabBarDisplay: 'flex'});
-        const sub = Linking.addEventListener('url', ({url}) => {
+        const sub = Linking.addEventListener('url', async ({url}) => {
             handleResponse(new URL(url));
         });
+
+        const appStateListener = AppState.addEventListener('change', async (state) => {
+            if (Platform.OS === 'ios' && state === 'inactive' && !AccountController.state.isConnected) {
+                close();
+            }
+        });
+
         return () => {
             sub.remove();
+            appStateListener.remove();
             if (keyboardDidShowListener) keyboardDidShowListener.remove();
         };
     }, []);
@@ -131,7 +142,7 @@ const AuthenticationScreen: React.FC<Props> = (props) => {
             handleContinue();
         } else Alert.alert('Invalid email', 'Please enter a valid email address');
     };
-    const {open} = useAppKit();
+    const {open, close} = useAppKit();
     return (
         <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()} testID="authentication-screen">
             <View style={s.body}>
@@ -161,7 +172,9 @@ const AuthenticationScreen: React.FC<Props> = (props) => {
                         <View style={s.line} />
                     </View>
                     <Button
-                        onPress={open}
+                        onPress={async () => {
+                            open();
+                        }}
                         text="Continue with wallet"
                         marginTop={0}
                         width={w('90%')}

@@ -16,7 +16,6 @@
 #import "AppDelegate.h"
 #import <YapDatabase/YapDatabase.h>
 #import <CommonCrypto/CommonHMAC.h>
-//#import "MobileNet.h"
 
 // StickProtocolLib
 #import "CommonCryptoProvider.h"

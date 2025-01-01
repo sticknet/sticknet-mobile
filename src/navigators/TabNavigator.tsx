@@ -2,7 +2,8 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Icon from '@sticknet/react-native-vector-icons/FontAwesome6Pro';
 import React from 'react';
 import {enableScreens} from 'react-native-screens';
-import {getFocusedRouteNameFromRoute, RouteProp} from '@react-navigation/native';
+import {getFocusedRouteNameFromRoute} from '@react-navigation/native';
+import {Platform} from 'react-native';
 import HomeStack from './HomeStack';
 import {ChatsStack} from './ChatsStack';
 import CreateGroup from './CreateGroup';
@@ -25,7 +26,7 @@ type TabNavigatorParams = {
     ProfileTab: undefined;
 };
 
-const noTabRoutes = [
+const authRoutes = [
     'Authentication',
     'PrivacyNotice',
     'Permissions',
@@ -34,6 +35,10 @@ const noTabRoutes = [
     'Register2',
     'Register3',
     'ForgotPassword',
+    'ForgotPasswordLogin',
+];
+
+const noTabRoutes = authRoutes.concat([
     'Horizontal',
     'Horizontal-Lightbox',
     'SelectPhotos',
@@ -56,7 +61,6 @@ const noTabRoutes = [
     'CreateInfo',
     'CodeDeleteAccount',
     'PasswordDeleteAccount',
-    'ForgotPasswordLogin',
     'ChatAppearance',
     'BackupSettings',
     'SticknetPremium',
@@ -68,12 +72,10 @@ const noTabRoutes = [
     'StickRoom',
     'AlbumPhotos',
     'AddConnections',
-    'WalletPassword',
-];
+]);
 
-function isTabBarVisible(route: RouteProp<TabNavigatorParams>): boolean {
+function isTabBarVisible(focusedRoute: string | undefined): boolean {
     if (globalData.hideTabBar) return false;
-    const focusedRoute = getFocusedRouteNameFromRoute(route);
     const routeName = focusedRoute || globalData.initialRoute;
     return !noTabRoutes.some((route) => routeName?.startsWith(route));
 }
@@ -83,7 +85,9 @@ const TabNavigator: React.FC = () => {
         <Tab.Navigator
             initialRouteName={globalData.focusedTab}
             screenOptions={({route}) => {
-                const tabBarVisible = isTabBarVisible(route as RouteProp<TabNavigatorParams>);
+                const focusedRoute = getFocusedRouteNameFromRoute(route);
+                const isAuthRoute = authRoutes.some((route) => focusedRoute?.startsWith(route));
+                const tabBarVisible = isTabBarVisible(focusedRoute);
                 return {
                     headerShown: false,
                     tabBarActiveTintColor: colors.primary,
@@ -94,7 +98,14 @@ const TabNavigator: React.FC = () => {
                     tabBarStyle: {
                         backgroundColor: '#000000',
                         borderTopWidth: 0,
-                        display: tabBarVisible ? globalData.tabBarDisplay : 'none',
+                        display:
+                            Platform.OS === 'ios'
+                                ? focusedRoute && !isAuthRoute
+                                    ? 'flex'
+                                    : 'none'
+                                : tabBarVisible
+                                ? globalData.tabBarDisplay
+                                : 'none',
                     },
                     headerTitleAlign: 'left',
                 };

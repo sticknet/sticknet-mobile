@@ -59,7 +59,7 @@ const siweConfig = createSIWEConfig({
         // More info in https://github.com/ChainAgnostic/CAIPs/blob/main/CAIPs/caip-222.method
         const siweMessage: SIWEMessageArgs = {
             domain: 'sticknet.org',
-            uri: 'https://sticknet.org',
+            uri: 'https://www.sticknet.org',
             chains: [1],
             statement: 'Please sign with your account',
             iat: new Date().toISOString(),

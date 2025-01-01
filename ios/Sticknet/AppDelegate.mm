@@ -43,13 +43,16 @@ AppDelegate *TheAppDelegate;
    openURL:(NSURL *)url
    options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options
 {
+  NSLog(@"[Universal Link] openURL called with URL: %@", url.absoluteString);
   return [RCTLinkingManager application:application openURL:url options:options];
 }
 
 - (BOOL)application:(UIApplication *)application continueUserActivity:(nonnull NSUserActivity *)userActivity
  restorationHandler:(nonnull void (^)(NSArray<id<UIUserActivityRestoring>> * _Nullable))restorationHandler
 {
- return [RCTLinkingManager application:application
+  NSLog(@"[Universal Link] continueUserActivity called with activityType: %@, webpageURL: %@",
+        userActivity.activityType, userActivity.webpageURL.absoluteString);
+  return [RCTLinkingManager application:application
                   continueUserActivity:userActivity
                     restorationHandler:restorationHandler];
 }

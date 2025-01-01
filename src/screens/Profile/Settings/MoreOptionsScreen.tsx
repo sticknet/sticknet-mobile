@@ -1,11 +1,12 @@
 import React, {useEffect, useState} from 'react';
-import {View, FlatList, StatusBar, Alert, StyleSheet, Linking} from 'react-native';
+import {View, FlatList, StatusBar, Alert, StyleSheet, Linking, AppState, Platform} from 'react-native';
 import {connect, ConnectedProps} from 'react-redux';
 import {widthPercentageToDP as w} from 'react-native-responsive-screen';
 import Modal from 'react-native-modal';
 import type {NavigationProp} from '@react-navigation/native';
 import {useAppKit} from '@reown/appkit-wagmi-react-native';
 import {handleResponse} from '@coinbase/wallet-mobile-sdk';
+import {AccountController} from '@reown/appkit-core-react-native';
 import {auth, stickRoom, app} from '../../../actions';
 import {SettingsItem, Icon, Text} from '../../../components';
 import type {IApplicationState, TUser} from '../../../types';
@@ -31,7 +32,13 @@ const MoreOptionsScreen = (props: Props) => {
         const sub = Linking.addEventListener('url', ({url}) => {
             handleResponse(new URL(url));
         });
+        const appStateListener = AppState.addEventListener('change', async (state) => {
+            if (Platform.OS === 'ios' && state === 'inactive' && !AccountController.state.isConnected) {
+                close();
+            }
+        });
         return () => {
+            appStateListener.remove();
             navListener();
             sub.remove();
         };
@@ -41,7 +48,7 @@ const MoreOptionsScreen = (props: Props) => {
             props.handleWalletVerifiedForDeletion();
         }
     }, [props.walletVerified]);
-    const {open} = useAppKit();
+    const {open, close} = useAppKit();
     const logout = async () => {
         props.logout({
             callback: async () => {

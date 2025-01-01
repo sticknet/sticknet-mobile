@@ -45,6 +45,7 @@ pod 'Mantle', :modular_headers => true
 pod 'GRKOpenSSLFramework', git: 'https://github.com/signalapp/GRKOpenSSLFramework', branch: 'mkirk/1.0.2t'
 pod 'CocoaLumberjack'
 pod 'Alamofire'
+pod 'ShowTime'
 
 target 'Sticknet' do
   use_expo_modules!
