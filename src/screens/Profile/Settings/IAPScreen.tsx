@@ -181,7 +181,7 @@ const IAPScreen: React.FC<IAPScreenProps> = (props) => {
                             {props.user && props.user.subscription === 'basic' && props.subs[0]
                                 ? props.subs[0].hasFreeTrial && (
                                       <Text style={{marginTop: 12, textAlign: 'center', fontWeight: 'bold'}}>
-                                          USD 8.99 / month
+                                          {props.subs[0].price} / month
                                       </Text>
                                   )
                                 : null}
