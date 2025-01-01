@@ -291,7 +291,6 @@ class EditProfileScreen extends Component<EditProfileScreenProps, EditProfileScr
         const coverSource = pc ? {uri: pc.uri} : cover || DefaultProfileCover;
         const PictureComponent: React.ElementType = pp?.uriKey && !this.props.profilePicture ? NewImage : Image;
         const CoverComponent: React.ElementType = pc?.uriKey && !this.props.cover ? NewImage : Image;
-        console.log('DDDD', pp, this.state.profilePicture, this.props.profilePicture);
         return (
             <KeyboardAwareScrollView
                 testID="edit-profile-scroll"
