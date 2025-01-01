@@ -1,4 +1,4 @@
-# Sticknet - a Secure Social Storage Platform
+# Sticknet - Web3 Social Storage
 
 <h3 align="center">🎉 Sticknet is now open-source 🎉</h3>
 
