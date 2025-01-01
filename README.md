@@ -9,7 +9,7 @@ social features to maximize your productivity including groups creation, connect
 and shared albums.
 
 <div align="center">
-  <video src="https://github.com/user-attachments/assets/4414b79f-0bfb-426f-8f79-b5127ae260ed" />
+  <video src="https://github.com/user-attachments/assets/b7e98575-8a81-4c5e-aaa8-88c3415fd3ca" />
 </div>
 
 ## Download
