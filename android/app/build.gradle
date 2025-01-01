@@ -104,8 +104,8 @@ android {
         applicationId "com.stiiick"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 81
-        versionName "6.0.22"
+        versionCode 82
+        versionName "6.0.23"
         testBuildType System.getProperty('testBuildType', 'debug')
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
         missingDimensionStrategy 'react-native-camera', 'general'

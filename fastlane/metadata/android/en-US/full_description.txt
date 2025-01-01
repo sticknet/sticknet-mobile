@@ -1,12 +1,13 @@
 Own your privacy.
 
-Sticknet is an end-to-end encrypted platform. It includes a secure cloud storage to backup your files, photos and important notes securely in your private Vault, and access them easily from any of your devices. In addition, Sticknet has integrated social features to maximize your productivity including groups creation, connecting with other users, private messenger, and shared albums.
+Sticknet is a web3 end-to-end encrypted platform. It includes a secure cloud storage to backup your files, photos and important notes securely in your private Vault, and access them easily from any of your devices. In addition, Sticknet has integrated social features to maximize your productivity including groups creation, connecting with other users, private messenger, and shared albums.
 
 All uploads and shared content are protected with end-to-end encryption and stored in a decentralized storage.
 
 Why Sticknet?
 • Elevate your cloud experience – every file, post, photo, video, comment, message, notification, profile, group and more on Sticknet is end-to-end encrypted (powered by the open-source Stick Protocol™).
 • Decentralised storage - decentralized file storage revolutionizes data management by distributing files across a network of nodes, eliminating reliance on a central server.
+• Wallet login - create your Sticknet account anonymously and without a password
 • Integrated social features - enhance your file management experience with a perfect blend of productivity and social connectivity
 • Preserver your memories securely - Sticknet chat albums are neat, secure, and timeless!
 • Take no compromise on your privacy – have every file synchronize across your devices end-to-end encrypted.
