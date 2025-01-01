@@ -8,7 +8,7 @@
 #import <YapDatabase/YapDatabase.h>
 #import <UserNotifications/UserNotifications.h>
 #import <RNCPushNotificationIOS.h>
-
+#import <React/RCTLinkingManager.h>
 
 AppDelegate *TheAppDelegate;
 
@@ -37,6 +37,24 @@ AppDelegate *TheAppDelegate;
 
   self.moduleName = @"Sticknet";
   return [super application:application didFinishLaunchingWithOptions:launchOptions];
+}
+
+- (BOOL)application:(UIApplication *)application
+   openURL:(NSURL *)url
+   options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options
+{
+  NSLog(@"[Universal Link] openURL called with URL: %@", url.absoluteString);
+  return [RCTLinkingManager application:application openURL:url options:options];
+}
+
+- (BOOL)application:(UIApplication *)application continueUserActivity:(nonnull NSUserActivity *)userActivity
+ restorationHandler:(nonnull void (^)(NSArray<id<UIUserActivityRestoring>> * _Nullable))restorationHandler
+{
+  NSLog(@"[Universal Link] continueUserActivity called with activityType: %@, webpageURL: %@",
+        userActivity.activityType, userActivity.webpageURL.absoluteString);
+  return [RCTLinkingManager application:application
+                  continueUserActivity:userActivity
+                    restorationHandler:restorationHandler];
 }
 
 - (NSURL *)sourceURLForBridge:(RCTBridge *)bridge

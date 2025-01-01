@@ -67,6 +67,7 @@ class ForgotPasswordScreen extends Component<ForgotPasswordScreenProps, ForgotPa
                 this.props.login({
                     password,
                     authId: email as string,
+                    method: 'email',
                     callback: () =>
                         this.props.navigation.replace('Home', {
                             loggedIn: true,

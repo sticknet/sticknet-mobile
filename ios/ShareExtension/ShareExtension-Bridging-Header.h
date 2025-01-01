@@ -4,6 +4,7 @@
 #ifndef ShareExtension_Bridging_Header_h
 #define ShareExtension_Bridging_Header_h
 #import "SDAVAssetExportSession.h"
+#import <Expo/Expo.h>
 
 #import <React/RCTBridgeModule.h>
 #import "DatabaseSetup.h"

@@ -28,6 +28,31 @@ interface CodeScreenState {
     timerCounter?: NodeJS.Timeout;
 }
 
+export const authNavCallbacks = (props: any, authId: string, method: string) => {
+    return {
+        loginCallback: () => {
+            globalData.hideTabBar = true;
+            props.navigation.setParams({hideTabBar: true});
+            props.navigation.replace('PasswordLogin', {authId});
+        },
+        registerCallback: () =>
+            props.navigation.reset({
+                index: 0,
+                routes: [
+                    {
+                        name: 'Register1',
+                        params: {
+                            ...props.route.params,
+                            email: method === 'email' ? authId : undefined,
+                            ethereumAddress: method === 'wallet' ? authId : undefined,
+                        },
+                    },
+                ],
+            }),
+        newPassCallback: () => props.navigation.replace('NewPassword', {...props.route.params}),
+    };
+};
+
 class CodeScreen extends Component<CodeScreenProps, CodeScreenState> {
     // @ts-ignore
     private input = createRef<SmoothPinCodeInput>();
@@ -92,32 +117,10 @@ class CodeScreen extends Component<CodeScreenProps, CodeScreenState> {
 
     onFullfill = (code: string) => {
         if (this.method === 'email')
-            if (this.props.route.name === 'Code')
-                this.props.verifyEmailCode({
-                    email: this.authId as string,
-                    code,
-                    user: this.props.user,
-                    loginCallback: () => {
-                        globalData.hideTabBar = true;
-                        this.props.navigation.setParams({hideTabBar: true});
-                        this.props.navigation.replace('PasswordLogin', {authId: this.authId as string});
-                    },
-                    registerCallback: () =>
-                        this.props.navigation.reset({
-                            index: 0,
-                            routes: [
-                                {
-                                    name: 'Register1',
-                                    params: {
-                                        ...this.props.route.params,
-                                        email: this.authId,
-                                    },
-                                },
-                            ],
-                        }),
-                    newPassCallback: () => this.props.navigation.replace('NewPassword', {...this.props.route.params}),
-                });
-            else
+            if (this.props.route.name === 'Code') {
+                const callbacks = authNavCallbacks(this.props, this.authId as string, 'email');
+                this.props.verifyEmailCode({...callbacks, email: this.authId as string, code});
+            } else
                 this.props.codeConfirmedDeleteAccount({
                     code,
                     callback: () =>

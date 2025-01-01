@@ -15,6 +15,7 @@ import {ConnectionAlert, Loading, CreateModal, Update, MovingFileView} from './c
 import NavigationService from './actions/NavigationService';
 import {getAppSettings} from './utils';
 import configureStore from './store';
+import AppKitProvider from './wallet/AppKitProvider';
 
 Sentry.init({
     dsn: 'https://3fcf3d773d8da9bf5d5a6d3eb66a7fbb@o4506009368199168.ingest.sentry.io/4506009458114560',
@@ -67,22 +68,24 @@ class App extends Component {
         };
         const {persistor, store} = configureStore();
         return (
-            <Provider store={store}>
-                <PersistGate loading={null} persistor={persistor}>
-                    <GestureHandlerRootView style={{flex: 1}}>
-                        <NavigationContainer
-                            theme={MyTheme}
-                            ref={(navigatorRef) => NavigationService.setTopLevelNavigator(navigatorRef)}>
-                            <TabNavigator />
-                            <Loading />
-                            <Update />
-                            <CreateModal />
-                            <ConnectionAlert />
-                            <MovingFileView />
-                        </NavigationContainer>
-                    </GestureHandlerRootView>
-                </PersistGate>
-            </Provider>
+            <AppKitProvider>
+                <Provider store={store}>
+                    <PersistGate loading={null} persistor={persistor}>
+                        <GestureHandlerRootView style={{flex: 1}}>
+                            <NavigationContainer
+                                theme={MyTheme}
+                                ref={(navigatorRef) => NavigationService.setTopLevelNavigator(navigatorRef)}>
+                                <TabNavigator />
+                                <Loading />
+                                <Update />
+                                <CreateModal />
+                                <ConnectionAlert />
+                                <MovingFileView />
+                            </NavigationContainer>
+                        </GestureHandlerRootView>
+                    </PersistGate>
+                </Provider>
+            </AppKitProvider>
         );
     }
 }

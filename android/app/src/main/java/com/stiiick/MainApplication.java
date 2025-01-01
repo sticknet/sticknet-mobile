@@ -1,4 +1,7 @@
 package com.stiiick;
+import android.content.res.Configuration;
+import expo.modules.ApplicationLifecycleDispatcher;
+import expo.modules.ReactNativeHostWrapper;
 
 import static com.wix.reactnativeuilib.keyboardinput.AppContextHolder.getCurrentActivity;
 
@@ -38,7 +41,7 @@ public class MainApplication extends Application implements ReactApplication {
     public static final String mainURL = BuildConfig.DEBUG ? "https://www.sticknet.org" : "https://www.sticknet.org";
 
     private final ReactNativeHost mReactNativeHost =
-            new DefaultReactNativeHost(this) {
+            new ReactNativeHostWrapper(this, new DefaultReactNativeHost(this) {
                 @Override
                 public boolean getUseDeveloperSupport() {
                     return BuildConfig.DEBUG;
@@ -69,7 +72,7 @@ public class MainApplication extends Application implements ReactApplication {
                 protected Boolean isHermesEnabled() {
                     return BuildConfig.IS_HERMES_ENABLED;
                 }
-            };
+            });
 
     @Override
     public ReactNativeHost getReactNativeHost() {
@@ -141,5 +144,12 @@ public class MainApplication extends Application implements ReactApplication {
                 }
             }
         });
-    }
+      ApplicationLifecycleDispatcher.onApplicationCreate(this);
+  }
+
+  @Override
+  public void onConfigurationChanged(Configuration newConfig) {
+    super.onConfigurationChanged(newConfig);
+    ApplicationLifecycleDispatcher.onConfigurationChanged(this, newConfig);
+  }
 }

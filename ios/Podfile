@@ -1,3 +1,4 @@
+require File.join(File.dirname(`node --print "require.resolve('expo/package.json')"`), "scripts/autolinking")
 use_frameworks! :linkage => :static
 
 # Convert all permission pods into static libraries
@@ -44,8 +45,17 @@ pod 'Mantle', :modular_headers => true
 pod 'GRKOpenSSLFramework', git: 'https://github.com/signalapp/GRKOpenSSLFramework', branch: 'mkirk/1.0.2t'
 pod 'CocoaLumberjack'
 pod 'Alamofire'
+pod 'ShowTime'
 
 target 'Sticknet' do
+  use_expo_modules!
+  post_integrate do |installer|
+    begin
+      expo_patch_react_imports!(installer)
+    rescue => e
+      Pod::UI.warn e
+    end
+  end
   permissions_path = '../node_modules/react-native-permissions/ios'
     pod 'Permission-Camera', :path => "#{permissions_path}/Camera"
     pod 'Permission-Contacts', :path => "#{permissions_path}/Contacts"

@@ -47,7 +47,6 @@ describe('auth.js actions functions', () => {
         const func = auth.verifyEmailCode({
             email: 'test@test.com',
             code: '123456',
-            user: null,
             loginCallback: jest.fn(),
             registerCallback: jest.fn(),
             newPassCallback: jest.fn(),
@@ -87,7 +86,7 @@ describe('auth.js actions functions', () => {
 
         expect(store.getState().errors.passwordError).toBeNull();
 
-        const func = auth.login({password: 'password', authId: 'test@test.com', callback: jest.fn()});
+        const func = auth.login({password: 'password', method: 'email', authId: 'test@test.com', callback: jest.fn()});
         await waitFor(() => func(store.dispatch));
 
         expect(store.getState().errors.passwordError).toBe('Incorrect password!');
@@ -111,7 +110,7 @@ describe('auth.js actions functions', () => {
                 'Due to too many login attempts, we have temporarily blocked this account. Try again in 10 minutes.';
         });
 
-        const func = auth.login({password: 'password', authId: 'test@test.com', callback: jest.fn()});
+        const func = auth.login({password: 'password', method: 'email', authId: 'test@test.com', callback: jest.fn()});
         await waitFor(() => func(store.dispatch));
 
         expect(isTitleCorrect).toBe(true);

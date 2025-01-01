@@ -54,6 +54,7 @@ const axiosMock = () => {
         success: true,
     });
     mock.onPost(`${mockURL}/api/auth/logout/`).reply(200);
+    mock.onGet(`${mockURL}/api/flush-session/`).reply(200);
     mock.onPost(`${mockURL}/api/request-email-code/`).reply(200, {registered: false});
     mock.onPost(`${mockURL}/api/verify-email-code/`).reply(200, {correct: true, exists: true, userId: 'abc'});
 

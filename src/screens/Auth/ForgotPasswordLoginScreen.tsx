@@ -70,6 +70,7 @@ class ForgotPasswordLoginScreen extends Component<ForgotPasswordLoginScreenProps
             this.props.finishRegistration({
                 userId,
                 password,
+                method: 'email',
                 authId: this.props.user.email || this.props.user.phone,
                 callback: async () => {
                     this.props.navigation.reset({
@@ -96,6 +97,7 @@ class ForgotPasswordLoginScreen extends Component<ForgotPasswordLoginScreenProps
             this.props.finishRegistration({
                 userId,
                 password: this.state.password,
+                method: 'email',
                 authId: this.props.user.email || this.props.user.phone,
                 callback: () => {
                     this.props.navigation.replace('Home', {

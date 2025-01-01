@@ -18,3 +18,4 @@ export const BlueFolderIcon = require('./BlueFolderIcon.png');
 export const YellowFolderIcon = require('./YellowFolderIcon.png');
 export const OrangeFolderIcon = require('./OrangeFolderIcon.png');
 export const PremiumIconImage = require('./PremiumIcon.png');
+export const SticknetIcon = require('./sticknet.png');

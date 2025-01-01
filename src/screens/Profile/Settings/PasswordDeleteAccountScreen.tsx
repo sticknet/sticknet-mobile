@@ -1,70 +1,55 @@
-import React, {Component, createRef} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import {View, Text, Alert, Platform, TextInput, Keyboard, StyleSheet, KeyboardEvent} from 'react-native';
-import {connect} from 'react-redux';
+import {connect, ConnectedProps} from 'react-redux';
 import KeyIcon from '@sticknet/react-native-vector-icons/AntDesign';
 import {widthPercentageToDP as w} from 'react-native-responsive-screen';
 
 import type {NavigationProp} from '@react-navigation/native';
+import {ConnectionController} from '@reown/appkit-core-react-native';
+import {useSignMessage} from 'wagmi';
 import {Button} from '../../../components';
 import {auth} from '../../../actions';
 import type {IApplicationState, TUser, TGroup} from '../../../types';
 import type {ProfileStackParamList} from '../../../navigators/types';
 import {IAuthActions} from '../../../actions/auth';
+import {globalData} from '../../../actions/globalVariables';
+import StickProtocol from '../../../native-modules/stick-protocol';
 
 interface PasswordDeleteAccountScreenProps extends IAuthActions {
     navigation: NavigationProp<ProfileStackParamList>;
     user: TUser | null;
     groups: Record<string, TGroup>;
-    error: string | null;
 }
 
-interface PasswordDeleteAccountScreenState {
-    password: string;
-    keyboardHeight: number;
-}
+type ReduxProps = ConnectedProps<typeof connector>;
 
-class PasswordDeleteAccountScreen extends Component<
-    PasswordDeleteAccountScreenProps,
-    PasswordDeleteAccountScreenState
-> {
-    input = createRef<TextInput>();
+type Props = ReduxProps & PasswordDeleteAccountScreenProps;
 
-    navListener: any;
+const PasswordDeleteAccountScreen = (props: Props) => {
+    const input = useRef<TextInput>(null);
 
-    keyboardDidShowListener: any;
+    const [password, setPassword] = useState('');
+    const [keyboardHeight, setKeyboardHeight] = useState(0);
 
-    constructor(props: PasswordDeleteAccountScreenProps) {
-        super(props);
-        this.state = {
-            password: '',
-            keyboardHeight: 0,
-        };
-    }
-
-    componentDidMount() {
-        this.keyboardDidShowListener = Keyboard.addListener('keyboardDidShow', this._keyboardDidShow);
-        this.navListener = this.props.navigation.addListener('focus', () => {
-            this.input.current?.focus();
+    useEffect(() => {
+        const keyboardDidShowListener = Keyboard.addListener('keyboardDidShow', _keyboardDidShow);
+        const navListener = props.navigation.addListener('focus', () => {
+            input.current?.focus();
         });
-    }
+        return () => {
+            keyboardDidShowListener.remove();
+            navListener();
+        };
+    }, []);
 
-    componentDidUpdate(prevProps: PasswordDeleteAccountScreenProps) {
-        if (!prevProps.error && this.props.error) {
-            Alert.alert('Incorrect password!', 'The password you entered is incorrect.');
-        }
-    }
+    const {data, signMessage} = useSignMessage();
 
-    componentWillUnmount() {
-        this.keyboardDidShowListener.remove();
-        this.navListener();
-    }
-
-    _keyboardDidShow = (e: KeyboardEvent) => {
-        this.setState({keyboardHeight: Platform.OS === 'ios' ? e.endCoordinates.height : 0});
+    const _keyboardDidShow = (e: KeyboardEvent) => {
+        setKeyboardHeight(Platform.OS === 'ios' ? e.endCoordinates.height : 0);
     };
 
-    delete = () => {
-        if (this.state.password.length === 0) {
+    const deleteAccount = (password: string) => {
+        if (password.length === 0) {
             Alert.alert('Enter your Password!', 'You need to enter your password to delete your account.', [
                 {text: 'Ok!', style: 'cancel'},
             ]);
@@ -78,18 +63,18 @@ class PasswordDeleteAccountScreen extends Component<
                     text: 'Delete Account',
                     style: 'destructive',
                     onPress: () => {
-                        this.props.deleteAccount({
-                            user: this.props.user!,
-                            groups: Object.values(this.props.groups),
-                            password: this.state.password,
+                        props.deleteAccount({
+                            user: props.user!,
+                            groups: Object.values(props.groups),
+                            password,
                             callback: async () => {
-                                this.props.navigation.reset({index: 0, routes: [{name: 'Profile'}]});
-                                await this.props.navigation.navigate({
+                                props.navigation.reset({index: 0, routes: [{name: 'Profile'}]});
+                                await props.navigation.navigate({
                                     name: 'Authentication',
                                     params: {auth: true},
                                     merge: true,
                                 });
-                                this.props.navigation.reset({
+                                props.navigation.reset({
                                     index: 0,
                                     routes: [{name: 'Authentication', params: {loggedIn: true}}],
                                 });
@@ -100,33 +85,64 @@ class PasswordDeleteAccountScreen extends Component<
             ]);
         }
     };
-
-    render() {
-        return (
-            <View style={{flex: 1, padding: 12, paddingLeft: 20, paddingRight: 20}}>
-                <View style={s.circle}>
-                    <KeyIcon name="key" size={40} color="#6060FF" />
-                </View>
-                <Text style={s.create}>Confirm Password</Text>
-                <TextInput
-                    placeholder="Enter your password"
-                    placeholderTextColor="silver"
-                    ref={this.input}
-                    secureTextEntry
-                    onChangeText={(password) => this.setState({password})}
-                    selectionColor="#6060FF"
-                    autoFocus
-                    value={this.state.password}
-                    style={s.input}
-                    maxLength={25}
-                />
-                <View style={{position: 'absolute', bottom: this.state.keyboardHeight + 16, left: 20}}>
-                    <Button onPress={this.delete} text="Delete Account Forever" color="red" width={w('90%')} />
-                </View>
+    const regeneratePassword = () => {
+        const secret = globalData.accountSecret.slice(0, 44);
+        signMessage({message: secret});
+    };
+    useEffect(() => {
+        if (data) {
+            hashSignedSecret(data);
+        }
+    }, [data]);
+    const hashSignedSecret = async (signedSecret: string) => {
+        const salt = globalData.accountSecret.slice(44, 88);
+        const password = await StickProtocol.createPasswordHash(signedSecret, salt);
+        ConnectionController.disconnect();
+        deleteAccount(password);
+    };
+    return (
+        <View style={{flex: 1, padding: 12, paddingLeft: 20, paddingRight: 20}}>
+            <View style={s.circle}>
+                <KeyIcon name="key" size={40} color="#6060FF" />
             </View>
-        );
-    }
-}
+            <Text style={s.create}>Confirm Password</Text>
+            {!props.isWallet ? (
+                <>
+                    <TextInput
+                        placeholder="Enter your password"
+                        placeholderTextColor="silver"
+                        ref={input}
+                        secureTextEntry
+                        onChangeText={(password) => setPassword(password)}
+                        selectionColor="#6060FF"
+                        autoFocus
+                        value={password}
+                        style={s.input}
+                        maxLength={25}
+                    />
+                    <View style={{position: 'absolute', bottom: keyboardHeight + 16, left: 20}}>
+                        <Button
+                            onPress={() => deleteAccount(password)}
+                            text="Delete account forever"
+                            color="red"
+                            width={w('90%')}
+                        />
+                    </View>
+                </>
+            ) : (
+                <>
+                    <Text style={{marginTop: 16}}>Regenerate password from your wallet to delete account.</Text>
+                    <Button
+                        onPress={regeneratePassword}
+                        text="Sign & Delete account forever"
+                        color="red"
+                        width={w('90%')}
+                    />
+                </>
+            )}
+        </View>
+    );
+};
 
 const s = StyleSheet.create({
     circle: {
@@ -156,6 +172,9 @@ const mapStateToProps = (state: IApplicationState) => ({
     error: state.errors.passwordError,
     user: state.auth.user,
     groups: state.groups,
+    isWallet: state.auth.user?.ethereumAddress,
 });
 
-export default connect(mapStateToProps, {...auth})(PasswordDeleteAccountScreen);
+const connector = connect(mapStateToProps, {...auth});
+
+export default connector(PasswordDeleteAccountScreen);
