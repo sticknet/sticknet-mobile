@@ -4,10 +4,9 @@ import {connect, ConnectedProps} from 'react-redux';
 import {widthPercentageToDP as w} from 'react-native-responsive-screen';
 import Modal from 'react-native-modal';
 import type {NavigationProp} from '@react-navigation/native';
-import {useAppKit, useAppKitAccount} from '@reown/appkit-ethers-react-native';
+import {useAppKit} from '@reown/appkit-ethers-react-native';
 import {handleResponse} from '@coinbase/wallet-mobile-sdk';
 import {AccountController} from '@reown/appkit-core-react-native';
-import {SIWEController} from '@reown/appkit-siwe-react-native';
 import {auth, stickRoom, app} from '../../../actions';
 import {SettingsItem, Icon, Text} from '../../../components';
 import type {IApplicationState, TUser} from '../../../types';
@@ -44,12 +43,6 @@ const MoreOptionsScreen = (props: Props) => {
             sub.remove();
         };
     }, []);
-    const {address, isConnected} = useAppKitAccount();
-    useEffect(() => {
-        if (isConnected && SIWEController.state.status === 'success') {
-            props.dispatchWalletVerified({address});
-        }
-    }, [isConnected]);
     useEffect(() => {
         if (props.walletVerified) {
             props.handleWalletVerifiedForDeletion();

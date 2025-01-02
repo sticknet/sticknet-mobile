@@ -77,8 +77,6 @@ const siweConfig = createSIWEConfig({
         log('siwe: onSignIn');
         store.dispatch({type: appTemp.DISPATCH_APPTEMP_PROPERTY, payload: {walletVerified: session?.address}});
     },
-    signOutOnAccountChange: false,
-    signOutOnNetworkChange: false,
 });
 
 export default siweConfig;
