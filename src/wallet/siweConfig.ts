@@ -28,10 +28,9 @@ const siweConfig = createSIWEConfig({
             // has not been tampered with, and has been appropriately
             // signed by the wallet address.
             log('siwe: verifyMessage');
-            await new Promise((resolve) => setTimeout(resolve, 1000));
+            await new Promise((resolve) => setTimeout(resolve, 500));
             const res = await axios.post(`${URL}/api/verify-siwe/`, {message, signature});
             globalData.walletVerifyResponse = res;
-            console.log('verify result: ', res.data.correct);
             return res.data.correct;
         } catch (error) {
             return false;
@@ -43,8 +42,6 @@ const siweConfig = createSIWEConfig({
         log('siwe: getSession');
         const response = await axios.get(`${URL}/api/get-session/`);
         const session = response.data;
-        console.log('session: ', session);
-        return {address: '0x3df323Da0e5536BA6cb1c383bd6d4A2706d0CFeF', chainId: 1};
         if (!session.exists) return null;
         return session;
     },

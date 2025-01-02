@@ -19,9 +19,10 @@ import {widthPercentageToDP as w} from 'react-native-responsive-screen';
 import CheckIcon from '@sticknet/react-native-vector-icons/Feather';
 import type {RouteProp} from '@react-navigation/native';
 import type {StackNavigationProp} from '@react-navigation/stack';
-import {useSignMessage} from 'wagmi';
 import {handleResponse} from '@coinbase/wallet-mobile-sdk';
 import {ConnectionController} from '@reown/appkit-core-react-native';
+import {BrowserProvider} from 'ethers';
+import {useAppKitProvider} from '@reown/appkit-ethers-react-native';
 import {auth, stickRoom} from '../../actions/index';
 import {Button, ProgressModal} from '../../components';
 import type {HomeStackParamList} from '../../navigators/types';
@@ -51,7 +52,6 @@ const PasswordLoginScreen = (props: Props) => {
     const [keyboardHeight, setKeyboardHeight] = useState(0);
     const [showPass, setShowPass] = useState(false);
     const authId = props.route.params.authId;
-    const {data, signMessage} = useSignMessage();
     useEffect(() => {
         RNBootSplash.hide({duration: 250});
         if (Platform.OS === 'android') {
@@ -78,6 +78,8 @@ const PasswordLoginScreen = (props: Props) => {
     useEffect(() => {
         if (props.error) Alert.alert('Incorrect password!', 'The password you entered is incorrect.');
     }, [props.error]);
+
+    const {walletProvider} = useAppKitProvider();
 
     const keyboardDidShow = (e: any) => {
         setKeyboardHeight(Platform.OS === 'ios' ? e.endCoordinates.height : 0);
@@ -139,15 +141,13 @@ const PasswordLoginScreen = (props: Props) => {
         props.navigation.navigate({name: 'ForgotPassword', merge: true, params: {}});
     };
 
-    const regeneratePassword = () => {
+    const regeneratePassword = async () => {
         const secret = globalData.accountSecret.slice(0, 44);
-        signMessage({message: secret});
+        const ethersProvider = new BrowserProvider(walletProvider!);
+        const signer = await ethersProvider.getSigner();
+        const signature = await signer.signMessage(secret);
+        hashSignedSecret(signature);
     };
-    useEffect(() => {
-        if (data) {
-            hashSignedSecret(data);
-        }
-    }, [data]);
     const hashSignedSecret = async (signedSecret: string) => {
         const salt = globalData.accountSecret.slice(44, 88);
         const password = await StickProtocol.createPasswordHash(signedSecret, salt);

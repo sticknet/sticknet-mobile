@@ -107,6 +107,12 @@ export function verifyEmailCode({
     };
 }
 
+export function dispatchWalletVerified({address}: {address: `0x${string}` | undefined}) {
+    return async function (dispatch: Dispatch) {
+        dispatch({type: appTemp.DISPATCH_APPTEMP_PROPERTY, payload: {walletVerified: address}});
+    };
+}
+
 type THandleWalletVerified = {
     ethereumAddress: string;
     loginCallback: () => void;

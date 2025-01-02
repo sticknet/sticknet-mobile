@@ -47,11 +47,10 @@
     "@react-navigation/native": "^6.1.7",
     "@react-navigation/native-stack": "^6.9.13",
     "@react-navigation/stack": "^6.3.17",
-    "@reown/appkit-coinbase-wagmi-react-native": "^1.1.1",
+    "@reown/appkit-coinbase-ethers-react-native": "^1.1.1",
     "@reown/appkit-core-react-native": "^1.1.1",
     "@reown/appkit-ethers-react-native": "^1.1.1",
     "@reown/appkit-siwe-react-native": "^1.1.1",
-    "@reown/appkit-wagmi-react-native": "^1.1.1",
     "@sentry/react-native": "^5.10.0",
     "@shopify/flash-list": "^1.6.3",
     "@sticknet/react-native-exception-handler": "^1.0.0",
@@ -134,13 +133,13 @@
     "redux-persist-transform-encrypt": "^3.0.1",
     "redux-thunk": "^2.4.0",
     "stick-protocol-handlers": "1.2.2",
-    "viem": "^2.21.56",
-    "wagmi": "^2.14.4"
+    "viem": "^2.21.56"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
     "@babel/eslint-parser": "^7.18.9",
     "@babel/eslint-plugin": "^7.17.7",
+    "@babel/plugin-proposal-private-methods": "^7.18.6",
     "@babel/preset-env": "^7.14.0",
     "@babel/preset-react": "^7.16.0",
     "@babel/preset-typescript": "^7.26.0",

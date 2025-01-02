@@ -12,11 +12,12 @@ import {
     EmitterSubscription,
     Linking,
     Image,
+    AppState,
 } from 'react-native';
 import {connect, ConnectedProps} from 'react-redux';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {widthPercentageToDP as w} from 'react-native-responsive-screen';
-import {useAppKit} from '@reown/appkit-wagmi-react-native';
+import {useAppKit, useAppKitAccount} from '@reown/appkit-ethers-react-native';
 import changeNavigationBarColor from 'react-native-navigation-bar-color';
 import RNBootSplash from 'react-native-bootsplash';
 import {firebase} from '@react-native-firebase/database';
@@ -24,6 +25,8 @@ import Config from 'react-native-config';
 import type {RouteProp} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {handleResponse} from '@coinbase/wallet-mobile-sdk';
+import {SIWEController} from '@reown/appkit-siwe-react-native';
+import {AccountController} from '@reown/appkit-core-react-native';
 import {auth, app} from '../../actions';
 import {Button, Text} from '../../components';
 import {devRegistration, globalData} from '../../actions/globalVariables';
@@ -79,18 +82,19 @@ const AuthenticationScreen: React.FC<Props> = (props) => {
         const sub = Linking.addEventListener('url', async ({url}) => {
             handleResponse(new URL(url));
         });
-        // const appStateListener = AppState.addEventListener('change', async (state) => {
-        //     if (Platform.OS === 'ios' && state === 'inactive' && !AccountController.state.isConnected) {
-        //         console.log('FORCE CLOSE');
-        //         close();
-        //     }
-        // });
+        const appStateListener = AppState.addEventListener('change', async (state) => {
+            if (Platform.OS === 'ios' && state === 'inactive' && !AccountController.state.isConnected) {
+                console.log('FORCE CLOSE');
+                close();
+            }
+        });
         return () => {
             sub.remove();
-            // appStateListener.remove();
+            appStateListener.remove();
             if (keyboardDidShowListener) keyboardDidShowListener.remove();
         };
     }, []);
+    const {address, isConnected} = useAppKitAccount();
 
     useEffect(() => {
         if (props.walletVerified) {
@@ -98,6 +102,12 @@ const AuthenticationScreen: React.FC<Props> = (props) => {
             props.handleWalletVerified({...callbacks, ethereumAddress: props.walletVerified});
         }
     }, [props.walletVerified]);
+
+    useEffect(() => {
+        if (isConnected && SIWEController.state.status === 'success') {
+            props.dispatchWalletVerified({address});
+        }
+    }, [isConnected]);
 
     const keyboardDidShow = (e: KeyboardEvent) => {
         if (!props.keyboardHeight)

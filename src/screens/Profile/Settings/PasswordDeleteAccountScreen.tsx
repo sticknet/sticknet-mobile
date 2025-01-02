@@ -6,7 +6,8 @@ import {widthPercentageToDP as w} from 'react-native-responsive-screen';
 
 import type {NavigationProp} from '@react-navigation/native';
 import {ConnectionController} from '@reown/appkit-core-react-native';
-import {useSignMessage} from 'wagmi';
+import {useAppKitProvider} from '@reown/appkit-ethers-react-native';
+import {BrowserProvider} from 'ethers';
 import {Button} from '../../../components';
 import {auth} from '../../../actions';
 import type {IApplicationState, TUser, TGroup} from '../../../types';
@@ -42,7 +43,7 @@ const PasswordDeleteAccountScreen = (props: Props) => {
         };
     }, []);
 
-    const {data, signMessage} = useSignMessage();
+    const {walletProvider} = useAppKitProvider();
 
     const _keyboardDidShow = (e: KeyboardEvent) => {
         setKeyboardHeight(Platform.OS === 'ios' ? e.endCoordinates.height : 0);
@@ -85,15 +86,13 @@ const PasswordDeleteAccountScreen = (props: Props) => {
             ]);
         }
     };
-    const regeneratePassword = () => {
+    const regeneratePassword = async () => {
         const secret = globalData.accountSecret.slice(0, 44);
-        signMessage({message: secret});
+        const ethersProvider = new BrowserProvider(walletProvider!);
+        const signer = await ethersProvider.getSigner();
+        const signedSecret = await signer.signMessage(secret);
+        hashSignedSecret(signedSecret);
     };
-    useEffect(() => {
-        if (data) {
-            hashSignedSecret(data);
-        }
-    }, [data]);
     const hashSignedSecret = async (signedSecret: string) => {
         const salt = globalData.accountSecret.slice(44, 88);
         const password = await StickProtocol.createPasswordHash(signedSecret, salt);
