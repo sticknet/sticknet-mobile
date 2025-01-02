@@ -24,7 +24,6 @@ const metadata = {
     redirect: {
         native: `${bundleId}://`,
         universal: 'https://www.sticknet.org',
-        linkMode: false,
     },
 };
 
