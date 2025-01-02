@@ -1390,7 +1390,7 @@ SPEC CHECKSUMS:
   Permission-PhotoLibrary: e3709d7e2b89fa0bbe1c38022ec6a2cf350a84ff
   PromisesObjC: f5707f49cb48b9636751c5b2e7d227e43fba9f47
   PromisesSwift: 9d77319bbe72ebf6d872900551f7eeba9bce2851
-  RCT-Folly: 424b8c9a7a0b9ab2886ffe9c3b041ef628fd4fb1
+  RCT-Folly: 8dc08ca5a393b48b1c523ab6220dfdcc0fe000ad
   RCTRequired: 28469809442eb4eb5528462705f7d852948c8a74
   RCTSystemSetting: 4fde35f1f89fa6d644916b06d295837961a3b5b9
   RCTTypeSafety: e9c6c409fca2cc584e5b086862d562540cb38d29
@@ -1414,7 +1414,7 @@ SPEC CHECKSUMS:
   react-native-config: ea73937aecb26d8eb4642ecdb2b2e83d0be59656
   react-native-contacts: 49c8af17f0e45d7e79909c0dcf63b133c53bc62c
   react-native-document-picker: 10fce9a283ba4b74533d8378e76b3c38a66347d6
-  react-native-ffmpeg: 587fa045f985d775107f4b8cbb6c79df0ad68e63
+  react-native-ffmpeg: 7cf9d80dd68a3917c1138d5c8a3cd56a5e18a53c
   react-native-get-random-values: d16467cf726c618e9c7a8c3c39c31faa2244bbba
   react-native-image-resizer: 17b2d73c030975b6543395c7e7368bc8774c5efa
   react-native-keep-awake: 21ff40767cde4bd81021ffee12480aee4b5b91bb
@@ -1490,7 +1490,7 @@ SPEC CHECKSUMS:
   StickySignalProtocolC: 8d19963b60b8d099605421280d1068b2d92d49c8
   SwiftyJSON: f5b1bf1cd8dd53cd25887ac0eabcfd92301c6a5a
   toolbar-android: c426ed5bd3dcccfed20fd79533efc0d1ae0ef018
-  YapDatabase: b418a4baa6906e8028748938f9159807fd039af4
+  YapDatabase: aa940b69c1923d3810f4dd671d3193705044e82f
   Yoga: b76f1acfda8212aa16b7e26bcce3983230c82603
   YoutubePlayer-in-WKWebView: 2c3aa1d5ad8dded9f95ef12033af5dd8e55864b7
 
