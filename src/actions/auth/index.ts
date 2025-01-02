@@ -163,6 +163,9 @@ type TGeneratePasswordFromWallet = {accountSecret: string; signedSecret: string;
 
 export function generatePasswordFromWallet({accountSecret, signedSecret, callback}: TGeneratePasswordFromWallet) {
     return async function () {
+        if (!accountSecret || accountSecret.length === 0 || !signedSecret || signedSecret.length === 0) {
+            throw new Error('The accountSecret and signedSecret must not be empty.');
+        }
         const salt = await CommonNative.generateSecureRandom(32);
         const password = await StickProtocol.createPasswordHash(signedSecret, salt);
         const ethereumAddress = await AsyncStorage.getItem('@ethereumAddress');
@@ -172,11 +175,8 @@ export function generatePasswordFromWallet({accountSecret, signedSecret, callbac
             token = password;
         }
         const config = {headers: {Authorization: token}};
-        await axios.post(
-            `${URL}/api/set-account-secret/`,
-            {accountSecret: accountSecret + salt, ethereumAddress},
-            config,
-        );
+        const secret = accountSecret + salt;
+        await axios.post(`${URL}/api/set-account-secret/`, {accountSecret: secret, ethereumAddress}, config);
         callback(password);
     };
 }

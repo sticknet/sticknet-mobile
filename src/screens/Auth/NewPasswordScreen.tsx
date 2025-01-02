@@ -73,8 +73,6 @@ const NewPasswordScreen = (props: Props) => {
     const [modalVisible, setModalVisible] = useState(true);
     const [headerTranslation] = useState(new Animated.Value(0));
     const input = useRef<TextInput>(null);
-    const [accountSecret, setAccountSecret] = useState('');
-
     const {walletProvider} = useAppKitProvider();
 
     const finish = async (password: string) => {
@@ -192,12 +190,11 @@ const NewPasswordScreen = (props: Props) => {
     };
     const generatePassword = async () => {
         const secret = await CommonNative.generateSecureRandom(32);
-        setAccountSecret(secret);
         const ethersProvider = new BrowserProvider(walletProvider!);
         const signer = await ethersProvider.getSigner();
         const signedSecret = await signer.signMessage(secret);
         ConnectionController.disconnect();
-        props.generatePasswordFromWallet({accountSecret, signedSecret, callback: finish});
+        props.generatePasswordFromWallet({accountSecret: secret, signedSecret, callback: finish});
     };
     const {isWallet} = props;
     return (
