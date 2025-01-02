@@ -1,14 +1,9 @@
 import '@walletconnect/react-native-compat';
 import React, {FC, ReactNode} from 'react';
-import {mainnet, polygon, arbitrum, optimism} from '@wagmi/core/chains';
-import {QueryClient, QueryClientProvider} from '@tanstack/react-query';
-import {createAppKit, defaultWagmiConfig, AppKit} from '@reown/appkit-wagmi-react-native';
-import {WagmiProvider} from 'wagmi';
 import DeviceInfo from 'react-native-device-info';
-import {coinbaseConnector} from '@reown/appkit-coinbase-wagmi-react-native';
+import {createAppKit, AppKit, defaultConfig} from '@reown/appkit-ethers-react-native';
+import {CoinbaseProvider} from '@reown/appkit-coinbase-ethers-react-native';
 import siweConfig from './siweConfig';
-
-const queryClient = new QueryClient();
 
 const projectId = '858fe7c1b740043cb35051384b89859b';
 
@@ -24,21 +19,30 @@ const metadata = {
     redirect: {
         native: `${bundleId}://`,
         universal: 'https://www.sticknet.org',
-        linkMode: false,
     },
 };
 
-const coinbase = coinbaseConnector({
+const mainnet = {
+    chainId: 1,
+    name: 'Ethereum',
+    currency: 'ETH',
+    explorerUrl: 'https://etherscan.io',
+    rpcUrl: `https://eth.drpc.org`,
+};
+
+const coinbaseProvider = new CoinbaseProvider({
     redirect: `${bundleId}://`,
+    rpcUrl: mainnet.rpcUrl,
 });
 
-const chains = [mainnet, polygon, arbitrum, optimism] as const;
+const chains = [mainnet];
 
-const wagmiConfig = defaultWagmiConfig({chains, projectId, metadata, extraConnectors: [coinbase]});
+const config = defaultConfig({metadata, extraConnectors: [coinbaseProvider]});
 
 createAppKit({
     projectId,
-    wagmiConfig,
+    chains,
+    config,
     defaultChain: mainnet,
     enableAnalytics: true,
     siweConfig,
@@ -47,12 +51,10 @@ createAppKit({
 
 const AppKitProvider: FC<{children: ReactNode}> = ({children}) => {
     return (
-        <WagmiProvider config={wagmiConfig}>
-            <QueryClientProvider client={queryClient}>
-                {children}
-                <AppKit />
-            </QueryClientProvider>
-        </WagmiProvider>
+        <>
+            {children}
+            <AppKit />
+        </>
     );
 };
 

@@ -17,7 +17,7 @@ import {
 import {connect, ConnectedProps} from 'react-redux';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {widthPercentageToDP as w} from 'react-native-responsive-screen';
-import {useAppKit} from '@reown/appkit-wagmi-react-native';
+import {useAppKit} from '@reown/appkit-ethers-react-native';
 import changeNavigationBarColor from 'react-native-navigation-bar-color';
 import RNBootSplash from 'react-native-bootsplash';
 import {firebase} from '@react-native-firebase/database';
@@ -81,13 +81,11 @@ const AuthenticationScreen: React.FC<Props> = (props) => {
         const sub = Linking.addEventListener('url', async ({url}) => {
             handleResponse(new URL(url));
         });
-
         const appStateListener = AppState.addEventListener('change', async (state) => {
             if (Platform.OS === 'ios' && state === 'inactive' && !AccountController.state.isConnected) {
                 close();
             }
         });
-
         return () => {
             sub.remove();
             appStateListener.remove();

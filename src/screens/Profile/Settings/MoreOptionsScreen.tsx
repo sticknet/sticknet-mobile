@@ -4,7 +4,7 @@ import {connect, ConnectedProps} from 'react-redux';
 import {widthPercentageToDP as w} from 'react-native-responsive-screen';
 import Modal from 'react-native-modal';
 import type {NavigationProp} from '@react-navigation/native';
-import {useAppKit} from '@reown/appkit-wagmi-react-native';
+import {useAppKit} from '@reown/appkit-ethers-react-native';
 import {handleResponse} from '@coinbase/wallet-mobile-sdk';
 import {AccountController} from '@reown/appkit-core-react-native';
 import {auth, stickRoom, app} from '../../../actions';

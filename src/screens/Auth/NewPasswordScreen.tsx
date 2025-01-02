@@ -24,9 +24,10 @@ import RNBootSplash from 'react-native-bootsplash';
 import {widthPercentageToDP as w} from 'react-native-responsive-screen';
 import type {RouteProp} from '@react-navigation/native';
 import type {StackNavigationProp} from '@react-navigation/stack';
-import {useSignMessage} from 'wagmi';
 import {handleResponse} from '@coinbase/wallet-mobile-sdk';
 import {ConnectionController} from '@reown/appkit-core-react-native';
+import {useAppKitProvider} from '@reown/appkit-ethers-react-native';
+import {BrowserProvider} from 'ethers';
 import {Button, ProgressModal} from '../../components';
 import {auth} from '../../actions/index';
 import {globalData} from '../../actions/globalVariables';
@@ -73,6 +74,8 @@ const NewPasswordScreen = (props: Props) => {
     const [headerTranslation] = useState(new Animated.Value(0));
     const input = useRef<TextInput>(null);
     const [accountSecret, setAccountSecret] = useState('');
+
+    const {walletProvider} = useAppKitProvider();
 
     const finish = async (password: string) => {
         if (__DEV__ || Config.TESTING === '1') {
@@ -190,16 +193,13 @@ const NewPasswordScreen = (props: Props) => {
     const generatePassword = async () => {
         const secret = await CommonNative.generateSecureRandom(32);
         setAccountSecret(secret);
-        signMessage({message: secret});
+        const ethersProvider = new BrowserProvider(walletProvider!);
+        const signer = await ethersProvider.getSigner();
+        const signedSecret = await signer.signMessage(secret);
+        ConnectionController.disconnect();
+        props.generatePasswordFromWallet({accountSecret, signedSecret, callback: finish});
     };
     const {isWallet} = props;
-    const {data, signMessage} = useSignMessage();
-    useEffect(() => {
-        if (data) {
-            ConnectionController.disconnect();
-            props.generatePasswordFromWallet({accountSecret, signedSecret: data, callback: finish});
-        }
-    }, [data]);
     return (
         <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
             <View style={{flex: 1, padding: 12, paddingLeft: 20}}>
