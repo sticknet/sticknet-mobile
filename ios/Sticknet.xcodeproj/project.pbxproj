@@ -3258,19 +3258,19 @@
 				CODE_SIGN_ENTITLEMENTS = Sticknet/Sticknet.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 57;
+				CURRENT_PROJECT_VERSION = 58;
 				DEVELOPMENT_TEAM = 88J4C462WP;
 				ENABLE_BITCODE = NO;
 				GOOGLE_SERVICE_INFO_PLIST_NAME = "GoogleService-Info-Debug.plist";
 				INFOPLIST_FILE = Sticknet/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Sticknet Debug";
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.social-networking";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 6.0.27;
+				MARKETING_VERSION = 6.0.28;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -3307,18 +3307,18 @@
 				CODE_SIGN_ENTITLEMENTS = Sticknet/Sticknet.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 57;
+				CURRENT_PROJECT_VERSION = 58;
 				DEVELOPMENT_TEAM = 88J4C462WP;
 				GOOGLE_SERVICE_INFO_PLIST_NAME = "GoogleService-Info-Release.plist";
 				INFOPLIST_FILE = Sticknet/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Sticknet;
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.social-networking";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 6.0.27;
+				MARKETING_VERSION = 6.0.28;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
 					"$(inherited)",

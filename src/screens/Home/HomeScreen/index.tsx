@@ -134,7 +134,7 @@ const HomeScreen: React.FC<Props> = (props) => {
             ),
             emptyProps: {
                 graphic: <FontistoIcon color="lightgrey" name="photograph" size={80} style={{marginVertical: 20}} />,
-                text: "Your memory vault is empty, but it won't be for long. Begin by adding your first photo.",
+                text: "Your memories vault is empty, but it won't be for long. Begin by adding your first photo.",
                 actionText: 'Upload photos',
                 actionIcon: 'upload',
                 action: () => props.openModal({modalName: 'create'}),
