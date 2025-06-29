@@ -480,7 +480,7 @@ workflows:
     jobs:
       - lint_and_test
 #      - build_android_release
-      - build_ios_adhoc
+#      - build_ios_adhoc
 
 #      - test_android_e2e:
 #          requires:

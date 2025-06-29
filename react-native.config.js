@@ -5,5 +5,10 @@ module.exports = {
                 ios: null,
             },
         },
+        'react-native-ffmpeg': {
+            platforms: {
+                ios: null,
+            },
+        },
     },
 };

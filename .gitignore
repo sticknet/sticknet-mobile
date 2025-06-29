@@ -22,6 +22,8 @@ DerivedData
 *.app.dSYM.zip
 *.xcuserstate
 ios/.xcode.env.local
+ios/sentry.properties
+android/sentry.properties
 
 /profiles
 # Android/IntelliJ
