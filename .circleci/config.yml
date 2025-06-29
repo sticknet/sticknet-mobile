@@ -180,20 +180,16 @@ commands:
         default: true
 
     steps:
-      - when:
-          condition: <<parameters.cache>>
-          steps:
-            - restore_cache:
-                keys:
-                  - '{{ .Environment.CACHE_VERSION }}-cache-pods-{{ checksum "<<parameters.pod_install_directory>>/Podfile.lock" }}'
-                  - '{{ .Environment.CACHE_VERSION }}-cache-pods'
+#      - when:
+#          condition: <<parameters.cache>>
+#          steps:
+#            - restore_cache:
+#                keys:
+#                  - '{{ .Environment.CACHE_VERSION }}-cache-pods-{{ checksum "<<parameters.pod_install_directory>>/Podfile.lock" }}'
+#                  - '{{ .Environment.CACHE_VERSION }}-cache-pods'
       - run:
           name: Install CocoaPods
           command: |
-            rm -rf ~/Library/Caches/CocoaPods
-            rm -rf ios/Pods
-            rm -rf ios/Podfile.lock
-            pod repo update
             cd <<parameters.pod_install_directory>> && pod install && cd -
       - when:
           condition: <<parameters.cache>>
