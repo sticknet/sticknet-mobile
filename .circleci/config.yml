@@ -180,13 +180,13 @@ commands:
         default: true
 
     steps:
-#      - when:
-#          condition: <<parameters.cache>>
-#          steps:
-#            - restore_cache:
-#                keys:
-#                  - '{{ .Environment.CACHE_VERSION }}-cache-pods-{{ checksum "<<parameters.pod_install_directory>>/Podfile.lock" }}'
-#                  - '{{ .Environment.CACHE_VERSION }}-cache-pods'
+      - when:
+          condition: <<parameters.cache>>
+          steps:
+            - restore_cache:
+                keys:
+                  - '{{ .Environment.CACHE_VERSION }}-cache-pods-{{ checksum "<<parameters.pod_install_directory>>/Podfile.lock" }}'
+                  - '{{ .Environment.CACHE_VERSION }}-cache-pods'
       - run:
           name: Install CocoaPods
           command: |
@@ -232,13 +232,13 @@ commands:
         default: true
 
     steps:
-#      - when:
-#          condition: <<parameters.cache>>
-#          steps:
-#            - restore_cache:
-#                name: Restoring iOS Build caches
-#                keys:
-#                  - ios-build-cache-{{ arch }}-{{ checksum "~/.tmp/checksumfiles/package.json" }}-{{ .Environment.CACHE_VERSION }}
+      - when:
+          condition: <<parameters.cache>>
+          steps:
+            - restore_cache:
+                name: Restoring iOS Build caches
+                keys:
+                  - ios-build-cache-{{ arch }}-{{ checksum "~/.tmp/checksumfiles/package.json" }}-{{ .Environment.CACHE_VERSION }}
 
       - run:
           name: Build iOS App
@@ -480,7 +480,7 @@ workflows:
     jobs:
       - lint_and_test
 #      - build_android_release
-      - build_ios_adhoc
+#      - build_ios_adhoc
 
 #      - test_android_e2e:
 #          requires:
