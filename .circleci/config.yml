@@ -190,6 +190,10 @@ commands:
       - run:
           name: Install CocoaPods
           command: |
+            rm -rf ~/Library/Caches/CocoaPods
+            rm -rf ios/Pods
+            rm -rf ios/Podfile.lock
+            pod repo update
             cd <<parameters.pod_install_directory>> && pod install && cd -
       - when:
           condition: <<parameters.cache>>
