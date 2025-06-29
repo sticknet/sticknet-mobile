@@ -5,7 +5,7 @@ import Orientation from 'react-native-orientation-locker';
 import {Provider} from 'react-redux';
 import {PersistGate} from 'redux-persist/integration/react';
 import changeNavigationBarColor from 'react-native-navigation-bar-color';
-// import * as Sentry from '@sentry/react-native';
+import * as Sentry from '@sentry/react-native';
 import {DefaultTheme, NavigationContainer} from '@react-navigation/native';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
 
@@ -17,11 +17,11 @@ import {getAppSettings} from './utils';
 import configureStore from './store';
 import AppKitProvider from './wallet/AppKitProvider';
 
-// Sentry.init({
-//     dsn: 'https://3fcf3d773d8da9bf5d5a6d3eb66a7fbb@o4506009368199168.ingest.sentry.io/4506009458114560',
-//     tracesSampleRate: 0.5,
-//     environment: __DEV__ ? 'development' : 'production',
-// });
+Sentry.init({
+    dsn: 'https://3fcf3d773d8da9bf5d5a6d3eb66a7fbb@o4506009368199168.ingest.sentry.io/4506009458114560',
+    tracesSampleRate: 0.5,
+    environment: __DEV__ ? 'development' : 'production',
+});
 
 class App extends Component {
     async componentDidMount() {

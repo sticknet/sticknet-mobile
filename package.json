@@ -52,6 +52,7 @@
     "@reown/appkit-core-react-native": "^1.1.1",
     "@reown/appkit-ethers-react-native": "^1.1.1",
     "@reown/appkit-siwe-react-native": "^1.1.1",
+    "@sentry/react-native": "^6.16.0",
     "@shopify/flash-list": "^1.6.3",
     "@sticknet/react-native-exception-handler": "^1.0.0",
     "@sticknet/react-native-keychain": "^1.0.0",
