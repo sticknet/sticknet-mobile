@@ -3,9 +3,9 @@ PODS:
   - boost (1.76.0)
   - BVLinearGradient (2.6.2):
     - React-Core
-  - CocoaLumberjack (3.8.5):
-    - CocoaLumberjack/Core (= 3.8.5)
-  - CocoaLumberjack/Core (3.8.5)
+  - CocoaLumberjack (3.9.0):
+    - CocoaLumberjack/Core (= 3.9.0)
+  - CocoaLumberjack/Core (3.9.0)
   - CoinbaseWalletSDK/Client (1.1.2)
   - CoinbaseWalletSDK/CrossPlatform (1.1.2):
     - CoinbaseWalletSDK/Client
@@ -1331,7 +1331,7 @@ SPEC CHECKSUMS:
   Alamofire: 7193b3b92c74a07f85569e1a6c4f4237291e7496
   boost: 57d2868c099736d80fcd648bf211b4431e51a558
   BVLinearGradient: 7815a70ab485b7b155186dd0cc836363e0288cad
-  CocoaLumberjack: 6a459bc897d6d80bd1b8c78482ec7ad05dffc3f0
+  CocoaLumberjack: 5644158777912b7de7469fa881f8a3f259c2512a
   CoinbaseWalletSDK: f8cef9d72e86d6ac4782e4d0054baf9302cf05bb
   CoinbaseWalletSDKExpo: ca2f2a1e307701a04f06ffc746192ba797ba5b32
   CryptoSwift: e64e11850ede528a02a0f3e768cec8e9d92ecb90
@@ -1482,6 +1482,6 @@ SPEC CHECKSUMS:
   Yoga: b76f1acfda8212aa16b7e26bcce3983230c82603
   YoutubePlayer-in-WKWebView: 2c3aa1d5ad8dded9f95ef12033af5dd8e55864b7
 
-PODFILE CHECKSUM: b820d3d0cb7547cfac9d9b2f1bbd9f59b0a0e9cb
+PODFILE CHECKSUM: 09c984a24d5196c638e521c43415af9a1d7094a9
 
 COCOAPODS: 1.15.2
