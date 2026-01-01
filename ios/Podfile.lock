@@ -218,9 +218,9 @@ PODS:
   - Mantle (2.2.0):
     - Mantle/extobjc (= 2.2.0)
   - Mantle/extobjc (2.2.0)
-  - MMKV (2.2.2):
-    - MMKVCore (~> 2.2.2)
-  - MMKVCore (2.2.2)
+  - MMKV (2.3.0):
+    - MMKVCore (~> 2.3.0)
+  - MMKVCore (2.3.0)
   - nanopb (2.30909.1):
     - nanopb/decode (= 2.30909.1)
     - nanopb/encode (= 2.30909.1)
@@ -844,10 +844,10 @@ PODS:
   - SignalArgon2 (1.3.2)
   - SimpleKeychain (1.1.0)
   - SocketRocket (0.6.1)
-  - SQLCipher (4.9.0):
-    - SQLCipher/standard (= 4.9.0)
-  - SQLCipher/common (4.9.0)
-  - SQLCipher/standard (4.9.0):
+  - SQLCipher (4.10.0):
+    - SQLCipher/standard (= 4.10.0)
+  - SQLCipher/common (4.10.0)
+  - SQLCipher/standard (4.10.0):
     - SQLCipher/common
   - StickySignalProtocolC (1.0.2)
   - SwiftyJSON (5.0.2)
@@ -1370,8 +1370,8 @@ SPEC CHECKSUMS:
   lottie-ios: 8f97d3271e155c2d688875c29cd3c74908aef5f8
   lottie-react-native: 5d89c05930d4180a1e39b1757d46e6c0eec90255
   Mantle: c5aa8794a29a022dfbbfc9799af95f477a69b62d
-  MMKV: b4802ebd5a7c68fc0c4a5ccb4926fbdfb62d68e0
-  MMKVCore: a255341a3746955f50da2ad9121b18cb2b346e61
+  MMKV: c953dbaac0da392c24b005e763c03ce2638b4ed7
+  MMKVCore: d078dce7d6586a888b2c2ef5343b6242678e3ee8
   nanopb: d4d75c12cd1316f4a64e3c6963f879ecd4b5e0d5
   Permission-Camera: 6df5352286fe05bb07b018e072c7b22b151e08ce
   Permission-Contacts: a1bcc9da0934b544165e643be1f8c9126655599c
@@ -1474,7 +1474,7 @@ SPEC CHECKSUMS:
   SignalArgon2: 1c24183835ca861e6af06631c18b1671cdf35571
   SimpleKeychain: f8707c8e97b38c6a6e687b17732afc9bcef06439
   SocketRocket: f32cd54efbe0f095c4d7594881e52619cfe80b17
-  SQLCipher: 31878d8ebd27e5c96db0b7cb695c96e9f8ad77da
+  SQLCipher: eb79c64049cb002b4e9fcb30edb7979bf4706dfc
   StickySignalProtocolC: 8d19963b60b8d099605421280d1068b2d92d49c8
   SwiftyJSON: f5b1bf1cd8dd53cd25887ac0eabcfd92301c6a5a
   toolbar-android: c426ed5bd3dcccfed20fd79533efc0d1ae0ef018

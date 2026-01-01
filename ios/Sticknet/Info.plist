@@ -80,6 +80,8 @@
 	</dict>
 	<key>NSCameraUsageDescription</key>
 	<string>Allow access to the Camera to capture photos</string>
+  <key>UIDesignRequiresCompatibility</key>
+  <true/>
 	<key>NSContactsUsageDescription</key>
 	<string>Sticknet uses your contacts to find users you know. We do not store your contacts on the server.</string>
 	<key>NSHumanReadableCopyright</key>
