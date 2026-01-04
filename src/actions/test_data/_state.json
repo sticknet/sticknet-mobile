@@ -1,0 +1,496 @@
+{
+    "auth": {
+        "isLoading": false,
+        "user": {
+            "id": "f786e067-eebd-4fde-a6f6-63cc42228b88",
+            "oneTimeId": "0c4a4dbb-8139-46c9-8034-0e55b56d7302",
+            "username": "bob123",
+            "firebaseRef": "firebaseRefA",
+            "name": "Bob",
+            "groups": [
+                {
+                    "id": "68801d2e-0900-4fe1-8a92-2fac83291075",
+                    "displayName": {
+                        "id": 637,
+                        "text": "My Group",
+                        "stickId": "68801d2e-0900-4fe1-8a92-2fac832910750",
+                        "userId": "f786e067-eebd-4fde-a6f6-63cc42228b88",
+                        "nameOfUser": "Bob",
+                        "uri": null,
+                        "fileSize": 0,
+                        "textLength": 0,
+                        "decrypted": true
+                    },
+                    "status": null,
+                    "link": null,
+                    "linkApproval": false,
+                    "linkEnabled": false,
+                    "cover": null,
+                    "admins": ["f786e067-eebd-4fde-a6f6-63cc42228b88"],
+                    "owner": "f786e067-eebd-4fde-a6f6-63cc42228b88",
+                    "membersCount": 2,
+                    "membersIds": ["f786e067-eebd-4fde-a6f6-63cc42228b88", "9c196351-65da-4349-a43b-c69074e7455e"],
+                    "membersOtids": ["0c4a4dbb-8139-46c9-8034-0e55b56d7302", "d71d98ad-6d42-4641-9681-4d739732486d"],
+                    "membersAllIds": [
+                        {
+                            "id": "f786e067-eebd-4fde-a6f6-63cc42228b88",
+                            "oneTimeId": "0c4a4dbb-8139-46c9-8034-0e55b56d7302"
+                        },
+                        {
+                            "id": "9c196351-65da-4349-a43b-c69074e7455e",
+                            "oneTimeId": "d71d98ad-6d42-4641-9681-4d739732486d"
+                        }
+                    ],
+                    "temp_displayName": null,
+                    "hasSharedPhotos": false,
+                    "requestsCount": 0,
+                    "timestamp": "2022-08-15T10:42:55.765371+04:00"
+                }
+            ],
+            "profilePicture": null,
+            "cover": null,
+            "status": null,
+            "color": "darkred",
+            "birthDay": null,
+            "birthDayHidden": false,
+            "groupsCount": 1,
+            "email": null,
+            "imagesCount": 0,
+            "sharedCount": 1,
+            "notesCount": 0,
+            "albumsCount": 0,
+            "invitationsCount": 0,
+            "crCount": 0,
+            "profilePhotosCount": 1,
+            "blockedIds": [],
+            "connectionsCount": 1,
+            "dateJoined": "2022-08-15T10:42:23.231935+04:00",
+            "hasPassword": true,
+            "hasPasswordKey": false,
+            "phone": "+16501119999",
+            "dialCode": "+1",
+            "country": "US",
+            "nextPreKeyId": 70,
+            "highlightsIds": [],
+            "partyId": "58213f97-b467-48b2-bb6c-823212b316e8",
+            "selfPartyId": "8b8b7de6-5b96-48f0-b2b7-4a95a0fa080c",
+            "pntDevices": ["ac7e940c-7d3a-4377-a9ca-adbb4b7ff1af"],
+            "hiddenImages": [],
+            "websiteLink": null,
+            "dayJoined": "August 2022",
+            "groupRequests": [],
+            "backupFrequency": "weekly",
+            "donationReminder": "0",
+            "groupsIds": ["68801d2e-0900-4fe1-8a92-2fac83291075"],
+            "connectionsIds": ["9c196351-65da-4349-a43b-c69074e7455e"]
+        },
+        "errors": {},
+        "passwordUpdated": false,
+        "report_sent": false,
+        "isFirstTime": true,
+        "oneTimeId": null,
+        "testValue": null,
+        "finishedRegistration": true,
+        "isAuthenticated": true
+    },
+    "images": {
+        "550": {
+            "id": "550",
+            "user": {
+                "id": "f786e067-eebd-4fde-a6f6-63cc42228b88",
+                "username": "bob123",
+                "name": "Bob",
+                "profilePicture": null,
+                "partyId": "58213f97-b467-48b2-bb6c-823212b316e8"
+            },
+            "uri": null,
+            "videoUri": null,
+            "thumbnail": null,
+            "album": null,
+            "albumCover": null,
+            "caption": "",
+            "location": null,
+            "group": null,
+            "timestamp": "2022-08-15T10:43:26.442106+04:00",
+            "notesCount": 0,
+            "likesCount": 0,
+            "liked": false,
+            "likedBy": [],
+            "reaction": null,
+            "size": "S",
+            "groupsIds": [],
+            "connectionsIds": [],
+            "width": 1000,
+            "height": 1000,
+            "duration": 0,
+            "youtube": null,
+            "youtubeThumbnail": null,
+            "audioUri": null,
+            "audioDuration": 0,
+            "cipher": null,
+            "thumbCipher": null,
+            "audioCipher": null,
+            "stickId": "58213f97-b467-48b2-bb6c-823212b316e80",
+            "partyId": "58213f97-b467-48b2-bb6c-823212b316e8",
+            "fileSize": null,
+            "index": 0,
+            "ofTotal": 1,
+            "isProfile": true,
+            "textPhoto": null,
+            "blobs": [
+                {
+                    "id": "809",
+                    "uri": "http://192.168.0.103:8000/media/photos/ee87e90f-4221-4cb0-88f9-241456972818",
+                    "videoUri": null,
+                    "thumbnail": null,
+                    "size": "H",
+                    "duration": 0,
+                    "width": 1200,
+                    "height": 600,
+                    "cipher": "Mwik4YX2BhAAGpABqC9eUD00ZdiuMbhjUOOTX8ujw3yYl+CDMJDRTs31kTZ+PBWzYsnMzGY7vDv32VgPpE1WozU4odjGWfrSO8mPQqb4oEKDGSKwv9TRyuSQvlv3yv9GRClnozRA1BG2COfvcLtB/Fc6/ezt5KtWWw39vRjNFVM+/wPQz5R052thLEu3UdwT7/OavJ0+GQVs4n16B17uMD/chkZTSYn42l/e4Bjq4rsAcSKhWGlO/dfWnXb2L5hPYpyzZ2/kwVonHPH2lLc5SnQ1Fn3mYgxq5yQPgQ==",
+                    "thumbCipher": null,
+                    "fileSize": [59180],
+                    "textPhoto": null,
+                    "youtube": null,
+                    "youtubeThumbnail": null,
+                    "image": 550,
+                    "albumCover": null
+                }
+            ]
+        }
+    },
+    "imagesIds": {
+        "home": ["550"],
+        "highlights": [],
+        "latestShared": ["550"],
+        "shared": ["550"],
+        "SharedPhotos": [],
+        "hidden": [],
+        "favorites": [],
+        "68801d2e-0900-4fe1-8a92-2fac83291075": [],
+        "mockAlbum": []
+    },
+    "url": {
+        "albumsUrls": {
+            "68801d2e-0900-4fe1-8a92-2fac83291075": null
+        },
+        "coversUrls": {},
+        "imagesUrls": {
+            "home": null,
+            "68801d2e-0900-4fe1-8a92-2fac83291075": null
+        },
+        "notesUrl": null,
+        "usersUrl": null,
+        "youtubeUrl": null,
+        "selectedImagesUrl": null
+    },
+    "creating": {
+        "images": [],
+        "profileCover": null,
+        "caption": "",
+        "audio": null,
+        "audioDuration": null,
+        "cover": 0,
+        "captured": false,
+        "group": null,
+        "groups": [],
+        "connections": [],
+        "isProfile": false,
+        "usersIds": [],
+        "users": [],
+        "location": null,
+        "albumLocation": null,
+        "mentions": {}
+    },
+    "messages": {
+        "68801d2e-0900-4fe1-8a92-2fac83291075": {
+            "1660717784037": {
+                "text": "How are you?",
+                "user": {
+                    "id": "f786e067-eebd-4fde-a6f6-63cc42228b88",
+                    "phone": "+16501119999",
+                    "name": "Bob",
+                    "oneTimeId": "0c4a4dbb-8139-46c9-8034-0e55b56d7302"
+                },
+                "timestamp": "2022-08-17T06:29:44.500Z",
+                "deliveredTo": {},
+                "targetId": "e8b31e91-62a6-42f4-923b-2f4d038130d6",
+                "groupId": "68801d2e-0900-4fe1-8a92-2fac83291075",
+                "isGroup": true,
+                "reply": null,
+                "pending": false,
+                "isText": true,
+                "id": "1660717784037",
+                "forwarded": 0
+            },
+            "1660717092266": {
+                "text": "Hiii",
+                "user": {
+                    "id": "f786e067-eebd-4fde-a6f6-63cc42228b88",
+                    "phone": "+16501119999",
+                    "name": "Bob",
+                    "oneTimeId": "0c4a4dbb-8139-46c9-8034-0e55b56d7302"
+                },
+                "timestamp": "2022-08-17T06:18:12.766Z",
+                "deliveredTo": {},
+                "targetId": "e8b31e91-62a6-42f4-923b-2f4d038130d6",
+                "groupId": "68801d2e-0900-4fe1-8a92-2fac83291075",
+                "isGroup": true,
+                "reply": null,
+                "pending": false,
+                "isText": true,
+                "id": "1660717092266",
+                "forwarded": 0,
+                "newDate": true
+            }
+        }
+    },
+    "members": {
+        "68801d2e-0900-4fe1-8a92-2fac83291075": {
+            "f786e067-eebd-4fde-a6f6-63cc42228b88": {
+                "id": "f786e067-eebd-4fde-a6f6-63cc42228b88",
+                "oneTimeId": "0c4a4dbb-8139-46c9-8034-0e55b56d7302",
+                "username": "bob123",
+                "name": "Bob",
+                "dialCode": "+1",
+                "phone": "+16501119999",
+                "color": "darkred",
+                "profilePicture": null
+            },
+            "9c196351-65da-4349-a43b-c69074e7455e": {
+                "id": "9c196351-65da-4349-a43b-c69074e7455e",
+                "oneTimeId": "d71d98ad-6d42-4641-9681-4d739732486d",
+                "username": "jerome_hen809",
+                "name": "Jerome Henrick",
+                "dialCode": "+971",
+                "phone": "+971551111115",
+                "color": "mediumpurple",
+                "profilePicture": null
+            }
+        }
+    },
+    "groupRequests": {},
+    "mutingUsers": {
+        "+16501119999": [],
+        "e8b31e91-62a6-42f4-923b-2f4d038130d6": []
+    },
+    "lastSeen": {
+        "e8b31e91-62a6-42f4-923b-2f4d038130d6": {
+            "f786e067-eebd-4fde-a6f6-63cc42228b88": {
+                "id": "f786e067-eebd-4fde-a6f6-63cc42228b88",
+                "time": 1660547255551
+            },
+            "0c4a4dbb-8139-46c9-8034-0e55b56d7302": {
+                "id": "0c4a4dbb-8139-46c9-8034-0e55b56d7302",
+                "time": 1660545779038
+            }
+        }
+    },
+    "groups": {
+        "68801d2e-0900-4fe1-8a92-2fac83291075": {
+            "id": "68801d2e-0900-4fe1-8a92-2fac83291075",
+            "displayName": {
+                "id": 637,
+                "text": "My Group",
+                "stickId": "68801d2e-0900-4fe1-8a92-2fac832910750",
+                "userId": "f786e067-eebd-4fde-a6f6-63cc42228b88",
+                "nameOfUser": "Bob",
+                "uri": null,
+                "fileSize": 0,
+                "textLength": 0,
+                "decrypted": true
+            },
+            "status": null,
+            "link": null,
+            "linkApproval": false,
+            "linkEnabled": false,
+            "cover": null,
+            "admins": ["f786e067-eebd-4fde-a6f6-63cc42228b88"],
+            "owner": "f786e067-eebd-4fde-a6f6-63cc42228b88",
+            "membersCount": 2,
+            "membersIds": ["f786e067-eebd-4fde-a6f6-63cc42228b88", "9c196351-65da-4349-a43b-c69074e7455e"],
+            "membersOtids": ["0c4a4dbb-8139-46c9-8034-0e55b56d7302", "d71d98ad-6d42-4641-9681-4d739732486d"],
+            "membersAllIds": [
+                {
+                    "id": "f786e067-eebd-4fde-a6f6-63cc42228b88",
+                    "oneTimeId": "0c4a4dbb-8139-46c9-8034-0e55b56d7302"
+                },
+                {
+                    "id": "9c196351-65da-4349-a43b-c69074e7455e",
+                    "oneTimeId": "d71d98ad-6d42-4641-9681-4d739732486d"
+                }
+            ],
+            "temp_displayName": null,
+            "hasSharedPhotos": false,
+            "requestsCount": 0,
+            "timestamp": "2022-08-15T10:42:55.765371+04:00"
+        }
+    },
+    "connectionRequests": {},
+    "appState": "active",
+    "fetched": {
+        "groups": {
+            "68801d2e-0900-4fe1-8a92-2fac83291075": true
+        },
+        "albums": {},
+        "albumImages": {},
+        "notes": false,
+        "justCreated": {},
+        "profiles": {},
+        "members": {
+            "68801d2e-0900-4fe1-8a92-2fac83291075": false
+        },
+        "groupRequests": {},
+        "notifications": false,
+        "unreadNotifications": true,
+        "sharedByOthers": false,
+        "home": true,
+        "notificationsUnreadCount": 1,
+        "profileImages": false,
+        "68801d2e-0900-4fe1-8a92-2fac83291075": true,
+        "albumsState": {}
+    },
+    "errors": {
+        "username": null,
+        "password1": null,
+        "password2": null,
+        "password3": null,
+        "password": null,
+        "email": null,
+        "error": null,
+        "login": null,
+        "register": null,
+        "code": null,
+        "album": null,
+        "reset": null,
+        "groupCreate": null,
+
+        "passwordError": null
+    },
+    "progress": {
+        "update": false,
+        "loading": false,
+        "text": "",
+        "albumStick": null,
+        "activity": false,
+        "error": false,
+        "refresh": false
+    },
+    "viewableVideo": {
+        "id": null
+    },
+    "vaultCache": {"uriKeys": []},
+    "chatCache": {"uriKeys": []},
+    "photosCache": {
+        "809": {
+            "uri": "assets-library://asset/asset.(null)?id=83E5EE1B-6AA0-4BDF-95E7-C96797760210&ext=(null)",
+            "id": "809"
+        },
+        "ids": ["809"]
+    },
+    "download": {},
+    "chatNotificationsId": {},
+    "groupsNotificationsId": {},
+    "connReqNotificationsId": [],
+    "modal": {
+        "stickModal": {},
+        "donationModal": false
+    },
+    "orientation": "PORTRAIT",
+    "viewableItem": {
+        "id": null
+    },
+    "keyboardHeight": 0,
+    "selectedImages": {},
+    "connections": {
+        "+971551111115": {
+            "id": "9c196351-65da-4349-a43b-c69074e7455e",
+            "oneTimeId": "d71d98ad-6d42-4641-9681-4d739732486d",
+            "username": "jerome_hen809",
+            "name": "Jerome Henrick",
+            "color": "mediumpurple",
+            "dialCode": "+971",
+            "phone": "+971551111115",
+            "profilePicture": null,
+            "isConnected": true,
+            "requested": false
+        }
+    },
+    "app": {
+        "version": "3.3.0",
+        "justSent": [],
+        "videosSent": [],
+        "noUsersFound": false,
+        "chatInputHeight": 0,
+        "camcording": false,
+        "confirmNumber": null,
+        "email": "",
+        "lastCategoriesSync": 0,
+        "imagesUrls": {},
+        "chatBgColorIndex": 2,
+        "chatBg": 0,
+        "shouldReqContactsPermission": false,
+        "requestSavePasswordCount": 0,
+        "seenPasswordModal": true,
+        "seenBackupModal": true,
+        "askedAutoBackup": false,
+        "contactsPermission": "granted",
+        "notificationsPermission": "granted",
+        "loginTime": null,
+        "groupSort": "oldest",
+        "chatLoginTime": {
+            "+16501119999": 1660545746116
+        },
+        "chatBackupTimestamp": "2022-08-15T07:00:10.236Z",
+        "chatBackupRestored": false,
+        "initialized": true,
+        "deviceOneTimeId": null,
+        "chatDeviceId": null,
+        "currentDeviceId": "ac7e940c-7d3a-4377-a9ca-adbb4b7ff1af",
+        "blocked_me": [],
+        "initComplete": true,
+        "secondPreKeysSet": null
+    },
+    "pendingSessions": {},
+    "files": {},
+    "filesTree": {},
+    "vaultNotes": {},
+    "vaultAlbums": {},
+    "photos": {},
+    "appTemp": {
+        "folderStack": [{"id": "home", "name": "home"}],
+        "albumStack": [
+            {"id": "home", "name": "home"},
+            {"id": "recents", "name": "recents"}
+        ],
+        "isGeneratingKeys": false,
+        "validUsername": {},
+        "searching": false,
+        "bgNotification": {},
+        "progressModal": false,
+        "country": {
+            "name": "United States",
+            "dialCode": "+1",
+            "code": "US"
+        },
+        "refreshingHome": false,
+        "playingAudio": null,
+        "readingCameraAlbums": false,
+        "cameraAlbums": [],
+        "devices": [],
+        "justCreatedGroup": null,
+        "justRequestedSavePassword": false,
+        "finishingUp": false,
+        "deleteImageHorizontal": false,
+        "groupLink": null,
+        "isConnected": true,
+        "chatTargetIsBlocked": false
+    },
+    "refreshEntities": {},
+    "blocked": {},
+    "users": {},
+    "chatActions": {
+        "+16501119999": {},
+        "e8b31e91-62a6-42f4-923b-2f4d038130d6": {}
+    }
+}

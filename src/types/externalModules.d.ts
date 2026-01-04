@@ -1,0 +1,15 @@
+declare module '@expo/vector-icons/SimpleLineIcons';
+declare module '@expo/vector-icons/Feather';
+declare module '@expo/vector-icons/Ionicons';
+declare module '@expo/vector-icons/MaterialCommunityIcons';
+declare module '@expo/vector-icons/Entypo';
+declare module '@expo/vector-icons/Fontisto';
+declare module '@expo/vector-icons/FontAwesome6';
+declare module '@expo/vector-icons/MaterialIcons';
+declare module '@expo/vector-icons/AntDesign';
+declare module '@expo/vector-icons/FontAwesome';
+declare module '@expo/vector-icons/EvilIcons';
+declare module '@sticknet/react-native-keychain';
+declare module 'react-native-ui-lib/keyboard';
+declare module 'react-native-smooth-pincode-input';
+declare module 'stick-protocol-handlers';
