@@ -4,7 +4,7 @@
     "version": "1.0.0",
     "scripts": {
         "clean-rebuild": "EXPO_NO_GIT_STATUS=1 APP_VARIANT=debug expo prebuild --clean",
-        "clean-rebuild-release": "APP_VARIANT=release expo prebuild --clean",
+        "clean-rebuild-release": "EXPO_NO_GIT_STATUS=1 APP_VARIANT=release expo prebuild --clean",
         "start": "APP_VARIANT=debug expo start",
         "reset-project": "node ./scripts/reset-project.js",
         "android": "expo run:android",

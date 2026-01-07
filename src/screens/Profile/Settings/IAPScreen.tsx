@@ -138,9 +138,9 @@ const IAPScreen: React.FC<IAPScreenProps> = (props) => {
         : '';
 
     const paddingTop = isIphoneX() ? insets.top : insets.top + 12;
-
+    const {bottom} = useSafeAreaInsets();
     return (
-        <View style={{flex: 1, alignItems: 'center', paddingTop}}>
+        <View style={{flex: 1, alignItems: 'center', paddingTop, marginBottom: Platform.OS === 'android' ? bottom : 0}}>
             <TouchableOpacity
                 style={{alignSelf: 'flex-start', marginLeft: 12}}
                 onPress={() => props.navigation.goBack()}>
