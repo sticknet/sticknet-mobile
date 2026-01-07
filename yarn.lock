@@ -2230,6 +2230,11 @@
   resolved "https://registry.yarnpkg.com/@react-native-firebase/database/-/database-23.7.0.tgz#0ccb911894074c55f95fc8c44221dca5087a8812"
   integrity sha512-TfpH71IBKI+vF3ui/FThEs2NbJ1a3bNl0Ej/mL3lnfwIrWl62yDJPS/+K2uv4GQnlDmW3x7QhSkw033bIUNWmA==
 
+"@react-native-firebase/dynamic-links@^22.4.0":
+  version "22.4.0"
+  resolved "https://registry.yarnpkg.com/@react-native-firebase/dynamic-links/-/dynamic-links-22.4.0.tgz#6c05388e154d0c6206c1759d8b21d7dde3706b97"
+  integrity sha512-fln4lLvq6I2OBl1hquxVPYSfenwPMhqWRNfxG3O50fBYlhQ8V1k9dDmEH2uLzFW7nEKCka/AoRuAFk1WKS1PLw==
+
 "@react-native-firebase/installations@^23.7.0":
   version "23.7.0"
   resolved "https://registry.yarnpkg.com/@react-native-firebase/installations/-/installations-23.7.0.tgz#db03c6b89e1e65efa8ada4e4931c2e2db1512ee1"

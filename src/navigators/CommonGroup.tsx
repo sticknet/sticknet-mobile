@@ -327,15 +327,16 @@ const CommonGroup: FC = () => {
                         headerLeft: () => (
                             <Back
                                 onPress={() => {
-                                    if (route.params.back?.includes('Horizontal')) {
-                                        if (Platform.OS === 'ios') StatusBar.setHidden(true, 'slide');
-                                    }
-                                    navigation.navigate({
-                                        name: route.params.back,
-                                        params: {tabBarVisible: false},
-                                        merge: true,
-                                    });
-                                    route.params.resetState?.();
+                                    navigation.goBack();
+                                    // if (route.params.back?.includes('Horizontal')) {
+                                    //     if (Platform.OS === 'ios') StatusBar.setHidden(true, 'slide');
+                                    // }
+                                    // navigation.navigate({
+                                    //     name: route.params.back,
+                                    //     params: {tabBarVisible: false},
+                                    //     merge: true,
+                                    // });
+                                    // route.params.resetState?.();
                                 }}
                             />
                         ),

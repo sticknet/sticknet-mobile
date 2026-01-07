@@ -234,7 +234,6 @@ class AddMembersScreen extends Component<AddMembersScreenProps, AddMembersScreen
                         placeholder="Search your connections..."
                         selectionColor="#6060FF"
                         onChangeText={this.search}
-                        value={this.state.query}
                     />
                     {this.props.searching ? (
                         <ActivityIndicator color="#6060FF" />
@@ -262,7 +261,6 @@ class AddMembersScreen extends Component<AddMembersScreenProps, AddMembersScreen
         return (
             <>
                 <FlashList
-                    estimatedItemSize={users.length + 1}
                     data={users}
                     ListHeaderComponent={this.renderSectionHeader}
                     renderItem={this.renderItem}

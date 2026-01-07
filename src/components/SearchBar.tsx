@@ -25,7 +25,6 @@ class SearchBar extends PureComponent<SearchBarProps> {
                     selectionColor={colors.primary}
                     placeholderTextColor="grey"
                     placeholder={this.props.placeholder}
-                    value={this.props.input}
                     onChangeText={this.props.onChangeText}
                     enterKeyHint={this.props.enterKeyHint || 'search'}
                     onSubmitEditing={this.props.onSubmit}

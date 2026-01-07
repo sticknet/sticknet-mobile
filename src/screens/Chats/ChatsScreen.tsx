@@ -430,8 +430,8 @@ class ChatsScreen extends Component<ChatScreenProps, ChatScreenState> {
                         />
                     }
                 />
-                {this.renderModal()}
-                {this.renderShareModal()}
+                {/* {this.renderModal()} */}
+                {/* {this.renderShareModal()} */}
                 <ChatModal />
                 {/* @ts-ignore */}
                 <StartupModals />

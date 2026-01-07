@@ -59,19 +59,19 @@ export const AddConnectionsScreen = (props: AddConnectionsScreenProps) => {
 
     return (
         <View style={{flex: 1}}>
-            <View style={s.buttonsContainer}>
-                <ActionButton
-                    onPress={() => props.connectLink({share: true})}
-                    text="Share Invite"
-                    icon={<Icon regular name="share-from-square" size={15} />}
-                />
-                <ActionButton
-                    onPress={() => props.connectLink({share: false})}
-                    text="Copy Link"
-                    icon={<Icon regular name="link" size={15} />}
-                    style={{marginLeft: 12}}
-                />
-            </View>
+            {/* <View style={s.buttonsContainer}> */}
+            {/*     <ActionButton */}
+            {/*         onPress={() => props.connectLink({share: true})} */}
+            {/*         text="Share Invite" */}
+            {/*         icon={<Icon regular name="share-from-square" size={15} />} */}
+            {/*     /> */}
+            {/*     <ActionButton */}
+            {/*         onPress={() => props.connectLink({share: false})} */}
+            {/*         text="Copy Link" */}
+            {/*         icon={<Icon regular name="link" size={15} />} */}
+            {/*         style={{marginLeft: 12}} */}
+            {/*     /> */}
+            {/* </View> */}
             <Text style={s.title}>Add by Username</Text>
             <SearchBar
                 placeholder="Enter a username"

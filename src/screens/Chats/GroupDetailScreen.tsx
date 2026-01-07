@@ -45,7 +45,7 @@ class GroupDetailScreen extends Component<Props, GroupDetailScreenState> {
         this.state = {
             refreshing: false,
             modalVisible: false,
-            sections: ['Members', 'Group Link', 'Leave Group', 'Delete Group'],
+            sections: ['Members', 'Leave Group', 'Delete Group'],
         };
     }
 
