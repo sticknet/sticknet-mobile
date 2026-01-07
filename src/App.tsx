@@ -14,6 +14,7 @@ import {ConnectionAlert, CreateModal, Loading, MovingFileView, Update} from './c
 import NavigationService from './actions/NavigationService';
 import configureStore from './store';
 import AppKitProvider from '@/src/wallet/AppKitProvider';
+import {getAppSettings} from '@/src/utils';
 
 Sentry.init({
     dsn: 'https://3fcf3d773d8da9bf5d5a6d3eb66a7fbb@o4506009368199168.ingest.sentry.io/4506009458114560',
@@ -54,7 +55,7 @@ class App extends Component<{}, State> {
         TextInput.defaultProps.allowFontScaling = false;
 
         changeNavigationBarColor('#000000', false, true);
-
+        // setTimeout(() => getAppSettings(), 2000);
         const { store } = await configureStore();
         this.setState({ store });
     }

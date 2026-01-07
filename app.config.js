@@ -4,14 +4,13 @@ export default ({config}) => ({
     ...config,
     name: IS_DEBUG ? 'Sticknet Debug' : 'Sticknet',
     slug: 'Sticknet',
-    version: '6.1.0',
+    version: '1.0.0',
     orientation: 'portrait',
     icon: IS_DEBUG ? './assets/images/icon_debug.png' : './assets/images/icon.png',
     scheme: 'sticknet',
     userInterfaceStyle: 'automatic',
     newArchEnabled: true,
     ios: {
-        buildNumber: 62,
         supportsTablet: true,
         bundleIdentifier: IS_DEBUG ? 'com.stiiick.debug' : 'com.stiiick',
         appleTeamId: '88J4C462WP',
@@ -97,7 +96,6 @@ export default ({config}) => ({
         },
     },
     android: {
-        versionCode: 93,
         adaptiveIcon: {
             foregroundImage: IS_DEBUG ? './assets/images/sticknet.png' : './assets/images/icon.png',
         },
