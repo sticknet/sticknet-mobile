@@ -27,32 +27,38 @@ export default ({config}) => ({
                     CFBundleURLSchemes: [
                         'fb879537875813671',
                         'com.googleusercontent.apps.349572123590-55c7qap2u183hnredovieejief7igmb4',
-                        'com.googleusercontent.apps.349572123590-qk9ceqqdmbh12i462124gti98n2jof9t'
-                    ]
+                        'com.googleusercontent.apps.349572123590-qk9ceqqdmbh12i462124gti98n2jof9t',
+                    ],
                 },
                 {
                     CFBundleTypeRole: 'Editor',
                     CFBundleURLName: 'Bundle ID',
-                    CFBundleURLSchemes: [
-                        'com.stiiick',
-                        'com.stiiick.debug'
-                    ]
-                }
+                    CFBundleURLSchemes: ['com.stiiick', 'com.stiiick.debug'],
+                },
             ],
             LSApplicationQueriesSchemes: [
-                'fbapi', 'fb-messenger-share-api', 'fbauth2', 'fbshareextension',
-                'metamask', 'trust', 'safe', 'rainbow', 'uniswap', 'cbwallet'
+                'fbapi',
+                'fb-messenger-share-api',
+                'fbauth2',
+                'fbshareextension',
+                'metamask',
+                'trust',
+                'safe',
+                'rainbow',
+                'uniswap',
+                'cbwallet',
             ],
             FirebaseDynamicLinksCustomDomains: [
                 'https://group-invitation.sticknet.org',
                 'https://invite.sticknet.org',
-                'https://download.sticknet.org'
+                'https://download.sticknet.org',
             ],
             ITSAppUsesNonExemptEncryption: false,
-            NSCameraUsageDescription: "Allow access to the Camera to capture photos",
-            NSContactsUsageDescription: "Sticknet uses your contacts to find users you know. We do not store your contacts on the server.",
-            NSMicrophoneUsageDescription: "Access to microphone is needed to record audio.",
-            NSPhotoLibraryUsageDescription: "To share photos, access to your photo gallery is required.",
+            NSCameraUsageDescription: 'Allow access to the Camera to capture photos',
+            NSContactsUsageDescription:
+                'Sticknet uses your contacts to find users you know. We do not store your contacts on the server.',
+            NSMicrophoneUsageDescription: 'Access to microphone is needed to record audio.',
+            NSPhotoLibraryUsageDescription: 'To share photos, access to your photo gallery is required.',
             UIBackgroundModes: ['fetch', 'remote-notification'],
             CADisableMinimumFrameDurationOnPhone: true,
             UIAppFonts: [
@@ -87,7 +93,7 @@ export default ({config}) => ({
                 'Zocial.ttf',
                 'Fontisto.ttf',
             ],
-        }
+        },
     },
     android: {
         icon: IS_DEBUG ? './assets/images/icon_debug.png' : './assets/images/icon.png',
@@ -109,36 +115,26 @@ export default ({config}) => ({
             'android.permission.SCHEDULE_EXACT_ALARM',
         ],
         edgeToEdgeEnabled: true,
-        softwareKeyboardLayoutMode: "resize",
+        softwareKeyboardLayoutMode: 'resize',
         predictiveBackGestureEnabled: false,
         package: IS_DEBUG ? 'com.stiiick.debug' : 'com.stiiick',
         googleServicesFile: './firebase/android/google-services.json',
-        blockedPermissions: [
-            'com.google.android.gms.permission.AD_ID',
-        ],
+        blockedPermissions: ['com.google.android.gms.permission.AD_ID'],
         intentFilters: [
             {
                 action: 'VIEW',
                 autoVerify: true,
                 data: [
-                    { scheme: 'https', host: 'invite.sticknet.org' },
-                    { scheme: 'https', host: 'group-invitation.sticknet.org' },
-                    { scheme: 'https', host: 'app.sticknet.org' },
+                    {scheme: 'https', host: 'invite.sticknet.org'},
+                    {scheme: 'https', host: 'group-invitation.sticknet.org'},
+                    {scheme: 'https', host: 'app.sticknet.org'},
                 ],
                 category: ['BROWSABLE', 'DEFAULT'],
             },
         ],
         queries: {
-            intent: [
-                { action: 'com.google.android.youtube.api.service.START' },
-            ],
-            package: [
-                'io.metamask',
-                'com.wallet.crypto.trustapp',
-                'io.gnosis.safe',
-                'me.rainbow',
-                'org.toshi',
-            ],
+            intent: [{action: 'com.google.android.youtube.api.service.START'}],
+            package: ['io.metamask', 'com.wallet.crypto.trustapp', 'io.gnosis.safe', 'me.rainbow', 'org.toshi'],
         },
     },
     web: {
@@ -174,25 +170,29 @@ export default ({config}) => ({
                     useFrameworks: 'static',
                     forceStaticLinking: ['RNFBApp', 'RNFBAuth', 'RNFBCrashlytics', 'RNFBMessaging'],
                 },
+                android: {
+                    gradleProperties: {
+                        'org.gradle.jvmargs': '-Xmx6144m -XX:MaxMetaspaceSize=2048m -Dfile.encoding=UTF-8',
+                    },
+                },
             },
         ],
         [
             'expo-font',
             {
-                "fonts": ["./assets/fonts/Sticknet.ttf", "./assets/fonts/Sticknet_new.ttf", "./assets/fonts/SirinStencil-Regular.ttf"],
-            }
+                fonts: [
+                    './assets/fonts/Sticknet.ttf',
+                    './assets/fonts/Sticknet_new.ttf',
+                    './assets/fonts/SirinStencil-Regular.ttf',
+                ],
+            },
         ],
         [
-            "react-native-permissions",
+            'react-native-permissions',
             {
-                "iosPermissions": [
-                    "Camera",
-                    "Microphone",
-                    "PhotoLibrary",
-                    "Notifications"
-                ],
-            }
-        ]
+                iosPermissions: ['Camera', 'Microphone', 'PhotoLibrary', 'Notifications'],
+            },
+        ],
     ],
     experiments: {
         reactCompiler: true,
