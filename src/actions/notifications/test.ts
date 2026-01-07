@@ -6,7 +6,7 @@ import {notifications} from '..';
 import CommonNative from '@/modules/common-native';
 
 describe('notifications.js actions functions', () => {
-    const mockURL = CommonNative.mainURL;
+    const mockURL = 'https://www.sticknet.org';
     const groupId = state.auth.user.groupsIds[0];
     let store: ReturnType<typeof configureStore>['store'];
 
