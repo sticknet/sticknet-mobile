@@ -1,38 +1,27 @@
-import {Alert, AppState, Image, Linking, Platform, StatusBar} from 'react-native';
+import {Alert, AppState, Platform, StatusBar} from 'react-native';
 import {checkNotifications} from 'react-native-permissions';
 import NetInfo, {NetInfoState} from '@react-native-community/netinfo';
-import dynamicLinks, {FirebaseDynamicLinksTypes} from '@react-native-firebase/dynamic-links';
 import {firebase} from '@react-native-firebase/database';
 import Keychain from '@sticknet/react-native-keychain';
 import DeviceInfo from 'react-native-device-info';
-import {
-    flushFailedPurchasesCachedAsPendingAndroid,
-    initConnection,
-    purchaseErrorListener,
-    purchaseUpdatedListener,
-    Purchase,
-} from 'react-native-iap';
+import {initConnection, Purchase, purchaseErrorListener, purchaseUpdatedListener} from 'react-native-iap';
 import Config from 'react-native-config';
-import RNBootSplash from 'react-native-bootsplash';
 import {NavigationProp, RouteProp} from '@react-navigation/native';
-import {basicLimit, bgNotif, commonInitProps, globalData} from '../../../actions/globalVariables';
-import CommonNative from '../../../native-modules/common-native';
-import {getParameterByName, photosPermission} from '../../../utils';
-import NotificationListener from '../../../actions/notifications/NotificationListener';
-import SPH from '../../../actions/SPHandlers';
-import axios from '../../../actions/myaxios';
-import {URL} from '../../../actions/URL';
-import registerForNotifications from '../../../actions/notifications/registerForNotifications';
-import {createPreview} from '../../../actions/utils/uploading';
-import {TUser, TGroup, IApplicationState} from '../../../types';
-import {ICommonActions} from '../../../actions/common';
-import {IAuthActions} from '../../../actions/auth';
-import {IAppActions} from '../../../actions/app';
-import {IIAPActions} from '../../../actions/iap';
-import {IVaultActions} from '../../../actions/vault';
-import {ICreateActions} from '../../../actions/create';
-import {IUsersActions} from '../../../actions/users';
-import {IStickRoomActions} from '../../../actions/stick-room';
+import {basicLimit, bgNotif, commonInitProps, globalData} from '@/src/actions/globalVariables';
+import NotificationListener from '@/src/actions/notifications/NotificationListener';
+import {stickProtocolHandlers as SPH} from '@/src/actions/SPHandlers';
+import axios from '@/src/actions/myaxios';
+import {URL} from '@/src/actions/URL';
+import registerForNotifications from '@/src/actions/notifications/registerForNotifications';
+import {IApplicationState, TGroup, TUser} from '@/src/types';
+import {ICommonActions} from '@/src/actions/common';
+import {IAuthActions} from '@/src/actions/auth';
+import {IAppActions} from '@/src/actions/app';
+import {IIAPActions} from '@/src/actions/iap';
+import {IVaultActions} from '@/src/actions/vault';
+import {ICreateActions} from '@/src/actions/create';
+import {IUsersActions} from '@/src/actions/users';
+import {IStickRoomActions} from '@/src/actions/stick-room';
 
 const bundleId = DeviceInfo.getBundleId();
 
@@ -69,16 +58,16 @@ const commonInitializations = async (
     messagesCallback = () => {},
 ) => {
     if (!props.user) {
-        props.logout({
-            callback: async () => {
-                await props.navigation.navigate('HomeTab', {screen: 'Authentication', merge: true});
-                props.navigation.reset({index: 0, routes: [{name: 'Profile'}]});
-                props.navigation.reset({index: 0, routes: [{name: 'Authentication'}]});
-            },
-        });
+        Alert.alert('You are not logged in!!');
+        // props.logout({
+        //     callback: async () => {
+        //         await props.navigation.navigate('HomeTab', {screen: 'Authentication', merge: true});
+        //         props.navigation.reset({index: 0, routes: [{name: 'Profile'}]});
+        //         props.navigation.reset({index: 0, routes: [{name: 'Authentication'}]});
+        //     },
+        // });
         return;
     }
-    RNBootSplash.hide({duration: 250});
     if (Platform.OS === 'android') {
         setTimeout(() => {
             StatusBar.setBarStyle('dark-content');
@@ -94,7 +83,7 @@ const commonInitializations = async (
             commonInitProps.notificationListener.onNotif(bgNotif.data);
             bgNotif.data = null;
         }
-        if (state === 'active') checkShareExtension(props);
+        // if (state === 'active') checkShareExtension(props);
     });
     NetInfo.addEventListener((state) => handleConnectivityChange(state, props));
     if (!props.initComplete && props.secondPreKeysSet) {
@@ -126,11 +115,10 @@ const initIAP = async (props: ICommonInitializationsProps) => {
     // TODO: fetch subscription earlier
     await initConnection();
     setTimeout(() => props.fetchSubscriptions(), 3000);
-    if (Platform.OS === 'android') await flushFailedPurchasesCachedAsPendingAndroid();
     commonInitProps.purchaseUpdateSubscription = purchaseUpdatedListener((purchase: Purchase) => {
         if (!purchase) return;
         const transactionId = purchase.transactionId;
-        if (purchase.transactionReceipt && !props.finishedTransactions.transactions.includes(transactionId)) {
+        if (purchase.purchaseToken && !props.finishedTransactions.transactions.includes(transactionId)) {
             if (__DEV__ && new Date().getTime() - props.finishedTransactions.lastVerified < 10000000) {
                 return;
             }
@@ -156,53 +144,53 @@ const handleConnectivityChange = (state: NetInfoState, props: ICommonInitializat
     } else setTimeout(() => props.refreshDone(), 5000);
 };
 
-const checkShareExtension = async (props: ICommonInitializationsProps) => {
-    let response = await CommonNative.readNativeDB('ShareExtension');
-    if (response) {
-        response = JSON.parse(response);
-        const {assets, context} = response;
-        if (assets.length === 0) {
-            photosPermission();
-            CommonNative.removeItemNativeDB('ShareExtension');
-            return;
-        }
-
-        // When sharing photos/videos from shareExtension with context chat
-        let isPreviewable = true;
-        if (context === 'chat')
-            await Promise.all(
-                assets.map(async (asset: any) => {
-                    const hasPreview = asset.type?.startsWith('image') || asset.type?.startsWith('video');
-                    if (!hasPreview) isPreviewable = false;
-                    if (hasPreview && !asset.width) {
-                        if (asset.type?.startsWith('video') && Platform.OS === 'android') {
-                            const uriKey = await CommonNative.generateUUID();
-                            await createPreview(asset, uriKey, false);
-                        }
-                        const payloadUri =
-                            Platform.OS === 'android' && asset.type?.startsWith('video') ? asset.previewUri : asset.uri;
-                        await Image.getSize(payloadUri, (w, h) => {
-                            asset.width = w;
-                            asset.height = h;
-                        });
-                    }
-                }),
-            );
-
-        if (context === 'vault') {
-            globalData.targetTab = 'Files';
-            props.navigation.navigate('VaultTab', {screen: 'Vault'});
-            props.uploadVaultFiles({assets, isBasic: props.isBasic, folderId: 'home'});
-        } else if (context === 'chat') {
-            props.navigation.navigate('ChatsTab', {
-                screen: 'SelectTargets',
-                params: {isPreviewable, fromOutsideChat: true},
-            });
-            props.selectPhotos({photos: assets});
-        }
-        CommonNative.removeItemNativeDB('ShareExtension');
-    }
-};
+// const checkShareExtension = async (props: ICommonInitializationsProps) => {
+//     let response = await CommonNative.readNativeDB('ShareExtension');
+//     if (response) {
+//         response = JSON.parse(response);
+//         const {assets, context} = response;
+//         if (assets.length === 0) {
+//             photosPermission();
+//             CommonNative.removeItemNativeDB('ShareExtension');
+//             return;
+//         }
+//
+//         // When sharing photos/videos from shareExtension with context chat
+//         let isPreviewable = true;
+//         if (context === 'chat')
+//             await Promise.all(
+//                 assets.map(async (asset: any) => {
+//                     const hasPreview = asset.type?.startsWith('image') || asset.type?.startsWith('video');
+//                     if (!hasPreview) isPreviewable = false;
+//                     if (hasPreview && !asset.width) {
+//                         if (asset.type?.startsWith('video') && Platform.OS === 'android') {
+//                             const uriKey = await CommonNative.generateUUID();
+//                             await createPreview(asset, uriKey, false);
+//                         }
+//                         const payloadUri =
+//                             Platform.OS === 'android' && asset.type?.startsWith('video') ? asset.previewUri : asset.uri;
+//                         await Image.getSize(payloadUri, (w, h) => {
+//                             asset.width = w;
+//                             asset.height = h;
+//                         });
+//                     }
+//                 }),
+//             );
+//
+//         if (context === 'vault') {
+//             globalData.targetTab = 'Files';
+//             props.navigation.navigate('VaultTab', {screen: 'Vault'});
+//             props.uploadVaultFiles({assets, isBasic: props.isBasic, folderId: 'home'});
+//         } else if (context === 'chat') {
+//             props.navigation.navigate('ChatsTab', {
+//                 screen: 'SelectTargets',
+//                 params: {isPreviewable, fromOutsideChat: true},
+//             });
+//             props.selectPhotos({photos: assets});
+//         }
+//         CommonNative.removeItemNativeDB('ShareExtension');
+//     }
+// };
 
 const initializations = async (props: ICommonInitializationsProps) => {
     if (!props.isConnected) {
@@ -218,11 +206,11 @@ const initializations = async (props: ICommonInitializationsProps) => {
     // @ts-ignore
     commonInitProps.notificationListener = new NotificationListener(props);
     commonInitProps.notificationListener.startListeners();
-    checkShareExtension(props);
+    // checkShareExtension(props);
     props.fetchConnections();
     props.fetchHomeItems();
     checkForInitialUrl(props);
-    dynamicLinks().onLink((payload) => handleDynamicLink(payload, props));
+    // dynamicLinks().onLink((payload) => handleDynamicLink(payload, props));
     // @ts-ignore
     await SPH.refreshIdentityKey();
     // @ts-ignore
@@ -266,57 +254,57 @@ const checkPermissions = async (props: ICommonInitializationsProps) => {
 };
 
 const checkForInitialUrl = async (props: ICommonInitializationsProps) => {
-    const initialDynamicLink = await dynamicLinks().getInitialLink();
-    const initialUrl: string | null = initialDynamicLink?.url || (await Linking.getInitialURL());
-    if (initialUrl) {
-        const decodedUrl: string = decodeURIComponent(initialUrl);
-        const dynamicLink = initialDynamicLink || {
-            url: decodedUrl,
-            minimumAppVersion: '',
-            utmParameters: {},
-        };
-        handleDynamicLink(dynamicLink, props);
-    }
+    // const initialDynamicLink = await dynamicLinks().getInitialLink();
+    // const initialUrl: string | null = initialDynamicLink?.url || (await Linking.getInitialURL());
+    // if (initialUrl) {
+    //     const decodedUrl: string = decodeURIComponent(initialUrl);
+    //     const dynamicLink = initialDynamicLink || {
+    //         url: decodedUrl,
+    //         minimumAppVersion: '',
+    //         utmParameters: {},
+    //     };
+    //     handleDynamicLink(dynamicLink, props);
+    // }
 };
 
-const handleDynamicLink = async (
-    payload: FirebaseDynamicLinksTypes.DynamicLink,
-    props: ICommonInitializationsProps,
-) => {
-    const {url} = payload;
-    if (url.includes('groupId')) {
-        const groupId = getParameterByName('groupId', url) as string;
-        const displayName = getParameterByName('displayName', url) as string;
-        if (!props.groups?.[groupId]) {
-            const config = {headers: {Authorization: globalData.token}};
-            const verificationId = getParameterByName('verificationId', url);
-            const body = {
-                verificationId,
-                groupId,
-            };
-            const {data} = await axios.post(`${URL}/api/verify-group-link/`, body, config);
-            if (data.verified) {
-                const groupLink = {
-                    verificationId,
-                    linkApproval: data.linkApproval,
-                    id: groupId,
-                    displayName: displayName.replace('+', ' '),
-                    membersCount: getParameterByName('membersCount', url),
-                };
-                props.toggleModal({modalName: 'groupLink', isVisible: groupLink});
-            } else Alert.alert('This group link is not active anymore!');
-        } else {
-            Alert.alert(`You are already a member of the group: ${displayName}`);
-        }
-    } else if (url.includes('userId')) {
-        const userId = getParameterByName('userId', url) as string;
-        if (!props.connections?.[userId]) {
-            props.fetchUser({id: userId}, false, (user: TUser) =>
-                props.toggleModal({modalName: 'userLink', isVisible: user}),
-            );
-        }
-    }
-};
+// const handleDynamicLink = async (
+//     payload: FirebaseDynamicLinksTypes.DynamicLink,
+//     props: ICommonInitializationsProps,
+// ) => {
+//     const {url} = payload;
+//     if (url.includes('groupId')) {
+//         const groupId = getParameterByName('groupId', url) as string;
+//         const displayName = getParameterByName('displayName', url) as string;
+//         if (!props.groups?.[groupId]) {
+//             const config = {headers: {Authorization: globalData.token}};
+//             const verificationId = getParameterByName('verificationId', url);
+//             const body = {
+//                 verificationId,
+//                 groupId,
+//             };
+//             const {data} = await axios.post(`${URL}/api/verify-group-link/`, body, config);
+//             if (data.verified) {
+//                 const groupLink = {
+//                     verificationId,
+//                     linkApproval: data.linkApproval,
+//                     id: groupId,
+//                     displayName: displayName.replace('+', ' '),
+//                     membersCount: getParameterByName('membersCount', url),
+//                 };
+//                 props.toggleModal({modalName: 'groupLink', isVisible: groupLink});
+//             } else Alert.alert('This group link is not active anymore!');
+//         } else {
+//             Alert.alert(`You are already a member of the group: ${displayName}`);
+//         }
+//     } else if (url.includes('userId')) {
+//         const userId = getParameterByName('userId', url) as string;
+//         if (!props.connections?.[userId]) {
+//             props.fetchUser({id: userId}, false, (user: TUser) =>
+//                 props.toggleModal({modalName: 'userLink', isVisible: user}),
+//             );
+//         }
+//     }
+// };
 
 const checkOverLimit = (props: ICommonInitializationsProps) => {
     if (

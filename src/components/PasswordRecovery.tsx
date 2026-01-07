@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
-import {View, Text, Platform, StyleSheet} from 'react-native';
+import {Platform, StyleSheet, Text, View} from 'react-native';
 import {connect} from 'react-redux';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import KeyIcon from '@sticknet/react-native-vector-icons/AntDesign';
 import {widthPercentageToDP as w} from 'react-native-responsive-screen';
 import Modal from 'react-native-modal';
-import StickProtocol from '../native-modules/stick-protocol';
+import StickProtocol from '@/modules/stick-protocol';
 import Button from './Buttons/Button';
 import SmallLoading from './SmallLoading';
 

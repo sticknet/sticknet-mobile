@@ -3,11 +3,11 @@ import {Alert, StatusBar, Text, View, StyleSheet} from 'react-native';
 import {FlashList} from '@shopify/flash-list';
 import {connect, ConnectedProps} from 'react-redux';
 import type {NavigationProp, RouteProp} from '@react-navigation/native';
-import {create, stickRoom} from '../../actions';
-import {GroupItem, UserItem, Separator, SearchBar} from '../../components';
-import {globalData} from '../../actions/globalVariables';
-import type {IApplicationState, TGroup, TUser} from '../../types';
-import type {CommonStackParamList} from '../../navigators/types';
+import {create, stickRoom} from '@/src/actions';
+import {GroupItem, UserItem, Separator, SearchBar} from '@/src/components';
+import {globalData} from '@/src/actions/globalVariables';
+import type {IApplicationState, TGroup, TUser} from '@/src/types';
+import type {CommonStackParamList} from '@/src/navigators/types';
 
 interface SelectTargetsScreenProps {
     route: RouteProp<CommonStackParamList, 'SelectTargets'>;

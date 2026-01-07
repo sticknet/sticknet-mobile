@@ -1,5 +1,5 @@
 import {Action} from 'redux';
-import {stickRoom} from '../../actions/actionTypes';
+import {stickRoom} from '@/src/actions/actionTypes';
 
 export interface IMutingUsersState {
     [key: string]: string[];

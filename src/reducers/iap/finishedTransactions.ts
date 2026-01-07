@@ -1,5 +1,5 @@
 import {Action} from 'redux';
-import {iap} from '../../actions/actionTypes';
+import {iap} from '@/src/actions/actionTypes';
 
 export interface ITransaction {
     id: string;

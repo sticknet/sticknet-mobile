@@ -1,16 +1,16 @@
 import React, {Component, RefObject} from 'react';
 import {
-    View,
-    Text,
-    FlatList,
-    StatusBar,
-    Platform,
-    TouchableOpacity,
-    RefreshControl,
     Alert,
+    FlatList,
     Linking,
-    StyleSheet,
+    Platform,
     Pressable,
+    RefreshControl,
+    StatusBar,
+    StyleSheet,
+    Text,
+    TouchableOpacity,
+    View,
 } from 'react-native';
 import {connect, ConnectedProps} from 'react-redux';
 import {widthPercentageToDP as w} from 'react-native-responsive-screen';
@@ -18,10 +18,10 @@ import CalendarIcon from '@sticknet/react-native-vector-icons/AntDesign';
 import FeatherIcon from '@sticknet/react-native-vector-icons/Feather';
 import FontistoIcon from '@sticknet/react-native-vector-icons/Fontisto';
 import EntypoIcon from '@sticknet/react-native-vector-icons/Entypo';
-import {nav, parseBirthDay} from '../../utils';
-import {auth, common, stickRoom, users} from '../../actions';
-import {ProfilePicture, ProfileCover, Loading, ConnectionModal, Icon} from '../../components';
-import type {IApplicationState, TUser} from '../../types';
+import {nav, parseBirthDay} from '@/src/utils';
+import {auth, common, stickRoom, users} from '@/src/actions';
+import {ConnectionModal, Icon, Loading, ProfileCover, ProfilePicture} from '@/src/components';
+import type {IApplicationState, TUser} from '@/src/types';
 
 interface OtherProfileScreenProps {
     navigation: any;
@@ -237,7 +237,7 @@ class OtherProfileScreen extends Component<Props, OtherProfileScreenState> {
                 {!isConnected && !blocked && (
                     <View>
                         <Text style={s.cannot}>
-                            You cannot view {firstName}'s profile as you are not{' '}
+                            You cannot view {firstName}&#39;s profile as you are not{' '}
                             {isConnection ? `in ${firstName}'s connections.` : `connected with ${firstName}`}
                         </Text>
                         {!requested ? (

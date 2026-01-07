@@ -2,14 +2,14 @@ import {Alert, FlatList, Platform, View, StyleSheet} from 'react-native';
 import React, {FC} from 'react';
 import {connect, ConnectedProps} from 'react-redux';
 import {useNavigation, useRoute} from '@react-navigation/native';
-import Clipboard from '@react-native-community/clipboard';
-import Text from '../Text';
+import Clipboard from '@react-native-clipboard/clipboard';
+import Text from '@/src/components/Text';
 import BottomModal from './BottomModal';
-import Icon from '../Icons/Icon';
-import SettingsItem from '../SettingsItem';
-import {vault, app, create} from '../../actions';
-import {exportFile, formatBytes, nav, photosPermission, saveToGallery} from '../../utils';
-import type {IApplicationState, TFile, TVaultNote} from '../../types';
+import Icon from '@/src/components/Icons/Icon';
+import SettingsItem from '@/src/components/SettingsItem';
+import {vault, app, create} from '@/src/actions';
+import {exportFile, formatBytes, nav, photosPermission, saveToGallery} from '@/src/utils';
+import type {IApplicationState, TFile, TVaultNote} from '@/src/types';
 
 interface FileModalHeaderProps {
     item: TFile | null;

@@ -3,13 +3,13 @@ import {connect, ConnectedProps} from 'react-redux';
 import {Platform, ViewStyle} from 'react-native';
 import {widthPercentageToDP as w, heightPercentageToDP as h} from 'react-native-responsive-screen';
 
-import {app} from '../actions';
+import {app} from '@/src/actions';
 
 import Image from './Image';
 import NewImage from './NewImage';
 import ZoomableView from './ZoomableView/ZoomableView';
 import LandscapeView from './LandscapeImage';
-import {IApplicationState} from '../types'; // Adjust the import path accordingly
+import {IApplicationState} from '@/src/types'; // Adjust the import path accordingly
 
 interface ImageAssetProps extends PropsFromRedux {
     image: {
@@ -88,7 +88,8 @@ class ImageAsset extends Component<ImageAssetProps, ImageAssetState> {
                     onTap={this.props.toggleTransparent}
                     pinchEnabled
                     doubleTapEnabled
-                    style={{justifyContent: 'center'}}>
+                    style={{justifyContent: 'center'}}
+                >
                     <ImageComponent
                         style={[
                             {

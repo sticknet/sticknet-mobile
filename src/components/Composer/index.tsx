@@ -1,14 +1,14 @@
-import React, {useRef, useState, useEffect} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import {
-    StyleSheet,
-    View,
-    Text,
+    Alert,
+    Animated,
+    LayoutChangeEvent,
     Platform,
+    StyleSheet,
+    Text,
     TextInput,
     TouchableOpacity,
-    Animated,
-    Alert,
-    LayoutChangeEvent,
+    View,
 } from 'react-native';
 import {connect, ConnectedProps} from 'react-redux';
 import {widthPercentageToDP as w} from 'react-native-responsive-screen';
@@ -17,15 +17,16 @@ import * as Animatable from 'react-native-animatable';
 import XIcon from '@sticknet/react-native-vector-icons/EvilIcons';
 import {Recorder} from '@react-native-community/audio-toolkit';
 import LinearGradient from 'react-native-linear-gradient';
-import Icon from '../Icons/Icon';
-import {lightenRGBColor, micPermission} from '../../utils';
-import {stickRoom, app, create} from '../../actions';
-import {colors} from '../../foundations';
+import Icon from '@/src/components/Icons/Icon';
+import {micPermission} from '@/src/utils';
+import {app, create, stickRoom} from '@/src/actions';
+import {colors} from '@/src/foundations';
 import EditMessage from './EditMessage';
 import ReplyMessage from './ReplyMessage';
 import ComposerModal from './ComposerModal';
 import ActionsView from './ActionsView';
-import {IApplicationState, TUser} from '../../types';
+import {IApplicationState, TUser} from '@/src/types';
+import {globalData} from '@/src/actions/globalVariables';
 
 const AnimatedIcon = Animatable.createAnimatableComponent(Icon);
 const AnimatedLinearGradient = Animated.createAnimatedComponent(LinearGradient);
@@ -88,6 +89,14 @@ const ChatInput: React.FC<Props> = (props) => {
             toolbarAnimation.setValue(80);
             toolbarOpacity.setValue(0);
         };
+    }, []);
+
+    const [test, setTest] = useState(0);
+
+    useEffect(() => {
+        setTimeout(() => {
+            setTest(1);
+        }, 1000);
     }, []);
 
     useEffect(() => {
@@ -242,19 +251,25 @@ const ChatInput: React.FC<Props> = (props) => {
                 <TouchableOpacity
                     activeOpacity={1}
                     onPress={send}
-                    style={{justifyContent: 'center', alignItems: 'center'}}
+                    style={{justifyContent: 'center', alignItems: 'center', width: 24, height: 40}}
                     hitSlop={{right: 12, top: 12, bottom: 12}}
                     testID="composer-action-button">
-                    <Animated.View style={[s.micContainer, {transform: [{scale: vsAnimation}], opacity: vsAnimation}]}>
-                        <Icon name="microphone" size={28} color="silver" thin />
-                    </Animated.View>
-                    <AnimatedLinearGradient
-                        start={{x: 1, y: 1}}
-                        end={{x: 0, y: 0}}
-                        style={[s.sendContainer, {transform: [{scale: sendAnimation}], opacity: sendAnimation}]}
-                        colors={['rgb(96,96,255)', lightenRGBColor('rgb(96,96,255)', 48)]}>
-                        <IoIcon name="ios-arrow-round-up" size={40} color="#fff" style={{bottom: 4}} />
-                    </AnimatedLinearGradient>
+                    {!text && Platform.OS === 'ios' ? (
+                        <Animated.View
+                            style={[s.micContainer, {transform: [{scale: vsAnimation}], opacity: vsAnimation}]}>
+                            <Icon name="microphone" size={28} color="silver" thin />
+                        </Animated.View>
+                    ) : (
+                        <IoIcon name="ios-arrow-round-up" size={40} color={text ? colors.primary : 'lightgrey'} />
+                    )}
+
+                    {/*<AnimatedLinearGradient*/}
+                    {/*    start={{x: 1, y: 1}}*/}
+                    {/*    end={{x: 0, y: 0}}*/}
+                    {/*    style={[s.sendContainer, {transform: [{scale: sendAnimation}], opacity: sendAnimation}]}*/}
+                    {/*    colors={['rgb(96,96,255)', lightenRGBColor('rgb(96,96,255)', 48)]}>*/}
+                    {/*    */}
+                    {/*</AnimatedLinearGradient>*/}
                 </TouchableOpacity>
             );
         return null;
@@ -283,8 +298,10 @@ const ChatInput: React.FC<Props> = (props) => {
                 });
             setText('');
             animateSent();
-        } else if (!isRecording) shouldStartRecording();
-        else finishRecording();
+        } else if (Platform.OS === 'ios') {
+            if (!isRecording) shouldStartRecording();
+            else finishRecording();
+        }
     };
 
     const formatTime = (millis: number) => {
@@ -386,9 +403,8 @@ const ChatInput: React.FC<Props> = (props) => {
             }, 3000);
         else props.updateAction(props.user, props.target, props.isGroup, 0);
     };
-
     return (
-        <View>
+        <View style={{height: Platform.OS === 'android' ? 105 : null}}>
             <EditMessage />
             <ReplyMessage />
             <ActionsView toolbarHeight={toolbarHeight as number} />
@@ -462,6 +478,7 @@ const s = StyleSheet.create({
         paddingVertical: 8,
         paddingHorizontal: 8,
         zIndex: 1,
+        marginBottom: Platform.OS === 'android' ? globalData.bottomBarHeight : 0,
     },
     input: {
         fontSize: 15,
@@ -473,6 +490,7 @@ const s = StyleSheet.create({
         paddingHorizontal: 8,
         marginHorizontal: 10,
         maxHeight: 150,
+        minHeight: 40,
         flex: 1,
         zIndex: 2,
         backgroundColor: '#fff',
@@ -491,7 +509,7 @@ const s = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: colors.lightWhite,
-        position: 'absolute',
+        // position: 'absolute',
     },
     recordingTime: {
         fontSize: 20,

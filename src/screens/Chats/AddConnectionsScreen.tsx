@@ -10,11 +10,11 @@ import {
 import React, {useState, useEffect} from 'react';
 import {connect} from 'react-redux';
 import {widthPercentageToDP as w} from 'react-native-responsive-screen';
-import {SearchBar, Text, ActionButton, Icon, Button} from '../../components';
-import {URL} from '../../actions/URL';
-import {users} from '../../actions';
-import type {IApplicationState, TUser} from '../../types';
-import type {IUsersActions} from '../../actions/types';
+import {SearchBar, Text, ActionButton, Icon, Button} from '@/src/components';
+import {URL} from '@/src/actions/URL';
+import {users} from '@/src/actions';
+import type {IApplicationState, TUser} from '@/src/types';
+import type {IUsersActions} from '@/src/actions/types';
 
 const buttonId = 'send-connection-request';
 

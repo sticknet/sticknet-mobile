@@ -2,10 +2,10 @@ import React, {Component} from 'react';
 import {View, FlatList} from 'react-native';
 import {connect, ConnectedProps} from 'react-redux';
 import type {NavigationProp, RouteProp} from '@react-navigation/native';
-import {ButtonPair, Separator, UserItem, Loading} from '../../components';
-import {groups, app} from '../../actions';
-import type {IApplicationState, TGroup, TUser} from '../../types';
-import type {ChatStackParamList} from '../../navigators/types';
+import {ButtonPair, Separator, UserItem, Loading} from '@/src/components';
+import {groups, app} from '@/src/actions';
+import type {IApplicationState, TGroup, TUser} from '@/src/types';
+import type {ChatStackParamList} from '@/src/navigators/types';
 
 interface MemberRequestsScreenProps {
     navigation: NavigationProp<ChatStackParamList, 'MemberRequests'>;

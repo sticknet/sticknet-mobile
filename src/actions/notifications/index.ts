@@ -1,10 +1,10 @@
 import PushNotification from 'react-native-push-notification';
 import {Platform} from 'react-native';
 import {Dispatch} from 'redux';
-import axios from '../myaxios';
-import {URL} from '../URL';
-import {globalData} from '../globalVariables';
-import {albums, connections, fetched, groups, notificationsId} from '../actionTypes';
+import axios from '@/src/actions/myaxios';
+import {URL} from '@/src/actions/URL';
+import {globalData} from '@/src/actions/globalVariables';
+import {albums, connections, fetched, groups, notificationsId} from '@/src/actions/actionTypes';
 import channels from './notificationChannels';
 
 export function fetchNotifications() {

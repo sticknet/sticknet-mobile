@@ -1,10 +1,10 @@
 import React, {FC} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import {connect, ConnectedProps} from 'react-redux';
-import ButtonPair from '../Buttons/ButtonPair';
-import UserItem from '../UserItem';
-import {groups, app} from '../../actions';
-import type {IApplicationState, TUser, TGroup} from '../../types';
+import ButtonPair from '@/src/components/Buttons/ButtonPair';
+import UserItem from '@/src/components/UserItem';
+import {groups, app} from '@/src/actions';
+import type {IApplicationState, TUser, TGroup} from '@/src/types';
 
 interface GroupRequestOwnProps {
     request: [string, Record<string, TUser>];

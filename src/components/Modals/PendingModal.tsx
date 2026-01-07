@@ -1,9 +1,9 @@
 import Modal from 'react-native-modal';
-import {Text, View, StyleSheet} from 'react-native';
+import {StyleSheet, Text, View} from 'react-native';
 import Icon from '@sticknet/react-native-vector-icons/Fontisto';
 import {widthPercentageToDP as w} from 'react-native-responsive-screen';
 import React, {PureComponent} from 'react';
-import {colors} from '../../foundations';
+import {colors} from '@/src/foundations';
 
 interface PendingModalProps {
     isVisible: boolean;

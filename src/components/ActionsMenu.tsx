@@ -1,12 +1,12 @@
 import React, {useEffect, useState} from 'react';
-import {View, Alert} from 'react-native';
+import {Alert, View} from 'react-native';
 import {connect, ConnectedProps} from 'react-redux';
 import DotsIcon from '@sticknet/react-native-vector-icons/MaterialCommunityIcons';
-import {useRoute, RouteProp} from '@react-navigation/native';
+import {RouteProp, useRoute} from '@react-navigation/native';
 import ActionsModal from './Modals/ActionsModal';
 import InputModal from './Modals/InputModal';
-import {vault} from '../actions';
-import type {IApplicationState, TFile, TVaultNote} from '../types';
+import {vault} from '@/src/actions';
+import type {IApplicationState, TFile, TVaultNote} from '@/src/types';
 
 interface ActionsMenuOwnProps {
     item: TFile | TVaultNote;

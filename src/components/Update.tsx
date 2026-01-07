@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
-import {Animated, ActivityIndicator, View, StyleSheet, ViewStyle, TextStyle} from 'react-native';
+import {ActivityIndicator, Animated, StyleSheet, TextStyle, View, ViewStyle} from 'react-native';
 import {connect, ConnectedProps} from 'react-redux';
 import {heightPercentageToDP as h, widthPercentageToDP as w} from 'react-native-responsive-screen';
 import Icon from '@sticknet/react-native-vector-icons/Feather';
 import Config from 'react-native-config';
 import Text from './Text';
-import {isIphoneXD} from '../utils';
-import {IApplicationState} from '../types';
+import {isIphoneXD} from '@/src/utils';
+import {IApplicationState} from '@/src/types';
 
 type UpdateProps = PropsFromRedux;
 type PropsFromRedux = ConnectedProps<typeof connector>;

@@ -29,7 +29,7 @@ import {
     createChatsStoragesList,
     getUnreadCount,
 } from './index';
-import {TUser} from '../../types';
+import {TUser} from '@/src/types';
 
 describe('common.js actions functions', () => {
     test('nEveryRow splits the array into subarrays of n elements', () => {

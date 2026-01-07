@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import {Action} from 'redux';
-import {selectedImages} from '../actions/actionTypes';
-import {TGalleryItem} from '../types';
+import {selectedImages} from '@/src/actions/actionTypes';
+import {TGalleryItem} from '@/src/types';
 
 interface ISelectImagesAction extends Action {
     payload: TGalleryItem[];

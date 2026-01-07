@@ -1,7 +1,7 @@
 import {Action} from 'redux';
 import _ from 'lodash';
-import {connections} from '../../actions/actionTypes';
-import {TConnectionRequest} from '../../types';
+import {connections} from '@/src/actions/actionTypes';
+import {TConnectionRequest} from '@/src/types';
 
 export interface IConnectionRequestsState {
     [key: string]: TConnectionRequest;

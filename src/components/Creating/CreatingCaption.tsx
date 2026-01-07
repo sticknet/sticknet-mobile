@@ -2,10 +2,10 @@ import {TouchableOpacity, View, StyleSheet} from 'react-native';
 import {widthPercentageToDP as w} from 'react-native-responsive-screen';
 import React, {useState, FC} from 'react';
 import {connect, ConnectedProps} from 'react-redux';
-import Text from '../Text';
-import {create} from '../../actions';
-import TextModal from '../Modals/TextModal';
-import type {IApplicationState, TUser} from '../../types';
+import Text from '@/src/components/Text';
+import {create} from '@/src/actions';
+import TextModal from '@/src/components/Modals/TextModal';
+import type {IApplicationState, TUser} from '@/src/types';
 
 interface CreatingCaptionOwnProps {
     dispatchImagesState: (state: {caption?: string}) => void;

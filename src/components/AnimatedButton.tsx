@@ -28,7 +28,8 @@ const AnimatedButton: FC<AnimatedButtonProps> = (props) => {
                 {marginTop: props.marginTop || 24},
                 props.style && props.style.width ? {width: w('90%'), backgroundColor: '#ffffff'} : {},
                 props.containerStyle,
-            ]}>
+            ]}
+        >
             <View style={[s.button, props.style]}>
                 <GradientComponent
                     points={{start: {x: 0, y: 0}, end: {x: 1, y: 1}}}

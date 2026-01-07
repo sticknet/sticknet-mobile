@@ -1,17 +1,17 @@
 import {FlatList, View, StyleSheet, Pressable, Alert, Platform} from 'react-native';
 import React, {FC} from 'react';
 import {connect, ConnectedProps} from 'react-redux';
-import Clipboard from '@react-native-community/clipboard';
+import Clipboard from '@react-native-clipboard/clipboard';
 import {NavigationProp, useNavigation} from '@react-navigation/native';
-import Text from '../Text';
+import Text from '@/src/components/Text';
 import BottomModal from './BottomModal';
-import Icon from '../Icons/Icon';
-import SettingsItem, {TSettingsItem} from '../SettingsItem';
-import {vault, app, stickRoom} from '../../actions';
-import {exportFile, findKeyByValue, photosPermission, saveToGallery} from '../../utils';
+import Icon from '@/src/components/Icons/Icon';
+import SettingsItem, {TSettingsItem} from '@/src/components/SettingsItem';
+import {vault, app, stickRoom} from '@/src/actions';
+import {exportFile, findKeyByValue, photosPermission, saveToGallery} from '@/src/utils';
 import {FileModalHeader} from './ActionsModal';
-import type {IApplicationState, TFile, TMessage, TTarget, TUser} from '../../types';
-import type {ChatStackParamList} from '../../navigators/types';
+import type {IApplicationState, TFile, TMessage, TTarget, TUser} from '@/src/types';
+import type {ChatStackParamList} from '@/src/navigators/types';
 
 const emojis = ['👍', '👎', '❤️', '😆', '😢', '😡'];
 
@@ -240,7 +240,8 @@ const MessageModal: FC<Props> = (props) => {
                                             userId: props.user?.id,
                                         });
                                     hide();
-                                }}>
+                                }}
+                            >
                                 <Text style={s.emoji}>{reaction}</Text>
                             </Pressable>
                         );

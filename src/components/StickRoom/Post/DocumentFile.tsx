@@ -4,11 +4,11 @@ import {connect, ConnectedProps} from 'react-redux';
 import * as Progress from 'react-native-progress';
 import {useNavigation, NavigationProp} from '@react-navigation/native';
 import {widthPercentageToDP as w} from 'react-native-responsive-screen';
-import Text from '../../Text';
-import FileLabel from '../../Vault/FileLabel';
-import {colors} from '../../../foundations';
-import type {IApplicationState, TMessage} from '../../../types';
-import type {ChatStackParamList} from '../../../navigators/types';
+import Text from '@/src/components/Text';
+import FileLabel from '@/src/components/Vault/FileLabel';
+import {colors} from '@/src/foundations';
+import type {IApplicationState, TMessage} from '@/src/types';
+import type {ChatStackParamList} from '@/src/navigators/types';
 
 interface DocumentFileOwnProps {
     fileId: string;
@@ -33,7 +33,8 @@ const DocumentFile: FC<Props> = (props) => {
                     index,
                     imagesIds: props.message.files,
                 });
-            }}>
+            }}
+        >
             <FileLabel file={file} />
             <View style={{marginLeft: 8, marginRight: 8, flex: 1}}>
                 <Text numberOfLines={1} style={{fontSize: 15, color: uploading ? 'lightgrey' : colors.black}}>

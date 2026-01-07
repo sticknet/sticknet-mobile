@@ -1,22 +1,22 @@
-import React, {useEffect, useState, FC} from 'react';
-import {View, StyleSheet, Pressable, Platform} from 'react-native';
+import React, {FC, useEffect, useState} from 'react';
+import {Platform, Pressable, StyleSheet, View} from 'react-native';
 import {connect, ConnectedProps} from 'react-redux';
 import {NavigationProp, useNavigation} from '@react-navigation/native';
-import Text from '../../Text';
-import ProfilePicture from '../../ProfilePicture';
-import PremiumIcon from '../../Icons/PremiumIcon';
-import {formatAMPM, formatMessageDate, n} from '../../../utils';
-import CollapsibleText from '../../TextComponents/CollapsibleText';
-import {colors} from '../../../foundations';
-import {app, stickRoom} from '../../../actions';
-import Icon from '../../Icons/Icon';
+import Text from '@/src/components/Text';
+import ProfilePicture from '@/src/components/ProfilePicture';
+import PremiumIcon from '@/src/components/Icons/PremiumIcon';
+import {formatAMPM, formatMessageDate, n} from '@/src/utils';
+import CollapsibleText from '@/src/components/TextComponents/CollapsibleText';
+import {colors} from '@/src/foundations';
+import {app, stickRoom} from '@/src/actions';
+import Icon from '@/src/components/Icons/Icon';
 import ImageMessage from './ImageMessage';
 import AudioPlayer from './AudioPlayer';
 import Reactions from './Reactions';
 import RepliedMessage from './RepliedMessage';
 import DocumentFile from './DocumentFile';
-import type {IApplicationState, TUser} from '../../../types';
-import type {VaultStackParamList} from '../../../navigators/types';
+import type {IApplicationState, TUser} from '@/src/types';
+import type {VaultStackParamList} from '@/src/navigators/types';
 
 const timeDifferenceThreshold = 4 * 60 * 1000;
 let timeout: NodeJS.Timeout | null = null;
@@ -193,7 +193,13 @@ const Post: FC<Props> = (props) => {
                                         ))
                                     )
                                 ) : null}
-                                {message.audio && <AudioPlayer message={message} wrapped />}
+                                {message.audio ? (
+                                    Platform.OS === 'ios' ? (
+                                        <AudioPlayer message={message} wrapped />
+                                    ) : (
+                                        <Text style={{color: 'grey', fontStyle: 'italic'}}>Audio Message</Text>
+                                    )
+                                ) : null}
                                 {message.reactions && <Reactions message={message} roomId={props.roomId} />}
                             </>
                         )}

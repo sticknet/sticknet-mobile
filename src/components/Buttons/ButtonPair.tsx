@@ -16,13 +16,15 @@ const ButtonPair: FC<ButtonPairProps> = (props) => {
             <TouchableOpacity
                 testID={`${props.parentTestID}-decline`}
                 onPress={props.decline}
-                style={[s.button, s.decline, props.style]}>
+                style={[s.button, s.decline, props.style]}
+            >
                 <Text style={[s.buttonText, {color: 'red'}]}>{props.declineText || 'Decline'}</Text>
             </TouchableOpacity>
             <TouchableOpacity
                 testID={`${props.parentTestID}-stick-in`}
                 onPress={props.accept}
-                style={[s.button, s.accept, props.style]}>
+                style={[s.button, s.accept, props.style]}
+            >
                 <Text style={[s.buttonText, {color: '#6060FF'}]}>{props.acceptText || 'Accept'}</Text>
             </TouchableOpacity>
         </View>

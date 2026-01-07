@@ -1,17 +1,17 @@
 import React, {useEffect, useRef, useState} from 'react';
 import {
-    View,
-    Text,
     Alert,
+    Animated,
+    Keyboard,
+    Linking,
     Platform,
     StatusBar,
+    StyleSheet,
+    Text,
     TextInput,
     TouchableOpacity,
-    Keyboard,
     TouchableWithoutFeedback,
-    Animated,
-    StyleSheet,
-    Linking,
+    View,
 } from 'react-native';
 import {connect, ConnectedProps} from 'react-redux';
 import CheckIcon from '@sticknet/react-native-vector-icons/Feather';
@@ -20,7 +20,6 @@ import Modal from 'react-native-modal';
 import Config from 'react-native-config';
 import changeNavigationBarColor from 'react-native-navigation-bar-color';
 import LottieView from 'lottie-react-native';
-import RNBootSplash from 'react-native-bootsplash';
 import {widthPercentageToDP as w} from 'react-native-responsive-screen';
 import type {RouteProp} from '@react-navigation/native';
 import type {StackNavigationProp} from '@react-navigation/stack';
@@ -28,14 +27,14 @@ import {handleResponse} from '@coinbase/wallet-mobile-sdk';
 import {ConnectionController} from '@reown/appkit-core-react-native';
 import {useAppKitProvider} from '@reown/appkit-ethers-react-native';
 import {BrowserProvider} from 'ethers';
-import {Button, ProgressModal} from '../../components';
-import {auth} from '../../actions/index';
-import {globalData} from '../../actions/globalVariables';
-import {checkAnimation} from '../../../assets/lottie';
-import type {HomeStackParamList} from '../../navigators/types';
-import type {IApplicationState, TUser} from '../../types';
-import type {IAuthActions} from '../../actions/types';
-import CommonNative from '../../native-modules/common-native';
+import {Button, ProgressModal} from '@/src/components';
+import {auth} from '@/src/actions/index';
+import {globalData} from '@/src/actions/globalVariables';
+import {checkAnimation} from '@/assets/lottie';
+import type {HomeStackParamList} from '@/src/navigators/types';
+import type {IApplicationState, TUser} from '@/src/types';
+import type {IAuthActions} from '@/src/actions/types';
+import CommonNative from '@/modules/common-native';
 
 interface NewPasswordScreenProps extends IAuthActions {
     navigation: StackNavigationProp<HomeStackParamList>;
@@ -51,7 +50,6 @@ type Props = NewPasswordScreenProps & ReduxProps;
 
 const NewPasswordScreen = (props: Props) => {
     useEffect(() => {
-        RNBootSplash.hide({duration: 250});
         if (Platform.OS === 'android') {
             StatusBar.setTranslucent(true);
             StatusBar.setBackgroundColor('#fff');

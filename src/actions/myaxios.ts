@@ -1,6 +1,6 @@
 import axios, {AxiosRequestConfig, AxiosResponse} from 'axios';
-import camelize from '../utils/camelize';
-import snakeize from '../utils/snakeize';
+import camelize from '@/src/utils/camelize';
+import snakeize from '@/src/utils/snakeize';
 
 const myaxios = {
     get: async <T = any>(url: string, config?: AxiosRequestConfig): Promise<AxiosResponse<T>> => {

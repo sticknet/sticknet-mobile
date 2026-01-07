@@ -3,7 +3,7 @@ import {View, Animated, Easing, StyleSheet, Text, ViewStyle} from 'react-native'
 import {connect} from 'react-redux';
 import {widthPercentageToDP as w, heightPercentageToDP as h} from 'react-native-responsive-screen';
 import Config from 'react-native-config';
-import type {IApplicationState} from '../types';
+import type {IApplicationState} from '@/src/types';
 
 interface LoadingProps {
     loading?: boolean;
@@ -70,7 +70,8 @@ class Loading extends Component<LoadingProps, LoadingState> {
                         position: loading || show ? 'absolute' : 'relative',
                     },
                     style,
-                ]}>
+                ]}
+            >
                 <View style={[s.animationContainer, {backgroundColor: show ? 'rgba(0,0,0,0.25)' : 'rgba(0,0,0,0.5)'}]}>
                     {Config.TESTING !== '1' ? (
                         <View style={{justifyContent: 'center', alignItems: 'center'}}>

@@ -1,6 +1,6 @@
 import {Action} from 'redux';
 import _ from 'lodash';
-import {groups, users} from '../actions/actionTypes';
+import {groups, users} from '@/src/actions/actionTypes';
 
 export interface IUsersState {
     [key: string]: any;

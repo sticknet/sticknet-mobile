@@ -1,9 +1,9 @@
 import React, {PureComponent} from 'react';
 import {StyleProp, ViewStyle, ImageResizeMode} from 'react-native';
-import Image from '../Image';
-import {DefaultGroupCover} from '../../../assets/images';
-import NewImage from '../NewImage';
-import {TGroupCover} from '../../types';
+import Image from '@/src/components/Image';
+import {DefaultGroupCover} from '@/assets/images';
+import NewImage from '@/src/components/NewImage';
+import {TGroupCover} from '@/src/types';
 
 interface GroupCoverProps {
     size?: number;

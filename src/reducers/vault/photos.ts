@@ -1,6 +1,6 @@
 import _ from 'lodash';
 import {Action} from 'redux';
-import {vault} from '../../actions/actionTypes';
+import {vault} from '@/src/actions/actionTypes';
 
 export interface IPhotosState {
     [key: string]: {[key: string]: any};

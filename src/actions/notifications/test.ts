@@ -1,9 +1,9 @@
 import {waitFor} from '@testing-library/react-native';
-import state from '../test_data/state.json';
-import axiosMock from '../test_data/axiosMock';
-import configureStore from '../../store';
+import state from '@/src/actions/test_data/state.json';
+import axiosMock from '@/src/actions/test_data/axiosMock';
+import configureStore from '@/src/store';
 import {notifications} from '..';
-import CommonNative from '../../native-modules/common-native';
+import CommonNative from '@/modules/common-native';
 
 describe('notifications.js actions functions', () => {
     const mockURL = CommonNative.mainURL;

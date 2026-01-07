@@ -3,11 +3,11 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import {firebase} from '@react-native-firebase/database';
 import {Dispatch} from 'redux';
 import axios from './myaxios';
-import StickProtocol from '../native-modules/stick-protocol';
+import StickProtocol from '@/modules/stick-protocol';
 import {firebaseRef, URL} from './URL';
 import {globalData, fetchingSenderKeys, pendingEntities} from './globalVariables';
 import {download, pendingSessions} from './actionTypes';
-import type {TChatAlbum, TGroup, TUser} from '../types';
+import type {TChatAlbum, TGroup, TUser} from '@/src/types';
 
 const database = firebase.app().database(firebaseRef);
 
@@ -198,4 +198,6 @@ const data = {
 };
 
 // @ts-ignore
-export default stickProtocolHandlers = new MySpHandlers(StickProtocol, data);
+// export default stickProtocolHandlers = new MySpHandlers(StickProtocol, data);
+const stickProtocolHandlers = new MySpHandlers(StickProtocol, data);
+export {stickProtocolHandlers};

@@ -1,7 +1,7 @@
 import {Action} from 'redux';
 import _ from 'lodash';
-import {stickRoom} from '../../actions/actionTypes';
-import {TMessage} from '../../types';
+import {stickRoom} from '@/src/actions/actionTypes';
+import {TMessage} from '@/src/types';
 
 export interface IMessagesState {
     [key: string]: {[key: string]: TMessage};

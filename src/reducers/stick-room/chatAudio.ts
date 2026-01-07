@@ -1,6 +1,6 @@
 import {Action} from 'redux';
-import {stickRoom} from '../../actions/actionTypes';
-import {TFile} from '../../types';
+import {stickRoom} from '@/src/actions/actionTypes';
+import {TFile} from '@/src/types';
 
 export interface IChatAudioState {
     [key: string]: TFile;

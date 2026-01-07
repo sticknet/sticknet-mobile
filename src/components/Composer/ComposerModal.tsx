@@ -1,15 +1,15 @@
 import React, {FC} from 'react';
 import {connect, ConnectedProps} from 'react-redux';
-import {FlatList} from 'react-native';
-import {useNavigation, NavigationProp} from '@react-navigation/native';
-import DocumentPicker from 'react-native-document-picker';
-import BottomModal from '../Modals/BottomModal';
-import Icon from '../Icons/Icon';
-import SettingsItem from '../SettingsItem';
-import {app, stickRoom, create} from '../../actions';
-import {photosPermission} from '../../utils';
-import type {IApplicationState, TUser} from '../../types';
-import type {ChatStackParamList} from '../../navigators/types';
+import {FlatList, Platform} from 'react-native';
+import {NavigationProp, useNavigation} from '@react-navigation/native';
+import {keepLocalCopy, pick} from '@react-native-documents/picker';
+import BottomModal from '@/src/components/Modals/BottomModal';
+import Icon from '@/src/components/Icons/Icon';
+import SettingsItem from '@/src/components/SettingsItem';
+import {app, create, stickRoom} from '@/src/actions';
+import {photosPermission} from '@/src/utils';
+import type {IApplicationState, TUser} from '@/src/types';
+import type {ChatStackParamList} from '@/src/navigators/types';
 
 interface ComposerModalOwnProps {
     target: any;
@@ -26,11 +26,20 @@ const ComposerModal: FC<Props> = (props) => {
 
     const uploadFiles = async () => {
         props.selectTargets({groups: isGroup ? [props.target] : [], connections: isGroup ? [] : [props.target]});
-        const response = await DocumentPicker.pick({copyTo: 'documentDirectory', allowMultiSelection: true});
+        const response = await pick({copyTo: 'documentDirectory', allowMultiSelection: true});
         props.closeModal('composer');
-        response.forEach((item) => {
-            if (item.fileCopyUri != null) {
-                item.uri = item.fileCopyUri;
+        response.forEach(async (item) => {
+            if (Platform.OS === 'android') {
+                const [localItem] = await keepLocalCopy({
+                    files: [
+                        {
+                            uri: item.uri,
+                            fileName: item.name ?? 'item',
+                        },
+                    ],
+                    destination: 'documentDirectory',
+                })
+                item.uri = localItem.localUri;
             }
         });
         props.sendMessage({

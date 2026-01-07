@@ -1,16 +1,16 @@
 import messaging, {FirebaseMessagingTypes} from '@react-native-firebase/messaging';
 import {Platform} from 'react-native';
 import PushNotification from 'react-native-push-notification';
-import camelize from '../../utils/camelize';
-import StickProtocol from '../../native-modules/stick-protocol';
+import camelize from '@/src/utils/camelize';
+import StickProtocol from '@/modules/stick-protocol';
 import NotifService from './NotifService';
 import createChannels from './createChannels';
 import registerForNotifications from './registerForNotifications';
-import {globalData} from '../globalVariables';
-import SPH from '../SPHandlers';
+import {globalData} from '@/src/actions/globalVariables';
+import {stickProtocolHandlers as SPH} from '@/src/actions/SPHandlers';
 import channels from './notificationChannels';
-import {nav} from '../../utils';
-import NavigationService from '../NavigationService';
+import {nav} from '@/src/utils';
+import NavigationService from '@/src/actions/NavigationService';
 
 interface Props {
     user: any;

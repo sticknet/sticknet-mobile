@@ -4,16 +4,16 @@ import {Pressable, TouchableOpacity, View} from 'react-native';
 import EntypoIcon from '@sticknet/react-native-vector-icons/Entypo';
 import DotsIcon from '@sticknet/react-native-vector-icons/MaterialCommunityIcons';
 import {
-    ChatsScreen,
-    MembersScreen,
-    MemberRequestsScreen,
-    SentRequestsScreen,
     AlbumPhotosScreen,
+    ChatsScreen,
+    MemberRequestsScreen,
+    MembersScreen,
     NewChatScreen,
-} from '../screens';
-import {Back, Title, Icon, Text} from '../components';
+    SentRequestsScreen,
+} from '@/src/screens';
+import {Back, Icon, Text, Title} from '@/src/components';
 import s from './style';
-import {colors} from '../foundations';
+import {colors} from '@/src/foundations';
 import CreateGroup from './CreateGroup';
 import CommonGroup from './CommonGroup';
 import type {ChatStackParamList} from './types';

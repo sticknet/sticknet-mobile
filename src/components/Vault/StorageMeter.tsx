@@ -3,15 +3,15 @@ import {View, StyleSheet, Pressable, ViewStyle} from 'react-native';
 import {connect, ConnectedProps} from 'react-redux';
 import {widthPercentageToDP as w} from 'react-native-responsive-screen';
 import {useNavigation, NavigationProp} from '@react-navigation/native';
-import Icon from '../Icons/Icon';
-import Text from '../Text';
-import {colors} from '../../foundations';
-import AnimatedButton from '../AnimatedButton';
-import Sticknet from '../Sticknet';
-import {nav} from '../../utils';
-import CloudVaultIcon from '../Icons/CloudVaultIcon';
-import type {IApplicationState} from '../../types';
-import type {ChatStackParamList} from '../../navigators/types';
+import Icon from '@/src/components/Icons/Icon';
+import Text from '@/src/components/Text';
+import {colors} from '@/src/foundations';
+import AnimatedButton from '@/src/components/AnimatedButton';
+import Sticknet from '@/src/components/Sticknet';
+import {nav} from '@/src/utils';
+import CloudVaultIcon from '@/src/components/Icons/CloudVaultIcon';
+import type {IApplicationState} from '@/src/types';
+import type {ChatStackParamList} from '@/src/navigators/types';
 
 const oneGb = 1073741824;
 const vaultColor = 'rgb(253,59,48)';
@@ -112,7 +112,8 @@ const StorageMeter: FC<Props> = ({user, isBasic, style, context}) => {
                     <Pressable
                         onPress={() => navigation.navigate('ManageStorage')}
                         style={{flexDirection: 'row', alignItems: 'center'}}
-                        testID="manage-storage">
+                        testID="manage-storage"
+                    >
                         <Text style={{color: 'grey'}}>Storage</Text>
                         <Icon solid style={{marginLeft: 4}} name="chevron-right" size={15} color="darkgrey" />
                     </Pressable>

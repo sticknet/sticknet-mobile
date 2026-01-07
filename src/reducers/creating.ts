@@ -1,6 +1,6 @@
 import {Action} from 'redux';
-import {creating} from '../actions/actionTypes';
-import {TFile, TUser} from '../types';
+import {creating} from '@/src/actions/actionTypes';
+import {TFile, TUser} from '@/src/types';
 
 export interface ICreatingState {
     images: TFile[];

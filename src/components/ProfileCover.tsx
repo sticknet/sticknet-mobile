@@ -4,8 +4,8 @@ import {widthPercentageToDP as w} from 'react-native-responsive-screen';
 import {Platform, StatusBar, TouchableOpacity, StyleSheet, ImageSourcePropType} from 'react-native';
 import Image from './Image';
 import NewImage from './NewImage';
-import {DefaultProfileCover} from '../../assets/images';
-import type {IApplicationState, TUser} from '../types';
+import {DefaultProfileCover} from '@/assets/images';
+import type {IApplicationState, TUser} from '@/src/types';
 
 interface ProfileCoverProps {
     navigation: any;
@@ -46,7 +46,8 @@ class ProfileCover extends Component<ProfileCoverProps> {
             <TouchableOpacity
                 activeOpacity={1}
                 onPress={this.openCover}
-                style={{borderBottomWidth: resizeMode === 'contain' ? 1 : 0, borderColor: 'lightgrey'}}>
+                style={{borderBottomWidth: resizeMode === 'contain' ? 1 : 0, borderColor: 'lightgrey'}}
+            >
                 <ImageComponent
                     source={source}
                     style={s.cover}

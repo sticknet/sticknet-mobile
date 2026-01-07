@@ -1,13 +1,13 @@
 import React, {Component} from 'react';
 import {
-    View,
+    Alert,
+    FlatList,
+    Keyboard,
+    StyleSheet,
     Text,
     TouchableOpacity,
     TouchableWithoutFeedback,
-    Keyboard,
-    Alert,
-    FlatList,
-    StyleSheet,
+    View,
 } from 'react-native';
 import {connect} from 'react-redux';
 import Modal from 'react-native-modal';
@@ -15,13 +15,13 @@ import Icon from '@sticknet/react-native-vector-icons/Feather';
 import {widthPercentageToDP as w} from 'react-native-responsive-screen';
 
 import {NavigationProp, RouteProp} from '@react-navigation/native';
-import {groups, create, users, stickRoom} from '../../actions/index';
-import {AddMembers, Input, GroupCover, UserItem, Separator} from '../../components';
-import {photosPermission} from '../../utils';
-import {colors} from '../../foundations';
-import type {IApplicationState, TUser} from '../../types';
-import type {ChatStackParamList} from '../../navigators/types';
-import type {ICreateActions, IGroupsActions, IUsersActions} from '../../actions/types';
+import {create, groups, stickRoom, users} from '@/src/actions/index';
+import {AddMembers, GroupCover, Input, Separator, UserItem} from '@/src/components';
+import {photosPermission} from '@/src/utils';
+import {colors} from '@/src/foundations';
+import type {IApplicationState, TUser} from '@/src/types';
+import type {ChatStackParamList} from '@/src/navigators/types';
+import type {ICreateActions, IGroupsActions, IUsersActions} from '@/src/actions/types';
 
 interface GroupCreateScreenProps extends IUsersActions, IGroupsActions, ICreateActions {
     navigation: NavigationProp<ChatStackParamList>;

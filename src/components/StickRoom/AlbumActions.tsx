@@ -2,10 +2,10 @@ import React, {useEffect, useState, FC} from 'react';
 import {View, Alert} from 'react-native';
 import {connect, ConnectedProps} from 'react-redux';
 import {useRoute} from '@react-navigation/native';
-import InputModal from '../Modals/InputModal';
+import InputModal from '@/src/components/Modals/InputModal';
 import AlbumModal from './AlbumModal';
-import {stickRoom, vault} from '../../actions';
-import type {IApplicationState, TChatAlbum, TUser} from '../../types';
+import {stickRoom, vault} from '@/src/actions';
+import type {IApplicationState, TChatAlbum, TUser} from '@/src/types';
 
 type PropsFromRedux = ConnectedProps<typeof connector>;
 

@@ -1,8 +1,8 @@
 import React, {FC} from 'react';
 import {connect, ConnectedProps} from 'react-redux';
 import * as Progress from 'react-native-progress';
-import {colors} from '../../../foundations';
-import {IApplicationState} from '../../../types';
+import {colors} from '@/src/foundations';
+import {IApplicationState} from '@/src/types';
 
 interface DownloadProgressOwnProps {
     uriKey: string;

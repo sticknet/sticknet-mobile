@@ -1,5 +1,5 @@
 import React, {FC} from 'react';
-import {PasswordRecovery} from '../../../components';
+import {PasswordRecovery} from '@/src/components';
 
 const RecoverPassword: FC = () => {
     return <PasswordRecovery />;

@@ -5,12 +5,12 @@ import XIcon from '@sticknet/react-native-vector-icons/Feather';
 import {Platform, TouchableOpacity} from 'react-native';
 import Icon from '@sticknet/react-native-vector-icons/Ionicons';
 import SimpleIcon from '@sticknet/react-native-vector-icons/SimpleLineIcons';
-import {ShareScreen, SelectPhotosScreen} from '../screens';
+import {SelectPhotosScreen, ShareScreen} from '@/src/screens';
 import type {CreateStackParamList} from './types';
-import {Back, ChatTitle, Next, StickButton} from '../components';
-import {colors} from '../foundations';
+import {Back, ChatTitle, Next, StickButton} from '@/src/components';
+import {colors} from '@/src/foundations';
 import s from './style';
-import Text from '../components/Text';
+import Text from '@/src/components/Text';
 
 const Stack = createNativeStackNavigator<CreateStackParamList>();
 

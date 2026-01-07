@@ -3,13 +3,13 @@ import {StatusBar, View, Text, Linking, StyleSheet} from 'react-native';
 import {connect} from 'react-redux';
 import {widthPercentageToDP as w} from 'react-native-responsive-screen';
 import {NavigationProp} from '@react-navigation/native';
-import {Input} from '../../../components/index';
-import {profile} from '../../../actions/index';
-import {URL} from '../../../actions/URL';
-import {globalData} from '../../../actions/globalVariables';
-import type {IApplicationState} from '../../../types';
-import type {ProfileStackParamList} from '../../../navigators/types';
-import {IProfileActions} from '../../../actions/profile';
+import {Input} from '@/src/components/index';
+import {profile} from '@/src/actions/index';
+import {URL} from '@/src/actions/URL';
+import {globalData} from '@/src/actions/globalVariables';
+import type {IApplicationState} from '@/src/types';
+import type {ProfileStackParamList} from '@/src/navigators/types';
+import {IProfileActions} from '@/src/actions/profile';
 
 // Define the props for the component
 interface QuestionScreenProps extends IProfileActions {

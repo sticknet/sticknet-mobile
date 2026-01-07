@@ -2,8 +2,8 @@ import React, {FC} from 'react';
 import {Pressable, Text, View} from 'react-native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {widthPercentageToDP as w} from 'react-native-responsive-screen';
-import {Back, Title, Icon} from '../components';
-import {globalData} from '../actions/globalVariables';
+import {Back, Title, Icon} from '@/src/components';
+import {globalData} from '@/src/actions/globalVariables';
 import {
     PrivacyNoticeScreen,
     PermissionsScreen,
@@ -16,7 +16,7 @@ import {
     RegisterScreen2,
     ForgotPasswordScreen,
     ForgotPasswordLoginScreen,
-} from '../screens';
+} from '@/src/screens';
 import {StackOptions} from './options';
 import s from './style';
 
@@ -34,7 +34,8 @@ const HomeStack: FC = () => {
     return (
         <Stack.Navigator
             initialRouteName={globalData.loggedIn ? 'Home' : globalData.initialRoute}
-            screenOptions={StackOptions}>
+            screenOptions={StackOptions}
+        >
             <Stack.Screen
                 name={tabName}
                 // @ts-ignore
@@ -45,7 +46,8 @@ const HomeStack: FC = () => {
                     headerRight: () => (
                         <Pressable
                             onPress={() => navigation.navigate('Search')}
-                            hitSlop={{left: 20, top: 10, bottom: 10}}>
+                            hitSlop={{left: 20, top: 10, bottom: 10}}
+                        >
                             <Icon name="search" />
                         </Pressable>
                     ),

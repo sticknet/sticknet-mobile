@@ -1,14 +1,14 @@
 import React, {PureComponent} from 'react';
-import {Pressable, View, StyleSheet, StyleProp, ViewStyle} from 'react-native';
+import {Pressable, StyleProp, StyleSheet, View, ViewStyle} from 'react-native';
 import CheckIcon from '@sticknet/react-native-vector-icons/Feather';
 import DotsIcon from '@sticknet/react-native-vector-icons/MaterialCommunityIcons';
 import GroupCover from './GroupCover';
-import {colors} from '../foundations';
+import {colors} from '@/src/foundations';
 import GroupModal from './Modals/GroupModal';
 import Text from './Text';
 import Icon from './Icons/Icon';
-import {formatBytes} from '../utils';
-import {TGroup} from '../types';
+import {formatBytes} from '@/src/utils';
+import {TGroup} from '@/src/types';
 
 interface StorageIndicatorProps {
     storage: number;

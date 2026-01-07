@@ -7,11 +7,11 @@ import type {NavigationProp} from '@react-navigation/native';
 import {useAppKit} from '@reown/appkit-ethers-react-native';
 import {handleResponse} from '@coinbase/wallet-mobile-sdk';
 import {AccountController} from '@reown/appkit-core-react-native';
-import {auth, stickRoom, app} from '../../../actions';
-import {SettingsItem, Icon, Text} from '../../../components';
-import type {IApplicationState, TUser} from '../../../types';
-import type {ProfileStackParamList} from '../../../navigators/types';
-import {IAuthActions} from '../../../actions/auth';
+import {auth, stickRoom, app} from '@/src/actions';
+import {SettingsItem, Icon, Text} from '@/src/components';
+import type {IApplicationState, TUser} from '@/src/types';
+import type {ProfileStackParamList} from '@/src/navigators/types';
+import {IAuthActions} from '@/src/actions/auth';
 
 interface MoreOptionsScreenProps extends IAuthActions {
     navigation: NavigationProp<ProfileStackParamList>;
@@ -93,7 +93,8 @@ const MoreOptionsScreen = (props: Props) => {
                 useNativeDriver
                 hideModalContentWhileAnimating
                 onBackdropPress={() => setDeactivateModal(false)}
-                onBackButtonPress={() => setDeactivateModal(false)}>
+                onBackButtonPress={() => setDeactivateModal(false)}
+            >
                 <View style={s.modal}>
                     <Text style={s.title}>Are you sure?</Text>
                     <Text style={s.text}>
@@ -138,7 +139,8 @@ const MoreOptionsScreen = (props: Props) => {
                 useNativeDriver
                 hideModalContentWhileAnimating
                 onBackdropPress={() => setDeleteModal(false)}
-                onBackButtonPress={() => setDeleteModal(false)}>
+                onBackButtonPress={() => setDeleteModal(false)}
+            >
                 <View style={s.modal}>
                     <Text style={s.title}>Are you sure?</Text>
                     <Text style={s.text}>

@@ -1,14 +1,14 @@
 import React, {Component, createRef} from 'react';
 import {
-    View,
-    Text,
     Alert,
+    Animated,
+    Keyboard,
+    StyleSheet,
+    Text,
     TextInput,
     TouchableOpacity,
-    Keyboard,
     TouchableWithoutFeedback,
-    Animated,
-    StyleSheet,
+    View,
 } from 'react-native';
 import {connect} from 'react-redux';
 
@@ -17,11 +17,11 @@ import KeyIcon from '@sticknet/react-native-vector-icons/AntDesign';
 import {widthPercentageToDP as w} from 'react-native-responsive-screen';
 
 import type {StackNavigationProp} from '@react-navigation/stack';
-import {Button, ProgressModal} from '../../components';
-import {auth} from '../../actions/index';
-import type {HomeStackParamList} from '../../navigators/types';
-import type {IApplicationState, TUser} from '../../types';
-import type {IAuthActions} from '../../actions/types';
+import {Button, ProgressModal} from '@/src/components';
+import {auth} from '@/src/actions/index';
+import type {HomeStackParamList} from '@/src/navigators/types';
+import type {IApplicationState, TUser} from '@/src/types';
+import type {IAuthActions} from '@/src/actions/types';
 
 interface ForgotPasswordLoginScreenProps extends IAuthActions {
     navigation: StackNavigationProp<HomeStackParamList>;

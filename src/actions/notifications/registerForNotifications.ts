@@ -2,10 +2,10 @@ import {Platform} from 'react-native';
 import messaging from '@react-native-firebase/messaging';
 import Keychain from '@sticknet/react-native-keychain';
 import DeviceInfo from 'react-native-device-info';
-import axios from '../myaxios';
-import {URL} from '../URL';
-import {globalData} from '../globalVariables';
-import {getUniqueDeviceId} from '../../utils';
+import axios from '@/src/actions/myaxios';
+import {URL} from '@/src/actions/URL';
+import {globalData} from '@/src/actions/globalVariables';
+import {getUniqueDeviceId} from '@/src/utils';
 
 const bundleId = DeviceInfo.getBundleId();
 

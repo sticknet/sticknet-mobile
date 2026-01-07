@@ -1,6 +1,6 @@
 import React, {FC} from 'react';
 import FAIcon from '@sticknet/react-native-vector-icons/FontAwesome6Pro';
-import {colors} from '../../foundations';
+import {colors} from '@/src/foundations';
 
 interface IconProps {
     name: string;

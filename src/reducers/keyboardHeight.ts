@@ -1,5 +1,5 @@
 import {Action} from 'redux';
-import {keyboardHeight} from '../actions/actionTypes';
+import {keyboardHeight} from '@/src/actions/actionTypes';
 
 export type TKeyBoardHeight = number;
 export interface IKeyboardHeightAction extends Action {

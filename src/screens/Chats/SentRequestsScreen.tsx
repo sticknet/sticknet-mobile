@@ -3,12 +3,12 @@ import {TouchableOpacity, View, Alert, StyleSheet, SectionList, RefreshControl} 
 import {connect} from 'react-redux';
 import {useNavigation} from '@react-navigation/native';
 import type {NavigationProp} from '@react-navigation/native';
-import {GroupCover, SectionHeader, Separator, UserItem, Text} from '../../components';
-import {groups, users} from '../../actions';
-import {colors} from '../../foundations';
-import type {IApplicationState, TGroupRequest, TUser} from '../../types';
-import type {ChatStackParamList} from '../../navigators/types';
-import {IUsersActions, IGroupsActions} from '../../actions/types';
+import {GroupCover, SectionHeader, Separator, UserItem, Text} from '@/src/components';
+import {groups, users} from '@/src/actions';
+import {colors} from '@/src/foundations';
+import type {IApplicationState, TGroupRequest, TUser} from '@/src/types';
+import type {ChatStackParamList} from '@/src/navigators/types';
+import {IUsersActions, IGroupsActions} from '@/src/actions/types';
 
 interface SentRequestsScreenProps extends IGroupsActions, IUsersActions {
     user: TUser;
@@ -71,7 +71,8 @@ const SentRequestsScreen: React.FC<SentRequestsScreenProps> = (props) => {
                     <TouchableOpacity
                         onPress={() => props.cancelConnectionRequest({target: item})}
                         activeOpacity={1}
-                        hitSlop={{left: 12, right: 12, top: 8, bottom: 8}}>
+                        hitSlop={{left: 12, right: 12, top: 8, bottom: 8}}
+                    >
                         <Text style={s.cancel}>Remove Request</Text>
                     </TouchableOpacity>
                 </>
@@ -83,14 +84,16 @@ const SentRequestsScreen: React.FC<SentRequestsScreenProps> = (props) => {
                 <TouchableOpacity
                     activeOpacity={0.75}
                     onPress={() => openGroup(group)}
-                    style={{flexDirection: 'row', alignItems: 'center'}}>
+                    style={{flexDirection: 'row', alignItems: 'center'}}
+                >
                     <GroupCover groupId={group.id} cover={group.cover} size={40} />
                     <Text style={s.displayName}>{group.displayName}</Text>
                 </TouchableOpacity>
                 <TouchableOpacity
                     onPress={() => alert(group)}
                     activeOpacity={1}
-                    hitSlop={{left: 12, right: 12, top: 8, bottom: 8}}>
+                    hitSlop={{left: 12, right: 12, top: 8, bottom: 8}}
+                >
                     <Text style={s.cancel}>Remove Request</Text>
                 </TouchableOpacity>
             </View>

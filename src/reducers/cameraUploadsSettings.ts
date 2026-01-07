@@ -1,5 +1,5 @@
 import {Action} from 'redux';
-import {vault} from '../actions/actionTypes';
+import {vault} from '@/src/actions/actionTypes';
 
 export interface ICameraUploadsSettingsState {
     photoBackupSetting: string;

@@ -4,12 +4,12 @@ import {connect, ConnectedProps} from 'react-redux';
 import {widthPercentageToDP as w} from 'react-native-responsive-screen';
 import * as Progress from 'react-native-progress';
 import Pdf from 'react-native-pdf';
-import Text from '../Text';
-import Video from '../Video';
-import {app} from '../../actions';
+import Text from '@/src/components/Text';
+import Video from '@/src/components/Video';
+import {app} from '@/src/actions';
 import TextFileViewer from './TextFileViewer';
-import ZoomableView from '../ZoomableView/ZoomableView';
-import type {IApplicationState, TFile} from '../../types';
+import ZoomableView from '@/src/components/ZoomableView/ZoomableView';
+import type {IApplicationState, TFile} from '@/src/types';
 
 interface ImageFileOwnProps {
     file: TFile;

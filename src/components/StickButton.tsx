@@ -1,6 +1,6 @@
 import React, {FC} from 'react';
 import {TouchableOpacity, Text, StyleSheet, TouchableOpacityProps, TextStyle, ViewStyle} from 'react-native';
-import {colors} from '../foundations';
+import {colors} from '@/src/foundations';
 
 interface StickButtonProps extends TouchableOpacityProps {
     onPress: () => void;

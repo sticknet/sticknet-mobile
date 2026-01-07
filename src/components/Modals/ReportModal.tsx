@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import {widthPercentageToDP as w} from 'react-native-responsive-screen';
-import {Text, TouchableOpacity, View, Alert, StyleSheet} from 'react-native';
+import {Alert, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import Icon from '@sticknet/react-native-vector-icons/Ionicons';
-import Button from '../Buttons/Button';
+import Button from '@/src/components/Buttons/Button';
 import BottomModal from './BottomModal';
 
 interface ReportModalProps {

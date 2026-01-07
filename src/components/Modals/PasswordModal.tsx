@@ -1,18 +1,18 @@
 import React, {Component} from 'react';
-import {Text, View, Platform, Linking, TouchableOpacity, StyleSheet} from 'react-native';
+import {Linking, Platform, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {widthPercentageToDP as w} from 'react-native-responsive-screen';
 import {connect} from 'react-redux';
 
 import PrivacyIcon from '@sticknet/react-native-vector-icons/SimpleLineIcons';
 import KeyIcon from '@sticknet/react-native-vector-icons/AntDesign';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import Sticknet from '../Sticknet';
-import Button from '../Buttons/Button';
-import StickProtocol from '../../native-modules/stick-protocol';
-import {URL} from '../../actions/URL';
+import Sticknet from '@/src/components/Sticknet';
+import Button from '@/src/components/Buttons/Button';
+import StickProtocol from '@/modules/stick-protocol';
+import {URL} from '@/src/actions/URL';
 import BottomModal from './BottomModal';
-import {colors} from '../../foundations';
-import type {IApplicationState} from '../../types';
+import {colors} from '@/src/foundations';
+import type {IApplicationState} from '@/src/types';
 
 interface PasswordModalProps {
     modalVisible: boolean;

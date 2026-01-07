@@ -1,10 +1,10 @@
 import React, {FC} from 'react';
-import {View, Pressable, Switch, StyleSheet} from 'react-native';
+import {Pressable, StyleSheet, Switch, View} from 'react-native';
 import IoIcon from '@sticknet/react-native-vector-icons/Ionicons';
 import ArrowIcon from '@sticknet/react-native-vector-icons/Feather';
 import Text from './Text';
 import Icon from './Icons/Icon';
-import {colors, typography} from '../foundations';
+import {colors, typography} from '@/src/foundations';
 
 export type TSettingsItem = {
     text: string;

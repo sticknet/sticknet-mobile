@@ -2,11 +2,11 @@ import React, {FC} from 'react';
 import {View, StyleSheet, Pressable, Platform} from 'react-native';
 import {widthPercentageToDP as w} from 'react-native-responsive-screen';
 import {connect, ConnectedProps} from 'react-redux';
-import Text from '../../Text';
-import Icon from '../../Icons/Icon';
-import {app, stickRoom} from '../../../actions';
-import {findKeyByValue} from '../../../utils';
-import {IApplicationState, TMessage, TUser} from '../../../types';
+import Text from '@/src/components/Text';
+import Icon from '@/src/components/Icons/Icon';
+import {app, stickRoom} from '@/src/actions';
+import {findKeyByValue} from '@/src/utils';
+import {IApplicationState, TMessage, TUser} from '@/src/types';
 
 interface PostOwnProps {
     message: TMessage;
@@ -56,7 +56,8 @@ const Reactions: FC<Props> = (props) => {
                             backgroundColor: reactionId ? 'rgba(96,96,255,0.1)' : 'rgba(128,128,128,0.1)',
                             borderWidth: 1,
                             borderColor: reactionId ? 'rgba(96,96,255,0.5)' : 'transparent',
-                        }}>
+                        }}
+                    >
                         <Text style={{fontSize: 12}}>{entry[0]}</Text>
                         <Text style={{fontSize: 12, marginLeft: 8, fontWeight: '600', color: 'rgb(85,85,85)'}}>
                             {Object.keys(entry[1]).length}
@@ -74,7 +75,8 @@ const Reactions: FC<Props> = (props) => {
                             reactionsOnly: true,
                             fileActionsOnly: false,
                         });
-                }}>
+                }}
+            >
                 <Icon name="face-smile-plus" color="rgb(85,85,85)" size={16} />
             </Pressable>
         </View>

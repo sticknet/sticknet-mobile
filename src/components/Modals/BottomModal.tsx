@@ -1,8 +1,9 @@
 import React, {FC, ReactNode} from 'react';
-import {SafeAreaView, View, StyleSheet, ViewStyle} from 'react-native';
+import {Platform, SafeAreaView, StyleSheet, View, ViewStyle} from 'react-native';
 import Modal from 'react-native-modal';
 import {widthPercentageToDP as w} from 'react-native-responsive-screen';
-import {isIphoneXD} from '../../utils';
+import {isIphoneXD} from '@/src/utils';
+import {globalData} from '@/src/actions/globalVariables';
 
 interface BottomModalProps {
     isVisible: boolean;
@@ -20,9 +21,10 @@ const BottomModal: FC<BottomModalProps> = (props) => {
             isVisible={props.isVisible}
             onBackButtonPress={props.hideModal}
             onBackdropPress={props.hideModal}
-            backdropOpacity={0.5}>
+            backdropOpacity={0.5}
+        >
             <SafeAreaView>
-                <View style={[s.modal, props.style]}>{props.children}</View>
+                <View style={[s.modal, props.style, Platform.OS === 'android' && {marginBottom: globalData.bottomBarHeight}]}>{props.children}</View>
             </SafeAreaView>
             {isIphoneXD && <View style={{backgroundColor: '#fff', width: w('100%'), height: 40}} />}
         </Modal>

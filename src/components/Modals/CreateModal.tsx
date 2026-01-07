@@ -1,18 +1,18 @@
 import React, {FC} from 'react';
 import {connect, ConnectedProps} from 'react-redux';
-import {FlatList, StyleSheet, Alert} from 'react-native';
+import {Alert, FlatList, Platform, StyleSheet} from 'react-native';
 import {NavigationProp, useNavigation} from '@react-navigation/native';
-import DocumentPicker from 'react-native-document-picker';
+import {keepLocalCopy, pick} from '@react-native-documents/picker';
 import {isIphoneX} from 'react-native-iphone-x-helper';
-import Text from '../Text';
+import Text from '@/src/components/Text';
 import BottomModal from './BottomModal';
-import Icon from '../Icons/Icon';
-import SettingsItem from '../SettingsItem';
-import {app, vault} from '../../actions';
-import {photosPermission} from '../../utils';
-import NavigationService from '../../actions/NavigationService';
-import type {IApplicationState, TFile} from '../../types';
-import type {CreateStackParamList} from '../../navigators/types';
+import Icon from '@/src/components/Icons/Icon';
+import SettingsItem from '@/src/components/SettingsItem';
+import {app, vault} from '@/src/actions';
+import {photosPermission} from '@/src/utils';
+import NavigationService from '@/src/actions/NavigationService';
+import type {IApplicationState, TFile} from '@/src/types';
+import type {CreateStackParamList} from '@/src/navigators/types';
 
 type PropsFromRedux = ConnectedProps<typeof connector>;
 type Props = PropsFromRedux;
@@ -37,11 +37,22 @@ const CreateModal: FC<Props> = (props) => {
     };
 
     const uploadFiles = async () => {
-        const response = await DocumentPicker.pick({copyTo: 'documentDirectory', allowMultiSelection: true});
+        const response = await pick({copyTo: 'documentDirectory', allowMultiSelection: true});
         props.closeModal('create');
         let cameraUploads = NavigationService.getRoute() === 'Photos';
-        response.map((item) => {
-            if (item.fileCopyUri) item.uri = item.fileCopyUri;
+        response.map(async (item) => {
+            if (Platform.OS === 'android') {
+                const [localItem] = await keepLocalCopy({
+                    files: [
+                        {
+                            uri: item.uri,
+                            fileName: item.name ?? 'item',
+                        },
+                    ],
+                    destination: 'documentDirectory',
+                })
+                item.uri = localItem.localUri;
+            }
             if (!item.type!.includes('image') && !item.type!.includes('video')) cameraUploads = false;
         });
         props.uploadVaultFiles({

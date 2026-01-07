@@ -1,6 +1,6 @@
 import {Action} from 'redux';
-import {iap} from '../../actions/actionTypes';
-import type {TSubscription} from '../../types';
+import {iap} from '@/src/actions/actionTypes';
+import type {TSubscription} from '@/src/types';
 
 export interface IFetchSubsAction extends Action {
     payload: TSubscription[];

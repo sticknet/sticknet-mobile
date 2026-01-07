@@ -6,11 +6,11 @@ import * as Animatable from 'react-native-animatable';
 import LottieView from 'lottie-react-native';
 import Animated, {Layout, FadeOutLeft, FadeInRight} from 'react-native-reanimated';
 
-import ProfilePicture from '../ProfilePicture';
-import {users} from '../../actions';
-import Text from '../Text';
-import {checkAnimation} from '../../../assets/lottie';
-import type {IApplicationState, TUser, TConnectionRequest} from '../../types';
+import ProfilePicture from '@/src/components/ProfilePicture';
+import {users} from '@/src/actions';
+import Text from '@/src/components/Text';
+import {checkAnimation} from '@/assets/lottie';
+import type {IApplicationState, TUser, TConnectionRequest} from '@/src/types';
 
 const mapStateToProps = (state: IApplicationState) => {
     return {
@@ -48,7 +48,8 @@ const ConnectionRequest: FC<Props> = (props) => {
             exiting={FadeOutLeft}
             layout={Layout.springify()}
             testID={testID}
-            style={s.invBox}>
+            style={s.invBox}
+        >
             <View style={s.fromUser}>
                 <ProfilePicture user={{...user, profilePicture: null}} size={48} disableNav />
                 <View style={{marginLeft: 12}}>
@@ -60,17 +61,20 @@ const ConnectionRequest: FC<Props> = (props) => {
                         <AnimatedView
                             transition="opacity"
                             duration={500}
-                            style={[s.buttons, {opacity: !request.accepted ? 1 : 0}]}>
+                            style={[s.buttons, {opacity: !request.accepted ? 1 : 0}]}
+                        >
                             <TouchableOpacity
                                 testID={`${testID}-stick-in`}
                                 onPress={() => !request.accepted && props.connReqRes(user, props.user, request, true)}
-                                style={[s.button, s.accept]}>
+                                style={[s.button, s.accept]}
+                            >
                                 <Text style={[s.buttonText, {color: '#6060FF'}]}>Accept</Text>
                             </TouchableOpacity>
                             <TouchableOpacity
                                 testID={`${testID}-decline`}
                                 onPress={() => !request.accepted && props.connReqRes(user, props.user, request, false)}
-                                style={[s.button, s.decline]}>
+                                style={[s.button, s.decline]}
+                            >
                                 <Text style={[s.buttonText, {color: 'red'}]}>Decline</Text>
                             </TouchableOpacity>
                         </AnimatedView>
@@ -82,7 +86,8 @@ const ConnectionRequest: FC<Props> = (props) => {
                                 height: 32,
                                 marginBottom: 16,
                                 marginTop: 4,
-                            }}>
+                            }}
+                        >
                             <LottieView
                                 ref={animationRef}
                                 colorFilters={[

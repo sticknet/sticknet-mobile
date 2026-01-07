@@ -1,5 +1,5 @@
 import type {ParamListBase} from '@react-navigation/native';
-import type {IAlbum, TChatAlbum, TFile, TGroup, TMessage, TParty, TUser, TVaultNote} from '../types';
+import type {IAlbum, TChatAlbum, TFile, TGroup, TMessage, TParty, TUser, TVaultNote} from '@/src/types';
 
 type baseParams = {hideTabBar: boolean} | undefined;
 interface CreateStackParamList extends ParamListBase {

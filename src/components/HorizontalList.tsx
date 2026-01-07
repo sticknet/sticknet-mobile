@@ -2,8 +2,8 @@ import React, {useRef, useEffect, FC} from 'react';
 import {FlatList, Platform, FlatListProps} from 'react-native';
 import {connect, ConnectedProps} from 'react-redux';
 import {heightPercentageToDP as h, widthPercentageToDP as w} from 'react-native-responsive-screen';
-import {app} from '../actions';
-import {IApplicationState} from '../types'; // Adjust the import path accordingly
+import {app} from '@/src/actions';
+import {IApplicationState} from '@/src/types'; // Adjust the import path accordingly
 
 const viewabilityConfig = {
     waitForInteraction: false,

@@ -1,26 +1,26 @@
 import React, {Component} from 'react';
 import {
-    View,
+    Alert,
+    FlatList,
+    Platform,
+    Pressable,
+    RefreshControl,
+    StatusBar,
+    StyleSheet,
     Text,
     TouchableOpacity,
-    FlatList,
-    StatusBar,
-    Platform,
-    RefreshControl,
-    Alert,
-    StyleSheet,
-    Pressable,
+    View,
 } from 'react-native';
 import {connect, ConnectedProps} from 'react-redux';
 import {widthPercentageToDP as w} from 'react-native-responsive-screen';
 import AddIcon from '@sticknet/react-native-vector-icons/FontAwesome';
 import {NavigationProp, RouteProp} from '@react-navigation/native';
-import {Image, GroupModal, ProfilePicture, SmallLoading, Icon, NewImage} from '../../components';
-import {groups, notifications} from '../../actions';
-import {DefaultGroupCover} from '../../../assets/images';
-import {nav} from '../../utils';
-import type {IApplicationState, TUser} from '../../types';
-import type {ChatStackParamList} from '../../navigators/types';
+import {GroupModal, Icon, Image, NewImage, ProfilePicture, SmallLoading} from '@/src/components';
+import {groups, notifications} from '@/src/actions';
+import {DefaultGroupCover} from '@/assets/images';
+import {nav} from '@/src/utils';
+import type {IApplicationState, TUser} from '@/src/types';
+import type {ChatStackParamList} from '@/src/navigators/types';
 
 type ReduxProps = ConnectedProps<typeof connector>;
 

@@ -1,5 +1,5 @@
 import {Action} from 'redux';
-import {upload} from '../actions/actionTypes';
+import {upload} from '@/src/actions/actionTypes';
 
 export interface IUploadState {
     [key: string]: number;

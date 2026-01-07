@@ -1,6 +1,6 @@
 import {Action} from 'redux';
 import _ from 'lodash';
-import {download} from '../actions/actionTypes';
+import {download} from '@/src/actions/actionTypes';
 
 export interface IDownloadedAction extends Action {
     payload: string;

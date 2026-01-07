@@ -1,8 +1,8 @@
 import {Platform} from 'react-native';
 import PushNotification, {PushNotificationScheduledLocalObject} from 'react-native-push-notification';
 import NotificationHandler from './NotificationHandler';
-import {notificationGroupId} from '../globalVariables';
-import {hashCode} from '../../utils';
+import {notificationGroupId} from '@/src/actions/globalVariables';
+import {hashCode} from '@/src/utils';
 import channels from './notificationChannels';
 
 type Notification = {

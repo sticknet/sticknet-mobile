@@ -1,7 +1,7 @@
 import React, {FC} from 'react';
 import {connect, ConnectedProps} from 'react-redux';
 import PremiumIcon from './PremiumIcon';
-import type {IApplicationState, TUser} from '../../types';
+import type {IApplicationState, TUser} from '@/src/types';
 
 const mapStateToProps = (state: IApplicationState) => ({
     subscription: state.auth.user ? (state.auth.user as TUser).subscription : 'basic',

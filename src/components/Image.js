@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Animated, Image as NativeImage, Platform, Text, View, StyleSheet} from 'react-native';
+import {Animated, Image as NativeImage, Platform, StyleSheet, Text, View} from 'react-native';
 import {connect} from 'react-redux';
 import FastImage from 'react-native-fast-image';
 import Icon from '@sticknet/react-native-vector-icons/Fontisto';
@@ -8,7 +8,7 @@ import * as Progress from 'react-native-progress';
 import LottieView from 'lottie-react-native';
 import {State, TapGestureHandler} from 'react-native-gesture-handler';
 import {app} from '../actions';
-import {DefaultProfileCover, DefaultGroupCover, DefaultProfilePicture} from '../../assets/images';
+import {DefaultGroupCover, DefaultProfileCover, DefaultProfilePicture} from '../../assets/images';
 import HOC from './HOC';
 import {fetchingSenderKeys, pendingEntities} from '../actions/globalVariables';
 import {securityAnimation} from '../../assets/lottie';

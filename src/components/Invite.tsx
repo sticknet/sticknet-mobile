@@ -1,9 +1,9 @@
 import React, {PureComponent} from 'react';
-import {Text, TouchableOpacity, View, StyleSheet, StyleProp, ViewStyle, TextStyle} from 'react-native';
+import {StyleProp, StyleSheet, Text, TextStyle, TouchableOpacity, View, ViewStyle} from 'react-native';
 import {connect} from 'react-redux';
 import Icon from '@sticknet/react-native-vector-icons/Ionicons';
-import {profile} from '../actions';
-import {IProfileActions} from '../actions/profile';
+import {profile} from '@/src/actions';
+import {IProfileActions} from '@/src/actions/profile';
 
 interface InviteProps extends IProfileActions {
     small?: boolean;

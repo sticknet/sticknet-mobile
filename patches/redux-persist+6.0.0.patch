@@ -1,0 +1,13 @@
+diff --git a/node_modules/redux-persist/lib/integration/react.js b/node_modules/redux-persist/lib/integration/react.js
+index 5c9a98d..160d53c 100644
+--- a/node_modules/redux-persist/lib/integration/react.js
++++ b/node_modules/redux-persist/lib/integration/react.js
+@@ -99,7 +99,7 @@ function (_PureComponent) {
+         return this.props.children(this.state.bootstrapped);
+       }
+ 
+-      return this.state.bootstrapped ? this.props.children : this.props.loading;
++      return this.props.children;
+     }
+   }]);
+ 

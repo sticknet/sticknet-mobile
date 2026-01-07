@@ -1,15 +1,15 @@
 import {firebase} from '@react-native-firebase/database';
 import {Dispatch} from 'redux';
-import {stickRoom} from '../actionTypes';
-import {globalData, syncingChain} from '../globalVariables';
-import {formatTime} from '../../utils';
-import channels from '../notifications/notificationChannels';
-import StickProtocol from '../../native-modules/stick-protocol';
-import axios from '../myaxios';
-import {firebaseRef, URL} from '../URL';
-import SPH from '../SPHandlers';
-import {log} from '../utils';
-import {TMessage, TUser} from '../../types';
+import {stickRoom} from '@/src/actions/actionTypes';
+import {globalData, syncingChain} from '@/src/actions/globalVariables';
+import {formatTime} from '@/src/utils';
+import channels from '@/src/actions/notifications/notificationChannels';
+import StickProtocol from '@/modules/stick-protocol';
+import axios from '@/src/actions/myaxios';
+import {firebaseRef, URL} from '@/src/actions/URL';
+import {stickProtocolHandlers as SPH} from '@/src/actions/SPHandlers';
+import {log} from '@/src/actions/utils';
+import {TMessage, TUser} from '@/src/types';
 
 const database = firebase.app().database(firebaseRef);
 
@@ -32,6 +32,7 @@ export async function parse(message: TMessage, roomId: string, currentUser: TUse
     log('function: parse');
     const {id, text, userId, stickId, files, audio, updatedMessageId, deletedMessageId, reactions, context, chainStep} =
         message;
+    console.log('parsing: ', id);
 
     syncChains(userId, currentUser, stickId, chainStep!);
 
@@ -100,7 +101,8 @@ export async function parse(message: TMessage, roomId: string, currentUser: TUse
                     encryptedReaction,
                     true,
                 );
-                msgReactions[decryptedReaction] = {...msgReactions[decryptedReaction], [reactionId]: userId};
+                if (decryptedReaction)
+                    msgReactions[decryptedReaction] = {...msgReactions[decryptedReaction], [reactionId]: userId};
             }
         }
         message.reactions = msgReactions;
@@ -290,7 +292,7 @@ export async function sendNotification(params: SendNotificationParams) {
             true,
         );
         body.data.title = 'Sticknet';
-        body.data.body = encryptedNotification;
+        body.data.body = encryptedNotification as string;
         axios.post(`${URL}/api/push-notification-multicast/`, body, config).catch((err) => console.log('error', err));
     }
 }

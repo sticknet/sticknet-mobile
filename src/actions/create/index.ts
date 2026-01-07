@@ -1,6 +1,6 @@
 import {Dispatch} from 'redux';
-import {appTemp, creating, errors, selectedImages, progress} from '../actionTypes';
-import type {TGalleryItem, TGroup, IAlbum, TUser, TFile} from '../../types';
+import {appTemp, creating, errors, selectedImages, progress} from '@/src/actions/actionTypes';
+import type {TGalleryItem, TGroup, IAlbum, TUser, TFile} from '@/src/types';
 
 export interface ICreateActions {
     resetCreateState: (params?: TResetCreateStateParams) => void;

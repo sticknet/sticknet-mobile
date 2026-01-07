@@ -1,27 +1,27 @@
 import React, {Component, createRef} from 'react';
 import {
-    View,
-    Text,
     ActivityIndicator,
     Alert,
+    Keyboard,
+    KeyboardEvent,
     Platform,
     StatusBar,
-    TextInput,
-    Keyboard,
     StyleSheet,
-    KeyboardEvent,
+    Text,
+    TextInput,
+    View,
 } from 'react-native';
 import {connect} from 'react-redux';
 import CheckIcon from '@sticknet/react-native-vector-icons/Feather';
 import {widthPercentageToDP as w} from 'react-native-responsive-screen';
 import changeNavigationBarColor from 'react-native-navigation-bar-color';
 import type {NavigationProp, RouteProp} from '@react-navigation/native';
-import {Button} from '../../components';
-import {app, auth} from '../../actions/index';
-import {globalData} from '../../actions/globalVariables';
-import type {IApplicationState} from '../../types';
-import type {IAppActions, IAuthActions} from '../../actions/types';
-import type {HomeStackParamList} from '../../navigators/types';
+import {Button} from '@/src/components';
+import {app, auth} from '@/src/actions/index';
+import {globalData} from '@/src/actions/globalVariables';
+import type {IApplicationState} from '@/src/types';
+import type {IAppActions, IAuthActions} from '@/src/actions/types';
+import type {HomeStackParamList} from '@/src/navigators/types';
 
 interface RegisterScreen2Props extends IAppActions, IAuthActions {
     navigation: NavigationProp<HomeStackParamList>;
@@ -138,7 +138,11 @@ class RegisterScreen2 extends Component<RegisterScreen2Props, RegisterScreen2Sta
 
     render() {
         return (
-            <View style={{flex: 1, padding: 12, paddingLeft: 20}}>
+            <View
+                style={[
+                    {flex: 1, padding: 12, paddingLeft: 20},
+                    Platform.OS === 'android' && {marginBottom: globalData.bottomBarHeight},
+                ]}>
                 <Text style={s.create}>Set your Username</Text>
                 <View style={{flexDirection: 'row', alignItems: 'center', marginTop: 16}}>
                     <TextInput

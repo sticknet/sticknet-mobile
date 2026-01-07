@@ -17,13 +17,13 @@ import {widthPercentageToDP as w} from 'react-native-responsive-screen';
 import Collapsible from 'react-native-collapsible';
 import type {NavigationProp, RouteProp} from '@react-navigation/native';
 import Video from 'react-native-video';
-import {CreatingCaption, SettingsItem, Icon, Input} from '../../components';
-import {create, app, stickRoom} from '../../actions/index';
-import {colors} from '../../foundations';
-import TextModal from '../../components/Modals/TextModal';
-import type {IApplicationState, TFile, TGroup, TMessage, TUser} from '../../types';
-import type {ICreateActions, IAppActions, IStickRoomActions} from '../../actions/types';
-import type {CreateStackParamList} from '../../navigators/types';
+import {CreatingCaption, SettingsItem, Icon, Input} from '@/src/components';
+import {create, app, stickRoom} from '@/src/actions/index';
+import {colors} from '@/src/foundations';
+import TextModal from '@/src/components/Modals/TextModal';
+import type {IApplicationState, TFile, TGroup, TMessage, TUser} from '@/src/types';
+import type {ICreateActions, IAppActions, IStickRoomActions} from '@/src/actions/types';
+import type {CreateStackParamList} from '@/src/navigators/types';
 
 interface ShareScreenProps extends ICreateActions, IAppActions, IStickRoomActions {
     navigation: NavigationProp<CreateStackParamList>;
@@ -178,7 +178,8 @@ class ShareScreen extends Component<Props, ShareScreenState> {
                         borderBottomWidth: StyleSheet.hairlineWidth,
                         borderColor: 'lightgrey',
                         marginHorizontal: 8,
-                    }}>
+                    }}
+                >
                     {album ? (
                         <View style={{paddingVertical: 20, paddingHorizontal: 8}}>
                             <Text>
@@ -214,7 +215,8 @@ class ShareScreen extends Component<Props, ShareScreenState> {
                                 ) : (
                                     <TouchableOpacity
                                         onPress={() => this.setState({albumTitleModal: true})}
-                                        style={[s.input, s.albumTitleContainer]}>
+                                        style={[s.input, s.albumTitleContainer]}
+                                    >
                                         <Text style={{color: this.state.albumTitle ? '#000' : 'grey'}}>
                                             {this.state.albumTitle || 'Album title'}
                                         </Text>

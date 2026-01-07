@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import {FlatList, StatusBar, StyleSheet} from 'react-native';
 import {NavigationProp} from '@react-navigation/native';
-import {SettingsItem, Icon} from '../../../components';
-import type {ProfileStackParamList} from '../../../navigators/types';
+import {SettingsItem, Icon} from '@/src/components';
+import type {ProfileStackParamList} from '@/src/navigators/types';
 
 interface PrivacyScreenProps {
     navigation: NavigationProp<ProfileStackParamList>;

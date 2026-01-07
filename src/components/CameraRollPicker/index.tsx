@@ -1,18 +1,18 @@
 import React, {Component} from 'react';
-import {View, Text, FlatList, TouchableOpacity, Alert, StyleSheet, ListRenderItemInfo} from 'react-native';
+import {Alert, FlatList, ListRenderItemInfo, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {connect, ConnectedProps} from 'react-redux';
 import {AssetType, CameraRoll, GroupTypes, Include, PhotoIdentifiersPage} from '@react-native-camera-roll/camera-roll';
-import {RESULTS, openLimitedPhotoLibraryPicker, openSettings} from 'react-native-permissions';
+import {openLimitedPhotoLibraryPicker, openSettings, RESULTS} from 'react-native-permissions';
 import MaterialIcon from '@sticknet/react-native-vector-icons/MaterialIcons';
 import SimpleIcon from '@sticknet/react-native-vector-icons/SimpleLineIcons';
-import {globalData} from '../../actions/globalVariables';
-import Sticknet from '../Sticknet';
-import BottomModal from '../Modals/BottomModal';
-import ModalItem from '../Modals/ModalItem';
+import {globalData} from '@/src/actions/globalVariables';
+import Sticknet from '@/src/components/Sticknet';
+import BottomModal from '@/src/components/Modals/BottomModal';
+import ModalItem from '@/src/components/Modals/ModalItem';
 import Row from './Row';
-import SmallLoading from '../SmallLoading';
-import CommonNative from '../../native-modules/common-native';
-import {IApplicationState, TGalleryItem, TUser} from '../../types';
+import SmallLoading from '@/src/components/SmallLoading';
+import CommonNative from '@/modules/common-native';
+import {IApplicationState, TGalleryItem, TUser} from '@/src/types';
 
 const arrayObjectIndexOf = (array: any[], property: string, value: any) => array.map((o) => o[property]).indexOf(value);
 
@@ -149,7 +149,8 @@ class CameraRollPicker extends Component<Props, State> {
     doFetch = async () => {
         const params = {
             first: 21,
-            assetType: 'All' as AssetType,
+            // assetType: 'All' as AssetType,
+            assetType: Platform.OS === 'ios' ? 'All' : 'Photos' as AssetType,
             groupTypes: this.props.album.recents ? ('All' as GroupTypes) : ('Album' as GroupTypes),
             groupName: this.props.album.title !== 'Recents' ? this.props.album.title : undefined,
             include: ['playableDuration', 'filename', 'imageSize', 'fileExtension', 'fileSize'] as Include[],

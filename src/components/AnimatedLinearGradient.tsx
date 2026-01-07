@@ -1,4 +1,3 @@
-// eslint-disable-next-line max-classes-per-file
 import React, {Component, PureComponent} from 'react';
 import {StyleSheet, Animated, Easing, ViewStyle} from 'react-native';
 import NativeLinearGradient from 'react-native-linear-gradient';
@@ -116,7 +115,8 @@ class AnimatedGradient extends Component<AnimatedGradientProps, AnimatedGradient
                 style={[styles.linearGradient, style]}
                 points={points!}
                 color0={interpolatedColors[0]}
-                color1={interpolatedColors[1]}>
+                color1={interpolatedColors[1]}
+            >
                 {children}
             </AnimatedLinearGradient>
         );

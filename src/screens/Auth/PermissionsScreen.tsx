@@ -1,15 +1,16 @@
-import React, {useRef, useEffect, FC} from 'react';
-import {View, Text, StyleSheet, Platform} from 'react-native';
+import React, {FC, useEffect, useRef} from 'react';
+import {Platform, StyleSheet, Text, View} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import LottieView from 'lottie-react-native';
-import {PERMISSIONS, request} from 'react-native-permissions';
 import PushNotification from 'react-native-push-notification';
 import DeviceInfo from 'react-native-device-info';
 import {widthPercentageToDP as w} from 'react-native-responsive-screen';
 import type {StackNavigationProp} from '@react-navigation/stack';
-import {permissionsAnimation} from '../../../assets/lottie';
-import {Button, Sticknet} from '../../components';
-import type {HomeStackParamList} from '../../navigators/types';
+import {permissionsAnimation} from '@/assets/lottie';
+import {Button, Sticknet} from '@/src/components';
+import type {HomeStackParamList} from '@/src/navigators/types';
+import {useSafeAreaInsets} from 'react-native-safe-area-context';
+import {requestNotifications} from 'react-native-permissions';
 
 const PermissionsScreen: FC = () => {
     const navigation: StackNavigationProp<HomeStackParamList> = useNavigation();
@@ -24,13 +25,13 @@ const PermissionsScreen: FC = () => {
         if (Platform.OS === 'ios' || (Platform.OS === 'android' && parseInt(version) <= 12)) {
             await PushNotification.requestPermissions();
         } else {
-            await request(PERMISSIONS.ANDROID.POST_NOTIFICATIONS);
+            await requestNotifications();
         }
         navigation.replace('Authentication');
     };
-
+    const {bottom} = useSafeAreaInsets();
     return (
-        <View style={s.body}>
+        <View style={[s.body, Platform.OS === 'android' && {marginBottom: bottom}]}>
             <View>
                 <Text style={s.title}>Allow Permissions</Text>
                 <Text style={s.text}>
@@ -54,6 +55,7 @@ const s = StyleSheet.create({
     },
     animation: {
         width: w('90%'),
+        height: w('90%'),
         alignSelf: 'center',
     },
     title: {

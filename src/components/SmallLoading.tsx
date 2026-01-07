@@ -3,7 +3,7 @@ import {View, Animated, Easing, StyleSheet, ViewStyle, Text} from 'react-native'
 import {connect, ConnectedProps} from 'react-redux';
 import {widthPercentageToDP as w} from 'react-native-responsive-screen';
 import Config from 'react-native-config';
-import type {IApplicationState} from '../types';
+import type {IApplicationState} from '@/src/types';
 
 type ReduxProps = ConnectedProps<typeof connector>;
 

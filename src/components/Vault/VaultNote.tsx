@@ -2,12 +2,12 @@ import React, {FC} from 'react';
 import {View, StyleSheet, Pressable, StyleProp, ViewStyle} from 'react-native';
 import {widthPercentageToDP as w} from 'react-native-responsive-screen';
 import {useNavigation, NavigationProp} from '@react-navigation/native';
-import Text from '../Text';
-import {formatAMPM, formatMessageDate, nav} from '../../utils';
-import {colors} from '../../foundations';
-import ActionsMenu from '../ActionsMenu';
-import type {TVaultNote} from '../../types';
-import type {VaultStackParamList} from '../../navigators/types';
+import Text from '@/src/components/Text';
+import {formatAMPM, formatMessageDate, nav} from '@/src/utils';
+import {colors} from '@/src/foundations';
+import ActionsMenu from '@/src/components/ActionsMenu';
+import type {TVaultNote} from '@/src/types';
+import type {VaultStackParamList} from '@/src/navigators/types';
 
 interface VaultNoteProps {
     note: TVaultNote;

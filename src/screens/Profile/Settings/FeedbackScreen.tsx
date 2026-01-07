@@ -3,12 +3,12 @@ import {StatusBar, View} from 'react-native';
 import {NavigationProp} from '@react-navigation/native';
 import {widthPercentageToDP as w} from 'react-native-responsive-screen';
 import {connect} from 'react-redux';
-import {Input} from '../../../components/index';
-import {globalData} from '../../../actions/globalVariables';
-import {profile} from '../../../actions/index';
-import type {IApplicationState, TUser} from '../../../types';
-import type {ProfileStackParamList} from '../../../navigators/types';
-import type {IProfileActions} from '../../../actions/profile';
+import {Input} from '@/src/components/index';
+import {globalData} from '@/src/actions/globalVariables';
+import {profile} from '@/src/actions/index';
+import type {IApplicationState, TUser} from '@/src/types';
+import type {ProfileStackParamList} from '@/src/navigators/types';
+import type {IProfileActions} from '@/src/actions/profile';
 
 interface FeedbackScreenProps extends IProfileActions {
     navigation: NavigationProp<ProfileStackParamList>;

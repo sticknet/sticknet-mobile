@@ -2,9 +2,9 @@ import React from 'react';
 import {connect, ConnectedProps} from 'react-redux';
 import {Text, View, StyleSheet} from 'react-native';
 import Icon from './Icon';
-import {getUnreadCount} from '../../utils';
-import Bubble from '../Bubble';
-import type {IApplicationState, TUser} from '../../types';
+import {getUnreadCount} from '@/src/utils';
+import Bubble from '@/src/components/Bubble';
+import type {IApplicationState, TUser} from '@/src/types';
 
 interface ChatsIconOwnProps {
     color: string;

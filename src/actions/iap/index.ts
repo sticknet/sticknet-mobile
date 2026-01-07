@@ -1,19 +1,19 @@
 import {
+    fetchProducts,
     finishTransaction,
-    getSubscriptions,
+    ProductSubscriptionAndroid,
+    ProductSubscriptionIOS,
     Purchase,
-    requestSubscription,
-    SubscriptionIOS,
-    SubscriptionAndroid,
+    requestPurchase,
 } from 'react-native-iap';
 import {Alert, Platform} from 'react-native';
 import DeviceInfo from 'react-native-device-info';
 import {Dispatch} from 'redux';
-import {iap, progress, app, auth} from '../actionTypes';
-import {globalData} from '../globalVariables';
-import axios from '../myaxios';
-import {URL} from '../URL';
-import {TSubscription} from '../../types';
+import {app, auth, iap, progress} from '@/src/actions/actionTypes';
+import {globalData} from '@/src/actions/globalVariables';
+import axios from '@/src/actions/myaxios';
+import {URL} from '@/src/actions/URL';
+import {TSubscription} from '@/src/types';
 
 const bundleId = DeviceInfo.getBundleId();
 
@@ -27,29 +27,29 @@ export interface IIAPActions {
 export function fetchSubscriptions() {
     return async function (dispatch: Dispatch) {
         const skus = `${bundleId}.premium.1`;
-        const subs = await getSubscriptions({skus: [skus]});
+        const subs = await fetchProducts({skus: [skus], type: 'subs'});
         const arr: TSubscription[] = [];
 
-        subs.map((sub) => {
+        subs?.map((sub) => {
             let price: string;
             let hasFreeTrial: boolean;
             let offerToken: string | null = null;
 
             if (Platform.OS === 'ios') {
-                const iosSub = sub as SubscriptionIOS;
-                price = iosSub.localizedPrice;
+                const iosSub = sub as ProductSubscriptionIOS;
+                price = iosSub.displayPrice;
                 hasFreeTrial = !!(
                     iosSub.introductoryPriceNumberOfPeriodsIOS && iosSub.introductoryPriceNumberOfPeriodsIOS !== '0'
                 );
             } else {
-                const androidSub = sub as SubscriptionAndroid;
-                offerToken = androidSub.subscriptionOfferDetails?.[0]?.offerToken || null;
-                hasFreeTrial = !!androidSub.subscriptionOfferDetails?.[0]?.offerId;
-                const list = androidSub.subscriptionOfferDetails?.[0]?.pricingPhases.pricingPhaseList;
+                const androidSub = sub as ProductSubscriptionAndroid;
+                offerToken = androidSub.subscriptionOfferDetailsAndroid?.[0]?.offerToken || null;
+                hasFreeTrial = !!androidSub.subscriptionOfferDetailsAndroid?.[0]?.offerId;
+                const list = androidSub.subscriptionOfferDetailsAndroid?.[0]?.pricingPhases.pricingPhaseList;
                 price = list ? list[list.length - 1].formattedPrice : '';
             }
 
-            arr.push({productId: sub.productId, price, offerToken: offerToken!, hasFreeTrial});
+            arr.push({productId: sub.id, price, offerToken: offerToken!, hasFreeTrial});
         });
 
         dispatch({type: iap.FETCH_SUBS, payload: arr});
@@ -61,18 +61,23 @@ export function requestSub({sub}: TRequestSubParams) {
     return async function (dispatch: Dispatch) {
         dispatch({type: progress.START_LOADING});
         try {
-            await requestSubscription(
-                Platform.OS === 'ios'
-                    ? {sku: sub.productId}
-                    : {
-                          subscriptionOffers: [
-                              {
-                                  sku: sub.productId,
-                                  offerToken: sub.offerToken,
+            await requestPurchase({
+                request:
+                    Platform.OS === 'ios'
+                        ? {apple: {sku: sub.productId}}
+                        : {
+                              google: {
+                                  skus: [sub.productId],
+                                  subscriptionOffers: [
+                                      {
+                                          sku: sub.productId,
+                                          offerToken: sub.offerToken,
+                                      },
+                                  ],
                               },
-                          ],
-                      },
-            );
+                          },
+                type: 'subs',
+            });
         } catch (err) {
             console.log('ERROR REQUEST SUB', err);
         }
@@ -83,9 +88,9 @@ export function requestSub({sub}: TRequestSubParams) {
 type TVerifyReceiptParams = {purchase: Purchase; callback: () => void};
 export function verifyReceipt({purchase, callback}: TVerifyReceiptParams) {
     return async function (dispatch: Dispatch) {
-        const receipt = Platform.OS === 'ios' ? purchase.transactionReceipt : JSON.parse(purchase.transactionReceipt!);
+        const receipt = purchase.purchaseToken;
         const transactionId = purchase.transactionId;
-        const productId = Platform.OS === 'ios' ? purchase.productId : receipt.productId;
+        const productId = purchase.productId;
         const config = {headers: {Authorization: globalData.token}};
         let body: {platform: string; productId: string; receipt?: string; token?: string};
 
@@ -93,13 +98,13 @@ export function verifyReceipt({purchase, callback}: TVerifyReceiptParams) {
             body = {
                 platform: 'ios',
                 productId,
-                receipt,
+                receipt: receipt!,
             };
         } else {
             body = {
                 platform: 'android',
                 productId,
-                token: receipt.purchaseToken,
+                token: receipt!,
             };
         }
 

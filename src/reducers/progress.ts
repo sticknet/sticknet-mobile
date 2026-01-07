@@ -1,5 +1,5 @@
 import {Action} from 'redux';
-import {progress} from '../actions/actionTypes';
+import {progress} from '@/src/actions/actionTypes';
 
 export interface IProgressState {
     update: boolean;

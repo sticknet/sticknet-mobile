@@ -1,42 +1,42 @@
 import React, {useEffect, useState} from 'react';
 
 import {
-    View,
-    Platform,
     Alert,
+    AppState,
+    EmitterSubscription,
+    Image,
     Keyboard,
+    KeyboardEvent,
+    Linking,
     PixelRatio,
+    Platform,
     StyleSheet,
     TouchableWithoutFeedback,
-    KeyboardEvent,
-    EmitterSubscription,
-    Linking,
-    Image,
-    AppState,
+    View,
 } from 'react-native';
 import {connect, ConnectedProps} from 'react-redux';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {widthPercentageToDP as w} from 'react-native-responsive-screen';
 import {useAppKit} from '@reown/appkit-ethers-react-native';
 import changeNavigationBarColor from 'react-native-navigation-bar-color';
-import RNBootSplash from 'react-native-bootsplash';
 import {firebase} from '@react-native-firebase/database';
 import Config from 'react-native-config';
 import type {RouteProp} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {handleResponse} from '@coinbase/wallet-mobile-sdk';
 import {AccountController} from '@reown/appkit-core-react-native';
-import {auth, app} from '../../actions';
-import {Button, Text} from '../../components';
-import {devRegistration, globalData} from '../../actions/globalVariables';
-import {getStatusBarHeight, validateEmail} from '../../utils';
-import {colors} from '../../foundations';
-import Input from '../../components/Input';
-import type {HomeStackParamList} from '../../navigators/types';
-import type {IApplicationState} from '../../types';
-import type {IAppActions, IAuthActions} from '../../actions/types';
+import {app, auth} from '@/src/actions';
+import {Button, Text} from '@/src/components';
+import {devRegistration, globalData} from '@/src/actions/globalVariables';
+import {getStatusBarHeight, validateEmail} from '@/src/utils';
+import {colors} from '@/src/foundations';
+import Input from '@/src/components/Input';
+import type {HomeStackParamList} from '@/src/navigators/types';
+import type {IApplicationState} from '@/src/types';
+import type {IAppActions, IAuthActions} from '@/src/actions/types';
 import {authNavCallbacks} from './CodeScreen';
-import {SticknetIcon} from '../../../assets/images';
+import {SticknetIcon} from '@/assets/images';
+import {useSafeAreaInsets} from 'react-native-safe-area-context';
 
 interface AuthenticationScreenProps extends IAppActions, IAuthActions {
     navigation: StackNavigationProp<HomeStackParamList>;
@@ -52,7 +52,6 @@ const AuthenticationScreen: React.FC<Props> = (props) => {
     let keyboardDidShowListener: EmitterSubscription;
     const [email, setEmail] = useState('');
     useEffect(() => {
-        RNBootSplash.hide({duration: 250});
         if (Platform.OS === 'android') {
             changeNavigationBarColor('#000000');
         }
@@ -98,7 +97,7 @@ const AuthenticationScreen: React.FC<Props> = (props) => {
             const callbacks = authNavCallbacks(props, props.walletVerified, 'wallet');
             props.handleWalletVerified({...callbacks, ethereumAddress: props.walletVerified});
         }
-    }, [props.walletVerified]);
+    }, [props]);
 
     const keyboardDidShow = (e: KeyboardEvent) => {
         if (!props.keyboardHeight)
@@ -141,6 +140,8 @@ const AuthenticationScreen: React.FC<Props> = (props) => {
         } else Alert.alert('Invalid email', 'Please enter a valid email address');
     };
     const {open, close} = useAppKit();
+    const {bottom} = useSafeAreaInsets();
+    globalData.bottomBarHeight = bottom;
     return (
         <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()} testID="authentication-screen">
             <View style={s.body}>

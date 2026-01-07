@@ -1,8 +1,8 @@
 import React, {PureComponent} from 'react';
-import {TouchableOpacity, StyleSheet, TouchableOpacityProps, TextStyle, ViewStyle} from 'react-native';
+import {StyleSheet, TextStyle, TouchableOpacity, TouchableOpacityProps, ViewStyle} from 'react-native';
 import Icon from '@sticknet/react-native-vector-icons/Ionicons';
 import Text from './Text';
-import {colors} from '../foundations';
+import {colors} from '@/src/foundations';
 
 interface NextProps extends TouchableOpacityProps {
     bold?: boolean;

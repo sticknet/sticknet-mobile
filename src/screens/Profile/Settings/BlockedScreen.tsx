@@ -2,11 +2,11 @@ import React, {Component} from 'react';
 import {FlatList, Text, View, StyleSheet, ListRenderItemInfo} from 'react-native';
 import {connect} from 'react-redux';
 import {NavigationProp, RouteProp} from '@react-navigation/native';
-import {IApplicationState, TUser} from '../../../types';
-import {users} from '../../../actions';
-import {Separator, UserItem} from '../../../components';
-import type {ProfileStackParamList} from '../../../navigators/types';
-import {IUsersActions} from '../../../actions/users';
+import {IApplicationState, TUser} from '@/src/types';
+import {users} from '@/src/actions';
+import {Separator, UserItem} from '@/src/components';
+import type {ProfileStackParamList} from '@/src/navigators/types';
+import {IUsersActions} from '@/src/actions/users';
 
 interface BlockedScreenProps extends IUsersActions {
     navigation: NavigationProp<ProfileStackParamList>;

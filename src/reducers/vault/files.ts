@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import {Action} from 'redux';
-import {vault} from '../../actions/actionTypes';
-import {TFile} from '../../types';
+import {vault} from '@/src/actions/actionTypes';
+import {TFile} from '@/src/types';
 
 export interface IFilesState {
     [key: string]: TFile;

@@ -1,5 +1,5 @@
 import {Action} from 'redux';
-import {refreshEntities} from '../actions/actionTypes';
+import {refreshEntities} from '@/src/actions/actionTypes';
 
 export interface IRefreshEntitiesState {
     [key: string]: boolean;

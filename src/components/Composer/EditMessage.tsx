@@ -2,9 +2,9 @@ import Animated, {useAnimatedStyle, useSharedValue, withTiming} from 'react-nati
 import {Text, StyleSheet, Pressable} from 'react-native';
 import React, {useEffect} from 'react';
 import {connect, ConnectedProps} from 'react-redux';
-import Icon from '../Icons/Icon';
-import {app} from '../../actions';
-import {IApplicationState} from '../../types';
+import Icon from '@/src/components/Icons/Icon';
+import {app} from '@/src/actions';
+import {IApplicationState} from '@/src/types';
 
 const AnimatedPressable = Animated.createAnimatedComponent(Pressable);
 
@@ -32,7 +32,8 @@ const EditMessage: React.FC<Props> = (props) => {
                 {borderTopWidth: props.isEditingMessage ? StyleSheet.hairlineWidth : 0},
                 animatedStyles,
             ]}
-            onPress={() => props.dispatchAppTempProperty({editingMessage: null})}>
+            onPress={() => props.dispatchAppTempProperty({editingMessage: null})}
+        >
             <Icon solid name="circle-x" size={15} color="grey" />
             <Text> Editing message</Text>
         </AnimatedPressable>

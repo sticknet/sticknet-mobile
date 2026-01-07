@@ -1,7 +1,7 @@
 import {waitFor} from '@testing-library/react-native';
-import configureStore from '../../store';
-import axiosMock from '../test_data/axiosMock';
-import state from '../test_data/state.json';
+import configureStore from '@/src/store';
+import axiosMock from '@/src/actions/test_data/axiosMock';
+import state from '@/src/actions/test_data/state.json';
 import {iap} from '..';
 
 describe('IAP actions', () => {

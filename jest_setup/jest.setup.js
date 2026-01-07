@@ -4,7 +4,6 @@ import {AccessibilityInfo, TextInput} from 'react-native';
 import 'react-native-gesture-handler/jestSetup';
 import mock from 'react-native-permissions/mock';
 
-
 const mockImpl = new MockAsyncStorage();
 jest.useFakeTimers();
 
@@ -41,7 +40,7 @@ jest.doMock('react-native', () => {
             mainURL: 'https://www.mockurl.org',
             generateUUID: () => {
                 return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
-                    var r = (new Date().getTime() + Math.random() * 16) % 16 | 0;
+                    let r = (new Date().getTime() + Math.random() * 16) % 16 | 0;
                     return (c === 'x' ? r : (r & 0x3 | 0x8)).toString(16);
                 });
             },
@@ -170,7 +169,7 @@ jest.doMock('react-native', () => {
 });
 
 
-jest.mock('react-native/Libraries/Animated/NativeAnimatedHelper');
+// jest.mock('react-native/Libraries/Animated/NativeAnimatedHelper');
 
 
 jest.mock('@react-navigation/native', () => ({
@@ -335,10 +334,6 @@ jest.mock('react-native-device-info', () => {
     };
 });
 
-jest.mock('@sticknet/react-native-sketch-canvas', () => ({
-    default: jest.fn(),
-}));
-
 jest.mock('react-native-ui-lib', () => ({
     default: jest.fn(),
 }));
@@ -364,25 +359,7 @@ jest.mock('react-native-share', () => ({
     default: jest.fn(),
 }));
 
-jest.mock('react-native-document-picker', () => ({
-    default: jest.fn(),
-}));
-
-jest.mock('react-native-ffmpeg', () => {
-});
-
-jest.mock('@react-native-camera-roll/camera-roll', () => ({
-    CameraRoll: {
-        save: jest.fn(),
-        getAlbums: jest.fn()
-    }
-}));
-
-
-jest.mock('react-native-youtube', () => {
-});
-
-// eslint-disable-next-line new-cap
+ 
 jest.spyOn(AccessibilityInfo, 'isScreenReaderEnabled').mockImplementation(() => new Promise.resolve(false));
 
 // mock native modules
@@ -460,8 +437,8 @@ jest.mock('react-navigation-collapsible/lib/src/utils', () => ({
     getScrollIndicatorInsetTop: jest.fn(),
 }));
 
-jest.mock('react-native-bootsplash', () => ({
-    hide: jest.fn(),
+jest.mock('@react-native-camera-roll/camera-roll', () => ({
+    CameraRoll: jest.fn(),
 }));
 
 // jest.mock('./src/actions/SPHandlers.js', () => {

@@ -8,15 +8,15 @@ import Modal from 'react-native-modal';
 import Icon from '@sticknet/react-native-vector-icons/Feather';
 import {widthPercentageToDP as w} from 'react-native-responsive-screen';
 import type {StackNavigationProp} from '@react-navigation/stack';
-import {auth} from '../../actions';
-import Loading from '../../components/Loading';
-import StickProtocol from '../../native-modules/stick-protocol';
-import {PasswordRecovery, Sticknet} from '../../components';
-import Button from '../../components/Buttons/Button';
-import {colors} from '../../foundations';
-import type {HomeStackParamList} from '../../navigators/types';
-import type {IApplicationState} from '../../types';
-import type {IAuthActions} from '../../actions/types';
+import {auth} from '@/src/actions';
+import Loading from '@/src/components/Loading';
+import StickProtocol from '@/modules/stick-protocol';
+import {PasswordRecovery, Sticknet} from '@/src/components';
+import Button from '@/src/components/Buttons/Button';
+import {colors} from '@/src/foundations';
+import type {HomeStackParamList} from '@/src/navigators/types';
+import type {IApplicationState} from '@/src/types';
+import type {IAuthActions} from '@/src/actions/types';
 
 interface Device {
     id: string;

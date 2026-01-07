@@ -2,13 +2,13 @@ import React, {useEffect, useState} from 'react';
 import {View, StyleSheet, SectionList, RefreshControl} from 'react-native';
 import {connect} from 'react-redux';
 import {useNavigation, NavigationProp} from '@react-navigation/native';
-import {GroupItem, SectionHeader, Separator, SmallLoading, StorageMeter, Text, UserItem} from '../../components';
-import Icon from '../../components/Icons/Icon';
-import {stickRoom} from '../../actions';
-import {createChatsStoragesList, formatBytes} from '../../utils';
-import {colors} from '../../foundations';
-import type {IApplicationState, TUser, TGroup, TChatStorage} from '../../types';
-import type {CommonStackParamList} from '../../navigators/types';
+import {GroupItem, SectionHeader, Separator, SmallLoading, StorageMeter, Text, UserItem} from '@/src/components';
+import Icon from '@/src/components/Icons/Icon';
+import {stickRoom} from '@/src/actions';
+import {createChatsStoragesList, formatBytes} from '@/src/utils';
+import {colors} from '@/src/foundations';
+import type {IApplicationState, TUser, TGroup, TChatStorage} from '@/src/types';
+import type {CommonStackParamList} from '@/src/navigators/types';
 
 interface ManageStorageScreenProps {
     fetched: boolean;

@@ -1,21 +1,21 @@
 import React, {Component} from 'react';
-import {View, Text, TouchableOpacity, Platform, Alert, StatusBar, StyleSheet} from 'react-native';
+import {Alert, Platform, ScrollView, StatusBar, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {NavigationProp} from '@react-navigation/native';
 import {connect, ConnectedProps} from 'react-redux';
 import {widthPercentageToDP as w} from 'react-native-responsive-screen';
 import * as Animatable from 'react-native-animatable';
 import CameraIcon from '@sticknet/react-native-vector-icons/MaterialIcons';
-import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import Icon from '@sticknet/react-native-vector-icons/Feather';
 import FontistoIcon from '@sticknet/react-native-vector-icons/Fontisto';
 import IoIcon from '@sticknet/react-native-vector-icons/Ionicons';
-import {DefaultProfilePicture, DefaultProfileCover} from '../../../../assets/images';
-import {Input, Image, DatePicker, BottomModal, ModalItem, NewImage} from '../../../components';
-import {profile, create, auth, app} from '../../../actions/index';
-import {photosPermission} from '../../../utils';
-import {globalData} from '../../../actions/globalVariables';
-import type {IApplicationState, TUser, TImage, TProfilePicture, TProfileCover} from '../../../types';
-import type {ProfileStackParamList} from '../../../navigators/types';
+import {DefaultProfileCover, DefaultProfilePicture} from '@/assets/images';
+import {BottomModal, DatePicker, Image, Input, ModalItem, NewImage} from '@/src/components';
+import {app, auth, create, profile} from '@/src/actions/index';
+import {photosPermission} from '@/src/utils';
+import {globalData} from '@/src/actions/globalVariables';
+import type {IApplicationState, TImage, TProfileCover, TProfilePicture, TUser} from '@/src/types';
+import type {ProfileStackParamList} from '@/src/navigators/types';
+import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 
 const AnimatedView = Animatable.createAnimatableComponent(View);
 
@@ -291,11 +291,12 @@ class EditProfileScreen extends Component<EditProfileScreenProps, EditProfileScr
         const coverSource = pc ? {uri: pc.uri} : cover || DefaultProfileCover;
         const PictureComponent: React.ElementType = pp?.uriKey && !this.props.profilePicture ? NewImage : Image;
         const CoverComponent: React.ElementType = pc?.uriKey && !this.props.cover ? NewImage : Image;
+        const Component = Platform.OS === 'ios' ? KeyboardAwareScrollView : ScrollView;
         return (
-            <KeyboardAwareScrollView
+            <Component
                 testID="edit-profile-scroll"
                 showsVerticalScrollIndicator={false}
-                contentContainerStyle={{alignItems: 'center', paddingBottom: 40}}>
+                contentContainerStyle={{alignItems: 'center', paddingBottom: Platform.OS === 'ios' ? 40 : 40 + globalData.bottomBarHeight}}>
                 {this.renderModal()}
                 <TouchableOpacity
                     testID="cover-photo"
@@ -420,7 +421,7 @@ class EditProfileScreen extends Component<EditProfileScreenProps, EditProfileScr
                     </View>
                     <Text style={s.show}> show birthday</Text>
                 </TouchableOpacity>
-            </KeyboardAwareScrollView>
+            </Component>
         );
     }
 }

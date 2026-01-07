@@ -2,13 +2,13 @@ import {FlatList, Platform} from 'react-native';
 import React, {FC} from 'react';
 import {connect, ConnectedProps} from 'react-redux';
 import {useRoute, useNavigation, NavigationProp} from '@react-navigation/native';
-import BottomModal from '../Modals/BottomModal';
-import Icon from '../Icons/Icon';
-import SettingsItem, {TSettingsItem} from '../SettingsItem';
-import {vault, app, create} from '../../actions';
-import {photosPermission} from '../../utils';
-import type {IApplicationState, TGroup, TParty, TUser} from '../../types';
-import type {ChatStackParamList} from '../../navigators/types';
+import BottomModal from '@/src/components/Modals/BottomModal';
+import Icon from '@/src/components/Icons/Icon';
+import SettingsItem, {TSettingsItem} from '@/src/components/SettingsItem';
+import {vault, app, create} from '@/src/actions';
+import {photosPermission} from '@/src/utils';
+import type {IApplicationState, TGroup, TParty, TUser} from '@/src/types';
+import type {ChatStackParamList} from '@/src/navigators/types';
 
 type PropsFromRedux = ConnectedProps<typeof connector>;
 

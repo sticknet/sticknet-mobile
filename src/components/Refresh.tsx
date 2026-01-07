@@ -3,9 +3,9 @@ import {Animated, Text, Platform, StyleSheet, ViewStyle, TextStyle} from 'react-
 import {connect, ConnectedProps} from 'react-redux';
 import {getDefaultHeaderHeight, getNavigationHeight} from 'react-navigation-collapsible/lib/src/utils';
 import DeviceInfo from 'react-native-device-info';
-import {isIphoneXD, statusBarHeight} from '../utils';
+import {isIphoneXD, statusBarHeight} from '@/src/utils';
 import SmallLoading from './SmallLoading';
-import {IApplicationState} from '../types'; // Adjust the import path accordingly
+import {IApplicationState} from '@/src/types'; // Adjust the import path accordingly
 
 type RefreshProps = PropsFromRedux;
 

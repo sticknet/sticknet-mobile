@@ -1,11 +1,11 @@
 import React from 'react';
-import {View, StyleSheet, Pressable, Image} from 'react-native';
+import {Image, Pressable, StyleSheet, View} from 'react-native';
 import {connect} from 'react-redux';
 import Icon from '@sticknet/react-native-vector-icons/Ionicons';
-import {Text} from '../../../components';
-import {BlueFolderIcon, YellowFolderIcon, OrangeFolderIcon} from '../../../../assets/images';
-import {auth} from '../../../actions';
-import {IApplicationState} from '../../../types';
+import {Text} from '@/src/components';
+import {BlueFolderIcon, OrangeFolderIcon, YellowFolderIcon} from '@/assets/images';
+import {auth} from '@/src/actions';
+import {IApplicationState} from '@/src/types';
 
 interface FolderItem {
     icon: any;

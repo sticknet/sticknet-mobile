@@ -1,10 +1,10 @@
 import {waitFor} from '@testing-library/react-native';
-import state from '../test_data/state.json';
-import axiosMock from '../test_data/axiosMock';
-import configureStore from '../../store';
-import {stickRoom} from '../index';
+import state from '@/src/actions/test_data/state.json';
+import axiosMock from '@/src/actions/test_data/axiosMock';
+import configureStore from '@/src/store';
+import {stickRoom} from '@/src/actions/index';
 import {parse} from './utils';
-import {TMessage, TUser, TParty} from '../../types';
+import {TMessage, TUser, TParty} from '@/src/types';
 
 jest.mock('@react-native-firebase/database', () => ({
     firebase: {

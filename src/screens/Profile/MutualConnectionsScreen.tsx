@@ -3,10 +3,10 @@ import {FlatList} from 'react-native';
 import {connect, ConnectedProps} from 'react-redux';
 import {RouteProp, useNavigation} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
-import {Separator, UserItem, Text} from '../../components';
-import {users} from '../../actions';
-import type {IApplicationState} from '../../types';
-import type {CommonStackParamList, ProfileStackParamList} from '../../navigators/types';
+import {Separator, UserItem, Text} from '@/src/components';
+import {users} from '@/src/actions';
+import type {IApplicationState} from '@/src/types';
+import type {CommonStackParamList, ProfileStackParamList} from '@/src/navigators/types';
 
 interface MutualConnectionsScreenProps {
     route: RouteProp<ProfileStackParamList, 'MutualConnections'>;

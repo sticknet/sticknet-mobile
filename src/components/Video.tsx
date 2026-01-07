@@ -5,7 +5,7 @@ import RNVideo from 'react-native-video';
 import {widthPercentageToDP as w, heightPercentageToDP as h} from 'react-native-responsive-screen';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {useHeaderHeight} from '@react-navigation/elements';
-import type {IApplicationState, TFile} from '../types';
+import type {IApplicationState, TFile} from '@/src/types';
 
 interface VideoProps {
     item: TFile;

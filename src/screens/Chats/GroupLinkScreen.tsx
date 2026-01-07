@@ -1,17 +1,17 @@
 import React, {Component} from 'react';
-import {Switch, Text, TouchableOpacity, View, Alert, StyleSheet} from 'react-native';
+import {Alert, StyleSheet, Switch, Text, TouchableOpacity, View} from 'react-native';
 import {connect, ConnectedProps} from 'react-redux';
 import SimpleIcon from '@sticknet/react-native-vector-icons/SimpleLineIcons';
 import EvilIcon from '@sticknet/react-native-vector-icons/EvilIcons';
 import Icon from '@sticknet/react-native-vector-icons/Ionicons';
 import Share from 'react-native-share';
-import Clipboard from '@react-native-community/clipboard';
+import Clipboard from '@react-native-clipboard/clipboard';
 import {widthPercentageToDP as w} from 'react-native-responsive-screen';
 
 import type {RouteProp} from '@react-navigation/native';
-import {groups, app} from '../../actions';
-import type {IApplicationState, TGroup, TUser} from '../../types';
-import type {CommonStackParamList} from '../../navigators/types';
+import {app, groups} from '@/src/actions';
+import type {IApplicationState, TGroup, TUser} from '@/src/types';
+import type {CommonStackParamList} from '@/src/navigators/types';
 
 type ReduxProps = ConnectedProps<typeof connector>;
 

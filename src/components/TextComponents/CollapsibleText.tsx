@@ -4,8 +4,8 @@ import {Animated, StyleSheet} from 'react-native';
 import Collapsible from 'react-native-collapsible';
 import type {NavigationProp} from '@react-navigation/native';
 import TextParser from './TextParser';
-import Text from '../Text';
-import type {CommonStackParamList} from '../../navigators/types';
+import Text from '@/src/components/Text';
+import type {CommonStackParamList} from '@/src/navigators/types';
 
 interface CollapsibleTextProps {
     text: string;
@@ -68,7 +68,8 @@ class CollapsibleText extends Component<CollapsibleTextProps, CollapsibleTextSta
         return (
             <TapGestureHandler
                 onHandlerStateChange={(e) => this.toggleCollapsible(text.length, lines.length, e)}
-                numberOfTaps={1}>
+                numberOfTaps={1}
+            >
                 <Animated.View style={style}>
                     <TextParser
                         testID={testID}

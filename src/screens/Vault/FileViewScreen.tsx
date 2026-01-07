@@ -3,14 +3,14 @@ import {FlatList, Platform} from 'react-native';
 import {connect} from 'react-redux';
 import {NavigationProp, useNavigation} from '@react-navigation/native';
 import {widthPercentageToDP as w} from 'react-native-responsive-screen';
-import {ImageFile, MessageModal} from '../../components';
-import {createFilesList, prepareFiles} from '../../utils';
-import {app} from '../../actions';
-import {globalData} from '../../actions/globalVariables';
-import ActionsModal from '../../components/Modals/ActionsModal';
-import type {IApplicationState, TFile, TUser} from '../../types';
-import type {IAppActions} from '../../actions/app';
-import type {VaultStackParamList} from '../../navigators/types';
+import {ImageFile, MessageModal} from '@/src/components';
+import {createFilesList, prepareFiles} from '@/src/utils';
+import {app} from '@/src/actions';
+import {globalData} from '@/src/actions/globalVariables';
+import ActionsModal from '@/src/components/Modals/ActionsModal';
+import type {IApplicationState, TFile, TUser} from '@/src/types';
+import type {IAppActions} from '@/src/actions/app';
+import type {VaultStackParamList} from '@/src/navigators/types';
 
 interface FileViewScreenProps extends IAppActions {
     route: any;

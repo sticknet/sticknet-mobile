@@ -1,7 +1,7 @@
 import {Action} from 'redux';
 import _ from 'lodash';
-import {connections} from '../../actions/actionTypes';
-import {TUser} from '../../types';
+import {connections} from '@/src/actions/actionTypes';
+import {TUser} from '@/src/types';
 
 export interface ISentConnectionRequestsState {
     [key: string]: TUser;

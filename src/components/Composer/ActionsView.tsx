@@ -2,8 +2,8 @@ import Animated, {useAnimatedStyle, useSharedValue, withTiming} from 'react-nati
 import {Text, StyleSheet} from 'react-native';
 import React, {useEffect, FC} from 'react';
 import {connect, ConnectedProps} from 'react-redux';
-import {app} from '../../actions';
-import type {IApplicationState, TTarget, TUser} from '../../types';
+import {app} from '@/src/actions';
+import type {IApplicationState, TTarget, TUser} from '@/src/types';
 
 interface ActionsViewOwnProps {
     toolbarHeight: number;
@@ -74,7 +74,8 @@ const ActionsView: FC<Props> = (props) => {
                     bottom: props.toolbarHeight,
                 },
                 animatedStyles,
-            ]}>
+            ]}
+        >
             {parseChatAction()}
         </Animated.View>
     );

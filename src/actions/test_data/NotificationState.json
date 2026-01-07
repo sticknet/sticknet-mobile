@@ -1,371 +1,355 @@
 {
-  "672": {
-    "id": 672,
-    "fromUser": {
-      "id": "6384b8ec-eb78-4d41-b8e8-317556073cd6",
-      "name": "Tom Alter",
-      "profilePicture": null,
-      "phone": "+971551111113"
-    },
-    "toUser": {},
-    "image": null,
-    "album": null,
-    "group": {
-      "id": "a0fd1199-d707-4d24-8b52-26dd41e57697",
-      "displayName": {
-        "id": 1035,
-        "text": "Mwia9cfJBRAAGhCT4hN3Z9901rIhL8acHwf3IWwMGbskp8Af60t8WXr6GBI9BGc0Z0aSB4Z9FhhC9LVgevL8I9CaH864yadQ7F7jRbTyyP3OwehZ1xwNf3TqDg==",
-        "stickId": "a0fd1199-d707-4d24-8b52-26dd41e576970",
-        "userId": "b6acc866-106c-4507-8d07-d856a8d6f3fb",
-        "nameOfUser": "Charles Alaniz",
-        "uri": null,
-        "fileSize": 0,
-        "textLength": 0
-      },
-      "cover": null
-    },
-    "reaction": null,
-    "channel": "group_channel",
-    "body": "Tom Alter has joined \"G3\"",
-    "read": true,
-    "isReply": null,
-    "replyTo": null,
-    "noteId": null,
-    "timestamp": "2022-09-12T16:56:45.857504+04:00",
-    "imagesIds": [],
-    "stickId": "a0fd1199-d707-4d24-8b52-26dd41e576970",
-    "isLike": false,
-    "blob": null,
-    "blobsLength": 0,
-    "decrypted": true
-  },
-  "680": {
-    "id": 680,
-    "fromUser": {
-      "id": "6384b8ec-eb78-4d41-b8e8-317556073cd6",
-      "name": "Tom Alter",
-      "profilePicture": null,
-      "phone": "+971551111113"
-    },
-    "toUser": {},
-    "image": {
-      "id": "649",
-      "user": {
-        "id": "b6acc866-106c-4507-8d07-d856a8d6f3fb",
-        "username": "charles_ala177",
-        "name": "Charles Alaniz",
-        "profilePicture": null,
-        "partyId": "456db3ac-4a9d-4bb3-81a2-7587c0ef23ec"
-      },
-      "uri": null,
-      "thumbnail": null,
-      "album": null,
-      "groupsIds": [
-        "a0fd1199-d707-4d24-8b52-26dd41e57697"
-      ],
-      "duration": 0,
-      "youtubeThumbnail": null,
-      "cipher": null,
-      "thumbCipher": null,
-      "stickId": "a0fd1199-d707-4d24-8b52-26dd41e576970",
-      "fileSize": null,
-      "textPhoto": null
-    },
-    "album": null,
-    "group": {
-      "id": "a0fd1199-d707-4d24-8b52-26dd41e57697",
-      "displayName": {
-        "id": 1035,
-        "text": "Mwia9cfJBRAAGhCT4hN3Z9901rIhL8acHwf3IWwMGbskp8Af60t8WXr6GBI9BGc0Z0aSB4Z9FhhC9LVgevL8I9CaH864yadQ7F7jRbTyyP3OwehZ1xwNf3TqDg==",
-        "stickId": "a0fd1199-d707-4d24-8b52-26dd41e576970",
-        "userId": "b6acc866-106c-4507-8d07-d856a8d6f3fb",
-        "nameOfUser": "Charles Alaniz",
-        "uri": null,
-        "fileSize": 0,
-        "textLength": 0
-      },
-      "cover": null
-    },
-    "reaction": "A",
-    "channel": "note_channel",
-    "body": "New note 😍️ on photo from Tom Alter",
-    "read": true,
-    "isReply": false,
-    "replyTo": null,
-    "noteId": 245,
-    "timestamp": "2022-09-13T09:52:25.464380+04:00",
-    "imagesIds": [],
-    "stickId": "a0fd1199-d707-4d24-8b52-26dd41e576970",
-    "isLike": false,
-    "blob": {
-      "id": 957,
-      "uri": "http://192.168.0.102:8000/media/photos/11f50ec7-fbde-4f53-9bf7-75f46b7573f2",
-      "thumbnail": "http://192.168.0.102:8000/media/photos/11f50ec7-fbde-4f53-9bf7-75f46b7573f2",
-      "youtubeThumbnail": null,
-      "cipher": "Mwia9cfJBRADGpABRXTTuHLmIoFxtaOR3ReuHWPfiVglgIOT00XTHwQ9LlZbu1CDlPHUMHZjE4icDgt4HmdVfo5FRKdDXkrzv8ry1hPXLH/uOEnTTBYN296UN5FCpr4K896Pe90z0OJaxKWefHmrb7pnw3eVlLjygE6416BEIL5o3k44+DX5+55rjVd/UGdh02NtTHR1GpyYy17mq5of5q1rogGzL4970OCTz4j3cNqKq3ymI1WV0Rg6jfmBNuHgY6CA6nwZdDEoRNpCcjhHOoOvb27YP02PshZJDA==",
-      "thumbCipher": null,
-      "duration": 0,
-      "fileSize": [
-        48343
-      ],
-      "textPhoto": null
-    },
-    "blobsLength": 1,
-    "decrypted": true
-  },
-  "683": {
-    "id": 683,
-    "fromUser": {
-      "id": "6384b8ec-eb78-4d41-b8e8-317556073cd6",
-      "name": "Tom Alter",
-      "profilePicture": null,
-      "phone": "+971551111113"
-    },
-    "toUser": {},
-    "image": {
-      "id": "649",
-      "user": {
-        "id": "b6acc866-106c-4507-8d07-d856a8d6f3fb",
-        "username": "charles_ala177",
-        "name": "Charles Alaniz",
-        "profilePicture": null,
-        "partyId": "456db3ac-4a9d-4bb3-81a2-7587c0ef23ec"
-      },
-      "uri": null,
-      "thumbnail": null,
-      "album": null,
-      "groupsIds": [
-        "a0fd1199-d707-4d24-8b52-26dd41e57697"
-      ],
-      "duration": 0,
-      "youtubeThumbnail": null,
-      "cipher": null,
-      "thumbCipher": null,
-      "stickId": "a0fd1199-d707-4d24-8b52-26dd41e576970",
-      "fileSize": null,
-      "textPhoto": null
-    },
-    "album": null,
-    "group": {
-      "id": "a0fd1199-d707-4d24-8b52-26dd41e57697",
-      "displayName": {
-        "id": 1035,
-        "text": "Mwia9cfJBRAAGhCT4hN3Z9901rIhL8acHwf3IWwMGbskp8Af60t8WXr6GBI9BGc0Z0aSB4Z9FhhC9LVgevL8I9CaH864yadQ7F7jRbTyyP3OwehZ1xwNf3TqDg==",
-        "stickId": "a0fd1199-d707-4d24-8b52-26dd41e576970",
-        "userId": "b6acc866-106c-4507-8d07-d856a8d6f3fb",
-        "nameOfUser": "Charles Alaniz",
-        "uri": null,
-        "fileSize": 0,
-        "textLength": 0
-      },
-      "cover": null
-    },
-    "reaction": "Comment",
-    "channel": "note_channel",
-    "body": "Tom Alter",
-    "read": true,
-    "isReply": true,
-    "replyTo": {
-      "id": "b6acc866-106c-4507-8d07-d856a8d6f3fb",
-      "name": "Charles Alaniz"
-    },
-    "noteId": 248,
-    "timestamp": "2022-09-13T09:55:41.732840+04:00",
-    "imagesIds": [],
-    "stickId": "a0fd1199-d707-4d24-8b52-26dd41e576970",
-    "isLike": false,
-    "blob": {
-      "id": 957,
-      "uri": "http://192.168.0.102:8000/media/photos/11f50ec7-fbde-4f53-9bf7-75f46b7573f2",
-      "thumbnail": "http://192.168.0.102:8000/media/photos/11f50ec7-fbde-4f53-9bf7-75f46b7573f2",
-      "youtubeThumbnail": null,
-      "cipher": "Mwia9cfJBRADGpABRXTTuHLmIoFxtaOR3ReuHWPfiVglgIOT00XTHwQ9LlZbu1CDlPHUMHZjE4icDgt4HmdVfo5FRKdDXkrzv8ry1hPXLH/uOEnTTBYN296UN5FCpr4K896Pe90z0OJaxKWefHmrb7pnw3eVlLjygE6416BEIL5o3k44+DX5+55rjVd/UGdh02NtTHR1GpyYy17mq5of5q1rogGzL4970OCTz4j3cNqKq3ymI1WV0Rg6jfmBNuHgY6CA6nwZdDEoRNpCcjhHOoOvb27YP02PshZJDA==",
-      "thumbCipher": null,
-      "duration": 0,
-      "fileSize": [
-        48343
-      ],
-      "textPhoto": null
-    },
-    "blobsLength": 1,
-    "decrypted": true
-  },
-  "684": {
-    "id": 684,
-    "fromUser": {
-      "id": "6384b8ec-eb78-4d41-b8e8-317556073cd6",
-      "name": "Tom Alter",
-      "profilePicture": null,
-      "phone": "+971551111113"
-    },
-    "toUser": {},
-    "image": {
-      "id": "650",
-      "user": {
-        "id": "6384b8ec-eb78-4d41-b8e8-317556073cd6",
-        "username": "tom_alt372",
-        "name": "Tom Alter",
-        "profilePicture": null,
-        "partyId": "a584f4e3-fce2-498b-a98a-48c39b8ac1ca"
-      },
-      "uri": null,
-      "thumbnail": null,
-      "album": {
-        "id": 139,
-        "title": {
-          "id": 1037,
-          "text": "Summer 2022",
-          "stickId": "a0fd1199-d707-4d24-8b52-26dd41e576970",
-          "userId": "6384b8ec-eb78-4d41-b8e8-317556073cd6",
-          "nameOfUser": "Tom Alter",
-          "uri": null,
-          "fileSize": 0,
-          "textLength": 0,
-          "decrypted": true
+    "672": {
+        "id": 672,
+        "fromUser": {
+            "id": "6384b8ec-eb78-4d41-b8e8-317556073cd6",
+            "name": "Tom Alter",
+            "profilePicture": null,
+            "phone": "+971551111113"
         },
-        "location": null,
-        "imagesCount": 2
-      },
-      "groupsIds": [
-        "a0fd1199-d707-4d24-8b52-26dd41e57697"
-      ],
-      "duration": 0,
-      "youtubeThumbnail": null,
-      "cipher": null,
-      "thumbCipher": null,
-      "stickId": "a0fd1199-d707-4d24-8b52-26dd41e576970",
-      "fileSize": null,
-      "textPhoto": null
-    },
-    "album": null,
-    "group": {
-      "id": "a0fd1199-d707-4d24-8b52-26dd41e57697",
-      "displayName": {
-        "id": 1035,
-        "text": "Mwia9cfJBRAAGhCT4hN3Z9901rIhL8acHwf3IWwMGbskp8Af60t8WXr6GBI9BGc0Z0aSB4Z9FhhC9LVgevL8I9CaH864yadQ7F7jRbTyyP3OwehZ1xwNf3TqDg==",
-        "stickId": "a0fd1199-d707-4d24-8b52-26dd41e576970",
-        "userId": "b6acc866-106c-4507-8d07-d856a8d6f3fb",
-        "nameOfUser": "Charles Alaniz",
-        "uri": null,
-        "fileSize": 0,
-        "textLength": 0
-      },
-      "cover": null
-    },
-    "reaction": null,
-    "channel": "album_channel",
-    "body": "Tom Alter has sticked an Album at Group \"G3\"",
-    "read": true,
-    "isReply": null,
-    "replyTo": null,
-    "noteId": null,
-    "timestamp": "2022-09-13T09:56:20.631846+04:00",
-    "imagesIds": [],
-    "stickId": "a0fd1199-d707-4d24-8b52-26dd41e576970",
-    "isLike": false,
-    "blob": {
-      "id": 958,
-      "uri": "http://192.168.0.102:8000/media/photos/fdddb779-1548-4c8b-b00b-35db8d9e5cd4",
-      "thumbnail": "http://192.168.0.102:8000/media/photos/fdddb779-1548-4c8b-b00b-35db8d9e5cd4",
-      "youtubeThumbnail": null,
-      "cipher": "MwiTveT9AhATGpABBR0kd/U2EsGiBeJEVswkKbtVBAWcCSQl2Z8xP8SLFdVQqMLVaWIsPUbHZvju/c4DrV/yXWSKcwrjHdBd7NdNJ6/VVdk4zbLxbMjmvCGaJMiYvg+0r5fBKBreEJEP3wr0a63XR+nMd4/9XmoAs9EVWP5VoaoUUMVDGSgjiH8yJsAfBuhtsHE4Ncn05XhAiwoEPVuU/+Q7+u4USDIwtny4tNPaTiu6WebQ2b0qRe/Sz3zUTQxgvY57XluxuaPjuXufymX21lDh4WhR3yy62ASJAg==",
-      "thumbCipher": null,
-      "duration": 0,
-      "fileSize": [
-        251176
-      ],
-      "textPhoto": null
-    },
-    "blobsLength": 1,
-    "decrypted": true
-  },
-  "685": {
-    "id": 685,
-    "fromUser": {
-      "id": "6384b8ec-eb78-4d41-b8e8-317556073cd6",
-      "name": "Tom Alter",
-      "profilePicture": null,
-      "phone": "+971551111113"
-    },
-    "toUser": {},
-    "image": {
-      "id": "650",
-      "user": {
-        "id": "6384b8ec-eb78-4d41-b8e8-317556073cd6",
-        "username": "tom_alt372",
-        "name": "Tom Alter",
-        "profilePicture": null,
-        "partyId": "a584f4e3-fce2-498b-a98a-48c39b8ac1ca"
-      },
-      "uri": null,
-      "thumbnail": null,
-      "album": {
-        "id": 139,
-        "title": {
-          "id": 1037,
-          "text": "Summer 2022",
-          "stickId": "a0fd1199-d707-4d24-8b52-26dd41e576970",
-          "userId": "6384b8ec-eb78-4d41-b8e8-317556073cd6",
-          "nameOfUser": "Tom Alter",
-          "uri": null,
-          "fileSize": 0,
-          "textLength": 0,
-          "decrypted": true
+        "toUser": {},
+        "image": null,
+        "album": null,
+        "group": {
+            "id": "a0fd1199-d707-4d24-8b52-26dd41e57697",
+            "displayName": {
+                "id": 1035,
+                "text": "Mwia9cfJBRAAGhCT4hN3Z9901rIhL8acHwf3IWwMGbskp8Af60t8WXr6GBI9BGc0Z0aSB4Z9FhhC9LVgevL8I9CaH864yadQ7F7jRbTyyP3OwehZ1xwNf3TqDg==",
+                "stickId": "a0fd1199-d707-4d24-8b52-26dd41e576970",
+                "userId": "b6acc866-106c-4507-8d07-d856a8d6f3fb",
+                "nameOfUser": "Charles Alaniz",
+                "uri": null,
+                "fileSize": 0,
+                "textLength": 0
+            },
+            "cover": null
         },
-        "location": null,
-        "imagesCount": 2
-      },
-      "groupsIds": [
-        "a0fd1199-d707-4d24-8b52-26dd41e57697"
-      ],
-      "duration": 0,
-      "youtubeThumbnail": null,
-      "cipher": null,
-      "thumbCipher": null,
-      "stickId": "a0fd1199-d707-4d24-8b52-26dd41e576970",
-      "fileSize": null,
-      "textPhoto": null
-    },
-    "album": null,
-    "group": {
-      "id": "a0fd1199-d707-4d24-8b52-26dd41e57697",
-      "displayName": {
-        "id": 1035,
-        "text": "Mwia9cfJBRAAGhCT4hN3Z9901rIhL8acHwf3IWwMGbskp8Af60t8WXr6GBI9BGc0Z0aSB4Z9FhhC9LVgevL8I9CaH864yadQ7F7jRbTyyP3OwehZ1xwNf3TqDg==",
+        "reaction": null,
+        "channel": "group_channel",
+        "body": "Tom Alter has joined \"G3\"",
+        "read": true,
+        "isReply": null,
+        "replyTo": null,
+        "noteId": null,
+        "timestamp": "2022-09-12T16:56:45.857504+04:00",
+        "imagesIds": [],
         "stickId": "a0fd1199-d707-4d24-8b52-26dd41e576970",
-        "userId": "b6acc866-106c-4507-8d07-d856a8d6f3fb",
-        "nameOfUser": "Charles Alaniz",
-        "uri": null,
-        "fileSize": 0,
-        "textLength": 0
-      },
-      "cover": null
+        "isLike": false,
+        "blob": null,
+        "blobsLength": 0,
+        "decrypted": true
     },
-    "reaction": null,
-    "channel": "album_channel",
-    "body": "Tom Alter has sticked more photos to the Album \"Summer 2022\"",
-    "read": true,
-    "isReply": null,
-    "replyTo": null,
-    "noteId": null,
-    "timestamp": "2022-09-13T09:56:38.035806+04:00",
-    "imagesIds": [],
-    "stickId": "a0fd1199-d707-4d24-8b52-26dd41e576970",
-    "isLike": false,
-    "blob": {
-      "id": 958,
-      "uri": "http://192.168.0.102:8000/media/photos/fdddb779-1548-4c8b-b00b-35db8d9e5cd4",
-      "thumbnail": "http://192.168.0.102:8000/media/photos/fdddb779-1548-4c8b-b00b-35db8d9e5cd4",
-      "youtubeThumbnail": null,
-      "cipher": "MwiTveT9AhATGpABBR0kd/U2EsGiBeJEVswkKbtVBAWcCSQl2Z8xP8SLFdVQqMLVaWIsPUbHZvju/c4DrV/yXWSKcwrjHdBd7NdNJ6/VVdk4zbLxbMjmvCGaJMiYvg+0r5fBKBreEJEP3wr0a63XR+nMd4/9XmoAs9EVWP5VoaoUUMVDGSgjiH8yJsAfBuhtsHE4Ncn05XhAiwoEPVuU/+Q7+u4USDIwtny4tNPaTiu6WebQ2b0qRe/Sz3zUTQxgvY57XluxuaPjuXufymX21lDh4WhR3yy62ASJAg==",
-      "thumbCipher": null,
-      "duration": 0,
-      "fileSize": [
-        251176
-      ],
-      "textPhoto": null
+    "680": {
+        "id": 680,
+        "fromUser": {
+            "id": "6384b8ec-eb78-4d41-b8e8-317556073cd6",
+            "name": "Tom Alter",
+            "profilePicture": null,
+            "phone": "+971551111113"
+        },
+        "toUser": {},
+        "image": {
+            "id": "649",
+            "user": {
+                "id": "b6acc866-106c-4507-8d07-d856a8d6f3fb",
+                "username": "charles_ala177",
+                "name": "Charles Alaniz",
+                "profilePicture": null,
+                "partyId": "456db3ac-4a9d-4bb3-81a2-7587c0ef23ec"
+            },
+            "uri": null,
+            "thumbnail": null,
+            "album": null,
+            "groupsIds": ["a0fd1199-d707-4d24-8b52-26dd41e57697"],
+            "duration": 0,
+            "youtubeThumbnail": null,
+            "cipher": null,
+            "thumbCipher": null,
+            "stickId": "a0fd1199-d707-4d24-8b52-26dd41e576970",
+            "fileSize": null,
+            "textPhoto": null
+        },
+        "album": null,
+        "group": {
+            "id": "a0fd1199-d707-4d24-8b52-26dd41e57697",
+            "displayName": {
+                "id": 1035,
+                "text": "Mwia9cfJBRAAGhCT4hN3Z9901rIhL8acHwf3IWwMGbskp8Af60t8WXr6GBI9BGc0Z0aSB4Z9FhhC9LVgevL8I9CaH864yadQ7F7jRbTyyP3OwehZ1xwNf3TqDg==",
+                "stickId": "a0fd1199-d707-4d24-8b52-26dd41e576970",
+                "userId": "b6acc866-106c-4507-8d07-d856a8d6f3fb",
+                "nameOfUser": "Charles Alaniz",
+                "uri": null,
+                "fileSize": 0,
+                "textLength": 0
+            },
+            "cover": null
+        },
+        "reaction": "A",
+        "channel": "note_channel",
+        "body": "New note 😍️ on photo from Tom Alter",
+        "read": true,
+        "isReply": false,
+        "replyTo": null,
+        "noteId": 245,
+        "timestamp": "2022-09-13T09:52:25.464380+04:00",
+        "imagesIds": [],
+        "stickId": "a0fd1199-d707-4d24-8b52-26dd41e576970",
+        "isLike": false,
+        "blob": {
+            "id": 957,
+            "uri": "http://192.168.0.102:8000/media/photos/11f50ec7-fbde-4f53-9bf7-75f46b7573f2",
+            "thumbnail": "http://192.168.0.102:8000/media/photos/11f50ec7-fbde-4f53-9bf7-75f46b7573f2",
+            "youtubeThumbnail": null,
+            "cipher": "Mwia9cfJBRADGpABRXTTuHLmIoFxtaOR3ReuHWPfiVglgIOT00XTHwQ9LlZbu1CDlPHUMHZjE4icDgt4HmdVfo5FRKdDXkrzv8ry1hPXLH/uOEnTTBYN296UN5FCpr4K896Pe90z0OJaxKWefHmrb7pnw3eVlLjygE6416BEIL5o3k44+DX5+55rjVd/UGdh02NtTHR1GpyYy17mq5of5q1rogGzL4970OCTz4j3cNqKq3ymI1WV0Rg6jfmBNuHgY6CA6nwZdDEoRNpCcjhHOoOvb27YP02PshZJDA==",
+            "thumbCipher": null,
+            "duration": 0,
+            "fileSize": [48343],
+            "textPhoto": null
+        },
+        "blobsLength": 1,
+        "decrypted": true
     },
-    "blobsLength": 1,
-    "decrypted": true
-  }
+    "683": {
+        "id": 683,
+        "fromUser": {
+            "id": "6384b8ec-eb78-4d41-b8e8-317556073cd6",
+            "name": "Tom Alter",
+            "profilePicture": null,
+            "phone": "+971551111113"
+        },
+        "toUser": {},
+        "image": {
+            "id": "649",
+            "user": {
+                "id": "b6acc866-106c-4507-8d07-d856a8d6f3fb",
+                "username": "charles_ala177",
+                "name": "Charles Alaniz",
+                "profilePicture": null,
+                "partyId": "456db3ac-4a9d-4bb3-81a2-7587c0ef23ec"
+            },
+            "uri": null,
+            "thumbnail": null,
+            "album": null,
+            "groupsIds": ["a0fd1199-d707-4d24-8b52-26dd41e57697"],
+            "duration": 0,
+            "youtubeThumbnail": null,
+            "cipher": null,
+            "thumbCipher": null,
+            "stickId": "a0fd1199-d707-4d24-8b52-26dd41e576970",
+            "fileSize": null,
+            "textPhoto": null
+        },
+        "album": null,
+        "group": {
+            "id": "a0fd1199-d707-4d24-8b52-26dd41e57697",
+            "displayName": {
+                "id": 1035,
+                "text": "Mwia9cfJBRAAGhCT4hN3Z9901rIhL8acHwf3IWwMGbskp8Af60t8WXr6GBI9BGc0Z0aSB4Z9FhhC9LVgevL8I9CaH864yadQ7F7jRbTyyP3OwehZ1xwNf3TqDg==",
+                "stickId": "a0fd1199-d707-4d24-8b52-26dd41e576970",
+                "userId": "b6acc866-106c-4507-8d07-d856a8d6f3fb",
+                "nameOfUser": "Charles Alaniz",
+                "uri": null,
+                "fileSize": 0,
+                "textLength": 0
+            },
+            "cover": null
+        },
+        "reaction": "Comment",
+        "channel": "note_channel",
+        "body": "Tom Alter",
+        "read": true,
+        "isReply": true,
+        "replyTo": {
+            "id": "b6acc866-106c-4507-8d07-d856a8d6f3fb",
+            "name": "Charles Alaniz"
+        },
+        "noteId": 248,
+        "timestamp": "2022-09-13T09:55:41.732840+04:00",
+        "imagesIds": [],
+        "stickId": "a0fd1199-d707-4d24-8b52-26dd41e576970",
+        "isLike": false,
+        "blob": {
+            "id": 957,
+            "uri": "http://192.168.0.102:8000/media/photos/11f50ec7-fbde-4f53-9bf7-75f46b7573f2",
+            "thumbnail": "http://192.168.0.102:8000/media/photos/11f50ec7-fbde-4f53-9bf7-75f46b7573f2",
+            "youtubeThumbnail": null,
+            "cipher": "Mwia9cfJBRADGpABRXTTuHLmIoFxtaOR3ReuHWPfiVglgIOT00XTHwQ9LlZbu1CDlPHUMHZjE4icDgt4HmdVfo5FRKdDXkrzv8ry1hPXLH/uOEnTTBYN296UN5FCpr4K896Pe90z0OJaxKWefHmrb7pnw3eVlLjygE6416BEIL5o3k44+DX5+55rjVd/UGdh02NtTHR1GpyYy17mq5of5q1rogGzL4970OCTz4j3cNqKq3ymI1WV0Rg6jfmBNuHgY6CA6nwZdDEoRNpCcjhHOoOvb27YP02PshZJDA==",
+            "thumbCipher": null,
+            "duration": 0,
+            "fileSize": [48343],
+            "textPhoto": null
+        },
+        "blobsLength": 1,
+        "decrypted": true
+    },
+    "684": {
+        "id": 684,
+        "fromUser": {
+            "id": "6384b8ec-eb78-4d41-b8e8-317556073cd6",
+            "name": "Tom Alter",
+            "profilePicture": null,
+            "phone": "+971551111113"
+        },
+        "toUser": {},
+        "image": {
+            "id": "650",
+            "user": {
+                "id": "6384b8ec-eb78-4d41-b8e8-317556073cd6",
+                "username": "tom_alt372",
+                "name": "Tom Alter",
+                "profilePicture": null,
+                "partyId": "a584f4e3-fce2-498b-a98a-48c39b8ac1ca"
+            },
+            "uri": null,
+            "thumbnail": null,
+            "album": {
+                "id": 139,
+                "title": {
+                    "id": 1037,
+                    "text": "Summer 2022",
+                    "stickId": "a0fd1199-d707-4d24-8b52-26dd41e576970",
+                    "userId": "6384b8ec-eb78-4d41-b8e8-317556073cd6",
+                    "nameOfUser": "Tom Alter",
+                    "uri": null,
+                    "fileSize": 0,
+                    "textLength": 0,
+                    "decrypted": true
+                },
+                "location": null,
+                "imagesCount": 2
+            },
+            "groupsIds": ["a0fd1199-d707-4d24-8b52-26dd41e57697"],
+            "duration": 0,
+            "youtubeThumbnail": null,
+            "cipher": null,
+            "thumbCipher": null,
+            "stickId": "a0fd1199-d707-4d24-8b52-26dd41e576970",
+            "fileSize": null,
+            "textPhoto": null
+        },
+        "album": null,
+        "group": {
+            "id": "a0fd1199-d707-4d24-8b52-26dd41e57697",
+            "displayName": {
+                "id": 1035,
+                "text": "Mwia9cfJBRAAGhCT4hN3Z9901rIhL8acHwf3IWwMGbskp8Af60t8WXr6GBI9BGc0Z0aSB4Z9FhhC9LVgevL8I9CaH864yadQ7F7jRbTyyP3OwehZ1xwNf3TqDg==",
+                "stickId": "a0fd1199-d707-4d24-8b52-26dd41e576970",
+                "userId": "b6acc866-106c-4507-8d07-d856a8d6f3fb",
+                "nameOfUser": "Charles Alaniz",
+                "uri": null,
+                "fileSize": 0,
+                "textLength": 0
+            },
+            "cover": null
+        },
+        "reaction": null,
+        "channel": "album_channel",
+        "body": "Tom Alter has sticked an Album at Group \"G3\"",
+        "read": true,
+        "isReply": null,
+        "replyTo": null,
+        "noteId": null,
+        "timestamp": "2022-09-13T09:56:20.631846+04:00",
+        "imagesIds": [],
+        "stickId": "a0fd1199-d707-4d24-8b52-26dd41e576970",
+        "isLike": false,
+        "blob": {
+            "id": 958,
+            "uri": "http://192.168.0.102:8000/media/photos/fdddb779-1548-4c8b-b00b-35db8d9e5cd4",
+            "thumbnail": "http://192.168.0.102:8000/media/photos/fdddb779-1548-4c8b-b00b-35db8d9e5cd4",
+            "youtubeThumbnail": null,
+            "cipher": "MwiTveT9AhATGpABBR0kd/U2EsGiBeJEVswkKbtVBAWcCSQl2Z8xP8SLFdVQqMLVaWIsPUbHZvju/c4DrV/yXWSKcwrjHdBd7NdNJ6/VVdk4zbLxbMjmvCGaJMiYvg+0r5fBKBreEJEP3wr0a63XR+nMd4/9XmoAs9EVWP5VoaoUUMVDGSgjiH8yJsAfBuhtsHE4Ncn05XhAiwoEPVuU/+Q7+u4USDIwtny4tNPaTiu6WebQ2b0qRe/Sz3zUTQxgvY57XluxuaPjuXufymX21lDh4WhR3yy62ASJAg==",
+            "thumbCipher": null,
+            "duration": 0,
+            "fileSize": [251176],
+            "textPhoto": null
+        },
+        "blobsLength": 1,
+        "decrypted": true
+    },
+    "685": {
+        "id": 685,
+        "fromUser": {
+            "id": "6384b8ec-eb78-4d41-b8e8-317556073cd6",
+            "name": "Tom Alter",
+            "profilePicture": null,
+            "phone": "+971551111113"
+        },
+        "toUser": {},
+        "image": {
+            "id": "650",
+            "user": {
+                "id": "6384b8ec-eb78-4d41-b8e8-317556073cd6",
+                "username": "tom_alt372",
+                "name": "Tom Alter",
+                "profilePicture": null,
+                "partyId": "a584f4e3-fce2-498b-a98a-48c39b8ac1ca"
+            },
+            "uri": null,
+            "thumbnail": null,
+            "album": {
+                "id": 139,
+                "title": {
+                    "id": 1037,
+                    "text": "Summer 2022",
+                    "stickId": "a0fd1199-d707-4d24-8b52-26dd41e576970",
+                    "userId": "6384b8ec-eb78-4d41-b8e8-317556073cd6",
+                    "nameOfUser": "Tom Alter",
+                    "uri": null,
+                    "fileSize": 0,
+                    "textLength": 0,
+                    "decrypted": true
+                },
+                "location": null,
+                "imagesCount": 2
+            },
+            "groupsIds": ["a0fd1199-d707-4d24-8b52-26dd41e57697"],
+            "duration": 0,
+            "youtubeThumbnail": null,
+            "cipher": null,
+            "thumbCipher": null,
+            "stickId": "a0fd1199-d707-4d24-8b52-26dd41e576970",
+            "fileSize": null,
+            "textPhoto": null
+        },
+        "album": null,
+        "group": {
+            "id": "a0fd1199-d707-4d24-8b52-26dd41e57697",
+            "displayName": {
+                "id": 1035,
+                "text": "Mwia9cfJBRAAGhCT4hN3Z9901rIhL8acHwf3IWwMGbskp8Af60t8WXr6GBI9BGc0Z0aSB4Z9FhhC9LVgevL8I9CaH864yadQ7F7jRbTyyP3OwehZ1xwNf3TqDg==",
+                "stickId": "a0fd1199-d707-4d24-8b52-26dd41e576970",
+                "userId": "b6acc866-106c-4507-8d07-d856a8d6f3fb",
+                "nameOfUser": "Charles Alaniz",
+                "uri": null,
+                "fileSize": 0,
+                "textLength": 0
+            },
+            "cover": null
+        },
+        "reaction": null,
+        "channel": "album_channel",
+        "body": "Tom Alter has sticked more photos to the Album \"Summer 2022\"",
+        "read": true,
+        "isReply": null,
+        "replyTo": null,
+        "noteId": null,
+        "timestamp": "2022-09-13T09:56:38.035806+04:00",
+        "imagesIds": [],
+        "stickId": "a0fd1199-d707-4d24-8b52-26dd41e576970",
+        "isLike": false,
+        "blob": {
+            "id": 958,
+            "uri": "http://192.168.0.102:8000/media/photos/fdddb779-1548-4c8b-b00b-35db8d9e5cd4",
+            "thumbnail": "http://192.168.0.102:8000/media/photos/fdddb779-1548-4c8b-b00b-35db8d9e5cd4",
+            "youtubeThumbnail": null,
+            "cipher": "MwiTveT9AhATGpABBR0kd/U2EsGiBeJEVswkKbtVBAWcCSQl2Z8xP8SLFdVQqMLVaWIsPUbHZvju/c4DrV/yXWSKcwrjHdBd7NdNJ6/VVdk4zbLxbMjmvCGaJMiYvg+0r5fBKBreEJEP3wr0a63XR+nMd4/9XmoAs9EVWP5VoaoUUMVDGSgjiH8yJsAfBuhtsHE4Ncn05XhAiwoEPVuU/+Q7+u4USDIwtny4tNPaTiu6WebQ2b0qRe/Sz3zUTQxgvY57XluxuaPjuXufymX21lDh4WhR3yy62ASJAg==",
+            "thumbCipher": null,
+            "duration": 0,
+            "fileSize": [251176],
+            "textPhoto": null
+        },
+        "blobsLength": 1,
+        "decrypted": true
+    }
 }

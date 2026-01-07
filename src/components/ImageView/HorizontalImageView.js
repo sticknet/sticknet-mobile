@@ -10,7 +10,7 @@ import FontistoIcon from '@sticknet/react-native-vector-icons/Fontisto';
 import {app} from '../../actions';
 import {exportFile, photosPermission, saveToGallery} from '../../utils';
 import ImageAsset from '../ImageAsset';
-import ModalItem from '../Modals/ModalItem';
+import ModalItem from '../Modals/ModalItem'; // Legacy component
 
 // Legacy component
 class HorizontalImageView extends Component {

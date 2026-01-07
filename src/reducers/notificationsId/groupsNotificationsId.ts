@@ -1,9 +1,9 @@
 import {Platform} from 'react-native';
-import PushNotification from 'react-native-push-notification';
+// import PushNotification from 'react-native-push-notification';
 import {Action} from 'redux';
-import {notificationGroupId} from '../../actions/globalVariables';
-import {notificationsId} from '../../actions/actionTypes';
-import channels from '../../actions/notifications/notificationChannels';
+import {notificationGroupId} from '@/src/actions/globalVariables';
+import {notificationsId} from '@/src/actions/actionTypes';
+import channels from '@/src/actions/notifications/notificationChannels';
 
 export interface IGroupsNotificationsIdState {
     [key: string]: string;
@@ -43,25 +43,25 @@ export default function (
                 const newState = {...state};
                 delete newState[clearGroupNotificationsPayload.groupId];
                 let isLast = Platform.OS === 'android';
-                PushNotification.getDeliveredNotifications((data) => {
-                    for (let i = 0; i < data.length; i++) {
-                        if (Platform.OS === 'android') {
-                            if (
-                                data[i].group === channels.GROUP &&
-                                data[i].identifier !== notificationGroupId[channels.GROUP].toString() &&
-                                data[i].identifier !== notificationId
-                            ) {
-                                isLast = false;
-                                break;
-                            }
-                        } else if (data[i].userInfo.id === notificationId) {
-                            arr.push(data[i].identifier);
-                            break;
-                        }
-                    }
-                    if (isLast) arr.push(notificationGroupId[channels.GROUP].toString());
-                    PushNotification.removeDeliveredNotifications(arr);
-                });
+                // PushNotification.getDeliveredNotifications((data) => {
+                //     for (let i = 0; i < data.length; i++) {
+                //         if (Platform.OS === 'android') {
+                //             if (
+                //                 data[i].group === channels.GROUP &&
+                //                 data[i].identifier !== notificationGroupId[channels.GROUP].toString() &&
+                //                 data[i].identifier !== notificationId
+                //             ) {
+                //                 isLast = false;
+                //                 break;
+                //             }
+                //         } else if (data[i].userInfo.id === notificationId) {
+                //             arr.push(data[i].identifier);
+                //             break;
+                //         }
+                //     }
+                //     if (isLast) arr.push(notificationGroupId[channels.GROUP].toString());
+                //     PushNotification.removeDeliveredNotifications(arr);
+                // });
                 return newState;
             }
             return state;

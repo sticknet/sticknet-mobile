@@ -1,15 +1,15 @@
-import dynamicLinks from '@react-native-firebase/dynamic-links';
+// import dynamicLinks from '@react-native-firebase/dynamic-links';
 import Share from 'react-native-share';
 import DeviceInfo from 'react-native-device-info';
 import {Dispatch} from 'redux';
-import axios from '../myaxios';
-import StickProtocol from '../../native-modules/stick-protocol';
-import SPH from '../SPHandlers';
-import {globalData} from '../globalVariables';
-import {URL} from '../URL';
-import {auth, creating, progress} from '../actionTypes';
-import {uploadFiles} from '../utils';
-import {TFile, TUser} from '../../types';
+import axios from '@/src/actions/myaxios';
+import StickProtocol from '@/modules/stick-protocol';
+import {stickProtocolHandlers as SPH} from '@/src/actions/SPHandlers';
+import {globalData} from '@/src/actions/globalVariables';
+import {URL} from '@/src/actions/URL';
+import {auth, creating, progress} from '@/src/actions/actionTypes';
+import {uploadFiles} from '@/src/actions/utils';
+import {TFile, TUser} from '@/src/types';
 
 const bundleId = DeviceInfo.getBundleId();
 
@@ -216,9 +216,9 @@ export function invite() {
             },
         };
         // @ts-ignore
-        const link = await dynamicLinks().buildShortLink(params, 'SHORT');
-        dispatch({type: progress.END_LOADING});
-        Share.open({url: link}).catch((err: any) => console.log('ERR share', err));
+        // const link = await dynamicLinks().buildShortLink(params, 'SHORT');
+        // dispatch({type: progress.END_LOADING});
+        // Share.open({url: link}).catch((err: any) => console.log('ERR share', err));
     };
 }
 

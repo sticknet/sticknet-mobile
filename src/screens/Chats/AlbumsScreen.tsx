@@ -1,17 +1,17 @@
 import React, {useEffect, useState} from 'react';
-import {FlatList, RefreshControl, NativeScrollEvent, NativeSyntheticEvent} from 'react-native';
+import {FlatList, NativeScrollEvent, NativeSyntheticEvent, RefreshControl} from 'react-native';
 import {connect, ConnectedProps} from 'react-redux';
 import {widthPercentageToDP as w} from 'react-native-responsive-screen';
 import LottieView from 'lottie-react-native';
 import type {NavigationProp} from '@react-navigation/native';
-import {ActionButton, Album, AlbumActions, EmptyContent, Icon, Text} from '../../components';
-import {create, stickRoom} from '../../actions';
-import {colors} from '../../foundations';
-import {albumsAnimation} from '../../../assets/lottie';
-import {isCloseToBottom, photosPermission} from '../../utils';
-import {URL} from '../../actions/URL';
-import type {IApplicationState, TGroup, TUser, TChatAlbum} from '../../types';
-import type {ChatStackParamList} from '../../navigators/types';
+import {ActionButton, Album, AlbumActions, EmptyContent, Icon, Text} from '@/src/components';
+import {create, stickRoom} from '@/src/actions';
+import {colors} from '@/src/foundations';
+import {albumsAnimation} from '@/assets/lottie';
+import {isCloseToBottom, photosPermission} from '@/src/utils';
+import {URL} from '@/src/actions/URL';
+import type {IApplicationState, TChatAlbum, TGroup, TUser} from '@/src/types';
+import type {ChatStackParamList} from '@/src/navigators/types';
 
 interface AlbumsScreenProps {
     target: TUser | TGroup;
@@ -123,7 +123,7 @@ const AlbumsScreen: React.FC<Props> = (props) => {
                             refreshing={refreshing}
                         />
                     }
-                    graphic={<LottieView source={albumsAnimation} autoPlay loop style={{width: w('40%')}} />}
+                    graphic={<LottieView source={albumsAnimation} autoPlay loop style={{width: w('40%'), height:  w('40%')}} />}
                     text={
                         <Text style={{color: 'grey'}}>
                             Preserve your memories securely. {'\n'}Craft your first timeless album with{' '}

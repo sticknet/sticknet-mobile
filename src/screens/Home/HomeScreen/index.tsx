@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useRef} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import {Pressable, RefreshControl, ScrollView, View} from 'react-native';
 import {connect, ConnectedProps} from 'react-redux';
 import LottieView from 'lottie-react-native';
@@ -16,18 +16,19 @@ import {
     PreviewImageFile,
     Text,
     VaultNote,
-} from '../../../components';
-import {vault, create, iap, common, stickRoom, app, users, notifications, auth} from '../../../actions';
-import {createActiveChatsList, nav, prepareFiles} from '../../../utils';
-import {colors} from '../../../foundations';
-import {globalData} from '../../../actions/globalVariables';
-import {emptyAnimation} from '../../../../assets/lottie';
-import {commonInitializations} from './utils';
+} from '@/src/components';
+import {app, auth, common, create, iap, notifications, stickRoom, users, vault} from '@/src/actions';
+import {createActiveChatsList, nav, prepareFiles} from '@/src/utils';
+import {colors} from '@/src/foundations';
+import {globalData} from '@/src/actions/globalVariables';
+import {emptyAnimation} from '@/assets/lottie';
 import type {ICommonInitializationsProps} from './utils';
+import {commonInitializations} from './utils';
 import StartupModals from './StartupModals';
-import ChatHomeItem from '../../../components/StickRoom/ChatHomeItem';
-import type {IApplicationState, TUser} from '../../../types';
-import type {HomeStackParamList} from '../../../navigators/types';
+import ChatHomeItem from '@/src/components/StickRoom/ChatHomeItem';
+import type {IApplicationState, TUser} from '@/src/types';
+import type {HomeStackParamList} from '@/src/navigators/types';
+import {useSafeAreaInsets} from 'react-native-safe-area-context';
 
 interface HomeScreenOwnProps extends ICommonInitializationsProps {
     navigation: NavigationProp<HomeStackParamList, 'Home'>;
@@ -41,7 +42,8 @@ const HomeScreen: React.FC<Props> = (props) => {
     const listRef = useRef<ScrollView>(null);
     const [refreshing, setRefreshing] = useState(false);
     let tabListener: any = null;
-
+    const {bottom} = useSafeAreaInsets();
+    globalData.bottomBarHeight = bottom;
     useEffect(() => {
         if (!globalData.initialized) {
             globalData.initialized = true;

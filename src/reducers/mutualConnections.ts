@@ -1,5 +1,5 @@
 import {Action} from 'redux';
-import {users} from '../actions/actionTypes';
+import {users} from '@/src/actions/actionTypes';
 
 export interface IMutualConnectionsState {
     [key: string]: any;

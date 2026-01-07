@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
 import Modal from 'react-native-modal';
-import {NativeEventEmitter, NativeModules, Platform, Text, View, StyleSheet} from 'react-native';
+import {StyleSheet, Text, View} from 'react-native';
 import * as Progress from 'react-native-progress';
 import FontistoIcon from '@sticknet/react-native-vector-icons/Fontisto';
 import {widthPercentageToDP as w} from 'react-native-responsive-screen';
+import StickProtocol from '@/modules/stick-protocol';
 
 interface ProgressModalProps {
     isVisible: boolean;
@@ -25,20 +26,19 @@ class ProgressModal extends Component<ProgressModalProps, ProgressModalState> {
     }
 
     componentDidMount() {
-        const eventEmitter =
-            Platform.OS === 'ios'
-                ? new NativeEventEmitter(NativeModules.StickInit)
-                : new NativeEventEmitter(NativeModules.StickProtocol);
-        this.eventListener = eventEmitter.addListener(
+        this.eventListener = StickProtocol.addListener(
             'KeysProgress',
             (keysEvent: {progress: number; total: number}) => {
+                console.log('PROGRESS: ', keysEvent, keysEvent.progress / keysEvent.total);
                 this.setState({keysEvent});
             },
         );
     }
 
     componentWillUnmount() {
-        this.eventListener.remove();
+        if (this.eventListener) {
+            this.eventListener.remove();
+        }
     }
 
     render() {

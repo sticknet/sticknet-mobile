@@ -1,10 +1,10 @@
-import React, {useEffect, FC} from 'react';
-import {Image, StyleProp, ImageStyle} from 'react-native';
+import React, {FC, useEffect} from 'react';
+import {Image, ImageStyle, StyleProp} from 'react-native';
 import {connect, ConnectedProps} from 'react-redux';
 import Icon from '@sticknet/react-native-vector-icons/FontAwesome6Pro';
 import FileLabel from './FileLabel';
-import {app} from '../../actions';
-import {IApplicationState, TFile} from '../../types';
+import {app} from '@/src/actions';
+import {IApplicationState, TFile} from '@/src/types';
 
 interface PreviewImageFileOwnProps {
     file: TFile;

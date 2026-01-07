@@ -1,7 +1,7 @@
 import React, {FC} from 'react';
 import {View, Pressable, StyleSheet, ViewStyle} from 'react-native';
-import {colors} from '../../foundations';
-import Text from '../Text';
+import {colors} from '@/src/foundations';
+import Text from '@/src/components/Text';
 
 interface ActionButtonProps {
     text: string;

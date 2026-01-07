@@ -1,4 +1,6 @@
-import {Alert, AppRegistry, Platform} from 'react-native';
+import 'react-native-get-random-values';
+import {registerRootComponent} from 'expo';
+import {Alert, Platform} from 'react-native';
 import 'react-native-gesture-handler';
 import {setJSExceptionHandler, setNativeExceptionHandler} from '@sticknet/react-native-exception-handler';
 import DeviceInfo from 'react-native-device-info';
@@ -10,25 +12,31 @@ import '@react-native-firebase/messaging';
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Config from 'react-native-config';
-import PushNotification from 'react-native-push-notification';
 import axios from './src/actions/myaxios';
-import bgMessaging from './src/actions/notifications/bgMessaging';
 import {URL} from './src/actions/URL';
-import {name as appName} from './app.json';
-import {globalData, endMessageKeys, startMessageKeys} from './src/actions/globalVariables';
+import {endMessageKeys, globalData, startMessageKeys} from './src/actions/globalVariables';
 import App from './src/App';
 import NavigationService from './src/actions/NavigationService';
+import bgMessaging from './src/actions/notifications/bgMessaging';
+import PushNotification from 'react-native-push-notification';
 
 if (Config.TESTING === '1' || __DEV__) {
     firebase.auth().settings.appVerificationDisabledForTesting = true;
 }
 
-if (__DEV__) {
-    // @ts-ignore
-    import('./src/store/ReactotronConfig').then(() => console.log('Reactotron Configured'));
-}
-
 PushNotification.configure({requestPermissions: false});
+const originalWarn = console.warn;
+
+console.warn = (...args) => {
+    if (
+        typeof args[0] === 'string' &&
+        args[0].includes('React Native Firebase namespaced API')
+    ) {
+        return;
+    }
+
+    originalWarn(...args);
+};
 
 const isLoggedIn = async () => {
     const res = await AsyncStorage.multiGet([
@@ -112,4 +120,4 @@ setJSExceptionHandler(async (error, isFatal) => {
     }
 }, false);
 
-AppRegistry.registerComponent(appName, () => App);
+registerRootComponent(App);

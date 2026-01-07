@@ -1,6 +1,6 @@
 import {Action} from 'redux';
 import _ from 'lodash';
-import {groups} from '../../actions/actionTypes';
+import {groups} from '@/src/actions/actionTypes';
 
 export interface IUser {
     id: string;

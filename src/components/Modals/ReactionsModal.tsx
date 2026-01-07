@@ -3,10 +3,10 @@ import {View, StyleSheet, Pressable, FlatList} from 'react-native';
 import {connect, ConnectedProps} from 'react-redux';
 import {heightPercentageToDP as h} from 'react-native-responsive-screen';
 import BottomModal from './BottomModal';
-import Text from '../Text';
-import {app} from '../../actions';
-import {Separator, UserItem} from '../index';
-import type {IApplicationState, TTarget, TUser} from '../../types';
+import Text from '@/src/components/Text';
+import {app} from '@/src/actions';
+import {Separator, UserItem} from '@/src/components/index';
+import type {IApplicationState, TTarget, TUser} from '@/src/types';
 
 type PropsFromRedux = ConnectedProps<typeof connector>;
 type Props = PropsFromRedux;
@@ -57,7 +57,8 @@ const ReactionsModal: FC<Props> = (props) => {
                             style={{
                                 ...s.reactionContainer,
                                 backgroundColor: selectedIndex === idx ? 'rgba(128,128,128,0.2)' : 'transparent',
-                            }}>
+                            }}
+                        >
                             <Text>{reaction}</Text>
                             <Text style={{marginLeft: 8, fontWeight: '600', color: 'rgb(85,85,85)'}}>
                                 {Object.keys(entry[1]).length}

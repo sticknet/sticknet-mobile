@@ -1,6 +1,6 @@
 import {Platform, StyleSheet} from 'react-native';
-import {isIphoneXD} from '../utils';
-import {colors} from '../foundations';
+import {isIphoneXD} from '@/src/utils';
+import {colors} from '@/src/foundations';
 
 const s = StyleSheet.create({
     // HOME

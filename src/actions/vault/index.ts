@@ -2,15 +2,15 @@ import {Alert} from 'react-native';
 import {Dispatch} from 'redux';
 import {CameraRoll} from '@react-native-camera-roll/camera-roll';
 import type {AssetType, GroupTypes, Include} from '@react-native-camera-roll/camera-roll';
-import axios from '../myaxios';
-import {globalData} from '../globalVariables';
-import {URL} from '../URL';
-import {appTemp, auth, fetched, progress, url, vault, cache} from '../actionTypes';
-import StickProtocol from '../../native-modules/stick-protocol';
-import NavigationService from '../NavigationService';
-import {requestAppReview} from '../../utils';
-import {uploadFiles} from '../utils';
-import {TFile, TGalleryItem, TVaultNote} from '../../types';
+import axios from '@/src/actions/myaxios';
+import {globalData} from '@/src/actions/globalVariables';
+import {URL} from '@/src/actions/URL';
+import {appTemp, auth, fetched, progress, url, vault, cache} from '@/src/actions/actionTypes';
+import StickProtocol from '@/modules/stick-protocol';
+import NavigationService from '@/src/actions/NavigationService';
+import {requestAppReview} from '@/src/utils';
+import {uploadFiles} from '@/src/actions/utils';
+import {TFile, TGalleryItem, TVaultNote} from '@/src/types';
 
 interface TUploadVaultFilesParams {
     folderId: number | string;

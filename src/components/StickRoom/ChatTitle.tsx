@@ -2,12 +2,12 @@ import React, {FC} from 'react';
 import {Pressable, Text, View} from 'react-native';
 import {connect, ConnectedProps} from 'react-redux';
 import {useNavigation, NavigationProp} from '@react-navigation/native';
-import {isIphoneXD} from '../../utils';
-import type {IApplicationState, TUser, TGroup} from '../../types';
-import type {CommonStackParamList} from '../../navigators/types';
-import GroupCover from '../GroupCover';
-import PremiumIcon from '../Icons/PremiumIcon';
-import ProfilePicture from '../ProfilePicture';
+import {isIphoneXD} from '@/src/utils';
+import type {IApplicationState, TUser, TGroup} from '@/src/types';
+import type {CommonStackParamList} from '@/src/navigators/types';
+import GroupCover from '@/src/components/GroupCover';
+import PremiumIcon from '@/src/components/Icons/PremiumIcon';
+import ProfilePicture from '@/src/components/ProfilePicture';
 
 type PropsFromRedux = ConnectedProps<typeof connector>;
 

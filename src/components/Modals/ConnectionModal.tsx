@@ -1,15 +1,15 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import Modal from 'react-native-modal';
-import {Alert, TouchableOpacity, View, SafeAreaView, StyleSheet} from 'react-native';
+import {Alert, SafeAreaView, StyleSheet, TouchableOpacity, View} from 'react-native';
 import {widthPercentageToDP as w} from 'react-native-responsive-screen';
 import MaterialIcon from '@sticknet/react-native-vector-icons/MaterialIcons';
-import {users} from '../../actions';
+import {users} from '@/src/actions';
 import ReportModal from './ReportModal';
-import Icon from '../Icons/Icon';
-import Text from '../Text';
-import type {TUser} from '../../types';
-import type {IUsersActions} from '../../actions/users';
+import Icon from '@/src/components/Icons/Icon';
+import Text from '@/src/components/Text';
+import type {TUser} from '@/src/types';
+import type {IUsersActions} from '@/src/actions/users';
 
 interface ConnectionModalProps extends IUsersActions {
     modalVisible: boolean;

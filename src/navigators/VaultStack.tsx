@@ -1,11 +1,11 @@
 import React, {FC} from 'react';
-import {Pressable, Dimensions, View} from 'react-native';
+import {Dimensions, Pressable, View} from 'react-native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
-import {VaultScreen, PhotosScreen, VaultNotesScreen, CreateNoteScreen, FolderScreen} from '../screens';
+import {CreateNoteScreen, FolderScreen, PhotosScreen, VaultNotesScreen, VaultScreen} from '@/src/screens';
 import {StackOptions} from './options';
-import {Back, Title, Text, Next, Icon} from '../components';
-import {colors} from '../foundations';
+import {Back, Icon, Next, Text, Title} from '@/src/components';
+import {colors} from '@/src/foundations';
 import CreateGroup from './CreateGroup';
 import CommonGroup from './CommonGroup';
 import {ChatsGroup} from './ChatsStack';
@@ -21,6 +21,8 @@ const VaultTabs: FC = () => {
                 width: Dimensions.get('window').width,
             }}
             screenOptions={({route}) => ({
+                tabBarShowIcon: true,
+                tabBarShowLabel: true,
                 tabBarItemStyle: {flexDirection: 'row', justifyContent: 'center', alignItems: 'center'},
                 tabBarIndicatorStyle: {backgroundColor: colors.primary},
                 tabBarActiveTintColor: colors.primary,
@@ -32,13 +34,20 @@ const VaultTabs: FC = () => {
                         </Text>
                     );
                 },
-            })}>
+            })}
+        >
             <Tab.Screen
                 name="Files"
                 component={VaultScreen}
                 options={{
-                    tabBarIcon: ({color}) => <Icon name="files" color={color} size={20} />,
-                    tabBarTestID: 'files-tab',
+                    tabBarShowIcon: true,
+                    tabBarShowLabel: true,
+                    tabBarIcon: ({color}) => {
+                        return (
+                            <Icon name="files" color={color} size={20} />
+                        )
+                    }
+                    ,
                 }}
             />
             <Tab.Screen
@@ -46,7 +55,6 @@ const VaultTabs: FC = () => {
                 component={PhotosScreen}
                 options={{
                     tabBarIcon: ({color}) => <Icon name="images" color={color} size={20} />,
-                    tabBarTestID: 'photos-tab',
                 }}
             />
             <Tab.Screen
@@ -55,7 +63,6 @@ const VaultTabs: FC = () => {
                 options={{
                     title: 'Notes',
                     tabBarIcon: ({color}) => <Icon name="notes" color={color} size={20} />,
-                    tabBarTestID: 'notes-tab',
                 }}
             />
         </Tab.Navigator>
@@ -76,7 +83,8 @@ const VaultGroup: FC = () => {
                             hitSlop={{left: 20, top: 10, bottom: 10}}
                             onPress={() => {
                                 navigation.navigate(`Search`);
-                            }}>
+                            }}
+                        >
                             <Icon name="search" size={20} />
                         </Pressable>
                     ),

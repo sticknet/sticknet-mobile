@@ -1,4 +1,4 @@
-import CommonNative from '../native-modules/common-native';
+import CommonNative from '@/modules/common-native';
 
 export const URL: string = __DEV__ ? 'https://www.sticknet.org' : CommonNative.mainURL;
 

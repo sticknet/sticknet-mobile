@@ -1,30 +1,30 @@
 import BlobUtil from 'react-native-blob-util';
 import {Dispatch} from 'redux';
-import axios from '../myaxios';
-import StickProtocol from '../../native-modules/stick-protocol';
-import CommonNative from '../../native-modules/common-native';
-import {fetchingSenderKeys, globalData, pendingEntities, fetchingUri} from '../globalVariables';
-import SPH from '../SPHandlers';
-import {getParameterByName} from '../../utils';
-import {URL, isDev} from '../URL';
+import axios from '@/src/actions/myaxios';
+import StickProtocol from '@/modules/stick-protocol';
+import {fetchingSenderKeys, fetchingUri, globalData, pendingEntities} from '@/src/actions/globalVariables';
+import {stickProtocolHandlers as SPH} from '@/src/actions/SPHandlers';
+import {getParameterByName} from '@/src/utils';
+import {isDev, URL} from '@/src/actions/URL';
 import {
-    cache,
     app,
     appTemp,
-    progress,
-    keyboardHeight,
-    screenData,
-    viewable,
+    cache,
+    categories,
     download,
     images,
-    refreshEntities,
-    categories,
-    pendingSessions,
-    orientation,
-    transparent,
+    keyboardHeight,
     modal,
-} from '../actionTypes';
-import {TFile, TMessage} from '../../types';
+    orientation,
+    pendingSessions,
+    progress,
+    refreshEntities,
+    screenData,
+    transparent,
+    viewable,
+} from '@/src/actions/actionTypes';
+import {TFile, TMessage} from '@/src/types';
+import {cacheDirectoryPath} from '@/src/utils/common';
 
 export interface IAppActions {
     dispatchAppTempProperty: (params: any) => void;
@@ -79,7 +79,7 @@ async function cacheFileExecute(params: CacheFileParams, dispatch: Dispatch) {
     if (isPreview) extension = 'jpg';
     else if (file.type?.includes('/')) extension = file.type?.split('/').pop();
     else extension = file.type?.startsWith('image') ? 'jpg' : file.type?.startsWith('video') ? 'mp4' : nameExtension;
-    const outputPath = `${CommonNative.cacheDirectoryPath}/${uriKey}.${extension}`;
+    const outputPath = `${cacheDirectoryPath}/${uriKey}.${extension}`;
     if (fetchingUri[uriKey]) return;
     fetchingUri[uriKey] = true;
     try {
@@ -192,7 +192,7 @@ export function cachePhoto({image, type = '', isConnected}: CachePhotoParams) {
             if (!fileSize)
                 // fileSize could be an array or a number
                 fileSize = image.fileSize;
-            const outputPath = `${CommonNative.cacheDirectoryPath}/${id}.jpg`;
+            const outputPath = `${cacheDirectoryPath}/${id}.jpg`;
             if (fetchingUri[image.id.toString()]) return;
             fetchingUri[image.id.toString()] = true;
             try {

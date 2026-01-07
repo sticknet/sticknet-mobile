@@ -2,9 +2,9 @@ import Animated, {useAnimatedStyle, useSharedValue, withTiming} from 'react-nati
 import {Text, StyleSheet, Pressable} from 'react-native';
 import React, {useEffect} from 'react';
 import {connect, ConnectedProps} from 'react-redux';
-import Icon from '../Icons/Icon';
-import {app} from '../../actions';
-import {IApplicationState, TMessage, TUser} from '../../types';
+import Icon from '@/src/components/Icons/Icon';
+import {app} from '@/src/actions';
+import {IApplicationState, TMessage, TUser} from '@/src/types';
 
 const AnimatedPressable = Animated.createAnimatedComponent(Pressable);
 
@@ -28,7 +28,8 @@ const ReplyMessage: React.FC<Props> = (props) => {
     return (
         <AnimatedPressable
             style={[s.container, {borderTopWidth: props.message ? StyleSheet.hairlineWidth : 0}, animatedStyles]}
-            onPress={() => props.dispatchAppTempProperty({replyMessage: null})}>
+            onPress={() => props.dispatchAppTempProperty({replyMessage: null})}
+        >
             <Icon solid name="circle-x" size={15} color="grey" />
             <Text>
                 {' '}

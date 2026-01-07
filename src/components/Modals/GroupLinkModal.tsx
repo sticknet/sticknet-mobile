@@ -1,9 +1,9 @@
 import React, {PureComponent} from 'react';
 import {Text, View, StyleSheet, ViewStyle} from 'react-native';
 import BottomModal from './BottomModal';
-import ButtonPair from '../Buttons/ButtonPair';
-import GroupCover from '../GroupCover';
-import {TGroup} from '../../types';
+import ButtonPair from '@/src/components/Buttons/ButtonPair';
+import GroupCover from '@/src/components/GroupCover';
+import {TGroup} from '@/src/types';
 
 interface GroupLinkModalProps {
     isVisible: boolean;

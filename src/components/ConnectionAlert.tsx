@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
-import {Text, Animated, Platform, Pressable, StyleSheet} from 'react-native';
+import {Animated, Platform, Pressable, StyleSheet, Text} from 'react-native';
 import {connect, ConnectedProps} from 'react-redux';
 import Icon from '@sticknet/react-native-vector-icons/Feather';
 import {widthPercentageToDP as w} from 'react-native-responsive-screen';
-import type {IApplicationState} from '../types';
+import type {IApplicationState} from '@/src/types';
 
 const AnimatedPressable = Animated.createAnimatedComponent(Pressable);
 

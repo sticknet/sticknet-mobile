@@ -1,23 +1,23 @@
 import React, {useEffect} from 'react';
-import {Text, View, TouchableOpacity, FlatList, StyleSheet, Platform} from 'react-native';
+import {FlatList, Platform, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {connect} from 'react-redux';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
-import {deepLinkToSubscriptions} from 'react-native-iap';
+import {deepLinkToSubscriptions, deepLinkToSubscriptionsIOS} from 'react-native-iap';
 import {widthPercentageToDP as w} from 'react-native-responsive-screen';
 import LottieView from 'lottie-react-native';
 import XIcon from '@sticknet/react-native-vector-icons/Feather';
 import {isIphoneX} from 'react-native-iphone-x-helper';
 import type {NavigationProp} from '@react-navigation/native';
-import {SmallLoading, Sticknet, Icon} from '../../../components';
-import {premiumAnimation} from '../../../../assets/lottie';
-import {iap} from '../../../actions/index';
-import AnimatedButton from '../../../components/AnimatedButton';
-import {colors} from '../../../foundations';
-import {globalData} from '../../../actions/globalVariables';
-import CloudVaultIcon from '../../../components/Icons/CloudVaultIcon';
-import type {IApplicationState, TUser, TSubscription} from '../../../types';
-import type {ProfileStackParamList} from '../../../navigators/types';
-import type {IIAPActions} from '../../../actions/iap';
+import {Icon, SmallLoading, Sticknet} from '@/src/components';
+import {premiumAnimation} from '@/assets/lottie';
+import {iap} from '@/src/actions/index';
+import AnimatedButton from '@/src/components/AnimatedButton';
+import {colors} from '@/src/foundations';
+import {globalData} from '@/src/actions/globalVariables';
+import CloudVaultIcon from '@/src/components/Icons/CloudVaultIcon';
+import type {IApplicationState, TSubscription, TUser} from '@/src/types';
+import type {ProfileStackParamList} from '@/src/navigators/types';
+import type {IIAPActions} from '@/src/actions/iap';
 
 interface IAPScreenProps extends IIAPActions {
     navigation: NavigationProp<ProfileStackParamList>;
@@ -96,7 +96,10 @@ const IAPScreen: React.FC<IAPScreenProps> = (props) => {
                             textAlign: 'center',
                             color: 'grey',
                         }}
-                        onPress={() => deepLinkToSubscriptions({sku: props.subs[0].productId})}>
+                        onPress={() => {
+                            if (Platform.OS === 'ios') deepLinkToSubscriptionsIOS();
+                            else deepLinkToSubscriptions({skuAndroid: props.subs[0].productId});
+                        }}>
                         Cancel subscription
                     </Text>
                 ) : (
@@ -121,7 +124,7 @@ const IAPScreen: React.FC<IAPScreenProps> = (props) => {
             {props?.subs[0]?.hasFreeTrial && Platform.OS === 'android' && (
                 <View style={{marginTop: 12, marginHorizontal: 12}}>
                     <Text style={{color: 'grey'}}>
-                        You can cancel anytime. You won't be charged until your 30-day trial has ended.
+                        You can cancel anytime. You won&#39;t be charged until your 30-day trial has ended.
                     </Text>
                 </View>
             )}
