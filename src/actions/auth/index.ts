@@ -847,3 +847,4 @@ export function setFolderIcon(folderIcon: string) {
         axios.post(`${URL}/api/set-folder-icon/`, {folderIcon}, config);
     };
 }
+//
