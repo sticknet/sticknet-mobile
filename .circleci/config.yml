@@ -1,0 +1,493 @@
+version: 2.1
+
+orbs:
+  android: circleci/android@2.1.2
+  aws-s3: circleci/aws-s3@3.1.1
+
+commands:
+
+  node_dependencies:
+    description: Install Javascript dependencies using Yarn. This command correctly configures the cache for any number of package.json and yarn.lock files.
+    parameters:
+      cache:
+        description: Save and restore the build cache? Defaults to true
+        type: boolean
+        default: true
+      cache_folder:
+        description: The path to the yarn cache folder.  Defaults to /tmp/yarn
+        type: string
+        default: "/tmp/yarn"
+      yarn_install_directory:
+        description: The working directory to run install at. Defaults to yarn's current working directory
+        type: string
+        default: ""
+    steps:
+      - when:
+          condition: <<parameters.cache>>
+          steps:
+            - run:
+                name: Create cache checksum file
+                command: |
+                  mkdir -p ~/.tmp/checksumfiles
+                  find . -type f -name 'package.json' -not -path "*node_modules*" -exec cat {} + >> ~/.tmp/checksumfiles/package.json
+                  find . -type f -name 'yarn.lock' -not -path "*node_modules*" -exec cat {} + >> ~/.tmp/checksumfiles/yarn.lock
+            - restore_cache:
+                keys:
+                  - yarn-cache-{{ arch }}-{{ checksum "~/.tmp/checksumfiles/package.json" }}-{{ checksum "~/.tmp/checksumfiles/yarn.lock" }}-{{ .Environment.CACHE_VERSION }}
+      - when:
+          condition:
+            equal: [ "", <<parameters.yarn_install_directory>> ]
+          steps:
+            - run:
+                name: Yarn Install
+                command: "yarn install --frozen-lockfile --non-interactive --cache-folder <<parameters.cache_folder>>"
+      - unless:
+          condition:
+            equal: [ "", <<parameters.yarn_install_directory>> ]
+          steps:
+            - run:
+                name: Yarn Install (<<parameters.yarn_install_directory>>)
+                command: "yarn --cwd <<parameters.yarn_install_directory>> install --frozen-lockfile --non-interactive --cache-folder <<parameters.cache_folder>>"
+      - when:
+          condition: <<parameters.cache>>
+          steps:
+            - save_cache:
+                paths:
+                  - <<parameters.cache_folder>>
+                key: yarn-cache-{{ arch }}-{{ checksum "~/.tmp/checksumfiles/package.json" }}-{{ checksum "~/.tmp/checksumfiles/yarn.lock" }}-{{ .Environment.CACHE_VERSION }}
+
+  setup_java:
+    steps:
+      - run:
+          name: Update package lists
+          command: sudo apt-get update
+      - run:
+          name: Set up JDK 11
+          command: sudo apt-get install -y openjdk-11-jdk
+      - run:
+          name: Set JAVA_HOME
+          command: echo 'export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64' >> $BASH_ENV
+
+
+  install_ninja:
+    steps:
+      - run:
+          name: Install Ninja
+          command: sudo apt-get install -y ninja-build
+
+  gradle_dependencies:
+    description: "Get Gradle dependencies"
+    steps:
+      - restore_cache:
+          name: Restore Gradle cache
+          key: android-{{ checksum "android/build.gradle" }}-{{ checksum  "android/app/build.gradle" }}
+      - run:
+          working_directory: android
+          name: Download Gradle dependencies
+          command: ./gradlew dependencies
+      - save_cache:
+          name: Save Gradle cache
+          paths:
+            - ~/.gradle
+          key: android-{{ checksum "android/build.gradle" }}-{{ checksum  "android/app/build.gradle" }}
+
+  setup_macos_executor:
+    description: Installs the required packages to build and test Android and iOS applications on the MacOS executor. You need to run this before running any other command on those executors.
+
+    parameters:
+      node_version:
+        description: The version of Node to use. This can be either a major version ("8"), a major and minor ("8.4"), or a fully qualified version ("8.4.1").
+        type: string
+        default: "16"
+      homebrew_cache:
+        description: Should we cache after brew install? Defaults to true
+        type: boolean
+        default: true
+      homebrew_update:
+        description: Should we run brew update? Defaults to true
+        type: boolean
+        default: true
+
+    steps:
+      - run:
+          name: Configure Environment Variables
+          command: |
+            echo 'export PATH="$PATH:/usr/local/opt/node@<<parameters.node_version>>/bin:~/.yarn/bin:~/project/node_modules/.bin:~/project/example/node_modules/.bin"' >> $BASH_ENV
+            echo 'export ANDROID_HOME="/usr/local/share/android-commandlinetools"' >> $BASH_ENV
+            echo 'export ANDROID_SDK_ROOT="/usr/local/share/android-commandlinetools"' >> $BASH_ENV
+            echo 'export PATH="$ANDROID_SDK_ROOT/emulator:$ANDROID_SDK_ROOT/tools:$ANDROID_SDK_ROOT/platform-tools:$PATH"' >> $BASH_ENV
+            echo 'export QEMU_AUDIO_DRV=none' >> $BASH_ENV
+            echo 'export JAVA_HOME=$(/usr/libexec/java_home)' >> $BASH_ENV
+            source $BASH_ENV
+
+#      - when:
+#          condition: <<parameters.homebrew_cache>>
+#          steps:
+#            - restore_cache:
+#                key: brew-cache-{{ arch }}-{{ .Environment.CACHE_VERSION }}
+
+      - run:
+          name: Install node@<<parameters.node_version>>
+          # after `curl`, bashrc contains the script to load nvm, we need to source it to use it
+          command: |
+            set +e
+            curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.35.3/install.sh | bash
+            echo 'export NVM_DIR=$HOME/.nvm' >> $BASH_ENV
+            echo 'source $NVM_DIR/nvm.sh' >> $BASH_ENV
+            source ~/.bashrc
+            command -v nvm
+            nvm install <<parameters.node_version>>
+            nvm alias default <<parameters.node_version>>
+      - run:
+          name: Verify node version
+          command: node --version
+
+#      - when:
+#          condition: <<parameters.homebrew_update>>
+#          steps:
+#            - run:
+#                name: Update brew
+#                command: brew update >/dev/null
+
+      #      - run:
+      #          name: Configure Detox Environment
+      #          command: |
+      #            HOMEBREW_NO_AUTO_UPDATE=1 brew tap wix/brew >/dev/null
+      #            HOMEBREW_NO_AUTO_UPDATE=1 brew tap homebrew/cask >/dev/null
+      #            HOMEBREW_NO_AUTO_UPDATE=1 brew install applesimutils >/dev/null
+      #            HOMEBREW_NO_AUTO_UPDATE=1 brew install android-commandlinetools >/dev/null
+      #            touch .watchmanconfig
+      #            node -v
+
+#      - when:
+#          condition: <<parameters.homebrew_cache>>
+#          steps:
+#            - save_cache:
+#                paths:
+#                  - ~/Library/Caches/Homebrew
+#                key: brew-cache-{{ arch }}-{{ .Environment.CACHE_VERSION }}
+
+
+  pod_install:
+    parameters:
+      pod_install_directory:
+        type: string
+        default: "ios"
+        description: The location of the "ios" directory
+      cache:
+        description: Save and restore the cache? Defaults to true
+        type: boolean
+        default: true
+
+    steps:
+      - when:
+          condition: <<parameters.cache>>
+          steps:
+            - restore_cache:
+                keys:
+                  - '{{ .Environment.CACHE_VERSION }}-cache-pods-{{ checksum "<<parameters.pod_install_directory>>/Podfile.lock" }}'
+                  - '{{ .Environment.CACHE_VERSION }}-cache-pods'
+      - run:
+          name: Install CocoaPods
+          command: |
+            cd <<parameters.pod_install_directory>> && pod install && cd -
+      - when:
+          condition: <<parameters.cache>>
+          steps:
+            - save_cache:
+                paths:
+                  - <<parameters.pod_install_directory>>/Pods
+                key: '{{ .Environment.CACHE_VERSION }}-cache-pods-{{ checksum "<<parameters.pod_install_directory>>/Podfile.lock" }}'
+
+  build_ios:
+    description: Build the iOS app at the given path with the given build scheme and configuration. This should be run only after installing NPM dependencies.
+
+    parameters:
+      project_type:
+        description: If the iOS app is built using a project file (*.xcodeproj) or a workspace.
+        type: enum
+        enum: [ "project", "workspace" ]
+        default: "project"
+      project_path:
+        description: The path to the Xcode project (*.xcodeproj) or the Xcode workspace (*.xcworkspace) that you want to build, relative to the root of the repository.
+        type: string
+      build_configuration:
+        description: The build configuration to use. This is normally either "Debug" or "Release" but you may have custom build configuration configured for your app.
+        type: string
+        default: "Debug"
+      derived_data_path:
+        description: The path to the directory to place the derived data, relative to the root of the repository.
+        type: string
+        default: "ios/build"
+      device:
+        description: The type of device you want to build for.
+        type: string
+        default: "iPhone 11"
+      scheme:
+        description: The scheme to use.
+        type: string
+      cache:
+        description: Save and restore the build cache? Defaults to true
+        type: boolean
+        default: true
+
+    steps:
+      - when:
+          condition: <<parameters.cache>>
+          steps:
+            - restore_cache:
+                name: Restoring iOS Build caches
+                keys:
+                  - ios-build-cache-{{ arch }}-{{ checksum "~/.tmp/checksumfiles/package.json" }}-{{ .Environment.CACHE_VERSION }}
+
+      - run:
+          name: Build iOS App
+          command: "export RCT_NO_LAUNCH_PACKAGER=true && xcodebuild -configuration Release -workspace ios/Sticknet.xcworkspace -scheme Sticknet -destination 'platform=iOS Simulator,name=iPhone 13' -sdk iphonesimulator -derivedDataPath ios/build -parallelizeTargets -UseModernBuildSystem=YES | xcpretty"
+
+      - when:
+          condition: <<parameters.cache>>
+          steps:
+            - save_cache:
+                name: Saving iOS Build Cache
+                paths:
+                  - <<parameters.derived_data_path>>/Build
+                key: ios-build-cache-{{ arch }}-{{ checksum "~/.tmp/checksumfiles/package.json" }}-{{ .Environment.CACHE_VERSION }}
+                when: always
+
+  prepare_keystore:
+    steps:
+      - aws-s3/copy:
+          aws-access-key-id: AWS_ACCESS_KEY_ID
+          aws-secret-access-key: AWS_SECRET_ACCESS_KEY
+          aws-region: AWS_REGION
+          from: $KEYSTORE_ENC_URI
+          to: './android/app/upload-key-store.encrypted.keystore'
+      - run:
+          name: decrypt keystore
+          command: openssl aes-256-cbc -d -in upload-key-store.encrypted.keystore -out $APP_UPLOAD_STORE_FILE -iter 10000 -k $KEYSTORE_ENC_PASS
+          working_directory: android/app
+      - run:
+          name: write keystore variables to gradle.properties
+          command: |
+            echo "APP_UPLOAD_STORE_FILE=$APP_UPLOAD_STORE_FILE" >> ./gradle.properties
+            echo "APP_UPLOAD_KEY_ALIAS=$APP_UPLOAD_KEY_ALIAS" >> ./gradle.properties
+            echo "APP_UPLOAD_STORE_PASSWORD=$APP_UPLOAD_STORE_PASSWORD" >> ./gradle.properties
+            echo "APP_UPLOAD_KEY_PASSWORD=$APP_UPLOAD_KEY_PASSWORD" >> ./gradle.properties
+          working_directory: android
+
+jobs:
+  lint_and_test:
+    docker:
+      - image: cimg/node:18.20.4
+    resource_class: large
+    steps:
+      - checkout
+      - node_dependencies
+      - run:
+          name: Run ESLint
+          command: yarn lint
+      - run:
+          name: Run local tests (jest)
+          command: yarn test-ci
+
+  build_android_release:
+    docker:
+      - image: cimg/android:2024.07-node
+    resource_class: large
+    steps:
+      - checkout
+      - node_dependencies
+      - install_ninja
+      - setup_java
+      - gradle_dependencies
+      - prepare_keystore
+      - run:
+          name: Build Android APK
+#          command: "cd ./android && chmod +x gradlew && ENVFILE=.env.testing ./gradlew app:assembleRelease app:assembleAndroidTest -DtestBuildType=release"
+          command: "cd ./android && chmod +x gradlew && ./gradlew app:assembleRelease --no-daemon"
+      - store_artifacts:
+          path: ./android/app/build/outputs
+      - persist_to_workspace:
+          root: .
+          paths:
+            - ./android/app/build/outputs
+
+  test_android_e2e:
+    executor:
+      name: android/android-machine
+      resource-class: large
+      tag: 2021.10.1
+    steps:
+      - attach_workspace:
+          at: .
+      - run: npm install -g yarn
+      - run: npm install -g detox-cli
+      - node_dependencies
+      - android/create-avd:
+          avd-name: myavd
+          install: true
+          system-image: system-images;android-29;default;x86
+          additional-args: --force
+      - run: detox test -c android.emu.release --headless --device-boot-args="-partition-size 8192 -wipe-data"
+
+
+
+  build_ios_release:
+    description: Builds the iOS app at the given path with the given build scheme
+
+    parameters:
+      workspace_root:
+        description: Workspace root path that is either an absolute path or a path relative to the working directory. Defaults to '.' (the working directory).
+        type: string
+        default: .
+      start_metro:
+        description: If we should start the Metro packager in the background for this job.
+        type: boolean
+        default: false
+      pod_install_directory:
+        type: string
+        default: "ios"
+        description: The location of the "ios" directory for `pod install`. Will skip `pod install` if missing.
+      pod_cache:
+        description: Save and restore the CocoaPods cache? Defaults to true
+        type: boolean
+        default: true
+      yarn_cache:
+        description: Should we cache after yarn install? Defaults to true
+        type: boolean
+        default: true
+      yarn_cache_folder:
+        description: The path to the yarn cache folder
+        type: string
+        default: "/tmp/yarn"
+      # For the iOS build commandd
+      project_type:
+        description: If the iOS app is built using a project file (*.xcodeproj) or a workspace.
+        type: enum
+        enum: [ "project", "workspace" ]
+        default: "project"
+      project_path:
+        description: The path to the Xcode project (*.xcodeproj) or the Xcode workspace (*.xcworkspace) that you want to build, relative to the root of the repository.
+        type: string
+      build_configuration:
+        description: The build configuration to use. This is normally either "Debug" or "Release" but you may have custom build configuration configured for your app.
+        type: string
+        default: "Debug"
+      derived_data_path:
+        description: The path to the directory to place the derived data, relative to the root of the repository.
+        type: string
+        default: "ios/build"
+      device:
+        description: The type of device you want to build for.
+        type: string
+        default: "iPhone 11"
+      scheme:
+        description: The scheme to use.
+        type: string
+      on_after_initialize:
+        description: A custom command to run right after yarn install.
+        type: string
+        default: ""
+      xcodebuild_cache:
+        description: Should we cache after Xcode build? Defaults to true
+        type: boolean
+        default: true
+      # For macos executor
+      node_version:
+        description: The version of Node to use. This can be either a major version ("8"), a major and minor ("8.4"), or a fully qualified version ("8.4.1").
+        type: string
+        default: "16"
+      homebrew_cache:
+        description: Should we cache after brew install? Defaults to true
+        type: boolean
+        default: true
+      homebrew_update:
+        description: Should we run brew update? Defaults to true
+        type: boolean
+        default: true
+      xcode_version:
+        description: The version of Xcode to use. See here for the list of supported versions https://circleci.com/docs/2.0/testing-ios/#supported-xcode-versions
+        type: string
+        default: "14.3.1"
+      resource_class:
+        description: Changes the resource class of the executor. Requires a support request to enable the resource_class parameter. See https://circleci.com/docs/2.0/configuration-reference/#resource_class
+        type: string
+        default: medium
+
+    macos:
+      xcode: <<parameters.xcode_version>>
+    resource_class: <<parameters.resource_class>>
+
+
+    steps:
+      - checkout
+      - setup_macos_executor:
+          node_version: <<parameters.node_version>>
+          homebrew_cache: <<parameters.homebrew_cache>>
+          homebrew_update: <<parameters.homebrew_update>>
+      - node_dependencies
+      - pod_install:
+          pod_install_directory: <<parameters.pod_install_directory>>
+          cache: <<parameters.pod_cache>>
+      - build_ios:
+          project_path: <<parameters.project_path>>
+          derived_data_path: <<parameters.derived_data_path>>
+          device: <<parameters.device>>
+          build_configuration: <<parameters.build_configuration>>
+          scheme: <<parameters.scheme>>
+          project_type: "workspace"
+          cache: <<parameters.xcodebuild_cache>>
+
+
+  build_ios_adhoc:
+    macos:
+      xcode: 15.1.0
+    resource_class: macos.m1.medium.gen1
+    steps:
+      - checkout
+      - setup_macos_executor:
+          node_version: "18"
+          homebrew_cache: true
+          homebrew_update: true
+      - node_dependencies
+      - run:
+          name: Set Ruby version
+          command: echo "3.1.4" > .ruby-version
+      - pod_install:
+          pod_install_directory: ios
+          cache: true
+      - run:
+          working_directory: fastlane
+          name: Install fastlane
+          command: bundle install
+      - run:
+          working_directory: fastlane
+          name: Fastlane iOS AdHoc
+          command: bundle exec fastlane ios adhoc
+      - store_artifacts:
+          path: ./ios/Sticknet.ipa
+
+
+  null_job:
+    docker:
+      - image: cimg/base:2022.08
+    resource_class: small
+    steps:
+      - run: echo "Say hello to CI!"
+
+workflows:
+  CI:
+    jobs:
+      - lint_and_test
+#      - build_android_release
+#      - build_ios_adhoc
+
+#      - test_android_e2e:
+#          requires:
+#            - build_android_release
+
+#      - build_ios_release:
+#          project_path: ios/Sticknet.xcworkspace
+#          device: "iPhone 13"
+#          build_configuration: Release
+#          scheme: Sticknet
