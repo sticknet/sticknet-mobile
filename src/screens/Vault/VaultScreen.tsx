@@ -5,16 +5,16 @@ import {useBottomTabBarHeight} from '@react-navigation/bottom-tabs';
 import {heightPercentageToDP as h} from 'react-native-responsive-screen';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {NavigationProp, useNavigation} from '@react-navigation/native';
-import {Folder, ActionButton, InputModal, Icon, Empty, SmallLoading, UploadingView} from '../../components';
-import {app, common, iap, stickRoom, vault, create, auth} from '../../actions';
-import {createFileSections, isCloseToBottom, photosPermission} from '../../utils';
-import {colors} from '../../foundations';
-import {globalData} from '../../actions/globalVariables';
-import {commonInitializations} from '../Home/HomeScreen/utils';
-import StartupModals from '../Home/HomeScreen/StartupModals';
-import type {IApplicationState, TUser, TFile, TFolder, TGroup} from '../../types';
-import type {IVaultActions, IAppActions, IStickRoomActions} from '../../actions/types';
-import type {VaultStackParamList} from '../../navigators/types';
+import {Folder, ActionButton, InputModal, Icon, Empty, SmallLoading, UploadingView} from '@/src/components';
+import {app, common, iap, stickRoom, vault, create, auth} from '@/src/actions';
+import {createFileSections, isCloseToBottom, photosPermission} from '@/src/utils';
+import {colors} from '@/src/foundations';
+import {globalData} from '@/src/actions/globalVariables';
+import {commonInitializations} from '@/src/screens/Home/HomeScreen/utils';
+import StartupModals from '@/src/screens/Home/HomeScreen/StartupModals';
+import type {IApplicationState, TUser, TFile, TFolder, TGroup} from '@/src/types';
+import type {IVaultActions, IAppActions, IStickRoomActions} from '@/src/actions/types';
+import type {VaultStackParamList} from '@/src/navigators/types';
 
 interface VaultScreenProps extends IVaultActions, IAppActions, IStickRoomActions {
     files: {title: string; data: TFile[]}[];
@@ -190,7 +190,8 @@ const VaultScreen: React.FC<VaultScreenProps> = (props) => {
                             colors={[colors.primary]}
                             refreshing={refreshing}
                         />
-                    }>
+                    }
+                >
                     <Empty text="This folder is empty" />
                 </ScrollView>
             ) : (

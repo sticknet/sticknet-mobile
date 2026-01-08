@@ -2,12 +2,12 @@ import React, {useEffect, FC} from 'react';
 import {View, StyleSheet, Pressable} from 'react-native';
 import {connect, ConnectedProps} from 'react-redux';
 import {widthPercentageToDP as w} from 'react-native-responsive-screen';
-import Text from '../../Text';
-import ProfilePicture from '../../ProfilePicture';
-import Icon from '../../Icons/Icon';
-import PremiumIcon from '../../Icons/PremiumIcon';
-import {app, stickRoom} from '../../../actions';
-import {IApplicationState, TUser} from '../../../types';
+import Text from '@/src/components/Text';
+import ProfilePicture from '@/src/components/ProfilePicture';
+import Icon from '@/src/components/Icons/Icon';
+import PremiumIcon from '@/src/components/Icons/PremiumIcon';
+import {app, stickRoom} from '@/src/actions';
+import {IApplicationState, TUser} from '@/src/types';
 
 interface RepliedMessageOwnProps {
     roomId: string;
@@ -38,7 +38,8 @@ const RepliedMessage: FC<Props> = (props) => {
                     props.dispatchAppTempProperty({
                         repliedModal: {isVisible: true, messageId: props.replyToId, roomId: props.roomId},
                     });
-            }}>
+            }}
+        >
             <Icon
                 name="spinner-third"
                 color="grey"

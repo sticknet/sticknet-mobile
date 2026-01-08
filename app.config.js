@@ -1,0 +1,208 @@
+const IS_DEBUG = process.env.APP_VARIANT === 'debug';
+
+export default ({config}) => ({
+    ...config,
+    name: IS_DEBUG ? 'Sticknet Debug' : 'Sticknet',
+    slug: 'Sticknet',
+    version: '6.1.0',
+    orientation: 'portrait',
+    icon: IS_DEBUG ? './assets/images/icon_debug.png' : './assets/images/icon.png',
+    scheme: 'sticknet',
+    userInterfaceStyle: 'automatic',
+    newArchEnabled: true,
+    ios: {
+        buildNumber: '62',
+        supportsTablet: true,
+        bundleIdentifier: IS_DEBUG ? 'com.stiiick.debug' : 'com.stiiick',
+        appleTeamId: '88J4C462WP',
+        googleServicesFile: IS_DEBUG
+            ? './firebase/ios/GoogleService-Info-Debug.plist'
+            : './firebase/ios/GoogleService-Info-Release.plist',
+        entitlements: {
+            'com.apple.security.application-groups': ['group.com.stiiick', 'group.com.stiiick.debug'],
+        },
+        infoPlist: {
+            UIDesignRequiresCompatibility: true,
+            CFBundleURLTypes: [
+                {
+                    CFBundleURLSchemes: [
+                        'fb879537875813671',
+                        'com.googleusercontent.apps.349572123590-55c7qap2u183hnredovieejief7igmb4',
+                        'com.googleusercontent.apps.349572123590-qk9ceqqdmbh12i462124gti98n2jof9t',
+                    ],
+                },
+                {
+                    CFBundleTypeRole: 'Editor',
+                    CFBundleURLName: 'Bundle ID',
+                    CFBundleURLSchemes: ['com.stiiick', 'com.stiiick.debug'],
+                },
+            ],
+            LSApplicationQueriesSchemes: [
+                'fbapi',
+                'fb-messenger-share-api',
+                'fbauth2',
+                'fbshareextension',
+                'metamask',
+                'trust',
+                'safe',
+                'rainbow',
+                'uniswap',
+                'cbwallet',
+            ],
+            FirebaseDynamicLinksCustomDomains: [
+                'https://group-invitation.sticknet.org',
+                'https://invite.sticknet.org',
+                'https://download.sticknet.org',
+            ],
+            ITSAppUsesNonExemptEncryption: false,
+            NSCameraUsageDescription: 'Allow access to the Camera to capture photos',
+            NSContactsUsageDescription:
+                'Sticknet uses your contacts to find users you know. We do not store your contacts on the server.',
+            NSMicrophoneUsageDescription: 'Access to microphone is needed to record audio.',
+            NSPhotoLibraryUsageDescription: 'To share photos, access to your photo gallery is required.',
+            UIBackgroundModes: ['fetch', 'remote-notification'],
+            CADisableMinimumFrameDurationOnPhone: true,
+            UIAppFonts: [
+                'GreatVibes-Regular.ttf',
+                'Handlee-Regular.ttf',
+                'Vibes.ttf',
+                'Vibes-Regular.ttf',
+                'Sticknet.ttf',
+                'SirinStencil-Regular.ttf',
+                'PTSerif-Regular.ttf',
+                'AntDesign.ttf',
+                'Entypo.ttf',
+                'EvilIcons.ttf',
+                'Feather.ttf',
+                'FontAwesome.ttf',
+                'FontAwesome5_Brands.ttf',
+                'FontAwesome5_Regular.ttf',
+                'FontAwesome5_Solid.ttf',
+                'FontAwesome6_Brands.ttf',
+                'FontAwesome6_Regular.ttf',
+                'FontAwesome6_Solid.ttf',
+                'FontAwesome6Pro_Regular.ttf',
+                'FontAwesome6_Pro_Thin.ttf',
+                'FontAwesome6_Pro_Light.ttf',
+                'FontAwesome6_Pro_Solid.ttf',
+                'Foundation.ttf',
+                'Ionicons.ttf',
+                'MaterialIcons.ttf',
+                'MaterialCommunityIcons.ttf',
+                'SimpleLineIcons.ttf',
+                'Octicons.ttf',
+                'Zocial.ttf',
+                'Fontisto.ttf',
+            ],
+        },
+    },
+    android: {
+        versionCode: 93,
+        adaptiveIcon: {
+            foregroundImage: './assets/images/icon.png',
+            backgroundColor: '#000000'
+        },
+        icon: IS_DEBUG ? './assets/images/icon_debug.png' : './assets/images/icon.png',
+        permissions: [
+            'android.permission.INTERNET',
+            'android.permission.WRITE_EXTERNAL_STORAGE',
+            'android.permission.RECEIVE_BOOT_COMPLETED',
+            'android.permission.READ_CONTACTS',
+            'android.permission.VIBRATE',
+            'android.permission.RECORD_AUDIO',
+            'android.permission.WAKE_LOCK',
+            'android.permission.READ_EXTERNAL_STORAGE',
+            'android.permission.READ_MEDIA_IMAGES',
+            'android.permission.READ_MEDIA_VIDEO',
+            'android.permission.CAMERA',
+            'android.permission.ACCESS_NETWORK_STATE',
+            'com.android.vending.BILLING',
+            'android.permission.POST_NOTIFICATIONS',
+            'android.permission.SCHEDULE_EXACT_ALARM',
+        ],
+        edgeToEdgeEnabled: true,
+        softwareKeyboardLayoutMode: 'resize',
+        predictiveBackGestureEnabled: false,
+        package: IS_DEBUG ? 'com.stiiick.debug' : 'com.stiiick',
+        googleServicesFile: './firebase/android/google-services.json',
+        blockedPermissions: ['com.google.android.gms.permission.AD_ID'],
+        intentFilters: [
+            {
+                action: 'VIEW',
+                autoVerify: true,
+                data: [
+                    {scheme: 'https', host: 'invite.sticknet.org'},
+                    {scheme: 'https', host: 'group-invitation.sticknet.org'},
+                    {scheme: 'https', host: 'app.sticknet.org'},
+                ],
+                category: ['BROWSABLE', 'DEFAULT'],
+            },
+        ],
+        queries: {
+            intent: [{action: 'com.google.android.youtube.api.service.START'}],
+            package: ['io.metamask', 'com.wallet.crypto.trustapp', 'io.gnosis.safe', 'me.rainbow', 'org.toshi'],
+        },
+    },
+    web: {
+        output: 'single',
+        favicon: './assets/images/favicon.png',
+    },
+    plugins: [
+        './plugins/withCustomPods.js',
+        './plugins/withAppDelegate.js',
+        './plugins/withAndroidManifest.js',
+        './plugins/withNetworkSecurityConfig.js',
+        './plugins/withAppBuildGradle.js',
+        './plugins/withCopyFonts.js',
+        './plugins/withKeystoreFiles.js',
+        './plugins/withStripBitcode.js',
+        // "./plugins/withLocalStickProtocol.js",
+        [
+            'expo-splash-screen',
+            {
+                image: './assets/images/splash-icon.png',
+                imageWidth: 100,
+                resizeMode: 'contain',
+                backgroundColor: '#000000',
+            },
+        ],
+        '@react-native-community/datetimepicker',
+        '@react-native-firebase/app',
+        '@react-native-firebase/auth',
+        '@react-native-firebase/crashlytics',
+        '@react-native-firebase/messaging',
+        [
+            'expo-build-properties',
+            {
+                ios: {
+                    useFrameworks: 'static',
+                    forceStaticLinking: ['RNFBApp', 'RNFBAuth', 'RNFBCrashlytics', 'RNFBMessaging'],
+                },
+                android: {
+                    gradleProperties: {
+                        'org.gradle.jvmargs': '-Xmx6144m -XX:MaxMetaspaceSize=2048m -Dfile.encoding=UTF-8',
+                    },
+                },
+            },
+        ],
+        [
+            'expo-font',
+            {
+                fonts: [
+                    './assets/fonts/Sticknet.ttf',
+                    './assets/fonts/Sticknet_new.ttf',
+                    './assets/fonts/SirinStencil-Regular.ttf',
+                ],
+            },
+        ],
+        [
+            'react-native-permissions',
+            {
+                iosPermissions: ['Camera', 'Microphone', 'PhotoLibrary', 'Notifications'],
+            },
+        ],
+    ],
+    experiments: {
+        reactCompiler: true,
+    },
+});

@@ -1,15 +1,15 @@
 import {Alert} from 'react-native';
 import {firebase} from '@react-native-firebase/database';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import dynamicLinks from '@react-native-firebase/dynamic-links';
+// import dynamicLinks from '@react-native-firebase/dynamic-links';
 import DeviceInfo from 'react-native-device-info';
 import {Dispatch} from 'redux';
-import axios from '../myaxios';
-import {globalData} from '../globalVariables';
-import SPH from '../SPHandlers';
-import {URL, firebaseRef, isDev} from '../URL';
-import StickProtocol from '../../native-modules/stick-protocol';
-import CommonNative from '../../native-modules/common-native';
+import axios from '@/src/actions/myaxios';
+import {globalData} from '@/src/actions/globalVariables';
+import {stickProtocolHandlers as SPH} from '@/src/actions/SPHandlers';
+import {URL, firebaseRef, isDev} from '@/src/actions/URL';
+import StickProtocol from '@/modules/stick-protocol';
+import CommonNative from '@/modules/common-native';
 import {
     groups,
     connections,
@@ -21,10 +21,10 @@ import {
     creating,
     app,
     notificationsId,
-} from '../actionTypes';
-import channels from '../notifications/notificationChannels';
-import {uploadFiles} from '../utils';
-import {TFile, TGroup, TUser} from '../../types';
+} from '@/src/actions/actionTypes';
+import channels from '@/src/actions/notifications/notificationChannels';
+import {uploadFiles} from '@/src/actions/utils';
+import {TFile, TGroup, TUser} from '@/src/types';
 
 const database = firebase.app().database(firebaseRef);
 const bundleId = DeviceInfo.getBundleId();
@@ -619,7 +619,7 @@ export function updateGroupLink({group, linkApproval, stickId}: TUpdateGroupLink
                     'https://firebasestorage.googleapis.com/v0/b/stiiick-1545628981656.appspot.com/o/sticknet-icon.png?alt=media&token=2b665dae-a63d-4884-a92e-59d5899530dc',
             },
         };
-        const link = await dynamicLinks().buildShortLink(params);
+        // const link = await dynamicLinks().buildShortLink(params);
         const groupId = group.id;
         const config = {headers: {Authorization: globalData.token}};
         if (!stickId) {
@@ -628,13 +628,13 @@ export function updateGroupLink({group, linkApproval, stickId}: TUpdateGroupLink
         }
         const body: any = {groupId, verificationId, linkApproval};
         const userId = await AsyncStorage.getItem('@userId');
-        body.text = await StickProtocol.encryptText(userId as string, stickId!, link, true);
+        // body.text = await StickProtocol.encryptText(userId as string, stickId!, link, true);
         body.stickId = stickId;
-        group.link = {text: link};
+        // group.link = {text: link};
         group.linkApproval = linkApproval;
         group.linkEnabled = true;
         dispatch({type: groups.DISPATCH_GROUP, payload: group});
-        await dispatch({type: appTemp.GROUP_LINK, payload: link});
+        // await dispatch({type: appTemp.GROUP_LINK, payload: link});
         axios.post(`${URL}/api/update-group-link/`, body, config);
         dispatch({type: progress.END_LOADING});
         database.ref(`rooms/${group.id}/auto-join`).set(!linkApproval);

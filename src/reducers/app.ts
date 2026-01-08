@@ -1,7 +1,7 @@
 import DeviceInfo from 'react-native-device-info';
 import {Action} from 'redux';
-import {app} from '../actions/actionTypes';
-import {TTarget} from '../types';
+import {app} from '@/src/actions/actionTypes';
+import {TTarget} from '@/src/types';
 
 export interface IAppState {
     version: string;

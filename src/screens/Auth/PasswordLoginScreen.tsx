@@ -1,19 +1,18 @@
 import React, {useEffect, useRef, useState} from 'react';
 import {
-    View,
-    Text,
     Alert,
+    Keyboard,
+    Linking,
     Platform,
     StatusBar,
+    StyleSheet,
+    Text,
     TextInput,
     TouchableOpacity,
-    Keyboard,
-    StyleSheet,
-    Linking,
+    View,
 } from 'react-native';
 import {connect, ConnectedProps} from 'react-redux';
 import KeyIcon from '@sticknet/react-native-vector-icons/AntDesign';
-import RNBootSplash from 'react-native-bootsplash';
 import changeNavigationBarColor from 'react-native-navigation-bar-color';
 import {widthPercentageToDP as w} from 'react-native-responsive-screen';
 import CheckIcon from '@sticknet/react-native-vector-icons/Feather';
@@ -23,13 +22,14 @@ import {handleResponse} from '@coinbase/wallet-mobile-sdk';
 import {ConnectionController} from '@reown/appkit-core-react-native';
 import {BrowserProvider} from 'ethers';
 import {useAppKitProvider} from '@reown/appkit-ethers-react-native';
-import {auth, stickRoom} from '../../actions/index';
-import {Button, ProgressModal} from '../../components';
-import type {HomeStackParamList} from '../../navigators/types';
-import type {IApplicationState, TGroup, TUser} from '../../types';
-import type {IAuthActions, IStickRoomActions} from '../../actions/types';
-import {globalData} from '../../actions/globalVariables';
-import StickProtocol from '../../native-modules/stick-protocol';
+import {auth, stickRoom} from '@/src/actions/index';
+import {Button, ProgressModal} from '@/src/components';
+import type {HomeStackParamList} from '@/src/navigators/types';
+import type {IApplicationState, TGroup, TUser} from '@/src/types';
+import type {IAuthActions, IStickRoomActions} from '@/src/actions/types';
+import {globalData} from '@/src/actions/globalVariables';
+import StickProtocol from '@/modules/stick-protocol';
+import {useSafeAreaInsets} from 'react-native-safe-area-context';
 
 interface PasswordLoginScreenProps extends IAuthActions, IStickRoomActions {
     navigation: StackNavigationProp<HomeStackParamList>;
@@ -53,7 +53,6 @@ const PasswordLoginScreen = (props: Props) => {
     const [showPass, setShowPass] = useState(false);
     const authId = props.route.params.authId;
     useEffect(() => {
-        RNBootSplash.hide({duration: 250});
         if (Platform.OS === 'android') {
             StatusBar.setTranslucent(true);
             StatusBar.setBackgroundColor('#fff');
@@ -154,8 +153,9 @@ const PasswordLoginScreen = (props: Props) => {
         ConnectionController.disconnect();
         login(password);
     };
+    const {bottom} = useSafeAreaInsets();
     return (
-        <View style={{flex: 1, padding: 12, paddingLeft: 20, paddingRight: 20}}>
+        <View style={{flex: 1, padding: 12, paddingLeft: 20, paddingRight: 20, marginBottom: Platform.OS === 'android' ? bottom : 0}}>
             <ProgressModal
                 isVisible={props.modalVisible}
                 text={props.finishingUp ? 'Finishing up...' : 'Logging in & decrypting your data...'}

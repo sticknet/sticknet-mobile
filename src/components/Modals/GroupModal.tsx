@@ -1,17 +1,17 @@
 import React, {FC} from 'react';
 import {connect, ConnectedProps} from 'react-redux';
-import {Alert, Text, View, StyleSheet} from 'react-native';
+import {Alert, StyleSheet, Text, View} from 'react-native';
 import {widthPercentageToDP as w} from 'react-native-responsive-screen';
 import AntIcon from '@sticknet/react-native-vector-icons/AntDesign';
 import FeatherIcon from '@sticknet/react-native-vector-icons/Feather';
 import {NavigationProp, useNavigation, useRoute} from '@react-navigation/native';
 import BottomModal from './BottomModal';
 import ModalItem from './ModalItem';
-import {groups} from '../../actions';
-import GroupCover from '../GroupCover';
-import Icon from '../Icons/Icon';
-import type {IApplicationState, TUser} from '../../types';
-import type {ChatStackParamList} from '../../navigators/types';
+import {groups} from '@/src/actions';
+import GroupCover from '@/src/components/GroupCover';
+import Icon from '@/src/components/Icons/Icon';
+import type {IApplicationState, TUser} from '@/src/types';
+import type {ChatStackParamList} from '@/src/navigators/types';
 
 interface GroupModalOwnProps {
     id: string;

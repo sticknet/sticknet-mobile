@@ -2,8 +2,8 @@ import React, {FC} from 'react';
 import {View, StyleSheet} from 'react-native';
 import {widthPercentageToDP as w} from 'react-native-responsive-screen';
 import LottieView from 'lottie-react-native';
-import {Text} from '../../../components';
-import {computerAnimation} from '../../../../assets/lottie';
+import {Text} from '@/src/components';
+import {computerAnimation} from '@/assets/lottie';
 
 const ComputerScreen: FC = () => {
     return (

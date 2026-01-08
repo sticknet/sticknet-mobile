@@ -1,16 +1,16 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {firebase} from '@react-native-firebase/database';
 import DeviceInfo from 'react-native-device-info';
-import dynamicLinks from '@react-native-firebase/dynamic-links';
+// import dynamicLinks from '@react-native-firebase/dynamic-links';
 import Share from 'react-native-share';
-import Clipboard from '@react-native-community/clipboard';
+import Clipboard from '@react-native-clipboard/clipboard';
 import {Keyboard, Platform} from 'react-native';
 import {Dispatch} from 'redux';
-import axios from '../myaxios';
-import {firebaseRef, URL} from '../URL';
-import SPH from '../SPHandlers';
-import StickProtocol from '../../native-modules/stick-protocol';
-import {globalData} from '../globalVariables';
+import axios from '@/src/actions/myaxios';
+import {firebaseRef, URL} from '@/src/actions/URL';
+import {stickProtocolHandlers as SPH} from '@/src/actions/SPHandlers';
+import StickProtocol from '@/modules/stick-protocol';
+import {globalData} from '@/src/actions/globalVariables';
 import {
     connections,
     auth,
@@ -25,10 +25,10 @@ import {
     progress,
     notificationsId,
     stickRoom,
-} from '../actionTypes';
-import channels from '../notifications/notificationChannels';
-import {initOneToOne} from '../stick-room';
-import {TUser} from '../../types';
+} from '@/src/actions/actionTypes';
+import channels from '@/src/actions/notifications/notificationChannels';
+import {initOneToOne} from '@/src/actions/stick-room';
+import {TUser} from '@/src/types';
 
 const database = firebase.app().database(firebaseRef);
 const bundleId = DeviceInfo.getBundleId();
@@ -364,7 +364,7 @@ export function connectLink({share}: TConnectLinkParams) {
             },
         };
         // @ts-ignore
-        const link = await dynamicLinks().buildShortLink(params, 'SHORT');
+        // const link = await dynamicLinks().buildShortLink(params, 'SHORT');
         if (share) Share.open({url: link}).catch((err) => console.log('ERR share', err));
         else {
             Clipboard.setString(link);

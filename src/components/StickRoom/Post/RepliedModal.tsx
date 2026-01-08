@@ -3,9 +3,9 @@ import React, {FC} from 'react';
 import {connect, ConnectedProps} from 'react-redux';
 import Modal from 'react-native-modal';
 import {widthPercentageToDP as w} from 'react-native-responsive-screen';
-import {app} from '../../../actions';
+import {app} from '@/src/actions';
 import Post from './index';
-import {IApplicationState} from '../../../types';
+import {IApplicationState} from '@/src/types';
 
 type ReduxProps = ConnectedProps<typeof connector>;
 
@@ -31,7 +31,8 @@ const RepliedModal: FC<Props> = (props) => {
             animationOut="zoomOut"
             backdropOpacity={0.3}
             onBackButtonPress={hide}
-            onBackdropPress={hide}>
+            onBackdropPress={hide}
+        >
             <View>
                 <ScrollView style={s.modal} contentContainerStyle={{paddingBottom: 12}}>
                     {roomId && messageId && <Post roomId={roomId} messageId={messageId} />}

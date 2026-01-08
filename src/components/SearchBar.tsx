@@ -1,9 +1,9 @@
 import React, {PureComponent} from 'react';
-import {TouchableOpacity, View, TextInput, StyleSheet, TextInputProps, StyleProp, ViewStyle} from 'react-native';
+import {StyleProp, StyleSheet, TextInput, TextInputProps, TouchableOpacity, View, ViewStyle} from 'react-native';
 import IoIcon from '@sticknet/react-native-vector-icons/Ionicons';
 import CancelIcon from '@sticknet/react-native-vector-icons/MaterialIcons';
 import {widthPercentageToDP as w} from 'react-native-responsive-screen';
-import {colors} from '../foundations';
+import {colors} from '@/src/foundations';
 
 interface SearchBarProps extends TextInputProps {
     style?: StyleProp<ViewStyle>;
@@ -25,7 +25,6 @@ class SearchBar extends PureComponent<SearchBarProps> {
                     selectionColor={colors.primary}
                     placeholderTextColor="grey"
                     placeholder={this.props.placeholder}
-                    value={this.props.input}
                     onChangeText={this.props.onChangeText}
                     enterKeyHint={this.props.enterKeyHint || 'search'}
                     onSubmitEditing={this.props.onSubmit}

@@ -1,18 +1,28 @@
-import React, {useRef, useEffect} from 'react';
-import {View, StyleSheet, FlatList, Platform, TouchableOpacity, NativeScrollEvent} from 'react-native';
+import React, {useEffect, useRef, useState} from 'react';
+import {
+    FlatList,
+    Keyboard,
+    KeyboardAvoidingView,
+    NativeScrollEvent,
+    Platform,
+    SafeAreaView,
+    StyleSheet,
+    TouchableOpacity,
+    View,
+} from 'react-native';
 import {connect, ConnectedProps} from 'react-redux';
-import {KeyboardAccessoryView} from 'react-native-ui-lib/keyboard';
 import type {NavigationProp, RouteProp} from '@react-navigation/native';
-import {Composer, Icon, Post, RepliedModal, Text} from '../../components';
-import {globalData} from '../../actions/globalVariables';
-import {app, groups, stickRoom} from '../../actions';
-import {colors} from '../../foundations';
-import {isCloseToBottom} from '../../utils';
-import MessageModal from '../../components/Modals/MessageModal';
-import ReactionsModal from '../../components/Modals/ReactionsModal';
-import PendingModal from '../../components/Modals/PendingModal';
-import type {IApplicationState, TGroup, TMessage, TUser} from '../../types';
-import type {ChatStackParamList} from '../../navigators/types';
+import {Composer, Icon, Post, RepliedModal, Text} from '@/src/components';
+import {globalData} from '@/src/actions/globalVariables';
+import {app, groups, stickRoom} from '@/src/actions';
+import {isCloseToBottom} from '@/src/utils';
+import MessageModal from '@/src/components/Modals/MessageModal';
+import ReactionsModal from '@/src/components/Modals/ReactionsModal';
+import PendingModal from '@/src/components/Modals/PendingModal';
+import type {IApplicationState, TGroup, TMessage, TUser} from '@/src/types';
+import type {ChatStackParamList} from '@/src/navigators/types';
+import colors from '@/src/foundations/colors';
+import {useSafeAreaInsets} from 'react-native-safe-area-context';
 
 let isActive = true;
 
@@ -41,6 +51,9 @@ const StickRoomScreen: React.FC<Props> = (props) => {
         }
     };
 
+    const [keyboardHeight, setKeyboardHeight] = useState(0);
+
+
     useEffect(() => {
         didMount();
         return () => {
@@ -58,6 +71,22 @@ const StickRoomScreen: React.FC<Props> = (props) => {
             isActive = true;
         }
     }, [props.appState]);
+
+    useEffect(() => {
+        const showSub = Keyboard.addListener('keyboardDidShow', (e) => {
+            setKeyboardHeight(e.endCoordinates.height);
+            // Scroll to bottom when keyboard appears
+            listRef.current?.scrollToOffset({ offset: 0, animated: true });
+        });
+        const hideSub = Keyboard.addListener('keyboardDidHide', () => {
+            setKeyboardHeight(0);
+        });
+
+        return () => {
+            showSub.remove();
+            hideSub.remove();
+        };
+    }, []);
 
     const renderItem = ({item, index}: {item: TMessage; index: number}) => (
         <Post
@@ -129,52 +158,59 @@ const StickRoomScreen: React.FC<Props> = (props) => {
                         },
                         merge: true,
                     })
-                }>
+                }
+            >
                 <Text style={s.requests}>
                     {requestsCount} Pending Member Request{requestsCount > 1 && 's'}
                 </Text>
             </TouchableOpacity>
         );
     };
-
+    const {bottom} = useSafeAreaInsets();
     return (
-        <>
-            {memberRequests()}
-            <FlatList
-                ref={listRef}
-                data={Object.values(props.messages)}
-                renderItem={renderItem}
-                keyExtractor={(message) => message.id}
-                inverted
-                initialNumToRender={25}
-                contentContainerStyle={{paddingTop: 24, flexGrow: 1, marginBottom: Platform.OS === 'ios' ? 84 : 0}}
-                onScroll={onScroll}
-                onEndReached={onEndReached}
-                ListFooterComponent={footer}
-                ListFooterComponentStyle={{flex: 1, justifyContent: 'flex-start'}}
-            />
-            <KeyboardAccessoryView
-                renderContent={() => <Composer target={props.target} />}
-                trackInteractive
-                requiresSameParentToManageScrollView
-                addBottomView
-                bottomViewColor={colors.lightWhite}
-                useSafeArea
-            />
-            <MessageModal />
-            <ReactionsModal />
-            <RepliedModal />
-            <PendingModal
-                isVisible={!!props.pendingModal}
-                hideModal={() => props.dispatchAppTempProperty({pendingModal: null})}
-                // @ts-ignore
-                name={props.pendingModal?.nameOfUser}
-            />
-        </>
+        <KeyboardAvoidingView
+            style={{ flex: 1 }}
+            behavior={Platform.OS === 'ios' ? 'padding' : undefined}
+            keyboardVerticalOffset={Platform.OS === 'ios' ? bottom + 90 : 0}
+        >
+            <SafeAreaView style={{flex: 1, backgroundColor: colors.lightWhite}}>
+                {memberRequests()}
+                <FlatList
+                    ref={listRef}
+                    data={Object.values(props.messages)}
+                    renderItem={renderItem}
+                    keyExtractor={(message) => message.id}
+                    inverted
+                    initialNumToRender={25}
+                    contentContainerStyle={{paddingTop: 24, flexGrow: 1}}
+                    style={{ flex: 1 }}
+                    onScroll={onScroll}
+                    onEndReached={onEndReached}
+                    ListFooterComponent={footer}
+                    ListFooterComponentStyle={{flex: 1, justifyContent: 'flex-start'}}
+                />
+                <View style={[s.toolbar, { paddingBottom: Platform.OS === 'android' ? keyboardHeight : 0 }]}>
+                    <Composer target={props.target} />
+                </View>
+                <MessageModal />
+                <ReactionsModal />
+                <RepliedModal />
+                <PendingModal
+                    isVisible={!!props.pendingModal}
+                    hideModal={() => props.dispatchAppTempProperty({pendingModal: null})}
+                    // @ts-ignore
+                    name={props.pendingModal?.nameOfUser}
+                />
+            </SafeAreaView>
+        </KeyboardAvoidingView>
     );
 };
 
 const s = StyleSheet.create({
+    toolbar: {
+        paddingVertical: 8,
+        // height: 120
+    },
     infoContainer: {
         paddingBottom: 12,
         alignSelf: 'center',

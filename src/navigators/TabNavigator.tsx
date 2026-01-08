@@ -3,28 +3,18 @@ import Icon from '@sticknet/react-native-vector-icons/FontAwesome6Pro';
 import React from 'react';
 import {enableScreens} from 'react-native-screens';
 import {getFocusedRouteNameFromRoute} from '@react-navigation/native';
-import {Platform} from 'react-native';
 import HomeStack from './HomeStack';
 import {ChatsStack} from './ChatsStack';
 import CreateGroup from './CreateGroup';
 import {VaultStack} from './VaultStack';
-import {globalData} from '../actions/globalVariables';
-import {colors} from '../foundations';
-import {ChatsIcon, CreateButton} from '../components';
+import {globalData} from '@/src/actions/globalVariables';
+import {colors} from '@/src/foundations';
+import {ChatsIcon, CreateButton} from '@/src/components';
 import ProfileStack from './ProfileStack';
-import type {CreateStackParamList} from './types';
 
 enableScreens();
 
 const Tab = createBottomTabNavigator();
-
-type TabNavigatorParams = {
-    HomeTab: undefined;
-    VaultTab: undefined;
-    CreateTab: CreateStackParamList;
-    ChatsTab: undefined;
-    ProfileTab: undefined;
-};
 
 const authRoutes = [
     'Authentication',
@@ -98,14 +88,17 @@ const TabNavigator: React.FC = () => {
                     tabBarStyle: {
                         backgroundColor: '#000000',
                         borderTopWidth: 0,
-                        display:
-                            Platform.OS === 'ios'
-                                ? focusedRoute && !isAuthRoute
-                                    ? 'flex'
-                                    : 'none'
-                                : tabBarVisible
-                                ? globalData.tabBarDisplay
-                                : 'none',
+                        display:  tabBarVisible
+                            ? globalData.tabBarDisplay
+                            : 'none'
+                        // display:
+                        //     Platform.OS === 'ios'
+                        //         ? focusedRoute && !isAuthRoute
+                        //             ? 'flex'
+                        //             : 'none'
+                        //         : tabBarVisible
+                        //         ? globalData.tabBarDisplay
+                        //         : 'none',
                     },
                     headerTitleAlign: 'left',
                 };
@@ -115,7 +108,6 @@ const TabNavigator: React.FC = () => {
                 component={HomeStack}
                 options={{
                     tabBarLabel: 'Home',
-                    tabBarTestID: 'home-tab',
                     tabBarIcon: ({color}) => <Icon light name="house" size={24} color={color} />,
                 }}
             />
@@ -124,7 +116,6 @@ const TabNavigator: React.FC = () => {
                 component={VaultStack}
                 options={{
                     tabBarLabel: 'Vault',
-                    tabBarTestID: 'vault-tab',
                     tabBarIcon: ({color}) => <Icon light name="vault" color={color} size={24} />,
                 }}
             />
@@ -133,7 +124,6 @@ const TabNavigator: React.FC = () => {
                 component={CreateGroup}
                 options={{
                     tabBarLabel: '',
-                    tabBarTestID: 'create-tab',
                     tabBarIcon: ({color}) => <CreateButton color={color} />,
                 }}
             />
@@ -142,7 +132,6 @@ const TabNavigator: React.FC = () => {
                 component={ChatsStack}
                 options={{
                     tabBarLabel: 'Chats',
-                    tabBarTestID: 'chats-tab',
                     tabBarIcon: ({color}) => <ChatsIcon color={color} />,
                 }}
             />
@@ -151,7 +140,6 @@ const TabNavigator: React.FC = () => {
                 component={ProfileStack}
                 options={{
                     tabBarLabel: 'Profile',
-                    tabBarTestID: 'profile-tab',
                     tabBarIcon: ({color}) => <Icon name="user" light color={color} size={24} />,
                 }}
             />

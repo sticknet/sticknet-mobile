@@ -3,16 +3,16 @@ import {waitFor} from '@testing-library/react-native';
 import MockAdapter from 'axios-mock-adapter';
 import {Alert} from 'react-native';
 import axios from 'axios';
-import state from '../test_data/state.json';
-import axiosMock from '../test_data/axiosMock';
-import configureStore from '../../store';
+import state from '@/src/actions/test_data/state.json';
+import axiosMock from '@/src/actions/test_data/axiosMock';
+import configureStore from '@/src/store';
 import {auth} from '..';
-import {authInitialState} from '../../reducers/auth';
-import {fetchedInitialState} from '../../reducers/fetched';
-import {appInitialState} from '../../reducers/app';
-import {appTempInitialState} from '../../reducers/appTemp';
-import {URL} from '../URL';
-import {globalData} from '../globalVariables';
+import {authInitialState} from '@/src/reducers/auth';
+import {fetchedInitialState} from '@/src/reducers/fetched';
+import {appInitialState} from '@/src/reducers/app';
+import {appTempInitialState} from '@/src/reducers/appTemp';
+import {URL} from '@/src/actions/URL';
+import {globalData} from '@/src/actions/globalVariables';
 
 describe('auth.js actions functions', () => {
     let store: ReturnType<typeof configureStore>['store'];

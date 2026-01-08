@@ -5,12 +5,12 @@ import {State, TapGestureHandler, TapGestureHandlerStateChangeEvent} from 'react
 import LinearGradient from 'react-native-linear-gradient';
 import {useNavigation, NavigationProp} from '@react-navigation/native';
 import {widthPercentageToDP as w} from 'react-native-responsive-screen';
-import Image from '../Image';
-import NewImage from '../NewImage';
-import {app, users} from '../../actions';
-import {lightenRGBColor} from '../../utils';
-import type {IApplicationState, TUser} from '../../types';
-import type {ProfileStackParamList} from '../../navigators/types';
+import Image from '@/src/components/Image';
+import NewImage from '@/src/components/NewImage';
+import {app, users} from '@/src/actions';
+import {lightenRGBColor} from '@/src/utils';
+import type {IApplicationState, TUser} from '@/src/types';
+import type {ProfileStackParamList} from '@/src/navigators/types';
 
 interface ProfilePictureOwnProps {
     user: TUser;
@@ -98,7 +98,8 @@ const ProfilePicture: React.FC<Props> = (props) => {
                             borderRadius: w('50%'),
                             justifyContent: 'center',
                             alignItems: 'center',
-                        }}>
+                        }}
+                    >
                         <Text style={{...s.letter, fontSize: size * 0.6}}>{user?.name ? user.name[0] : ''}</Text>
                     </LinearGradient>
                 )}

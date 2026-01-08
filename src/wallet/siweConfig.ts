@@ -6,12 +6,12 @@ import {
     type SIWEVerifyMessageArgs,
 } from '@reown/appkit-siwe-react-native';
 import type {SIWEMessageArgs} from '@reown/appkit-siwe-react-native/lib/typescript/utils/TypeUtils';
-import axios from '../actions/myaxios';
-import {URL} from '../actions/URL';
-import {store} from '../store';
-import {appTemp} from '../actions/actionTypes';
-import {globalData} from '../actions/globalVariables';
-import {log} from '../actions/utils';
+import axios from '@/src/actions/myaxios';
+import {URL} from '@/src/actions/URL';
+import {store} from '@/src/store';
+import {appTemp} from '@/src/actions/actionTypes';
+import {globalData} from '@/src/actions/globalVariables';
+import {log} from '@/src/actions/utils';
 
 const siweConfig = createSIWEConfig({
     getNonce: async (): Promise<string> => {

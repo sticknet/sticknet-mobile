@@ -8,15 +8,15 @@ import Modal from 'react-native-modal';
 import Icon from '@sticknet/react-native-vector-icons/Feather';
 import {widthPercentageToDP as w} from 'react-native-responsive-screen';
 import type {StackNavigationProp} from '@react-navigation/stack';
-import {auth} from '../../actions';
-import Loading from '../../components/Loading';
-import StickProtocol from '../../native-modules/stick-protocol';
-import {PasswordRecovery, Sticknet} from '../../components';
-import Button from '../../components/Buttons/Button';
-import {colors} from '../../foundations';
-import type {HomeStackParamList} from '../../navigators/types';
-import type {IApplicationState} from '../../types';
-import type {IAuthActions} from '../../actions/types';
+import {auth} from '@/src/actions';
+import Loading from '@/src/components/Loading';
+import StickProtocol from '@/modules/stick-protocol';
+import {PasswordRecovery, Sticknet} from '@/src/components';
+// import Button from '@/src/components/Buttons/Button';
+// import {colors} from '@/src/foundations';
+import type {HomeStackParamList} from '@/src/navigators/types';
+import type {IApplicationState} from '@/src/types';
+import type {IAuthActions} from '@/src/actions/types';
 
 interface Device {
     id: string;
@@ -60,25 +60,25 @@ class ForgotPasswordScreen extends Component<ForgotPasswordScreenProps, ForgotPa
         if (Platform.OS === 'android') setTimeout(() => this.setState({unable: true}), 10000);
     }
 
-    oneTapRecoverPassword = () => {
-        this.props.oneTapRecoverPassword({
-            callback: async (password: string) => {
-                const email = await AsyncStorage.getItem('@email');
-                this.props.login({
-                    password,
-                    authId: email as string,
-                    method: 'email',
-                    callback: () =>
-                        this.props.navigation.replace('Home', {
-                            loggedIn: true,
-                            showPassModal: true,
-                            recovered: true,
-                        }),
-                });
-            },
-            failCallback: () => this.setState({unable: true}),
-        });
-    };
+    // oneTapRecoverPassword = () => {
+    //     this.props.oneTapRecoverPassword({
+    //         callback: async (password: string) => {
+    //             const email = await AsyncStorage.getItem('@email');
+    //             this.props.login({
+    //                 password,
+    //                 authId: email as string,
+    //                 method: 'email',
+    //                 callback: () =>
+    //                     this.props.navigation.replace('Home', {
+    //                         loggedIn: true,
+    //                         showPassModal: true,
+    //                         recovered: true,
+    //                     }),
+    //             });
+    //         },
+    //         failCallback: () => this.setState({unable: true}),
+    //     });
+    // };
 
     unable = () => {
         this.setState({modalVisible: false});
@@ -123,25 +123,25 @@ class ForgotPasswordScreen extends Component<ForgotPasswordScreenProps, ForgotPa
                 <View style={s.circle}>
                     <LockIcon name="locked" size={40} color="#6060FF" />
                 </View>
-                {Platform.OS === 'android' && (
-                    <View>
-                        <Text style={s.topText}>
-                            {this.state.username}, your password is stored securely encrypted on your Google account, if
-                            you have chosen to save it.
-                        </Text>
-                        <Button
-                            onPress={this.oneTapRecoverPassword}
-                            fontSize={20}
-                            text="Recover Password & Log In"
-                            color={colors.black}
-                            width={w('90%')}
-                            marginTop={16}
-                        />
-                    </View>
-                )}
+                {/* {Platform.OS === 'android' && ( */}
+                {/*     <View> */}
+                {/*         <Text style={s.topText}> */}
+                {/*             {this.state.username}, your password is stored securely encrypted on your Google account, if */}
+                {/*             you have chosen to save it. */}
+                {/*         </Text> */}
+                {/*         <Button */}
+                {/*             onPress={this.oneTapRecoverPassword} */}
+                {/*             fontSize={20} */}
+                {/*             text="Recover Password & Log In" */}
+                {/*             color={colors.black} */}
+                {/*             width={w('90%')} */}
+                {/*             marginTop={16} */}
+                {/*         /> */}
+                {/*     </View> */}
+                {/* )} */}
                 {devices.length > 0 && (
                     <View>
-                        {Platform.OS === 'android' && <Text style={s.or}>OR</Text>}
+                        {/* {Platform.OS === 'android' && <Text style={s.or}>OR</Text>} */}
                         <Text style={s.topText}>
                             You can recover your password from your <Sticknet fontSize={17} /> account on one of your
                             other devices:

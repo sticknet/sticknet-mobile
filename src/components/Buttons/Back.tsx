@@ -1,5 +1,5 @@
 import React, {PureComponent, ReactNode} from 'react';
-import {TouchableOpacity, Text, StyleSheet, TouchableOpacityProps, TextStyle, ViewStyle} from 'react-native';
+import {StyleSheet, Text, TextStyle, TouchableOpacity, TouchableOpacityProps, ViewStyle} from 'react-native';
 import Icon from '@sticknet/react-native-vector-icons/Ionicons';
 
 interface BackProps extends TouchableOpacityProps {

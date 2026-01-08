@@ -12,12 +12,12 @@ import {
 } from 'react-native';
 import {connect} from 'react-redux';
 import {heightPercentageToDP as h} from 'react-native-responsive-screen';
-import {Folder, ActionButton, InputModal, Icon, Empty, SmallLoading} from '../../components';
-import {vault} from '../../actions';
-import {createFileSections, isCloseToBottom} from '../../utils';
-import {colors} from '../../foundations';
-import type {IApplicationState, TFile, TFolder} from '../../types';
-import {IVaultActions} from '../../actions/vault';
+import {Folder, ActionButton, InputModal, Icon, Empty, SmallLoading} from '@/src/components';
+import {vault} from '@/src/actions';
+import {createFileSections, isCloseToBottom} from '@/src/utils';
+import {colors} from '@/src/foundations';
+import type {IApplicationState, TFile, TFolder} from '@/src/types';
+import {IVaultActions} from '@/src/actions/vault';
 
 interface FolderScreenProps extends IVaultActions {
     navigation: any;
@@ -135,7 +135,8 @@ const FolderScreen: React.FC<FolderScreenProps> = (props) => {
                             colors={[colors.primary]}
                             refreshing={refreshing}
                         />
-                    }>
+                    }
+                >
                     <Empty text="This folder is empty" />
                 </ScrollView>
             ) : (

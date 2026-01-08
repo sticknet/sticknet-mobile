@@ -1,30 +1,30 @@
 import React, {Component} from 'react';
 import {
-    View,
-    Image,
-    Platform,
-    TouchableOpacity,
     Alert,
+    Image,
     NativeEventEmitter,
     NativeModules,
+    Platform,
     StyleSheet,
+    TouchableOpacity,
+    View,
 } from 'react-native';
 import {connect} from 'react-redux';
 import {widthPercentageToDP as w} from 'react-native-responsive-screen';
 import Modal from 'react-native-modal';
 import {FlashList} from '@shopify/flash-list';
 import type {NavigationProp, RouteProp} from '@react-navigation/native';
-import CameraRollPicker from '../../components/CameraRollPicker';
-import {Text} from '../../components';
+import CameraRollPicker from '@/src/components/CameraRollPicker';
+import {Text} from '@/src/components';
 
-import {cameraPermission, dispatchAlbums, getTabName, statusBarHeight} from '../../utils';
-import {create, stickRoom, app, vault} from '../../actions';
-import StickInit from '../../native-modules/stick-protocol/StickInit';
-import type {IAlbum, IApplicationState, TAlbumItem, TGalleryItem, TFolder} from '../../types';
-import type {CreateStackParamList} from '../../navigators/types';
-import {IAppActions} from '../../actions/app';
-import {ICreateActions} from '../../actions/create';
-import {IVaultActions} from '../../actions/vault';
+import {cameraPermission, dispatchAlbums, getTabName, statusBarHeight} from '@/src/utils';
+import {app, create, stickRoom, vault} from '@/src/actions';
+import StickProtocol from '@/modules/stick-protocol';
+import type {IAlbum, IApplicationState, TAlbumItem, TFolder, TGalleryItem} from '@/src/types';
+import type {CreateStackParamList} from '@/src/navigators/types';
+import {IAppActions} from '@/src/actions/app';
+import {ICreateActions} from '@/src/actions/create';
+import {IVaultActions} from '@/src/actions/vault';
 
 interface SelectPhotosScreenProps extends IAppActions, ICreateActions, IVaultActions {
     route: RouteProp<CreateStackParamList, 'SelectPhotos'>;
@@ -80,18 +80,18 @@ class SelectPhotosScreen extends Component<SelectPhotosScreenProps, SelectPhotos
             title: 'Recents',
             cancel: () => this.props.resetCreateState(),
         });
-        if (Platform.OS === 'ios') {
-            StickInit.registerPhotoLibraryListener();
-            const eventEmitter = new NativeEventEmitter(NativeModules.StickInit);
-            this.eventListener = eventEmitter.addListener('PhotoLibraryObserver', () => {
-                this.setState({updated: !this.state.updated});
-            });
-        }
+        // if (Platform.OS === 'ios') {
+        //     StickProtocol.registerPhotoLibraryListener();
+        //     const eventEmitter = new NativeEventEmitter(NativeModules.StickProtocol);
+        //     this.eventListener = eventEmitter.addListener('PhotoLibraryObserver', () => {
+        //         this.setState({updated: !this.state.updated});
+        //     });
+        // }
     }
 
-    componentWillUnmount() {
-        if (Platform.OS === 'ios') this.eventListener.remove();
-    }
+    // componentWillUnmount() {
+    //     if (this.eventListener) this.eventListener.remove();
+    // }
 
     getSelectedImages = async (images: TGalleryItem[]) => {
         this.selecting = true;
@@ -173,7 +173,8 @@ class SelectPhotosScreen extends Component<SelectPhotosScreenProps, SelectPhotos
                 style={s.albumOption}
                 activeOpacity={1}
                 onPress={() => this.selectAlbum(item)}
-                testID={`album-${index}`}>
+                testID={`album-${index}`}
+            >
                 <Image source={{uri: item.uri}} style={s.image} />
                 <Text ellipsizeMode="tail" numberOfLines={1} style={s.option}>
                     {item.title}
@@ -196,9 +197,9 @@ class SelectPhotosScreen extends Component<SelectPhotosScreenProps, SelectPhotos
                 onBackButtonPress={() => this.setState({modalVisible: false})}
                 useNativeDriver
                 hideModalContentWhileAnimating
-                onBackdropPress={() => this.setState({modalVisible: false})}>
+                onBackdropPress={() => this.setState({modalVisible: false})}
+            >
                 <FlashList
-                    estimatedItemSize={this.props.cameraAlbums.length}
                     renderItem={this.renderItem}
                     keyExtractor={this.keyExtractor}
                     contentContainerStyle={{paddingVertical: 12, paddingBottom: Platform.OS === 'ios' ? 80 : 40}}

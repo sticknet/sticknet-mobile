@@ -1,35 +1,35 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {Alert, Platform} from 'react-native';
 import Keychain from '@sticknet/react-native-keychain';
-import {firebase} from '@react-native-firebase/database';
+import {firebase} from '@react-native-firebase/auth';
 import DeviceInfo from 'react-native-device-info';
 import {Dispatch} from 'redux';
 import Config from 'react-native-config';
-import axios from '../myaxios';
-import {firebaseRef, URL} from '../URL';
-import StickProtocol from '../../native-modules/stick-protocol';
-import {devRegistration, endMessageKeys, globalData, startMessageKeys} from '../globalVariables';
-import SPH from '../SPHandlers';
-import CommonNative from '../../native-modules/common-native';
-import NavigationService from '../NavigationService';
-import {getDeviceName, getUniqueDeviceId} from '../../utils';
+import axios from '@/src/actions/myaxios';
+import {firebaseRef, URL} from '@/src/actions/URL';
+import StickProtocol from '@/modules/stick-protocol';
+import {devRegistration, endMessageKeys, globalData, startMessageKeys} from '@/src/actions/globalVariables';
+import {stickProtocolHandlers as SPH} from '@/src/actions/SPHandlers';
+import CommonNative from '@/modules/common-native';
+import NavigationService from '@/src/actions/NavigationService';
+import {getDeviceName, getUniqueDeviceId} from '@/src/utils';
 import {
+    albums,
     app,
     appTemp,
-    errors,
     auth,
-    progress,
-    images,
-    groups,
-    fetched,
-    notifications,
-    stickRoom,
-    albums,
     connections,
+    errors,
+    fetched,
+    groups,
+    images,
+    notifications,
+    progress,
+    stickRoom,
     vault,
-} from '../actionTypes';
-import {initOneToOne} from '../stick-room';
-import {TGroup, TUser} from '../../types';
+} from '@/src/actions/actionTypes';
+import {initOneToOne} from '@/src/actions/stick-room';
+import {TGroup, TUser} from '@/src/types';
 
 const database = firebase.app().database(firebaseRef);
 const bundleId = DeviceInfo.getBundleId();
@@ -664,25 +664,25 @@ export function recreateUser({callback}: TRecreateUserParams) {
 // TODO: E2E test
 type TOneTapRecoverPasswordParams = {callback: (password: string) => void; failCallback: () => void};
 
-export function oneTapRecoverPassword({callback, failCallback}: TOneTapRecoverPasswordParams) {
-    return async function () {
-        const userId = await AsyncStorage.getItem('@userId');
-        const res = await CommonNative.oneTapRecoverPassword(userId!, globalData.passwordKey);
-        if (!res) {
-            Alert.alert('No Password Saved', 'You have no Sticknet password saved with your Google account');
-            failCallback();
-        } else {
-            const {password, status} = res;
-            if (status === 'WRONG_ACCOUNT') {
-                const email = await AsyncStorage.getItem('@email');
-                Alert.alert('Wrong Account Selected', `Please select the account corresponding to ${email}.`);
-                failCallback();
-            } else if (status === 'SUCCESS') {
-                callback(password);
-            }
-        }
-    };
-}
+// export function oneTapRecoverPassword({callback, failCallback}: TOneTapRecoverPasswordParams) {
+//     return async function () {
+//         const userId = await AsyncStorage.getItem('@userId');
+//         const res = await CommonNative.oneTapRecoverPassword(userId!, globalData.passwordKey);
+//         if (!res) {
+//             Alert.alert('No Password Saved', 'You have no Sticknet password saved with your Google account');
+//             failCallback();
+//         } else {
+//             const {password, status} = res;
+//             if (status === 'WRONG_ACCOUNT') {
+//                 const email = await AsyncStorage.getItem('@email');
+//                 Alert.alert('Wrong Account Selected', `Please select the account corresponding to ${email}.`);
+//                 failCallback();
+//             } else if (status === 'SUCCESS') {
+//                 callback(password);
+//             }
+//         }
+//     };
+// }
 
 type TChangePasswordParams = {currentPass: string; newPass: string; callback: () => void};
 
@@ -846,3 +846,4 @@ export function setFolderIcon(folderIcon: string) {
         axios.post(`${URL}/api/set-folder-icon/`, {folderIcon}, config);
     };
 }
+//

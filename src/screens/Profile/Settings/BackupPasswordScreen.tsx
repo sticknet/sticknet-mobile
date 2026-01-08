@@ -1,16 +1,16 @@
 import React, {Component} from 'react';
-import {ScrollView, Text, View, Linking, Image, Platform, StyleSheet} from 'react-native';
+import {Image, Linking, Platform, ScrollView, StyleSheet, Text, View} from 'react-native';
 import {connect} from 'react-redux';
 import LockIcon from '@sticknet/react-native-vector-icons/Fontisto';
 import CheckIcon from '@sticknet/react-native-vector-icons/Feather';
 import {widthPercentageToDP as w} from 'react-native-responsive-screen';
 
-import {Button} from '../../../components';
-import {auth, app, common} from '../../../actions';
-import {URL} from '../../../actions/URL';
-import {iosSettings, Keychain_01, Keychain_02, Keychain_03} from '../../../../assets/images';
-import {IApplicationState, TUser} from '../../../types';
-import {IAuthActions, IAppActions, ICommonActions} from '../../../actions/types';
+import {Button} from '@/src/components';
+import {app, auth, common} from '@/src/actions';
+import {URL} from '@/src/actions/URL';
+import {iosSettings, Keychain_01, Keychain_02, Keychain_03} from '@/assets/images';
+import {IApplicationState, TUser} from '@/src/types';
+import {IAppActions, IAuthActions, ICommonActions} from '@/src/actions/types';
 
 interface BackupPasswordProps extends IAuthActions, IAppActions, ICommonActions {
     user: TUser;
@@ -88,13 +88,13 @@ class BackupPasswordScreen extends Component<BackupPasswordProps, BackupPassword
                         <Text style={s.steps}>1. Open settings app </Text>
                         <Image source={iosSettings} style={{width: 28, height: 28, top: 8}} resizeMode="contain" />
                     </View>
-                    <Text style={s.steps}>2. Search for and select "Keychain":</Text>
+                    <Text style={s.steps}>2. Search for and select &#34;Keychain&#34;:</Text>
                     <Image
                         source={Keychain_01}
                         style={[s.image, {width: w('80%'), height: 120}]}
                         resizeMode="contain"
                     />
-                    <Text style={s.steps}>2. Select "Keychain" again from iCloud:</Text>
+                    <Text style={s.steps}>2. Select &#34;Keychain&#34; again from iCloud:</Text>
                     <Image source={Keychain_02} style={[s.image, {width: w('80%'), height: 80}]} resizeMode="contain" />
                     <Text style={s.steps}>3. Make sure iCloud Keychain is enabled:</Text>
                     <Image

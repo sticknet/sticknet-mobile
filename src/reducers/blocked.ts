@@ -1,7 +1,7 @@
 import {Action} from 'redux';
 import _ from 'lodash';
-import {blocked} from '../actions/actionTypes';
-import {TUser} from '../types';
+import {blocked} from '@/src/actions/actionTypes';
+import {TUser} from '@/src/types';
 
 export interface IBlockedState {
     [key: string]: TUser;

@@ -2,10 +2,10 @@ import React, {FC} from 'react';
 import {View, StyleSheet, Alert} from 'react-native';
 import {connect} from 'react-redux';
 import {widthPercentageToDP as w} from 'react-native-responsive-screen';
-import Text from '../Text';
-import ButtonPair from '../Buttons/ButtonPair';
-import {colors} from '../../foundations';
-import {vault} from '../../actions';
+import Text from '@/src/components/Text';
+import ButtonPair from '@/src/components/Buttons/ButtonPair';
+import {colors} from '@/src/foundations';
+import {vault} from '@/src/actions';
 
 type MovingFileViewProps = {
     tabBarHeight: number;

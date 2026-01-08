@@ -1,5 +1,5 @@
 import {Action} from 'redux';
-import {appState} from '../actions/actionTypes';
+import {appState} from '@/src/actions/actionTypes';
 
 export type AppActiveState = 'active' | 'inactive' | 'background';
 

@@ -1,53 +1,53 @@
 import React, {Component, createRef} from 'react';
 import {
-    View,
+    FlatList,
+    Platform,
+    RefreshControl,
+    SafeAreaView,
+    StatusBar,
+    StyleSheet,
+    Switch,
     Text,
     TouchableOpacity,
-    FlatList,
-    StatusBar,
-    RefreshControl,
-    Platform,
-    SafeAreaView,
-    Switch,
-    StyleSheet,
+    View,
 } from 'react-native';
 import {connect} from 'react-redux';
 import {widthPercentageToDP as w} from 'react-native-responsive-screen';
 import Modal from 'react-native-modal';
-import Clipboard from '@react-native-community/clipboard';
+import Clipboard from '@react-native-clipboard/clipboard';
 import LottieView from 'lottie-react-native';
 import SimpleIcon from '@sticknet/react-native-vector-icons/SimpleLineIcons';
 import Share from 'react-native-share';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import type {NavigationProp} from '@react-navigation/native';
-import {peopleAnimation} from '../../../assets/lottie';
-import {groups, auth, app, users, stickRoom, notifications, common, iap, create, vault} from '../../actions';
+import {peopleAnimation} from '@/assets/lottie';
+import {app, auth, common, create, groups, iap, notifications, stickRoom, users, vault} from '@/src/actions';
 import {
+    ActionButton,
+    Button,
+    ChatItemSeparator,
+    ChatModal,
+    ConnectionRequest,
+    EmptyContent,
+    GroupRequest,
+    Icon,
     SearchBar,
     Sticknet,
-    Icon,
-    EmptyContent,
-    Button,
-    ActionButton,
-    ConnectionRequest,
-    GroupRequest,
-    ChatModal,
-    ChatItemSeparator,
-} from '../../components';
-import {createActiveChatsList, isIphoneXD} from '../../utils';
-import ChatHomeItem from '../../components/StickRoom/ChatHomeItem';
-import {globalData} from '../../actions/globalVariables';
-import {commonInitializations} from '../Home/HomeScreen/utils';
-import StartupModals from '../Home/HomeScreen/StartupModals';
-import {colors} from '../../foundations';
-import type {IApplicationState, TUser, TGroup, TConnectionRequest, TParty, TMessage} from '../../types';
-import type {ChatStackParamList} from '../../navigators/types';
-import {IStickRoomActions} from '../../actions/stick-room';
-import {IUsersActions} from '../../actions/users';
-import {INotificationsActions} from '../../actions/notifications';
-import {ICommonActions} from '../../actions/common';
-import {IGroupsActions} from '../../actions/groups';
-import {IGroupRequestsState} from '../../reducers/groups/groupRequests';
+} from '@/src/components';
+import {createActiveChatsList, isIphoneXD} from '@/src/utils';
+import ChatHomeItem from '@/src/components/StickRoom/ChatHomeItem';
+import {globalData} from '@/src/actions/globalVariables';
+import {commonInitializations} from '@/src/screens/Home/HomeScreen/utils';
+import StartupModals from '@/src/screens/Home/HomeScreen/StartupModals';
+import {colors} from '@/src/foundations';
+import type {IApplicationState, TConnectionRequest, TGroup, TMessage, TParty, TUser} from '@/src/types';
+import type {ChatStackParamList} from '@/src/navigators/types';
+import {IStickRoomActions} from '@/src/actions/stick-room';
+import {IUsersActions} from '@/src/actions/users';
+import {INotificationsActions} from '@/src/actions/notifications';
+import {ICommonActions} from '@/src/actions/common';
+import {IGroupsActions} from '@/src/actions/groups';
+import {IGroupRequestsState} from '@/src/reducers/groups/groupRequests';
 
 interface ChatScreenState {
     refreshing: boolean;
@@ -120,7 +120,6 @@ class ChatsScreen extends Component<ChatScreenProps, ChatScreenState> {
         this.props.navigation.setParams({createGroup: this.createGroup});
     }
 
-    // eslint-disable-next-line react/sort-comp
     didMount() {
         this.props.fetchNotifications();
         this.props.fetchSentConnectionRequests();
@@ -285,7 +284,7 @@ class ChatsScreen extends Component<ChatScreenProps, ChatScreenState> {
                     <View style={[s.modal, {padding: 0}]}>
                         <View style={[s.button, {padding: 16}]}>
                             <Text style={{textAlign: 'center'}}>
-                                Anyone with this link can view this group's name and members and join the group. Share
+                                Anyone with this link can view this group&#39;s name and members and join the group. Share
                                 it with people you trust.
                             </Text>
                         </View>
@@ -406,7 +405,7 @@ class ChatsScreen extends Component<ChatScreenProps, ChatScreenState> {
                                         source={peopleAnimation}
                                         autoPlay
                                         loop
-                                        style={{width: w('75%'), marginTop: 16, marginBottom: 40}}
+                                        style={{width: w('75%'), height:  w('75%'), marginTop: 16, marginBottom: 40}}
                                     />
                                 }
                                 text="Your private network is a blank canvas. Add friends and family to bring it to life."
@@ -431,8 +430,8 @@ class ChatsScreen extends Component<ChatScreenProps, ChatScreenState> {
                         />
                     }
                 />
-                {this.renderModal()}
-                {this.renderShareModal()}
+                {/* {this.renderModal()} */}
+                {/* {this.renderShareModal()} */}
                 <ChatModal />
                 {/* @ts-ignore */}
                 <StartupModals />

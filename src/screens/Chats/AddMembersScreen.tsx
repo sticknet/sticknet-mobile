@@ -1,14 +1,14 @@
 import React, {Component} from 'react';
 import {
-    TouchableOpacity,
-    View,
-    FlatList,
-    TextInput,
     ActivityIndicator,
-    StyleSheet,
     Alert,
+    FlatList,
     NativeScrollEvent,
     NativeSyntheticEvent,
+    StyleSheet,
+    TextInput,
+    TouchableOpacity,
+    View,
 } from 'react-native';
 import {connect} from 'react-redux';
 import CheckIcon from '@sticknet/react-native-vector-icons/Feather';
@@ -18,16 +18,16 @@ import {widthPercentageToDP as w} from 'react-native-responsive-screen';
 import {FlashList} from '@shopify/flash-list';
 import Modal from 'react-native-modal';
 import type {NavigationProp, RouteProp} from '@react-navigation/native';
-import {users, groups, create} from '../../actions';
-import {Separator, UserItem, EmptyUserSearch, Text} from '../../components';
-import ProfilePicture from '../../components/ProfilePicture';
-import {colors} from '../../foundations';
-import {basicGroupMembersLimit} from '../../actions/globalVariables';
-import NavigationService from '../../actions/NavigationService';
-import PremiumIcon from '../../components/Icons/PremiumIcon';
-import type {IApplicationState, TUser, TGroup} from '../../types';
-import type {IUsersActions, IGroupsActions, ICreateActions} from '../../actions/types';
-import type {ChatStackParamList} from '../../navigators/types';
+import {create, groups, users} from '@/src/actions';
+import {EmptyUserSearch, Separator, Text, UserItem} from '@/src/components';
+import ProfilePicture from '@/src/components/ProfilePicture';
+import {colors} from '@/src/foundations';
+import {basicGroupMembersLimit} from '@/src/actions/globalVariables';
+import NavigationService from '@/src/actions/NavigationService';
+import PremiumIcon from '@/src/components/Icons/PremiumIcon';
+import type {IApplicationState, TGroup, TUser} from '@/src/types';
+import type {ICreateActions, IGroupsActions, IUsersActions} from '@/src/actions/types';
+import type {ChatStackParamList} from '@/src/navigators/types';
 
 interface AddMembersScreenProps extends IUsersActions, IGroupsActions, ICreateActions {
     navigation: NavigationProp<ChatStackParamList>;
@@ -234,7 +234,6 @@ class AddMembersScreen extends Component<AddMembersScreenProps, AddMembersScreen
                         placeholder="Search your connections..."
                         selectionColor="#6060FF"
                         onChangeText={this.search}
-                        value={this.state.query}
                     />
                     {this.props.searching ? (
                         <ActivityIndicator color="#6060FF" />
@@ -262,7 +261,6 @@ class AddMembersScreen extends Component<AddMembersScreenProps, AddMembersScreen
         return (
             <>
                 <FlashList
-                    estimatedItemSize={users.length + 1}
                     data={users}
                     ListHeaderComponent={this.renderSectionHeader}
                     renderItem={this.renderItem}

@@ -10,11 +10,11 @@ import {
 import React, {useState, useEffect} from 'react';
 import {connect} from 'react-redux';
 import {widthPercentageToDP as w} from 'react-native-responsive-screen';
-import {SearchBar, Text, ActionButton, Icon, Button} from '../../components';
-import {URL} from '../../actions/URL';
-import {users} from '../../actions';
-import type {IApplicationState, TUser} from '../../types';
-import type {IUsersActions} from '../../actions/types';
+import {SearchBar, Text, ActionButton, Icon, Button} from '@/src/components';
+import {URL} from '@/src/actions/URL';
+import {users} from '@/src/actions';
+import type {IApplicationState, TUser} from '@/src/types';
+import type {IUsersActions} from '@/src/actions/types';
 
 const buttonId = 'send-connection-request';
 
@@ -59,19 +59,19 @@ export const AddConnectionsScreen = (props: AddConnectionsScreenProps) => {
 
     return (
         <View style={{flex: 1}}>
-            <View style={s.buttonsContainer}>
-                <ActionButton
-                    onPress={() => props.connectLink({share: true})}
-                    text="Share Invite"
-                    icon={<Icon regular name="share-from-square" size={15} />}
-                />
-                <ActionButton
-                    onPress={() => props.connectLink({share: false})}
-                    text="Copy Link"
-                    icon={<Icon regular name="link" size={15} />}
-                    style={{marginLeft: 12}}
-                />
-            </View>
+            {/* <View style={s.buttonsContainer}> */}
+            {/*     <ActionButton */}
+            {/*         onPress={() => props.connectLink({share: true})} */}
+            {/*         text="Share Invite" */}
+            {/*         icon={<Icon regular name="share-from-square" size={15} />} */}
+            {/*     /> */}
+            {/*     <ActionButton */}
+            {/*         onPress={() => props.connectLink({share: false})} */}
+            {/*         text="Copy Link" */}
+            {/*         icon={<Icon regular name="link" size={15} />} */}
+            {/*         style={{marginLeft: 12}} */}
+            {/*     /> */}
+            {/* </View> */}
             <Text style={s.title}>Add by Username</Text>
             <SearchBar
                 placeholder="Enter a username"

@@ -4,13 +4,13 @@ import {connect, ConnectedProps} from 'react-redux';
 import LottieView from 'lottie-react-native';
 import * as Progress from 'react-native-progress';
 import {useNavigation, NavigationProp} from '@react-navigation/native';
-import {app} from '../../../actions';
-import {securityAnimation} from '../../../../assets/lottie';
-import Text from '../../Text';
-import {formatTime} from '../../../utils';
+import {app} from '@/src/actions';
+import {securityAnimation} from '@/assets/lottie';
+import Text from '@/src/components/Text';
+import {formatTime} from '@/src/utils';
 import DownloadProgress from './DownloadProgress';
-import type {IApplicationState, TFile} from '../../../types';
-import type {ChatStackParamList} from '../../../navigators/types';
+import type {IApplicationState, TFile} from '@/src/types';
+import type {ChatStackParamList} from '@/src/navigators/types';
 
 interface ChatImageOwnProps {
     file: TFile;
@@ -46,7 +46,8 @@ const ChatImage: FC<Props> = (props) => {
             }}
             onLongPress={() =>
                 props.toggleMessageModal({messageId: messageId!, isVisible: true, file, fileActionsOnly})
-            }>
+            }
+        >
             <Image source={{uri}} style={style} />
             {uploading ? (
                 <Progress.Circle

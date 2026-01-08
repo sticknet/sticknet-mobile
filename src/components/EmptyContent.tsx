@@ -21,7 +21,8 @@ const EmptyContent: FC<EmptyContentProps> = (props) => {
         <ContainerView
             style={[s.emptyContainer, !props.refreshControl && s.center, props.style]}
             refreshControl={props.refreshControl}
-            contentContainerStyle={s.center}>
+            contentContainerStyle={s.center}
+        >
             {props.graphic}
             <Text style={s.empty}>{props.text}</Text>
             {props.action && (

@@ -1,7 +1,7 @@
 import {Action} from 'redux';
 import _ from 'lodash';
-import {stickRoom} from '../../actions/actionTypes';
-import {TFile} from '../../types';
+import {stickRoom} from '@/src/actions/actionTypes';
+import {TFile} from '@/src/types';
 
 export interface IChatFilesState {
     [key: string]: TFile;

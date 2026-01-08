@@ -2,7 +2,7 @@ import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
 import Modal from 'react-native-modal';
 import {widthPercentageToDP as w} from 'react-native-responsive-screen';
 import React, {FC} from 'react';
-import Input from '../Input';
+import Input from '@/src/components/Input';
 
 interface InputModalProps {
     visible: boolean;
@@ -39,7 +39,8 @@ const InputModal: FC<InputModalProps> = ({
             onBackdropPress={cancel}
             onBackButtonPress={cancel}
             animationIn="fadeIn"
-            animationOut="fadeOut">
+            animationOut="fadeOut"
+        >
             <View style={s.modal}>
                 <View style={s.headerContainer}>
                     <Text style={s.header}>{title}</Text>

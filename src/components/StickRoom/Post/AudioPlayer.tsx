@@ -1,19 +1,17 @@
 import React, {Component} from 'react';
-import {View, Text, Platform, Animated, ActivityIndicator, StyleSheet, Pressable} from 'react-native';
+import {ActivityIndicator, Animated, Platform, Pressable, StyleSheet, Text, View} from 'react-native';
 import {connect, ConnectedProps} from 'react-redux';
 import PlayIcon from '@sticknet/react-native-vector-icons/Entypo';
 import PauseIcon from '@sticknet/react-native-vector-icons/AntDesign';
 import AudioIcon from '@sticknet/react-native-vector-icons/MaterialIcons';
 import {Player} from '@react-native-community/audio-toolkit';
 import {widthPercentageToDP as w} from 'react-native-responsive-screen';
-import Slider from '@react-native-community/slider';
-// @ts-ignore
+import Slider from '@react-native-community/slider'; // @ts-ignore
 import {createNativeWrapper, State, TapGestureHandler} from 'react-native-gesture-handler';
-import {ThumbTrans} from '../../../../assets/images';
-import {app, stickRoom} from '../../../actions';
-import {formatTime} from '../../../utils';
-import {colors} from '../../../foundations';
-import type {IApplicationState, TMessage} from '../../../types';
+import {app, stickRoom} from '@/src/actions';
+import {formatTime} from '@/src/utils';
+import {colors} from '@/src/foundations';
+import type {IApplicationState, TMessage} from '@/src/types';
 
 const WrappedSlider = createNativeWrapper(Slider, {
     shouldCancelWhenOutside: false,
@@ -187,7 +185,7 @@ class AudioPlayer extends Component<Props, State> {
         if (e.nativeEvent.state === State.ACTIVE) {
             if (this.player !== null) {
                 if (!this.prepared && Platform.OS === 'android') {
-                    this.player.prepare((err) => {
+                    this.player?.prepare((err) => {
                         if (err) {
                             console.log('ERROR PREPARING AUDIO FILE', err);
                             if (this.retries < 1 && !this.props.isChat) {
@@ -322,7 +320,7 @@ class AudioPlayer extends Component<Props, State> {
                         justifyContent: 'center',
                     }}>
                     <Component
-                        style={[s.slider, {zIndex: 1, top: image || Platform.OS === 'ios' ? 0 : 9.6}]}
+                        style={[s.slider, {zIndex: 1, top: 9.6}]}
                         value={this.state.progress}
                         minimumValue={0}
                         maximumValue={this.props.recording.duration}
@@ -343,20 +341,20 @@ class AudioPlayer extends Component<Props, State> {
                                 : `rgba(230, 230, 230, ${opacity})`
                         }
                         // @ts-ignore
-                        thumbTintColor={Platform.OS === 'ios' ? null : '#6060FF'}
-                        thumbImage={Platform.OS === 'ios' ? ThumbTrans : null}
+                        thumbTintColor={Platform.OS === 'ios' ? '#6060FF' : '#6060FF'}
+                        // thumbImage={Platform.OS === 'ios' ? ThumbTrans : null}
                     />
-                    {Platform.OS === 'ios' && (
-                        <Animated.View
-                            style={[
-                                s.thumb,
-                                {
-                                    transform: [{translateX: this.state.thumbAnimation}],
-                                    backgroundColor: type === 'O' ? '#3F76BF' : !image ? '#6060FF' : color,
-                                },
-                            ]}
-                        />
-                    )}
+                    {/*{Platform.OS === 'ios' && (*/}
+                    {/*    <Animated.View*/}
+                    {/*        style={[*/}
+                    {/*            s.thumb,*/}
+                    {/*            {*/}
+                    {/*                transform: [{translateX: this.state.thumbAnimation}],*/}
+                    {/*                backgroundColor: type === 'O' ? '#3F76BF' : !image ? '#6060FF' : color,*/}
+                    {/*            },*/}
+                    {/*        ]}*/}
+                    {/*    />*/}
+                    {/*)}*/}
                     <Text
                         style={{
                             color: textColor,

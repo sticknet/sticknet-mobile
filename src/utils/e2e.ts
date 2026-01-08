@@ -1,9 +1,9 @@
 import BlobUtil from 'react-native-blob-util';
-import CommonNative from '../native-modules/common-native';
+import CommonNative from '@/modules/common-native';
+import {cacheDirectoryPath} from '@/src/utils/common';
 
-// eslint-disable-next-line
 export const saveTestingPhotos = async (callback: () => void): Promise<void> => {
-    const outputPath = `${CommonNative.cacheDirectoryPath}/test_0.jpg`;
+    const outputPath = `${cacheDirectoryPath}/test_0.jpg`;
     await BlobUtil.config({
         fileCache: true,
         appendExt: 'jpg',

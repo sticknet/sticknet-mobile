@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import {Action} from 'redux';
-import {vault} from '../../actions/actionTypes';
-import type {TVaultNote} from '../../types';
+import {vault} from '@/src/actions/actionTypes';
+import type {TVaultNote} from '@/src/types';
 
 export interface IVaultNotesState {
     [key: string]: TVaultNote;

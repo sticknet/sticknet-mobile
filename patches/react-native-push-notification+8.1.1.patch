@@ -1,0 +1,22 @@
+diff --git a/node_modules/react-native-push-notification/android/build.gradle b/node_modules/react-native-push-notification/android/build.gradle
+index d6019f6..147e8f2 100644
+--- a/node_modules/react-native-push-notification/android/build.gradle
++++ b/node_modules/react-native-push-notification/android/build.gradle
+@@ -51,13 +51,13 @@ android {
+ 
+ dependencies {
+     // Use either AndroidX library names or old/support library names based on major version of support lib
+-    def supportLibVersion = safeExtGet('supportLibVersion', '27.1.1')
+-    def supportLibMajorVersion = supportLibVersion.split('\\.')[0] as int
+-    def appCompatLibName =  (supportLibMajorVersion < 20) ? "androidx.appcompat:appcompat" : "com.android.support:appcompat-v7"
++    // def supportLibVersion = safeExtGet('supportLibVersion', '27.1.1')
++    // def supportLibMajorVersion = supportLibVersion.split('\\.')[0] as int
++    // def appCompatLibName =  (supportLibMajorVersion < 20) ? "androidx.appcompat:appcompat" : "com.android.support:appcompat-v7"
+ 
+     implementation fileTree(dir: 'libs', include: ['*.jar'])
+     testImplementation 'junit:junit:4.12'
+-    implementation "$appCompatLibName:$supportLibVersion"
++    // implementation "$appCompatLibName:$supportLibVersion"
+     implementation 'com.facebook.react:react-native:+'
+     implementation 'me.leolin:ShortcutBadger:1.1.22@aar'
+     implementation "com.google.firebase:firebase-messaging:${safeExtGet('firebaseMessagingVersion', '21.1.0')}"

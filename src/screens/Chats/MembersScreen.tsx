@@ -1,16 +1,16 @@
 import React, {Component} from 'react';
-import {View, TouchableOpacity, FlatList, Alert, Animated, StyleSheet} from 'react-native';
+import {Alert, Animated, FlatList, StyleSheet, TouchableOpacity, View} from 'react-native';
 import {connect, ConnectedProps} from 'react-redux';
 import FeatherIcon from '@sticknet/react-native-vector-icons/Feather';
 import {widthPercentageToDP as w} from 'react-native-responsive-screen';
 import DotsIcon from '@sticknet/react-native-vector-icons/MaterialCommunityIcons';
 import {State, TapGestureHandler} from 'react-native-gesture-handler';
 import type {NavigationProp, RouteProp} from '@react-navigation/native';
-import {ProfilePicture, BottomModal, ModalItem, Text} from '../../components';
-import {groups, app, users} from '../../actions';
-import PremiumIcon from '../../components/Icons/PremiumIcon';
-import type {IApplicationState, TGroup, TUser} from '../../types';
-import type {ChatStackParamList} from '../../navigators/types';
+import {BottomModal, ModalItem, ProfilePicture, Text} from '@/src/components';
+import {app, groups, users} from '@/src/actions';
+import PremiumIcon from '@/src/components/Icons/PremiumIcon';
+import type {IApplicationState, TGroup, TUser} from '@/src/types';
+import type {ChatStackParamList} from '@/src/navigators/types';
 
 interface MembersScreenProps {
     navigation: NavigationProp<ChatStackParamList, 'Members'>;

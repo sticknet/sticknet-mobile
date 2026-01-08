@@ -1,5 +1,5 @@
 import {Action} from 'redux';
-import {fetched} from '../actions/actionTypes';
+import {fetched} from '@/src/actions/actionTypes';
 
 export interface IFetchedState {
     groups: {[key: string]: boolean};

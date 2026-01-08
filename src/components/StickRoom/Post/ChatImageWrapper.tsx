@@ -3,8 +3,8 @@ import React, {FC} from 'react';
 import {connect, ConnectedProps} from 'react-redux';
 import {widthPercentageToDP as w} from 'react-native-responsive-screen';
 import ChatImage from './ChatImage';
-import Icon from '../../Icons/Icon';
-import type {IApplicationState, TMessage} from '../../../types';
+import Icon from '@/src/components/Icons/Icon';
+import type {IApplicationState, TMessage} from '@/src/types';
 
 const maxWidth = w('75%');
 const maxHeight = w('75%');
@@ -76,7 +76,8 @@ const ChatImageWrapper: FC<Props> = (props) => {
                     paddingBottom: length > 3 && !isEven ? 1 : 0,
                     justifyContent: 'center',
                     alignItems: 'center',
-                }}>
+                }}
+            >
                 <ChatImage
                     messageId={message.id}
                     file={image}

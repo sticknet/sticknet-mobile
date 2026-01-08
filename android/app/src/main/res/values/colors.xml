@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <color name="status_bar_color">#fff</color>
-    <color name="splash_status_bar_color">#000000</color>
-    <color name="themeColor">#6060ff</color>
-    <color name="bootsplash_background">#000000</color>
-    <color name="black">#000000</color>
-</resources>

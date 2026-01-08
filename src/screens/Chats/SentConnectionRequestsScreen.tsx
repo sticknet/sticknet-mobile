@@ -3,11 +3,11 @@ import {View, RefreshControl} from 'react-native';
 import {connect} from 'react-redux';
 import {FlashList} from '@shopify/flash-list';
 import type {NavigationProp, RouteProp} from '@react-navigation/native';
-import {UserItem} from '../../components';
-import {users} from '../../actions';
-import type {IApplicationState, TUser} from '../../types';
-import type {ChatStackParamList} from '../../navigators/types';
-import {IUsersActions} from '../../actions/users';
+import {UserItem} from '@/src/components';
+import {users} from '@/src/actions';
+import type {IApplicationState, TUser} from '@/src/types';
+import type {ChatStackParamList} from '@/src/navigators/types';
+import {IUsersActions} from '@/src/actions/users';
 
 interface SentConnectionRequestsScreenProps extends IUsersActions {
     navigation: NavigationProp<ChatStackParamList>;

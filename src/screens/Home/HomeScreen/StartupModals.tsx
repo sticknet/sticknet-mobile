@@ -1,12 +1,14 @@
 import React from 'react';
-import {View} from 'react-native';
+import {Platform, View} from 'react-native';
 import {connect} from 'react-redux';
-import {useNavigation, useRoute, NavigationProp, RouteProp} from '@react-navigation/native';
-import {GroupLinkModal, PasswordModal, UserLinkModal} from '../../../components';
+import {NavigationProp, RouteProp, useNavigation, useRoute} from '@react-navigation/native';
+import {GroupLinkModal, PasswordModal, UserLinkModal} from '@/src/components';
 import {checkPermissions, ICommonInitializationsProps} from './utils';
-import {app, common, users} from '../../../actions';
-import type {IApplicationState, TUser} from '../../../types';
-import type {HomeStackParamList} from '../../../navigators/types';
+import {app, common, users} from '@/src/actions';
+import type {IApplicationState, TUser} from '@/src/types';
+import type {HomeStackParamList} from '@/src/navigators/types';
+import {useSafeAreaInsets} from 'react-native-safe-area-context';
+import {globalData} from '@/src/actions/globalVariables';
 
 interface StartupModalsProps extends ICommonInitializationsProps {
     user: TUser;
@@ -78,10 +80,11 @@ const StartupModals: React.FC<StartupModalsProps> = (props) => {
         props.sendConnectionRequest({currentUser: props.user, username: props.userLink?.username});
         props.toggleModal({modalName: 'userLink', isVisible: false});
     };
-
+    const {bottom} = useSafeAreaInsets();
+    globalData.bottomBarHeight = bottom;
     return (
         <View>
-            {route && (
+            {route && Platform.OS === 'ios' && (
                 <PasswordModal
                     modalVisible={props.passwordModalVisible}
                     recovered={route?.params?.recovered}

@@ -1,18 +1,18 @@
 import React, {Component, RefObject} from 'react';
-import {View, Text, StatusBar, FlatList, Platform, RefreshControl, Linking, StyleSheet, Pressable} from 'react-native';
+import {FlatList, Linking, Platform, Pressable, RefreshControl, StatusBar, StyleSheet, Text, View} from 'react-native';
 import {connect} from 'react-redux';
 import CalendarIcon from '@sticknet/react-native-vector-icons/AntDesign';
 import FeatherIcon from '@sticknet/react-native-vector-icons/Feather';
 import MCIcon from '@sticknet/react-native-vector-icons/MaterialCommunityIcons';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import {nav, parseBirthDay, shortenAddress} from '../../utils';
-import {auth, users, groups, app, profile, common, iap, stickRoom, create, vault} from '../../actions';
-import {ProfilePicture, ProfileCover, Icon, StorageMeter, ActionButton} from '../../components';
-import {globalData} from '../../actions/globalVariables';
-import {commonInitializations} from '../Home/HomeScreen/utils';
-import StartupModals from '../Home/HomeScreen/StartupModals';
-import type {IApplicationState, TUser, TGroup} from '../../types';
-import {IStickRoomActions, ICommonActions} from '../../actions/types';
+import {nav, parseBirthDay, shortenAddress} from '@/src/utils';
+import {app, auth, common, create, groups, iap, profile, stickRoom, users, vault} from '@/src/actions';
+import {ActionButton, Icon, ProfileCover, ProfilePicture, StorageMeter} from '@/src/components';
+import {globalData} from '@/src/actions/globalVariables';
+import {commonInitializations} from '@/src/screens/Home/HomeScreen/utils';
+import StartupModals from '@/src/screens/Home/HomeScreen/StartupModals';
+import type {IApplicationState, TGroup, TUser} from '@/src/types';
+import {ICommonActions, IStickRoomActions} from '@/src/actions/types';
 
 interface ProfileScreenProps extends IStickRoomActions, ICommonActions {
     navigation: any;

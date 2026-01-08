@@ -1,9 +1,9 @@
 import React, {FC} from 'react';
 import {Text, View, StyleSheet} from 'react-native';
 import BottomModal from './BottomModal';
-import ButtonPair from '../Buttons/ButtonPair';
-import ProfilePicture from '../ProfilePicture';
-import type {TUser} from '../../types';
+import ButtonPair from '@/src/components/Buttons/ButtonPair';
+import ProfilePicture from '@/src/components/ProfilePicture';
+import type {TUser} from '@/src/types';
 
 interface UserLinkModalProps {
     isVisible: boolean;

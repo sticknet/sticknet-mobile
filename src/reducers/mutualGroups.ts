@@ -1,5 +1,5 @@
 import {Action} from 'redux';
-import {groups} from '../actions/actionTypes';
+import {groups} from '@/src/actions/actionTypes';
 
 export interface IMutualGroupsState {
     [key: string]: any;

@@ -1,5 +1,5 @@
 import React, {PureComponent} from 'react';
-import {TouchableOpacity, Text, StyleSheet, StyleProp, ViewStyle} from 'react-native';
+import {StyleProp, StyleSheet, Text, TouchableOpacity, ViewStyle} from 'react-native';
 import AddIcon from '@sticknet/react-native-vector-icons/FontAwesome';
 
 interface AddMembersProps {

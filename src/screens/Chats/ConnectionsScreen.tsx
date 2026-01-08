@@ -3,15 +3,15 @@ import {RefreshControl, View, StyleSheet, TouchableOpacity} from 'react-native';
 import {connect} from 'react-redux';
 import {FlashList} from '@shopify/flash-list';
 import {NavigationProp, RouteProp} from '@react-navigation/native';
-import {UserItem, Separator, SearchBar, Invite, EmptyContent, Icon, Text} from '../../components';
-import {common, stickRoom, users} from '../../actions';
-import {nav} from '../../utils';
-import {colors} from '../../foundations';
-import type {IApplicationState, TUser} from '../../types';
-import type {ChatStackParamList} from '../../navigators/types';
-import {ICommonActions} from '../../actions/common';
-import {IUsersActions} from '../../actions/users';
-import {IStickRoomActions} from '../../actions/stick-room';
+import {UserItem, Separator, SearchBar, Invite, EmptyContent, Icon, Text} from '@/src/components';
+import {common, stickRoom, users} from '@/src/actions';
+import {nav} from '@/src/utils';
+import {colors} from '@/src/foundations';
+import type {IApplicationState, TUser} from '@/src/types';
+import type {ChatStackParamList} from '@/src/navigators/types';
+import {ICommonActions} from '@/src/actions/common';
+import {IUsersActions} from '@/src/actions/users';
+import {IStickRoomActions} from '@/src/actions/stick-room';
 
 interface ConnectionsScreenProps extends ICommonActions, IUsersActions, IStickRoomActions {
     navigation: NavigationProp<ChatStackParamList>;
@@ -135,7 +135,8 @@ class ConnectionsScreen extends Component<ConnectionsScreenProps, ConnectionsScr
             <TouchableOpacity
                 style={s.requestsContainer}
                 activeOpacity={1}
-                onPress={() => this.props.navigation.navigate('SentConnectionRequests')}>
+                onPress={() => this.props.navigation.navigate('SentConnectionRequests')}
+            >
                 <Text style={s.requests}>
                     {requestsCount} request{requestsCount > 1 && 's'} sent
                 </Text>

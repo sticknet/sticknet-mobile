@@ -1,14 +1,14 @@
 import React, {FC} from 'react';
-import {View, Pressable} from 'react-native';
+import {Pressable, View} from 'react-native';
 import {connect, ConnectedProps} from 'react-redux';
 import DotsIcon from '@sticknet/react-native-vector-icons/MaterialCommunityIcons';
-import {useNavigation, NavigationProp} from '@react-navigation/native';
-import PreviewImageFile from '../Vault/PreviewImageFile';
-import Text from '../Text';
-import {formatBytes, nav} from '../../utils';
-import {app} from '../../actions';
-import type {TFile} from '../../types';
-import type {ChatStackParamList} from '../../navigators/types';
+import {NavigationProp, useNavigation} from '@react-navigation/native';
+import PreviewImageFile from '@/src/components/Vault/PreviewImageFile';
+import Text from '@/src/components/Text';
+import {formatBytes, nav} from '@/src/utils';
+import {app} from '@/src/actions';
+import type {TFile} from '@/src/types';
+import type {ChatStackParamList} from '@/src/navigators/types';
 
 interface RoomFileOwnProps {
     item: TFile;

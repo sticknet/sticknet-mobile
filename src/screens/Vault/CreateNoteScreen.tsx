@@ -5,12 +5,12 @@ import {useHeaderHeight} from '@react-navigation/elements';
 import {RouteProp, useNavigation, useRoute} from '@react-navigation/native';
 import {heightPercentageToDP as h} from 'react-native-responsive-screen';
 import type {NavigationProp} from '@react-navigation/native';
-import {TextParser} from '../../components';
-import {colors} from '../../foundations';
-import {vault} from '../../actions';
-import {globalData} from '../../actions/globalVariables';
-import {IVaultActions} from '../../actions/vault';
-import type {VaultStackParamList} from '../../navigators/types';
+import {TextParser} from '@/src/components';
+import {colors} from '@/src/foundations';
+import {vault} from '@/src/actions';
+import {globalData} from '@/src/actions/globalVariables';
+import {IVaultActions} from '@/src/actions/vault';
+import type {VaultStackParamList} from '@/src/navigators/types';
 
 const CreateNoteScreen: React.FC<IVaultActions> = (props) => {
     const navigation = useNavigation<NavigationProp<VaultStackParamList>>();
@@ -67,12 +67,14 @@ const CreateNoteScreen: React.FC<IVaultActions> = (props) => {
                         setEditing(true);
                         setTimeout(() => ref.current?.focus(), 100);
                     }
-                }}>
+                }}
+            >
                 <ContainerView
                     style={s.container}
                     keyboardVerticalOffset={height}
                     behavior="padding"
-                    contentContainerStyle={{paddingBottom: 60}}>
+                    contentContainerStyle={{paddingBottom: 60}}
+                >
                     {editing ? (
                         <TextInput
                             ref={ref}

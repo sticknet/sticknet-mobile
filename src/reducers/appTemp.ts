@@ -1,6 +1,6 @@
 import {Action} from 'redux';
-import {appTemp} from '../actions/actionTypes';
-import type {TDevice, TFile, TFolder, TGroup, TMessage} from '../types';
+import {appTemp} from '@/src/actions/actionTypes';
+import type {TDevice, TFile, TFolder, TGroup, TMessage} from '@/src/types';
 
 export interface IAppTempState {
     isGeneratingKeys: boolean;

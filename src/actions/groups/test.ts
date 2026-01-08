@@ -1,9 +1,9 @@
 import {waitFor} from '@testing-library/react-native';
-import state from '../test_data/state.json';
-import axiosMock from '../test_data/axiosMock';
-import configureStore from '../../store';
+import state from '@/src/actions/test_data/state.json';
+import axiosMock from '@/src/actions/test_data/axiosMock';
+import configureStore from '@/src/store';
 import {groups} from '..';
-import {TFile, TGroup, TUser} from '../../types';
+import {TFile, TGroup, TUser} from '@/src/types';
 
 describe('groups.js actions functions', () => {
     let store: ReturnType<typeof configureStore>['store'];

@@ -1,29 +1,29 @@
 import React, {Component} from 'react';
 import {
-    TouchableOpacity,
     FlatList,
-    View,
-    StatusBar,
-    Platform,
-    StyleSheet,
     ListRenderItemInfo,
+    Platform,
+    StatusBar,
+    StyleSheet,
+    TouchableOpacity,
+    View,
     ViewStyle,
 } from 'react-native';
 import {connect} from 'react-redux';
 
-import {widthPercentageToDP as w, heightPercentageToDP as h} from 'react-native-responsive-screen';
+import {heightPercentageToDP as h, widthPercentageToDP as w} from 'react-native-responsive-screen';
 import * as Animatable from 'react-native-animatable';
 import XIcon from '@sticknet/react-native-vector-icons/Feather';
 import changeNavigationBarColor from 'react-native-navigation-bar-color';
 import Orientation from 'react-native-orientation-locker';
 import {NavigationProp, RouteProp} from '@react-navigation/native';
-import {app} from '../../actions/index';
+import {app} from '@/src/actions/index';
 
-import {HorizontalImageView, SmallLoading} from '../../components';
-import {hasNotch} from '../../utils/notch';
-import type {IApplicationState, TUser} from '../../types';
-import type {CommonStackParamList} from '../../navigators/types';
-import {IAppActions} from '../../actions/app';
+import {HorizontalImageView, SmallLoading} from '@/src/components';
+import {hasNotch} from '@/src/utils/notch';
+import type {IApplicationState, TUser} from '@/src/types';
+import type {CommonStackParamList} from '@/src/navigators/types';
+import {IAppActions} from '@/src/actions/app';
 
 const AnimatedXIcon = Animatable.createAnimatableComponent(XIcon);
 

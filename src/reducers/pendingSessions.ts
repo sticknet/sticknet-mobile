@@ -1,5 +1,5 @@
 import {Action} from 'redux';
-import {pendingSessions} from '../actions/actionTypes';
+import {pendingSessions} from '@/src/actions/actionTypes';
 
 export interface IPendingSessionsState {
     [key: string]: boolean;

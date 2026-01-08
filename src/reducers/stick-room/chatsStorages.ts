@@ -1,6 +1,6 @@
 import {Action} from 'redux';
-import {stickRoom} from '../../actions/actionTypes';
-import {TChatStorage} from '../../types';
+import {stickRoom} from '@/src/actions/actionTypes';
+import {TChatStorage} from '@/src/types';
 
 export interface IChatsStoragesState {
     groupStorages: TChatStorage[];

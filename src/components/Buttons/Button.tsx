@@ -2,10 +2,10 @@ import React, {PureComponent} from 'react';
 import {connect, ConnectedProps} from 'react-redux';
 import {TouchableOpacity, StyleSheet, ActivityIndicator, ViewStyle, View} from 'react-native';
 import {widthPercentageToDP as w} from 'react-native-responsive-screen';
-import {colors} from '../../foundations';
-import Text from '../Text';
-import Icon from '../Icons/Icon';
-import {IApplicationState} from '../../types';
+import {colors} from '@/src/foundations';
+import Text from '@/src/components/Text';
+import Icon from '@/src/components/Icons/Icon';
+import {IApplicationState} from '@/src/types';
 
 interface ButtonOwnProps {
     light?: boolean;
@@ -74,7 +74,8 @@ class Button extends PureComponent<Props> {
                     },
                     style,
                 ]}
-                testID={testID}>
+                testID={testID}
+            >
                 {isLoading ? (
                     <ActivityIndicator color="#ffffff" />
                 ) : (
@@ -89,7 +90,8 @@ class Button extends PureComponent<Props> {
                                     fontSize,
                                     fontWeight: 'bold',
                                 },
-                            ]}>
+                            ]}
+                        >
                             {text}
                         </Text>
                     </View>

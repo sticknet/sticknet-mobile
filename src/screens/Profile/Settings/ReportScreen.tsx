@@ -3,12 +3,12 @@ import {StatusBar, View, StyleSheet} from 'react-native';
 import {connect} from 'react-redux';
 import {widthPercentageToDP as w} from 'react-native-responsive-screen';
 import {NavigationProp} from '@react-navigation/native';
-import {globalData} from '../../../actions/globalVariables';
-import {Input} from '../../../components/index';
-import {profile} from '../../../actions/index';
-import type {IApplicationState, TUser} from '../../../types';
-import type {ProfileStackParamList} from '../../../navigators/types';
-import {IProfileActions} from '../../../actions/profile';
+import {globalData} from '@/src/actions/globalVariables';
+import {Input} from '@/src/components/index';
+import {profile} from '@/src/actions/index';
+import type {IApplicationState, TUser} from '@/src/types';
+import type {ProfileStackParamList} from '@/src/navigators/types';
+import {IProfileActions} from '@/src/actions/profile';
 
 // Define the props for the component
 interface ReportScreenProps extends IProfileActions {

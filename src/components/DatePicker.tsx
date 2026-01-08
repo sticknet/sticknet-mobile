@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
-import {Text, View, TouchableOpacity, Platform, StyleSheet, Appearance} from 'react-native';
+import {Appearance, Platform, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {widthPercentageToDP as w} from 'react-native-responsive-screen';
 import CalendarIcon from '@sticknet/react-native-vector-icons/FontAwesome';
 import CustomModal from 'react-native-modal';
 import DateTimePicker from '@react-native-community/datetimepicker';
-import {colors} from '../foundations';
+import {colors} from '@/src/foundations';
 
 interface DatePickerProps {
     date?: Date;

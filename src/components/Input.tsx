@@ -1,7 +1,7 @@
 import React, {Component, createRef} from 'react';
 import {Text, View, TextInput, StyleSheet, Platform, TextInputProps, ViewStyle} from 'react-native';
 import {widthPercentageToDP as w} from 'react-native-responsive-screen';
-import {colors} from '../foundations';
+import {colors} from '@/src/foundations';
 
 interface InputProps extends TextInputProps {
     focus?: boolean;

@@ -1,5 +1,5 @@
 import React, {useEffect, useRef, useState} from 'react';
-import {View, Text, Alert, Platform, TextInput, Keyboard, StyleSheet, KeyboardEvent} from 'react-native';
+import {Alert, Keyboard, KeyboardEvent, Platform, StyleSheet, Text, TextInput, View} from 'react-native';
 import {connect, ConnectedProps} from 'react-redux';
 import KeyIcon from '@sticknet/react-native-vector-icons/AntDesign';
 import {widthPercentageToDP as w} from 'react-native-responsive-screen';
@@ -8,13 +8,13 @@ import type {NavigationProp} from '@react-navigation/native';
 import {ConnectionController} from '@reown/appkit-core-react-native';
 import {useAppKitProvider} from '@reown/appkit-ethers-react-native';
 import {BrowserProvider} from 'ethers';
-import {Button} from '../../../components';
-import {auth} from '../../../actions';
-import type {IApplicationState, TUser, TGroup} from '../../../types';
-import type {ProfileStackParamList} from '../../../navigators/types';
-import {IAuthActions} from '../../../actions/auth';
-import {globalData} from '../../../actions/globalVariables';
-import StickProtocol from '../../../native-modules/stick-protocol';
+import {Button} from '@/src/components';
+import {auth} from '@/src/actions';
+import type {IApplicationState, TGroup, TUser} from '@/src/types';
+import type {ProfileStackParamList} from '@/src/navigators/types';
+import {IAuthActions} from '@/src/actions/auth';
+import {globalData} from '@/src/actions/globalVariables';
+import StickProtocol from '@/modules/stick-protocol';
 
 interface PasswordDeleteAccountScreenProps extends IAuthActions {
     navigation: NavigationProp<ProfileStackParamList>;

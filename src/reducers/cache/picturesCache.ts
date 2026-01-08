@@ -1,6 +1,6 @@
 import {Action} from 'redux';
-import {cache} from '../../actions/actionTypes';
-import type {TCacheFile} from '../../types';
+import {cache} from '@/src/actions/actionTypes';
+import type {TCacheFile} from '@/src/types';
 
 export interface IPicturesCacheState {
     [key: string]: TCacheFile;

@@ -1,6 +1,6 @@
 import {Action} from 'redux';
-import {auth, iap} from '../actions/actionTypes';
-import {TUser} from '../types';
+import {auth, iap} from '@/src/actions/actionTypes';
+import {TUser} from '@/src/types';
 
 export interface IAuthState {
     user: TUser | null;

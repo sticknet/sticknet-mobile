@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
+import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {connect, ConnectedProps} from 'react-redux';
 import {heightPercentageToDP as h} from 'react-native-responsive-screen';
 
@@ -7,11 +7,11 @@ import Icon from '@sticknet/react-native-vector-icons/Feather';
 import FontistoIcon from '@sticknet/react-native-vector-icons/Fontisto';
 import IoIcon from '@sticknet/react-native-vector-icons/Ionicons';
 import {NavigationProp, RouteProp} from '@react-navigation/native';
-import {Input, GroupCover, BottomModal, ModalItem} from '../../components';
-import {groups, create} from '../../actions';
-import {photosPermission, monthNames} from '../../utils';
-import type {IApplicationState, TFile, TGroup, TUser} from '../../types';
-import type {ChatStackParamList} from '../../navigators/types';
+import {BottomModal, GroupCover, Input, ModalItem} from '@/src/components';
+import {create, groups} from '@/src/actions';
+import {monthNames, photosPermission} from '@/src/utils';
+import type {IApplicationState, TFile, TGroup, TUser} from '@/src/types';
+import type {ChatStackParamList} from '@/src/navigators/types';
 
 type ReduxProps = ConnectedProps<typeof connector>;
 

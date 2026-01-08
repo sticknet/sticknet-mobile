@@ -2,7 +2,7 @@ import React, {useEffect, useState, ReactNode} from 'react';
 import {Platform} from 'react-native';
 import Animated, {useAnimatedStyle, useSharedValue, withTiming} from 'react-native-reanimated';
 import {connect, ConnectedProps} from 'react-redux';
-import {IApplicationState} from '../types'; // Adjust the import path accordingly
+import {IApplicationState} from '@/src/types'; // Adjust the import path accordingly
 
 interface LandscapeViewProps extends PropsFromRedux {
     width: number;

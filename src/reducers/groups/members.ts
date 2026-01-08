@@ -1,7 +1,7 @@
 import {Action} from 'redux';
 import _ from 'lodash';
-import {groups} from '../../actions/actionTypes';
-import {TUser} from '../../types';
+import {groups} from '@/src/actions/actionTypes';
+import {TUser} from '@/src/types';
 
 export interface IMembersState {
     [groupId: string]: {

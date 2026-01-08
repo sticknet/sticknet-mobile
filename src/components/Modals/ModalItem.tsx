@@ -1,7 +1,7 @@
 import React, {FC} from 'react';
 import {TouchableOpacity, View, StyleSheet, StyleProp, ViewStyle} from 'react-native';
 import {widthPercentageToDP as w} from 'react-native-responsive-screen';
-import Text from '../Text';
+import Text from '@/src/components/Text';
 
 interface ModalItemProps {
     testID?: string;
@@ -22,7 +22,8 @@ const ModalItem: FC<ModalItemProps> = (props) => {
             testID={props.testID}
             activeOpacity={props.activeOpacity ?? 1}
             style={[s.button, {borderBottomWidth: !props.last ? StyleSheet.hairlineWidth : 0}, props.style]}
-            onPress={props.onPress}>
+            onPress={props.onPress}
+        >
             <View style={{flexDirection: 'row'}}>
                 <View style={{width: 40, alignItems: 'center'}}>{props.icon}</View>
                 <Text style={[s.text, {color: !props.danger ? (!props.dark ? '#0F0F28' : '#fff') : 'red'}]}>

@@ -4,10 +4,10 @@ import {connect, ConnectedProps} from 'react-redux';
 import {useNavigation, NavigationProp} from '@react-navigation/native';
 import LottieView from 'lottie-react-native';
 import {widthPercentageToDP as w} from 'react-native-responsive-screen';
-import {EmptyContent, GroupItem, SearchBar, Separator} from '../../components';
-import {peopleAnimation} from '../../../assets/lottie';
-import type {IApplicationState, TGroup} from '../../types';
-import type {ChatStackParamList} from '../../navigators/types';
+import {EmptyContent, GroupItem, SearchBar, Separator} from '@/src/components';
+import {peopleAnimation} from '@/assets/lottie';
+import type {IApplicationState, TGroup} from '@/src/types';
+import type {ChatStackParamList} from '@/src/navigators/types';
 
 const mapStateToProps = (state: IApplicationState) => ({
     groups: state.groups,

@@ -1,6 +1,6 @@
 import PushNotification, {
-    PushNotificationObject,
     PushNotification as PushNotificationType,
+    PushNotificationObject,
 } from 'react-native-push-notification';
 
 type NotificationHandlerCallback = (notification: PushNotificationType) => void;

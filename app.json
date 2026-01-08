@@ -1,4 +1,9 @@
 {
   "name": "Sticknet",
-  "displayName": "Sticknet"
+  "displayName": "Sticknet",
+  "extra": {
+    "eas": {
+      "projectId": "3d1640cb-41eb-4a33-babb-7459869b477b"
+    }
+  }
 }

@@ -1,27 +1,27 @@
 import React, {FC} from 'react';
-import {View, Platform, Pressable} from 'react-native';
+import {Platform, Pressable, View} from 'react-native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {
     AccountScreen,
-    EditProfileScreen,
-    FeedbackScreen,
-    MoreOptionsScreen,
-    ProfileScreen,
-    QuestionScreen,
-    ReportScreen,
-    SettingsScreen,
-    PrivacyScreen,
     BlockedScreen,
-    RecoverPasswordScreen,
     ChangePasswordScreen,
     CodeScreen,
-    PasswordDeleteAccountScreen,
     ComputerScreen,
+    EditProfileScreen,
+    FeedbackScreen,
     FolderIconScreen,
     ManageStorageScreen,
+    MoreOptionsScreen,
+    PasswordDeleteAccountScreen,
+    PrivacyScreen,
+    ProfileScreen,
+    QuestionScreen,
+    RecoverPasswordScreen,
+    ReportScreen,
     RoomStorageScreen,
-} from '../screens';
-import {Back, Next, ProfilePremiumIcon, Title, Icon} from '../components';
+    SettingsScreen,
+} from '@/src/screens';
+import {Back, Icon, Next, ProfilePremiumIcon, Title} from '@/src/components';
 import CommonGroup from './CommonGroup';
 import CreateGroup from './CreateGroup';
 import type {ProfileStackParamList} from './types';
@@ -50,7 +50,8 @@ const ProfileGroup: FC = () => (
                         <Pressable
                             onPress={() => navigation.navigate('Settings')}
                             hitSlop={{left: 20, top: 10, bottom: 10}}
-                            testID="settings">
+                            testID="settings"
+                        >
                             <Icon name="gear" />
                         </Pressable>
                     ),
@@ -79,14 +80,15 @@ const ProfileGroup: FC = () => (
                     headerLeft: () => (
                         <Back
                             onPress={() => {
-                                if (route.params) {
-                                    navigation.navigate({
-                                        name: route.params.back,
-                                        params: {tabBarVisible: true},
-                                        merge: true,
-                                    });
-                                    route.params.resetState?.();
-                                }
+                                navigation.goBack();
+                                // if (route.params) {
+                                //     navigation.navigate({
+                                //         name: route.params.back,
+                                //         params: {tabBarVisible: true},
+                                //         merge: true,
+                                //     });
+                                //     route.params.resetState?.();
+                                // }
                             }}
                         />
                     ),

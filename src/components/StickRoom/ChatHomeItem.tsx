@@ -3,16 +3,16 @@ import {View, StyleSheet, Pressable, ViewStyle} from 'react-native';
 import {connect, ConnectedProps} from 'react-redux';
 import {useNavigation, NavigationProp} from '@react-navigation/native';
 import {widthPercentageToDP as w} from 'react-native-responsive-screen';
-import Text from '../Text';
-import ProfilePicture from '../ProfilePicture';
-import {formatAMPM, formatMessageDate, formatTime, nav} from '../../utils';
-import {app, stickRoom, users} from '../../actions';
-import GroupCover from '../GroupCover';
-import Icon from '../Icons/Icon';
-import {colors} from '../../foundations';
-import PremiumIcon from '../Icons/PremiumIcon';
-import type {IApplicationState, TMessage, TUser, TGroup, TParty} from '../../types';
-import type {ChatStackParamList} from '../../navigators/types';
+import Text from '@/src/components/Text';
+import ProfilePicture from '@/src/components/ProfilePicture';
+import {formatAMPM, formatMessageDate, formatTime, nav} from '@/src/utils';
+import {app, stickRoom, users} from '@/src/actions';
+import GroupCover from '@/src/components/GroupCover';
+import Icon from '@/src/components/Icons/Icon';
+import {colors} from '@/src/foundations';
+import PremiumIcon from '@/src/components/Icons/PremiumIcon';
+import type {IApplicationState, TMessage, TUser, TGroup, TParty} from '@/src/types';
+import type {ChatStackParamList} from '@/src/navigators/types';
 
 // contentContainerPadding: 32, pictureSize: 48, textMarginLeft: 12, extraPaddingFromRight: 4
 const textMaxWidth = w('100%') - 32 - 48 - 12 - 4;
@@ -95,7 +95,8 @@ const ChatHomeItem: FC<Props> = (props) => {
                 })
             }
             style={[{flexDirection: 'row', justifyContent: 'space-between'}, style]}
-            testID={testID}>
+            testID={testID}
+        >
             <View style={{flexDirection: 'row', alignItems: 'center'}}>
                 {isGroup ? (
                     <GroupCover groupId={target.id} cover={target.cover!} size={48} isPreview />
@@ -124,7 +125,8 @@ const ChatHomeItem: FC<Props> = (props) => {
                                 color: notSeen ? colors.black : 'grey',
                                 marginTop: 4,
                                 maxWidth: textMaxWidth,
-                            }}>
+                            }}
+                        >
                             {nameOfUser}: {content}
                         </Text>
                     )}

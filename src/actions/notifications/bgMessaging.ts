@@ -1,12 +1,12 @@
 import Keychain from '@sticknet/react-native-keychain';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import DeviceInfo from 'react-native-device-info';
-import StickProtocol from '../../native-modules/stick-protocol';
+import StickProtocol from '@/modules/stick-protocol';
 import NotifService from './NotifService';
-import {bgNotif} from '../globalVariables';
-import SPH from '../SPHandlers';
+import {bgNotif} from '@/src/actions/globalVariables';
+import {stickProtocolHandlers as SPH} from '@/src/actions/SPHandlers';
 import channels from './notificationChannels';
-import camelize from '../../utils/camelize';
+import camelize from '@/src/utils/camelize';
 
 const bundleId = DeviceInfo.getBundleId();
 

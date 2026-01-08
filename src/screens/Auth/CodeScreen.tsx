@@ -1,5 +1,5 @@
 import React, {Component, createRef} from 'react';
-import {View, Text, Alert, Platform, StatusBar, StyleSheet} from 'react-native';
+import {Alert, Platform, StatusBar, StyleSheet, Text, View} from 'react-native';
 import {connect} from 'react-redux';
 import PrivacyIcon from '@sticknet/react-native-vector-icons/SimpleLineIcons';
 import SmoothPinCodeInput from 'react-native-smooth-pincode-input';
@@ -9,12 +9,12 @@ import {widthPercentageToDP as w} from 'react-native-responsive-screen';
 import changeNavigationBarColor from 'react-native-navigation-bar-color';
 import type {StackNavigationProp} from '@react-navigation/stack';
 import type {RouteProp} from '@react-navigation/native';
-import {auth, app} from '../../actions/index';
-import {globalData} from '../../actions/globalVariables';
-import {colors} from '../../foundations';
-import type {HomeStackParamList} from '../../navigators/types';
-import type {IApplicationState, TUser} from '../../types';
-import type {IAuthActions, IAppActions} from '../../actions/types';
+import {app, auth} from '@/src/actions/index';
+import {globalData} from '@/src/actions/globalVariables';
+import {colors} from '@/src/foundations';
+import type {HomeStackParamList} from '@/src/navigators/types';
+import type {IApplicationState, TUser} from '@/src/types';
+import type {IAppActions, IAuthActions} from '@/src/actions/types';
 
 interface CodeScreenProps extends IAuthActions, IAppActions {
     navigation: StackNavigationProp<HomeStackParamList>;

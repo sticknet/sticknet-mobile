@@ -1,7 +1,7 @@
 import {Action} from 'redux';
 import _ from 'lodash';
-import {groups} from '../../actions/actionTypes';
-import {TGroup} from '../../types';
+import {groups} from '@/src/actions/actionTypes';
+import {TGroup} from '@/src/types';
 
 export interface IGroupsState {
     [key: string]: TGroup;

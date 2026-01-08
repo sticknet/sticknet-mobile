@@ -7,27 +7,27 @@ import {
     AddConnectionsScreen,
     AddMembersScreen,
     AlbumsScreen,
+    BackupPasswordScreen,
     ConnectionsScreen,
-    GroupsScreen,
+    EditGroupScreen,
     FileViewScreen,
-    HorizontalScreen,
-    OtherProfileScreen,
-    SearchScreen,
-    StickRoomScreen,
-    GroupDetailScreen,
     GroupCreateScreen,
+    GroupDetailScreen,
+    GroupLinkScreen,
+    GroupsScreen,
+    HorizontalScreen,
+    IAPScreen,
     MutualConnectionsScreen,
     MutualGroupsScreen,
-    SentConnectionRequestsScreen,
-    BackupPasswordScreen,
-    IAPScreen,
+    OtherProfileScreen,
+    SearchScreen,
     SelectTargetsScreen,
-    EditGroupScreen,
-    GroupLinkScreen,
-} from '../screens';
+    SentConnectionRequestsScreen,
+    StickRoomScreen,
+} from '@/src/screens';
 import {IAPOptions} from './options';
-import {Back, Icon, Next, PremiumIcon, Text, Title, ChatTitle} from '../components';
-import {colors} from '../foundations';
+import {Back, ChatTitle, Icon, Next, PremiumIcon, Text, Title} from '@/src/components';
+import {colors} from '@/src/foundations';
 import s from './style';
 import type {CommonStackParamList} from './types';
 
@@ -327,15 +327,16 @@ const CommonGroup: FC = () => {
                         headerLeft: () => (
                             <Back
                                 onPress={() => {
-                                    if (route.params.back?.includes('Horizontal')) {
-                                        if (Platform.OS === 'ios') StatusBar.setHidden(true, 'slide');
-                                    }
-                                    navigation.navigate({
-                                        name: route.params.back,
-                                        params: {tabBarVisible: false},
-                                        merge: true,
-                                    });
-                                    route.params.resetState?.();
+                                    navigation.goBack();
+                                    // if (route.params.back?.includes('Horizontal')) {
+                                    //     if (Platform.OS === 'ios') StatusBar.setHidden(true, 'slide');
+                                    // }
+                                    // navigation.navigate({
+                                    //     name: route.params.back,
+                                    //     params: {tabBarVisible: false},
+                                    //     merge: true,
+                                    // });
+                                    // route.params.resetState?.();
                                 }}
                             />
                         ),

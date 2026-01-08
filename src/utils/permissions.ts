@@ -1,21 +1,23 @@
 import {Alert, Platform} from 'react-native';
-import {check, PERMISSIONS, request, RESULTS, openSettings} from 'react-native-permissions';
+import {check, openSettings, PERMISSIONS, request, RESULTS} from 'react-native-permissions';
 import DeviceInfo from 'react-native-device-info';
-import {globalData} from '../actions/globalVariables';
+import {globalData} from '@/src/actions/globalVariables';
 
 export const micPermission = (callback: () => void) => {
     const permission = Platform.OS === 'ios' ? PERMISSIONS.IOS.MICROPHONE : PERMISSIONS.ANDROID.RECORD_AUDIO;
     check(permission).then((res) => {
         if (res !== RESULTS.GRANTED) {
-            request(permission).then((res) => {
-                if (res !== RESULTS.GRANTED) {
-                    Alert.alert(
-                        'Microphone permission!',
-                        `Please enable Microphone permission from your phone's settings for Sticknet`,
-                        [{text: 'OK!', style: 'cancel'}],
-                    );
-                } else callback();
-            });
+            request(permission)
+                .then((res) => {
+                    if (res !== RESULTS.GRANTED) {
+                        Alert.alert(
+                            'Microphone permission!',
+                            `Please enable Microphone permission from your phone's settings for Sticknet`,
+                            [{text: 'OK!', style: 'cancel'}],
+                        );
+                    } else callback();
+                })
+                .catch((err) => console.log('errmic', err));
         } else callback();
     });
 };

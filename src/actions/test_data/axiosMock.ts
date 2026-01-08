@@ -1,7 +1,7 @@
 import MockAdapter from 'axios-mock-adapter';
 import axios from 'axios';
 import state from './_state.json';
-import {URL} from '../URL';
+import {URL} from '@/src/actions/URL';
 
 class FormDataMock {
     append = jest.fn();

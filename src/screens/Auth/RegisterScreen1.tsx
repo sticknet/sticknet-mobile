@@ -1,13 +1,13 @@
 import React, {Component, createRef} from 'react';
-import {View, Text, Platform, StatusBar, TextInput, Keyboard, StyleSheet, KeyboardEvent} from 'react-native';
+import {Keyboard, KeyboardEvent, Platform, StatusBar, StyleSheet, Text, TextInput, View} from 'react-native';
 import {connect, ConnectedProps} from 'react-redux';
 import changeNavigationBarColor from 'react-native-navigation-bar-color';
 import {widthPercentageToDP as w} from 'react-native-responsive-screen';
 import type {NavigationProp, RouteProp} from '@react-navigation/native';
-import {Button} from '../../components';
-import {auth} from '../../actions/index';
-import {globalData} from '../../actions/globalVariables';
-import type {HomeStackParamList} from '../../navigators/types';
+import {Button} from '@/src/components';
+import {auth} from '@/src/actions/index';
+import {globalData} from '@/src/actions/globalVariables';
+import type {HomeStackParamList} from '@/src/navigators/types';
 
 const connector = connect(null, {...auth});
 
@@ -73,7 +73,7 @@ class RegisterScreen1 extends Component<Props, State> {
 
     render() {
         return (
-            <View style={{flex: 1, padding: 12, paddingLeft: 20}}>
+            <View style={[{flex: 1, padding: 12, paddingLeft: 20}, Platform.OS === 'android' && {marginBottom: globalData.bottomBarHeight}]}>
                 <Text style={s.create}>What's your name?</Text>
                 <TextInput
                     placeholder="Full name"

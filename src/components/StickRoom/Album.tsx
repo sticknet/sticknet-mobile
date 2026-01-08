@@ -3,13 +3,13 @@ import {View, StyleSheet, Pressable} from 'react-native';
 import {widthPercentageToDP as w} from 'react-native-responsive-screen';
 import {connect, ConnectedProps} from 'react-redux';
 import {useNavigation, NavigationProp} from '@react-navigation/native';
-import Icon from '../Icons/Icon';
-import Text from '../Text';
+import Icon from '@/src/components/Icons/Icon';
+import Text from '@/src/components/Text';
 import ChatImage from './Post/ChatImage';
-import {n} from '../../utils';
-import {app} from '../../actions';
-import type {IApplicationState} from '../../types';
-import type {ChatStackParamList} from '../../navigators/types';
+import {n} from '@/src/utils';
+import {app} from '@/src/actions';
+import type {IApplicationState} from '@/src/types';
+import type {ChatStackParamList} from '@/src/navigators/types';
 
 interface AlbumOwnProps {
     albumTimestamp: string;
@@ -29,7 +29,8 @@ const Album: FC<Props> = (props) => {
         <Pressable
             style={s.container}
             onPress={() => navigation.navigate('AlbumPhotos', {album})}
-            onLongPress={() => props.dispatchAppTempProperty({albumModal: {isVisible: true, album}})}>
+            onLongPress={() => props.dispatchAppTempProperty({albumModal: {isVisible: true, album}})}
+        >
             <View style={s.innerContainer}>
                 {cover && <ChatImage file={cover} style={{width: w('40%'), height: w('40%'), borderRadius: 12}} />}
                 <View style={s.opacity} />

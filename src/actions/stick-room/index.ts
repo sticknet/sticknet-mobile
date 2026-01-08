@@ -3,10 +3,10 @@ import {firebase} from '@react-native-firebase/database';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {Platform} from 'react-native';
 import {Dispatch} from 'redux';
-import {DocumentPickerResponse} from 'react-native-document-picker';
+import {DocumentPickerResponse} from '@react-native-documents/picker';
 import {AxiosResponse} from 'axios';
-import axios from '../myaxios';
-import StickProtocol from '../../native-modules/stick-protocol';
+import axios from '@/src/actions/myaxios';
+import StickProtocol from '@/modules/stick-protocol';
 import {
     endMessageKeys,
     fetchingSenderKeys,
@@ -14,9 +14,9 @@ import {
     messagesJustSent,
     startMessageKeys,
     stickySessionSteps,
-} from '../globalVariables';
-import SPH from '../SPHandlers';
-import {firebaseRef, URL} from '../URL';
+} from '@/src/actions/globalVariables';
+import {stickProtocolHandlers as SPH} from '@/src/actions/SPHandlers';
+import {firebaseRef, URL} from '@/src/actions/URL';
 import {
     app,
     appTemp,
@@ -28,11 +28,11 @@ import {
     progress,
     stickRoom,
     url,
-} from '../actionTypes';
+} from '@/src/actions/actionTypes';
 import {findLatestCreatedGroup, messageSent, parse, sendNotification} from './utils';
-import {log, uploadFiles} from '../utils';
-import {getAllNestedKeys, getUniqueDeviceId} from '../../utils';
-import type {TUser, TGroup, TParty, TMessage, TFile, TChatAlbum, TTarget} from '../../types';
+import {log, uploadFiles} from '@/src/actions/utils';
+import {getAllNestedKeys, getUniqueDeviceId} from '@/src/utils';
+import type {TChatAlbum, TFile, TGroup, TMessage, TParty, TTarget, TUser} from '@/src/types';
 
 const database = firebase.app().database(firebaseRef);
 

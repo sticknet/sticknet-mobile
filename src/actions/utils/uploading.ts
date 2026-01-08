@@ -2,15 +2,15 @@ import FileSystem from 'react-native-fs';
 import {Alert, Image, Platform} from 'react-native';
 import BlobUtil from 'react-native-blob-util';
 import ImageResizer from 'react-native-image-resizer';
-import {RNFFmpeg} from 'react-native-ffmpeg';
-import {globalData, maxBasicFileSize} from '../globalVariables';
-import axios from '../myaxios';
-import {URL} from '../URL';
-import NavigationService from '../NavigationService';
-import {upload, auth, cache, vault, stickRoom, creating} from '../actionTypes';
-import CommonNative from '../../native-modules/common-native';
-import StickProtocol from '../../native-modules/stick-protocol';
-import {TFile} from '../../types';
+// import {RNFFmpeg} from 'react-native-ffmpeg';
+import {globalData, maxBasicFileSize} from '@/src/actions/globalVariables';
+import axios from '@/src/actions/myaxios';
+import {URL} from '@/src/actions/URL';
+import NavigationService from '@/src/actions/NavigationService';
+import {upload, auth, cache, vault, stickRoom, creating} from '@/src/actions/actionTypes';
+import CommonNative from '@/modules/common-native';
+import StickProtocol from '@/modules/stick-protocol';
+import {TFile} from '@/src/types';
 
 interface UploadFilesParams {
     assets: any[];
@@ -188,7 +188,7 @@ interface UploadResponseData {
 
 export function uploadToStorage(params: UploadToStorageParams): Promise<void> {
     const {uriKeys, encryptedUris, totalSize, dispatch} = params;
-    // eslint-disable-next-line no-async-promise-executor
+
     return new Promise(async (resolve, reject) => {
         const config = {headers: {Authorization: globalData.token}};
         const response = await axios.post<UploadResponseData>(
@@ -278,7 +278,7 @@ export async function createPreview(asset: any, previewUriKey: string, isChatVid
         const thumbName = `${previewUriKey}.jpg`;
         const thumbPath = `${FileSystem.CachesDirectoryPath}/${thumbName}`;
         const thumbCommand = `-i "${destPath}" -ss 00:00:01.000 -vframes 1 "${thumbPath}"`;
-        await RNFFmpeg.execute(thumbCommand);
+        // await RNFFmpeg.execute(thumbCommand);
         const resizedThumbnail = await ImageResizer.createResizedImage(
             `file://${thumbPath}`,
             dimension,

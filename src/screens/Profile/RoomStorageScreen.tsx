@@ -1,17 +1,17 @@
 import React, {useEffect, useState} from 'react';
-import {View, Text, StyleSheet, RefreshControl, NativeSyntheticEvent, NativeScrollEvent} from 'react-native';
+import {NativeScrollEvent, NativeSyntheticEvent, RefreshControl, StyleSheet, Text, View} from 'react-native';
 import {connect} from 'react-redux';
-import {useNavigation, RouteProp, useRoute} from '@react-navigation/native';
-import {FlashList} from '@shopify/flash-list';
 import type {NavigationProp} from '@react-navigation/native';
-import {stickRoom} from '../../actions';
-import {GroupItem, MessageModal, RoomFile, Separator, SmallLoading, UserItem} from '../../components';
-import {formatBytes, isCloseToBottom} from '../../utils';
-import {URL} from '../../actions/URL';
-import {colors} from '../../foundations';
-import type {IApplicationState, TFile, TGroup, TParty, TUser} from '../../types';
-import type {IStickRoomActions} from '../../actions/stick-room';
-import type {ProfileStackParamList} from '../../navigators/types';
+import {RouteProp, useNavigation, useRoute} from '@react-navigation/native';
+import {FlashList} from '@shopify/flash-list';
+import {stickRoom} from '@/src/actions';
+import {GroupItem, MessageModal, RoomFile, Separator, SmallLoading, UserItem} from '@/src/components';
+import {formatBytes, isCloseToBottom} from '@/src/utils';
+import {URL} from '@/src/actions/URL';
+import {colors} from '@/src/foundations';
+import type {IApplicationState, TFile, TGroup, TParty, TUser} from '@/src/types';
+import type {IStickRoomActions} from '@/src/actions/stick-room';
+import type {ProfileStackParamList} from '@/src/navigators/types';
 
 interface RoomStorageScreenProps extends IStickRoomActions {
     target: TParty;
@@ -102,7 +102,6 @@ const RoomStorageScreen: React.FC<RoomStorageScreenProps> = (props) => {
                 ListHeaderComponent={header}
                 ListFooterComponent={footer}
                 onScroll={onScroll}
-                estimatedItemSize={10}
                 refreshControl={
                     <RefreshControl
                         onRefresh={() => {

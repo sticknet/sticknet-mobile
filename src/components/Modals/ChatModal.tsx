@@ -3,11 +3,11 @@ import React, {FC} from 'react';
 import {connect, ConnectedProps} from 'react-redux';
 import {NavigationProp, useNavigation} from '@react-navigation/native';
 import BottomModal from './BottomModal';
-import Icon from '../Icons/Icon';
-import SettingsItem from '../SettingsItem';
-import {vault, app, stickRoom} from '../../actions';
-import type {IApplicationState, TUser, TGroup} from '../../types';
-import type {ChatStackParamList} from '../../navigators/types';
+import Icon from '@/src/components/Icons/Icon';
+import SettingsItem from '@/src/components/SettingsItem';
+import {vault, app, stickRoom} from '@/src/actions';
+import type {IApplicationState, TUser, TGroup} from '@/src/types';
+import type {ChatStackParamList} from '@/src/navigators/types';
 
 const mapStateToProps = (state: IApplicationState) => {
     const chatModal = state.appTemp.chatModal;

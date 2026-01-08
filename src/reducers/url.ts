@@ -1,5 +1,5 @@
 import {Action} from 'redux';
-import {url} from '../actions/actionTypes';
+import {url} from '@/src/actions/actionTypes';
 
 export interface IUrlState {
     albumsUrls: {[key: string]: string};

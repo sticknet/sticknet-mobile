@@ -1,0 +1,9 @@
+{
+    "platforms": ["apple", "android", "web"],
+    "apple": {
+        "modules": ["StickProtocolModule"]
+    },
+    "android": {
+        "modules": ["expo.modules.stickprotocol.StickProtocolModule"]
+    }
+}

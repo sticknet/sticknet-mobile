@@ -1,7 +1,7 @@
 import React, {FC} from 'react';
 import {StyleSheet, View} from 'react-native';
-import Text from '../Text';
-import type {TFile} from '../../types';
+import Text from '@/src/components/Text';
+import type {TFile} from '@/src/types';
 
 type FileLabelProps = {
     file: TFile;

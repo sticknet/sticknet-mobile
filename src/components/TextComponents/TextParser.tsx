@@ -4,10 +4,10 @@ import {connect} from 'react-redux';
 import ParsedText from 'react-native-parsed-text';
 import {State, TapGestureHandler} from 'react-native-gesture-handler';
 import type {NavigationProp} from '@react-navigation/native';
-import Text from '../Text';
-import {getTabName} from '../../utils';
-import {colors} from '../../foundations';
-import type {IApplicationState, TUser} from '../../types';
+import Text from '@/src/components/Text';
+import {getTabName} from '@/src/utils';
+import {colors} from '@/src/foundations';
+import type {IApplicationState, TUser} from '@/src/types';
 
 interface TextParserProps {
     navigation?: NavigationProp<any>;
@@ -56,7 +56,8 @@ class TextParser extends Component<TextParserProps> {
                                 fontSize: 15,
                             },
                             this.props.style,
-                        ]}>
+                        ]}
+                    >
                         {matchingString}
                     </Text>
                 </Animated.View>
@@ -76,7 +77,8 @@ class TextParser extends Component<TextParserProps> {
                         flexWrap: 'wrap',
                     },
                     this.props.style,
-                ]}>
+                ]}
+            >
                 {matchingString}
             </Text>
         );
@@ -96,7 +98,8 @@ class TextParser extends Component<TextParserProps> {
                             /\b(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z]{2,}(\/[-a-zA-Z0-9()@:%_+.~#?&/=]*)?/,
                         renderText: this.renderUrl,
                     },
-                ]}>
+                ]}
+            >
                 {this.props.text}
             </ParsedText>
         );

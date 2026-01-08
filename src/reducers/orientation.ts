@@ -1,5 +1,5 @@
 import {Action} from 'redux';
-import {orientation} from '../actions/actionTypes';
+import {orientation} from '@/src/actions/actionTypes';
 
 export type OrientationState = 'PORTRAIT' | 'LANDSCAPE-RIGHT' | 'LANDSCAPE-LEFT';
 

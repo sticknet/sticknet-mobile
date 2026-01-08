@@ -1,5 +1,5 @@
 import React, {FC} from 'react';
-import {colors} from '../../foundations';
+import {colors} from '@/src/foundations';
 import Icon from './Icon';
 
 interface PremiumIconProps {

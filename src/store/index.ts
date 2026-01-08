@@ -1,47 +1,91 @@
-import {applyMiddleware, createStore, compose, Store} from 'redux';
-import {persistReducer, persistStore, Persistor} from 'redux-persist';
+import {applyMiddleware, createStore, Middleware, Store} from 'redux';
 import thunk from 'redux-thunk';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Config from 'react-native-config';
-import reducers from '../reducers';
+
+import reducers from '@/src/reducers';
 import whitelist from './whitelist';
 
-const persistConfig = {
-    key: 'root',
-    storage: AsyncStorage,
-    whitelist,
+const STORAGE_KEY = 'root';
+
+let store: Store;
+
+/**
+ * Load persisted state (only whitelisted reducers)
+ */
+async function loadPersistedState(): Promise<object | undefined> {
+    try {
+        const raw = await AsyncStorage.getItem(STORAGE_KEY);
+        if (!raw) return undefined;
+
+        const persisted = JSON.parse(raw);
+
+        // Safety: only hydrate whitelisted keys
+        const preloadedState: Record<string, any> = {};
+        for (const key of whitelist) {
+            if (persisted[key] !== undefined) {
+                preloadedState[key] = persisted[key];
+            }
+        }
+
+        return preloadedState;
+    } catch (e) {
+        console.warn('[store] Failed to load persisted state', e);
+        return undefined;
+    }
+}
+
+/**
+ * Persist middleware (writes whitelisted slices only)
+ */
+const persistMiddleware: Middleware = storeAPI => next => action => {
+    const result = next(action);
+
+    try {
+        const state = storeAPI.getState();
+        const toPersist: Record<string, any> = {};
+
+        for (const key of whitelist) {
+            toPersist[key] = state[key];
+        }
+
+        AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(toPersist));
+    } catch (e) {
+        console.warn('[store] Failed to persist state', e);
+    }
+
+    return result;
 };
 
-const persistedReducer = persistReducer(persistConfig, reducers);
+/**
+ * Configure store (async rehydration)
+ */
+export default async function configureStore(
+    preloadedState: object = {},
+): Promise<{ store: Store }> {
+    const persistedState = await loadPersistedState();
 
-// eslint-disable-next-line import/no-mutable-exports
-let store: Store;
-// eslint-disable-next-line import/no-mutable-exports
-let persistor: Persistor;
+    const initialState = {
+        ...preloadedState,
+        ...persistedState,
+    };
 
-export default function configureStore(preloadedState: object = {}): {store: Store; persistor: Persistor} {
+    const middlewares = applyMiddleware(thunk, persistMiddleware);
+
     if (__DEV__) {
-        const Reactotron = require('reactotron-react-native').default;
-        if (Config.TESTING !== '1' && Reactotron.createEnhancer) {
-            // DEV
-            store = createStore(
-                persistedReducer,
-                preloadedState,
-                compose(applyMiddleware(thunk), Reactotron.createEnhancer()),
-            );
-        } else if (Config.TESTING !== '1') {
-            // LOCAL TESTING
-            store = createStore(reducers, preloadedState, applyMiddleware(thunk));
+
+        if (Config.TESTING !== '1') {
+            store = createStore(reducers, initialState, middlewares);
         } else {
-            // E2E TESTING
-            store = createStore(persistedReducer, preloadedState, applyMiddleware(thunk));
+            // LOCAL / TESTING
+            store = createStore(reducers, initialState, middlewares);
         }
     } else {
         // PRODUCTION
-        store = createStore(persistedReducer, preloadedState, applyMiddleware(thunk));
+        store = createStore(reducers, initialState, middlewares);
     }
-    persistor = persistStore(store);
-    return {store, persistor};
+
+    return { store };
 }
 
-export {store, persistor};
+export { store };

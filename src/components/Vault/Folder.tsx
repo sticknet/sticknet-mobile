@@ -7,15 +7,15 @@ import Animated from 'react-native-reanimated';
 import {widthPercentageToDP as w} from 'react-native-responsive-screen';
 import * as Progress from 'react-native-progress';
 import Config from 'react-native-config';
-import Icon from '../Icons/Icon';
-import Text from '../Text';
-import {BlueFolderIcon, YellowFolderIcon, OrangeFolderIcon} from '../../../assets/images';
+import Icon from '@/src/components/Icons/Icon';
+import Text from '@/src/components/Text';
+import {BlueFolderIcon, YellowFolderIcon, OrangeFolderIcon} from '@/assets/images';
 import PreviewImageFile from './PreviewImageFile';
-import {vault} from '../../actions';
-import {colors} from '../../foundations';
-import ActionsMenu from '../ActionsMenu';
-import {nav} from '../../utils';
-import type {IApplicationState, TFile} from '../../types';
+import {vault} from '@/src/actions';
+import {colors} from '@/src/foundations';
+import ActionsMenu from '@/src/components/ActionsMenu';
+import {nav} from '@/src/utils';
+import type {IApplicationState, TFile} from '@/src/types';
 
 const AnimatedPressable = Animated.createAnimatedComponent(Pressable);
 
@@ -74,7 +74,8 @@ const Folder: React.FC<FolderProps> = (props) => {
                         title: item.name,
                         context: 'vault',
                     });
-            }}>
+            }}
+        >
             <View style={{flexDirection: 'row', alignItems: 'center', flex: 1}}>
                 {item.isFolder ? (
                     <View style={{justifyContent: 'center', alignItems: 'center'}}>

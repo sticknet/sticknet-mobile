@@ -1,18 +1,19 @@
-import React, {useEffect, FC} from 'react';
-import {View, TouchableOpacity, StyleSheet, Linking, Platform, StatusBar} from 'react-native';
+import React, {FC, useEffect} from 'react';
+import {Linking, Platform, StatusBar, StyleSheet, TouchableOpacity, View} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import LottieView from 'lottie-react-native';
-import RNBootSplash from 'react-native-bootsplash';
 import changeNavigationBarColor from 'react-native-navigation-bar-color';
 import {checkNotifications, RESULTS} from 'react-native-permissions';
 import {heightPercentageToDP as h} from 'react-native-responsive-screen';
 import type {StackNavigationProp} from '@react-navigation/stack';
+import {URL} from '@/src/actions/URL';
+import {Button, Sticknet, Text} from '@/src/components';
+import {privacyAnimation} from '@/assets/lottie';
+import {colors} from '@/src/foundations';
+import type {HomeStackParamList} from '@/src/navigators/types';
 import {ConnectionController} from '@reown/appkit-core-react-native';
-import {URL} from '../../actions/URL';
-import {Button, Sticknet, Text} from '../../components';
-import {privacyAnimation} from '../../../assets/lottie';
-import {colors} from '../../foundations';
-import type {HomeStackParamList} from '../../navigators/types';
+import {useSafeAreaInsets} from 'react-native-safe-area-context';
+import {globalData} from '@/src/actions/globalVariables';
 
 const PrivacyNoticeScreen: FC = () => {
     const navigation: StackNavigationProp<HomeStackParamList> = useNavigation();
@@ -24,7 +25,7 @@ const PrivacyNoticeScreen: FC = () => {
 
     useEffect(() => {
         // @ts-ignore
-        RNBootSplash.hide({duration: 250});
+        // RNBootSplash.hide({duration: 250});
         ConnectionController.disconnect();
         if (Platform.OS === 'android') {
             setTimeout(() => {
@@ -35,7 +36,7 @@ const PrivacyNoticeScreen: FC = () => {
             changeNavigationBarColor('#000000');
         }
         checkPermissions();
-    }, []);
+    }, [checkPermissions]);
 
     const onPress = () => {
         if (notifications !== RESULTS.GRANTED) {
@@ -44,9 +45,10 @@ const PrivacyNoticeScreen: FC = () => {
             navigation.replace('Authentication');
         }
     };
-
+    const {bottom} = useSafeAreaInsets();
+    globalData.bottomBarHeight = bottom;
     return (
-        <View style={s.body}>
+        <View style={[s.body, Platform.OS === 'android' && {marginBottom: bottom}]}>
             <View style={s.topContainer}>
                 <Sticknet fontSize={60} style={{color: colors.primary}} />
                 <Text style={s.world}>End-to-End Encrypted & Decentralized{'\n'} Social Storage</Text>
@@ -86,6 +88,7 @@ const s = StyleSheet.create({
     },
     animation: {
         width: h('35%'),
+        height: h('35%'),
         alignSelf: 'center',
     },
     own: {

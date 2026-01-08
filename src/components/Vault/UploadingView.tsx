@@ -2,9 +2,9 @@ import React, {FC} from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import {connect, ConnectedProps} from 'react-redux';
 import {widthPercentageToDP as w} from 'react-native-responsive-screen';
-import {colors} from '../../foundations';
-import SmallLoading from '../SmallLoading';
-import type {IApplicationState} from '../../types';
+import {colors} from '@/src/foundations';
+import SmallLoading from '@/src/components/SmallLoading';
+import type {IApplicationState} from '@/src/types';
 
 const mapStateToProps = (state: IApplicationState) => {
     return {

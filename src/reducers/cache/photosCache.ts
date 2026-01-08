@@ -1,6 +1,6 @@
 // Legacy file, to be deleted.
 import {Action} from 'redux';
-import {cache} from '../../actions/actionTypes';
+import {cache} from '@/src/actions/actionTypes';
 
 export interface ICachePhoto {
     uri: string;

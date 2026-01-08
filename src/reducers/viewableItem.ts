@@ -1,5 +1,5 @@
 import {Action} from 'redux';
-import {viewable} from '../actions/actionTypes';
+import {viewable} from '@/src/actions/actionTypes';
 
 export interface IViewableItemState {
     id: string | null;

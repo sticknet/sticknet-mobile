@@ -1,11 +1,11 @@
 import React, {useState, useEffect} from 'react';
 import {FlatList, View, StyleSheet, NativeSyntheticEvent, NativeScrollEvent} from 'react-native';
 import {connect} from 'react-redux';
-import {Folder, SearchBar, Text} from '../../components';
-import {URL} from '../../actions/URL';
-import {vault} from '../../actions';
-import {isCloseToBottom, prepareFiles} from '../../utils';
-import type {IApplicationState, TFile} from '../../types';
+import {Folder, SearchBar, Text} from '@/src/components';
+import {URL} from '@/src/actions/URL';
+import {vault} from '@/src/actions';
+import {isCloseToBottom, prepareFiles} from '@/src/utils';
+import type {IApplicationState, TFile} from '@/src/types';
 
 interface SearchScreenProps {
     files: TFile[];

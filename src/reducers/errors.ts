@@ -1,5 +1,5 @@
 import {Action} from 'redux';
-import {errors} from '../actions/actionTypes';
+import {errors} from '@/src/actions/actionTypes';
 
 export interface IErrorsState {
     username: string | null;

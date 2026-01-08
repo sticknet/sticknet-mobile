@@ -4,15 +4,15 @@ import {connect} from 'react-redux';
 import {NavigationProp} from '@react-navigation/native';
 
 import {ConnectionController} from '@reown/appkit-core-react-native';
-import {SettingsItem, Text, Icon} from '../../../components';
-import {auth, profile, app, stickRoom} from '../../../actions/index';
-import {URL} from '../../../actions/URL';
-import {colors} from '../../../foundations';
-import {nav} from '../../../utils';
-import type {IApplicationState} from '../../../types';
-import type {ProfileStackParamList} from '../../../navigators/types';
-import {IAuthActions} from '../../../actions/auth';
-import {IProfileActions} from '../../../actions/profile';
+import {SettingsItem, Text, Icon} from '@/src/components';
+import {auth, profile, app, stickRoom} from '@/src/actions/index';
+import {URL} from '@/src/actions/URL';
+import {colors} from '@/src/foundations';
+import {nav} from '@/src/utils';
+import type {IApplicationState} from '@/src/types';
+import type {ProfileStackParamList} from '@/src/navigators/types';
+import {IAuthActions} from '@/src/actions/auth';
+import {IProfileActions} from '@/src/actions/profile';
 
 interface SettingsScreenProps extends IAuthActions, IProfileActions {
     navigation: NavigationProp<ProfileStackParamList>;

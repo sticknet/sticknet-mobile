@@ -1,15 +1,15 @@
 import React, {useEffect, useState} from 'react';
-import {View, StyleSheet, FlatList, RefreshControl, NativeSyntheticEvent, NativeScrollEvent} from 'react-native';
+import {FlatList, NativeScrollEvent, NativeSyntheticEvent, RefreshControl, StyleSheet, View} from 'react-native';
 import {connect} from 'react-redux';
 import EntypoIcon from '@sticknet/react-native-vector-icons/Entypo';
 import {NavigationProp, ParamListBase} from '@react-navigation/native';
-import {ActionButton, EmptyContent, Icon, VaultNote} from '../../components';
-import {vault} from '../../actions';
-import {colors} from '../../foundations';
-import {globalData} from '../../actions/globalVariables';
-import {isCloseToBottom} from '../../utils';
-import {URL} from '../../actions/URL';
-import type {IApplicationState, TVaultNote} from '../../types';
+import {ActionButton, EmptyContent, Icon, VaultNote} from '@/src/components';
+import {vault} from '@/src/actions';
+import {colors} from '@/src/foundations';
+import {globalData} from '@/src/actions/globalVariables';
+import {isCloseToBottom} from '@/src/utils';
+import {URL} from '@/src/actions/URL';
+import type {IApplicationState, TVaultNote} from '@/src/types';
 
 interface VaultNotesScreenProps {
     navigation: NavigationProp<ParamListBase>;

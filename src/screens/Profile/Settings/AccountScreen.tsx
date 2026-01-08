@@ -3,9 +3,9 @@ import {FlatList, StatusBar} from 'react-native';
 import {connect, ConnectedProps} from 'react-redux';
 import type {NavigationProp} from '@react-navigation/native';
 
-import {SettingsItem, Icon} from '../../../components';
-import type {ProfileStackParamList} from '../../../navigators/types';
-import type {IApplicationState} from '../../../types';
+import {SettingsItem, Icon} from '@/src/components';
+import type {ProfileStackParamList} from '@/src/navigators/types';
+import type {IApplicationState} from '@/src/types';
 
 interface AccountScreenProps {
     navigation: NavigationProp<ProfileStackParamList>;

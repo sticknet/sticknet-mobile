@@ -1,15 +1,15 @@
 import React, {Component} from 'react';
-import {View, StyleSheet, Platform} from 'react-native';
+import {Platform, StyleSheet, View} from 'react-native';
 import {connect} from 'react-redux';
 import {widthPercentageToDP as w} from 'react-native-responsive-screen';
 import Modal from 'react-native-modal';
 import Icon from '@sticknet/react-native-vector-icons/Feather';
-import {Input, Button, ProgressModal, Sticknet, Text} from '../../../components';
-import {app, auth, common} from '../../../actions';
-import type {IApplicationState, TUser} from '../../../types';
-import {IAuthActions} from '../../../actions/auth';
-import {IAppActions} from '../../../actions/app';
-import {ICommonActions} from '../../../actions/common';
+import {Button, Input, ProgressModal, Sticknet, Text} from '@/src/components';
+import {app, auth, common} from '@/src/actions';
+import type {IApplicationState, TUser} from '@/src/types';
+import {IAuthActions} from '@/src/actions/auth';
+import {IAppActions} from '@/src/actions/app';
+import {ICommonActions} from '@/src/actions/common';
 
 interface ChangePasswordProps extends IAuthActions, IAppActions, ICommonActions {
     user: TUser | null;

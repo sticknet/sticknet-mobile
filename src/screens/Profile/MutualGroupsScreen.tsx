@@ -2,10 +2,10 @@ import React, {useEffect} from 'react';
 import {FlatList} from 'react-native';
 import {connect, ConnectedProps} from 'react-redux';
 import {NavigationProp, RouteProp, useNavigation} from '@react-navigation/native';
-import {Separator, GroupItem, Text} from '../../components';
-import {users} from '../../actions';
-import type {IApplicationState} from '../../types';
-import type {CommonStackParamList, ProfileStackParamList} from '../../navigators/types';
+import {Separator, GroupItem, Text} from '@/src/components';
+import {users} from '@/src/actions';
+import type {IApplicationState} from '@/src/types';
+import type {CommonStackParamList, ProfileStackParamList} from '@/src/navigators/types';
 
 interface MutualGroupsScreenProps {
     route: RouteProp<ProfileStackParamList, 'MutualGroups'>;

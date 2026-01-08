@@ -1,13 +1,13 @@
-import {Platform, SafeAreaView, StatusBar, TouchableOpacity, View, Pressable} from 'react-native';
+import {Platform, Pressable, SafeAreaView, StatusBar, TouchableOpacity, View} from 'react-native';
 import XIcon from '@sticknet/react-native-vector-icons/Feather';
 import React from 'react';
 import DotsIcon from '@sticknet/react-native-vector-icons/MaterialCommunityIcons';
 import type {StackAnimationTypes} from 'react-native-screens';
-import Text from '../components/Text';
-import {Back, GroupCover, Next, PremiumIcon, ProfilePicture, Title} from '../components';
-import {isIphoneXD} from '../utils';
+import Text from '@/src/components/Text';
+import {Back, GroupCover, Next, PremiumIcon, ProfilePicture, Title} from '@/src/components';
+import {isIphoneXD} from '@/src/utils';
 import s from './style';
-import {colors} from '../foundations';
+import {colors} from '@/src/foundations';
 
 export const StackOptions: {headerTitleAlign: 'center' | 'left'} = {
     headerTitleAlign: 'left',

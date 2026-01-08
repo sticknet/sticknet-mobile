@@ -1,5 +1,5 @@
 import {Action} from 'redux';
-import {modal} from '../actions/actionTypes';
+import {modal} from '@/src/actions/actionTypes';
 
 export interface IModalState {
     [key: string]: boolean;

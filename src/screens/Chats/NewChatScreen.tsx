@@ -3,11 +3,11 @@ import {Alert, StatusBar, View} from 'react-native';
 import {FlashList} from '@shopify/flash-list';
 import {connect, ConnectedProps} from 'react-redux';
 import type {NavigationProp, RouteProp} from '@react-navigation/native';
-import {create, stickRoom} from '../../actions';
-import {GroupItem, UserItem, Separator, SearchBar, SectionHeader} from '../../components';
-import {nav} from '../../utils';
-import type {IApplicationState, TGroup, TParty, TUser} from '../../types';
-import type {ChatStackParamList} from '../../navigators/types';
+import {create, stickRoom} from '@/src/actions';
+import {GroupItem, UserItem, Separator, SearchBar, SectionHeader} from '@/src/components';
+import {nav} from '@/src/utils';
+import type {IApplicationState, TGroup, TParty, TUser} from '@/src/types';
+import type {ChatStackParamList} from '@/src/navigators/types';
 
 interface NewChatScreenProps {
     navigation: NavigationProp<ChatStackParamList>;

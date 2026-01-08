@@ -1,25 +1,25 @@
 import React, {useEffect, useState} from 'react';
 import {
-    View,
-    FlatList,
-    Pressable,
-    StyleSheet,
     Alert,
-    RefreshControl,
-    NativeSyntheticEvent,
+    FlatList,
     NativeScrollEvent,
+    NativeSyntheticEvent,
+    Pressable,
+    RefreshControl,
+    StyleSheet,
+    View,
 } from 'react-native';
 import {connect} from 'react-redux';
 import {widthPercentageToDP as w} from 'react-native-responsive-screen';
 import Animated from 'react-native-reanimated';
 import FontistoIcon from '@sticknet/react-native-vector-icons/Fontisto';
-import {ActionButton, PreviewImageFile, Text, Icon, InputModal, EmptyContent, UploadingView} from '../../components';
-import {vault} from '../../actions';
-import {colors} from '../../foundations';
-import {globalData} from '../../actions/globalVariables';
-import {formatTime, isCloseToBottom, nav, photosPermission} from '../../utils';
-import {URL} from '../../actions/URL';
-import type {IApplicationState, TFile} from '../../types';
+import {ActionButton, EmptyContent, Icon, InputModal, PreviewImageFile, Text, UploadingView} from '@/src/components';
+import {vault} from '@/src/actions';
+import {colors} from '@/src/foundations';
+import {globalData} from '@/src/actions/globalVariables';
+import {formatTime, isCloseToBottom, nav, photosPermission} from '@/src/utils';
+import {URL} from '@/src/actions/URL';
+import type {IApplicationState, TFile} from '@/src/types';
 
 const AnimatedPressable = Animated.createAnimatedComponent(Pressable);
 

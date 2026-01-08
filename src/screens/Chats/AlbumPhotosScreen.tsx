@@ -11,14 +11,14 @@ import {
 import {connect} from 'react-redux';
 import {widthPercentageToDP as w} from 'react-native-responsive-screen';
 import type {NavigationProp, RouteProp} from '@react-navigation/native';
-import {stickRoom, create, app} from '../../actions';
-import {Icon, ChatImage, AlbumActions, MessageModal} from '../../components';
-import {isCloseToBottom, photosPermission} from '../../utils';
-import {URL} from '../../actions/URL';
-import {colors} from '../../foundations';
-import type {IApplicationState, TUser, TGroup, TFile, TChatAlbum} from '../../types';
-import type {IAppActions, ICreateActions, IStickRoomActions} from '../../actions/types';
-import type {ChatStackParamList} from '../../navigators/types';
+import {stickRoom, create, app} from '@/src/actions';
+import {Icon, ChatImage, AlbumActions, MessageModal} from '@/src/components';
+import {isCloseToBottom, photosPermission} from '@/src/utils';
+import {URL} from '@/src/actions/URL';
+import {colors} from '@/src/foundations';
+import type {IApplicationState, TUser, TGroup, TFile, TChatAlbum} from '@/src/types';
+import type {IAppActions, ICreateActions, IStickRoomActions} from '@/src/actions/types';
+import type {ChatStackParamList} from '@/src/navigators/types';
 
 interface AlbumPhotosScreenProps extends IAppActions, ICreateActions, IStickRoomActions {
     route: RouteProp<ChatStackParamList, 'AlbumPhotos'>;
@@ -91,7 +91,8 @@ const AlbumPhotosScreen: React.FC<AlbumPhotosScreenProps> = (props) => {
                             connections: props.isGroup ? [] : [props.target as TUser],
                         });
                         photosPermission(() => props.navigation.navigate('SelectPhotos', params));
-                    }}>
+                    }}
+                >
                     <Icon name="plus" size={35} />
                 </Pressable>
             );

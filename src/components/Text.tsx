@@ -1,6 +1,6 @@
 import React, {FC} from 'react';
 import {Text as RNText, TextProps as RNTextProps, StyleProp, TextStyle} from 'react-native';
-import {colors} from '../foundations';
+import {colors} from '@/src/foundations';
 
 interface CustomTextProps extends RNTextProps {
     style?: StyleProp<TextStyle>;

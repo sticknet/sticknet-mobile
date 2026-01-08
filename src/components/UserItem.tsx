@@ -1,6 +1,6 @@
 import React, {PureComponent} from 'react';
 import {connect} from 'react-redux';
-import {TouchableOpacity, View, StyleSheet, Pressable, ViewStyle} from 'react-native';
+import {Pressable, StyleSheet, TouchableOpacity, View, ViewStyle} from 'react-native';
 import CheckIcon from '@sticknet/react-native-vector-icons/Feather';
 import DotsIcon from '@sticknet/react-native-vector-icons/MaterialCommunityIcons';
 import EntypoIcon from '@sticknet/react-native-vector-icons/Entypo';
@@ -10,7 +10,7 @@ import Text from './Text';
 import ConnectionModal from './Modals/ConnectionModal';
 import PremiumIcon from './Icons/PremiumIcon';
 import {StorageIndicator} from './GroupItem';
-import type {IApplicationState, TUser} from '../types';
+import type {IApplicationState, TUser} from '@/src/types';
 
 interface UserItemProps {
     item: TUser | {item: TUser};

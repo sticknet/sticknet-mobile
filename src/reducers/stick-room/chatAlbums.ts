@@ -1,7 +1,7 @@
 import {Action} from 'redux';
 import _ from 'lodash';
-import {stickRoom} from '../../actions/actionTypes';
-import {TChatAlbum} from '../../types';
+import {stickRoom} from '@/src/actions/actionTypes';
+import {TChatAlbum} from '@/src/types';
 
 export interface IChatAlbumsState {
     [key: string]: {[key: string]: TChatAlbum};

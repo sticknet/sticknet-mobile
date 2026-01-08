@@ -3,14 +3,14 @@ import React, {FC} from 'react';
 import {connect, ConnectedProps} from 'react-redux';
 import {widthPercentageToDP as w} from 'react-native-responsive-screen';
 import {NavigationProp, useNavigation} from '@react-navigation/native';
-import {nEveryRow, photosPermission} from '../../../utils';
+import {nEveryRow, photosPermission} from '@/src/utils';
 import ChatImageWrapper from './ChatImageWrapper';
-import Text from '../../Text';
-import Icon from '../../Icons/Icon';
-import {colors} from '../../../foundations';
-import {app, create} from '../../../actions';
-import type {IApplicationState, TGroup, TMessage, TUser} from '../../../types';
-import type {ChatStackParamList} from '../../../navigators/types';
+import Text from '@/src/components/Text';
+import Icon from '@/src/components/Icons/Icon';
+import {colors} from '@/src/foundations';
+import {app, create} from '@/src/actions';
+import type {IApplicationState, TGroup, TMessage, TUser} from '@/src/types';
+import type {ChatStackParamList} from '@/src/navigators/types';
 
 interface ImageMessageOwnProps {
     message: TMessage;
@@ -78,7 +78,8 @@ const ImageMessage: FC<Props> = (props) => {
                             connections: props.isGroup ? [] : [props.target as TUser],
                         });
                         photosPermission(() => navigation.navigate('SelectPhotos', params));
-                    }}>
+                    }}
+                >
                     <Icon color={colors.primary} name="plus" />
                     <Text style={{color: colors.primary}}> Add to album</Text>
                 </Pressable>

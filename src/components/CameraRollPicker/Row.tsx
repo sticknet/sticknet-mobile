@@ -2,7 +2,7 @@ import React, {PureComponent} from 'react';
 import {View, ViewStyle} from 'react-native';
 
 import ImageItem from './ImageItem';
-import {TGalleryItem} from '../../types';
+import {TGalleryItem} from '@/src/types';
 
 const styles = {
     row: {
@@ -12,7 +12,7 @@ const styles = {
 };
 
 interface RowProps {
-    rowData: Array<{node: {image: TGalleryItem; type: string; timestamp: number} | null}>;
+    rowData: {node: {image: TGalleryItem; type: string; timestamp: number} | null}[];
     isSelected: boolean[];
     selectImage: (image: TGalleryItem) => void;
     imageMargin: number;

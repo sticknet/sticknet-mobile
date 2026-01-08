@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
 import {Image, Dimensions, TouchableOpacity, Text, Animated, View, Platform, StyleSheet} from 'react-native';
 import {connect, ConnectedProps} from 'react-redux';
-import {Camera} from '../../../assets/images';
-import {formatTime} from '../../utils';
-import {colors} from '../../foundations';
-import {IApplicationState, TGalleryItem} from '../../types';
+import {Camera} from '@/assets/images';
+import {formatTime} from '@/src/utils';
+import {colors} from '@/src/foundations';
+import {IApplicationState, TGalleryItem} from '@/src/types';
 
 interface ImageItemOwnProps {
     item: {node: {image: TGalleryItem}};
@@ -112,7 +112,8 @@ class ImageItem extends Component<Props, State> {
                 testID={this.props.testID}
                 onPress={() =>
                     isCamera ? this.props.openCamera() : isText ? this.props.openCreateText() : this.handleClick(image)
-                }>
+                }
+            >
                 {!isText ? (
                     <ImageComponent
                         source={isCamera ? Camera : {uri: image.uri}}

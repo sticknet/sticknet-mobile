@@ -3,10 +3,10 @@ import {Image, View, StyleSheet, ImageStyle} from 'react-native';
 import {connect} from 'react-redux';
 import {widthPercentageToDP as w} from 'react-native-responsive-screen';
 import LottieView from 'lottie-react-native';
-import {app} from '../actions';
-import {securityAnimation} from '../../assets/lottie';
-import type {IApplicationState, TFile, TUser} from '../types';
-import {IAppActions} from '../actions/app';
+import {app} from '@/src/actions';
+import {securityAnimation} from '@/assets/lottie';
+import type {IApplicationState, TFile, TUser} from '@/src/types';
+import {IAppActions} from '@/src/actions/app';
 
 interface NewImageProps extends IAppActions {
     image: TFile;

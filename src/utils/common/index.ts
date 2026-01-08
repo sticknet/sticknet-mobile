@@ -7,12 +7,13 @@ import Rate, {AndroidMarket} from 'react-native-rate';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Share from 'react-native-share';
 import {NavigationProp} from '@react-navigation/native';
-import axios from '../../actions/myaxios';
-import {URL} from '../../actions/URL';
-import CommonNative from '../../native-modules/common-native';
-import {globalData} from '../../actions/globalVariables';
-import {TChatStorage, TUser, TFile, TGroup, TMessage, IAlbum, TAlbumItem} from '../../types';
-import {IChatsStoragesState} from '../../reducers/stick-room/chatsStorages';
+import axios from '@/src/actions/myaxios';
+import {URL} from '@/src/actions/URL';
+import CommonNative from '@/modules/common-native';
+import {globalData} from '@/src/actions/globalVariables';
+import {IAlbum, TAlbumItem, TChatStorage, TFile, TGroup, TMessage, TUser} from '@/src/types';
+import {IChatsStoragesState} from '@/src/reducers/stick-room/chatsStorages';
+import BlobUtil from 'react-native-blob-util';
 
 const bundleId = DeviceInfo.getBundleId();
 
@@ -125,7 +126,7 @@ export const saveToGallery = async (
         const isAssetsLibrary = uri.startsWith('ph://');
         if (isAssetsLibrary) {
             await setTimeout(async () => {
-                const outputPath = `${CommonNative.cacheDirectoryPath}/${image.name}`;
+                const outputPath = `${cacheDirectoryPath}/${image.name}`;
                 uri = await FileSystem.copyAssetsFileIOS(uri, outputPath, image.width, image.height);
                 await CameraRoll.save(uri, {type, album});
                 FileSystem.unlink(uri);
@@ -512,7 +513,7 @@ export const isCloseToBottom = (e: any, paddingToBottom = 200) => {
 export const exportFile = async (url: string, item: any) => {
     const isAssetsLibrary = url.startsWith('ph://');
     if (isAssetsLibrary) {
-        const outputPath = `${CommonNative.cacheDirectoryPath}/${item.name}`;
+        const outputPath = `${cacheDirectoryPath}/${item.name}`;
         url = await FileSystem.copyAssetsFileIOS(url, outputPath, item.width, item.height);
     }
     Share.open({url})
@@ -692,3 +693,5 @@ export function shortenAddress(address: string) {
     }
     return `${address.slice(0, 6)}...${address.slice(-4)}`;
 }
+
+export const cacheDirectoryPath = Platform.OS === 'ios' ? CommonNative.groupDirectoryPath : BlobUtil.fs.dirs.DocumentDir;

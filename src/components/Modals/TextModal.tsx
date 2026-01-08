@@ -4,11 +4,11 @@ import Modal from 'react-native-modal';
 import {connect, ConnectedProps} from 'react-redux';
 import {widthPercentageToDP as w} from 'react-native-responsive-screen';
 
-import Input from '../Input';
-import {arrayUnique} from '../../utils';
-import {create} from '../../actions';
-import {colors} from '../../foundations';
-import type {IApplicationState, TUser} from '../../types';
+import Input from '@/src/components/Input';
+import {arrayUnique} from '@/src/utils';
+import {create} from '@/src/actions';
+import {colors} from '@/src/foundations';
+import type {IApplicationState, TUser} from '@/src/types';
 
 interface User {
     id: string;
@@ -145,7 +145,8 @@ class TextModal extends Component<Props, State> {
                 onBackdropPress={onBackdropPress}
                 onBackButtonPress={onBackdropPress}
                 animationIn="fadeIn"
-                animationOut="fadeOut">
+                animationOut="fadeOut"
+            >
                 <View
                     style={[
                         s.modal,
@@ -155,7 +156,8 @@ class TextModal extends Component<Props, State> {
                             maxHeight: mentions.length === 0 ? 320 : 440,
                         },
                         style,
-                    ]}>
+                    ]}
+                >
                     <View style={s.headerContainer}>
                         <Text style={s.header}>{title}</Text>
                     </View>

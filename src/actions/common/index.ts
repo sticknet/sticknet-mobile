@@ -15,18 +15,18 @@ import {
     notificationsId,
     progress,
     vault,
-} from '../actionTypes';
-import StickProtocol from '../../native-modules/stick-protocol';
-import {globalData} from '../globalVariables';
-import SPH from '../SPHandlers';
-import {getUniqueDeviceId} from '../../utils';
-import axios from '../myaxios';
-import {URL} from '../URL';
-import registerForNotifications from '../notifications/registerForNotifications';
-import channels from '../notifications/notificationChannels';
-import CommonNative from '../../native-modules/common-native';
-import {joinedGroupProcessing} from '../groups';
-import {TGroup, TGroupRequest, TPreKey, TUser} from '../../types';
+} from '@/src/actions/actionTypes';
+import StickProtocol from '@/modules/stick-protocol';
+import {globalData} from '@/src/actions/globalVariables';
+import {stickProtocolHandlers as SPH} from '@/src/actions/SPHandlers';
+import {getUniqueDeviceId} from '@/src/utils';
+import axios from '@/src/actions/myaxios';
+import {URL} from '@/src/actions/URL';
+import registerForNotifications from '@/src/actions/notifications/registerForNotifications';
+import channels from '@/src/actions/notifications/notificationChannels';
+import CommonNative from '@/modules/common-native';
+import {joinedGroupProcessing} from '@/src/actions/groups';
+import {TGroup, TGroupRequest, TPreKey, TUser} from '@/src/types';
 
 const bundleId = DeviceInfo.getBundleId();
 
@@ -284,7 +284,7 @@ export function oneTapSavePassword({user, successCallback, cancelCallback}: TOne
     return async function (dispatch: Dispatch) {
         const userId = user.id;
         const password = await StickProtocol.recoverPassword(userId);
-        const {passwordKey, ciphertext} = await CommonNative.encryptPassword(password);
+        const {passwordKey, ciphertext} = await CommonNative.encryptPassword(password as string);
         const config = {headers: {Authorization: globalData.token}};
         const {status, error} = await CommonNative.oneTapSavePassword(user.username, userId + ciphertext);
         if (status === 'SUCCESS') {
@@ -293,7 +293,7 @@ export function oneTapSavePassword({user, successCallback, cancelCallback}: TOne
             successCallback();
             await axios.post(`${URL}/api/upload-pk/`, {passwordKey}, config);
         } else if (status === 'CANCELLED' && cancelCallback) cancelCallback();
-        else if (error.includes('Cannot find an eligible account'))
+        else if (error?.includes('Cannot find an eligible account'))
             Alert.alert('You are not signed into any Google account', 'Add a Google account to your device');
         else Alert.alert('Unknown error has occurred', error);
     };
