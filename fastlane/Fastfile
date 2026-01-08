@@ -116,14 +116,14 @@ platform :android do
     build_type: 'Release',
     project_dir: 'android/',
   )
-  upload_to_play_store(
-    skip_upload_apk: true,
-    skip_upload_screenshots: true,
-#    track: 'internal',
-#    track_promote_to: 'production',
-#    track_promote_release_status: 'draft',
-    release_status: 'completed',
-  )
+#  upload_to_play_store(
+#    skip_upload_apk: true,
+#    skip_upload_screenshots: true,
+##    track: 'internal',
+##    track_promote_to: 'production',
+##    track_promote_release_status: 'draft',
+#    release_status: 'completed',
+#  )
   end
 
   lane :apk do
