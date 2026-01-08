@@ -154,6 +154,7 @@ export default ({config}) => ({
         './plugins/withNetworkSecurityConfig.js',
         './plugins/withAppBuildGradle.js',
         './plugins/withCopyFonts.js',
+        './plugins/withKeystoreFiles.js',
         // "./plugins/withLocalStickProtocol.js",
         [
             'expo-splash-screen',

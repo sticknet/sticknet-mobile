@@ -41,7 +41,7 @@ app-example
 # generated native folders
 /ios
 /android
-
+/keystore
 
 #######################
 
@@ -78,7 +78,7 @@ local.properties
 *.hprof
 .cxx/
 *.keystore
-/android/keystore.properties
+/keystore/keystore.properties
 !debug.keystore
 
 # node.js
