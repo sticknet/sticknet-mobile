@@ -155,6 +155,7 @@ export default ({config}) => ({
         './plugins/withAppBuildGradle.js',
         './plugins/withCopyFonts.js',
         './plugins/withKeystoreFiles.js',
+        './plugins/withStripBitcode.js',
         // "./plugins/withLocalStickProtocol.js",
         [
             'expo-splash-screen',
