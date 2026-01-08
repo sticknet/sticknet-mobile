@@ -331,7 +331,6 @@ export function login({password, authId, method = 'email', callback}: TLoginPara
                 const {firstPreKeysSet, secondPreKeysSet} = await SPH.parsePreKeys(response.data.bundle);
                 dispatch({type: app.DISPATCH_SECOND_PRE_KEYS_SET, payload: secondPreKeysSet});
                 response.data.bundle.preKeys = firstPreKeysSet;
-                console.log('WTFxxx', response.data.bundle)
                 await StickProtocol.reInitialize(response.data.bundle, password, response.data.user.id);
                 await SPH.decryptProfile(response.data.user, dispatch);
                 await dispatch({type: auth.USER_LOADED, payload: response.data.user});

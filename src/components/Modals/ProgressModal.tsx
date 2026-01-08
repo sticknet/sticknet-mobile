@@ -29,7 +29,6 @@ class ProgressModal extends Component<ProgressModalProps, ProgressModalState> {
         this.eventListener = StickProtocol.addListener(
             'KeysProgress',
             (keysEvent: {progress: number; total: number}) => {
-                console.log('PROGRESS: ', keysEvent, keysEvent.progress / keysEvent.total);
                 this.setState({keysEvent});
             },
         );

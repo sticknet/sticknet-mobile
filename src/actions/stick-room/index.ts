@@ -378,7 +378,6 @@ interface SendMessageParams {
     isGroup: boolean;
     forwarded?: boolean;
     assets?: TFile[] | DocumentPickerResponse[];
-    assets?: TFile[];
     newAlbumTitle?: string;
     existingAlbum?: {id: string; title: {text: string}};
     audioAsset?: {duration: number};
@@ -835,7 +834,6 @@ type TDecryptMessage = {message: TMessage; roomId: string; currentUser: TUser};
 export function decryptMessage({message, roomId, currentUser}: TDecryptMessage) {
     return async function (dispatch: Dispatch) {
         log('action: decryptMessage');
-        console.log('Decrypting message', message.id);
         const decryptedMessage = await parse(message, roomId, currentUser, dispatch);
         dispatch({
             type: stickRoom.FETCH_MESSAGES,

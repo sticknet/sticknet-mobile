@@ -4,12 +4,9 @@ import DeviceInfo from 'react-native-device-info';
 import {globalData} from '@/src/actions/globalVariables';
 
 export const micPermission = (callback: () => void) => {
-    console.log('j0');
     const permission = Platform.OS === 'ios' ? PERMISSIONS.IOS.MICROPHONE : PERMISSIONS.ANDROID.RECORD_AUDIO;
     check(permission).then((res) => {
-        console.log('j1', res);
         if (res !== RESULTS.GRANTED) {
-            console.log('j1');
             request(permission)
                 .then((res) => {
                     if (res !== RESULTS.GRANTED) {

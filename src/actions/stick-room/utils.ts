@@ -32,7 +32,6 @@ export async function parse(message: TMessage, roomId: string, currentUser: TUse
     log('function: parse');
     const {id, text, userId, stickId, files, audio, updatedMessageId, deletedMessageId, reactions, context, chainStep} =
         message;
-    console.log('parsing: ', id);
 
     syncChains(userId, currentUser, stickId, chainStep!);
 
