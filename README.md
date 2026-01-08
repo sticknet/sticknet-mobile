@@ -46,25 +46,17 @@ Sticknet's [web version](https://github.com/sticknet/sticknet-web) is open-sourc
 ### Setup
 
 1. Git clone: `git clone git@github.com:sticknet/sticknet-mobile.git && cd sticknet-mobile`
-2. Install node modules: `yarn`
+2. Install node modules: `yarn install`
+3. Expo prebuild: `yarn clean-rebuild`
 
 
 ### iOS
 
-1. Install iOS pods: `cd ios && pod install && cd ..`
-2. `react-native run-ios`
+1. Run on iOS: `yarn ios` or `yarn ios-device`
 
 ### Android
 
-1. And keystore.properties file at `sticknet-mobile/android/keystore.properties` with the following content:
-```
-APP_UPLOAD_STORE_FILE=debug.keystore
-APP_UPLOAD_KEY_ALIAS=androiddebugkey
-APP_UPLOAD_STORE_PASSWORD=android
-APP_UPLOAD_KEY_PASSWORD=android
-```
-2. Start metro: `react-native start`
-3. Run app on android device (new terminal window): `react-native run-android`
+1. Run on Android: `yarn android`
 
 ### Testing
 
